@@ -943,11 +943,19 @@ def collect_reef_mobile(http,cfg,src,rows,events):
                             if rec and rec.get("brand")==brand:
                                 rows.append(rec)
                         added=len(rows)-before_count
+                        sample_titles=[]
+                        if added==0 and items:
+                            for _it in items[:5]:
+                                if isinstance(_it,dict):
+                                    _t=_it.get("title") or _it.get("headline") or _it.get("model") or _it.get("model_description")
+                                    if _t:
+                                        sample_titles.append(clean(str(_t))[:180])
                         events.append({
                             "source":src["name"],"url":endpoint,"observed_at":now(),"status":"source_page",
                             "brand":brand,"year":year,"page":page,"search_mode":mode,"search_value":value,
                             "cards_added":added,
                             "items_seen":len(items),
+                            "sample_titles":sample_titles,
                             "total_results":data.get("total_results"),
                             "record_count":(body.get("meta") or {}).get("record_count"),
                             "charged_credits":(body.get("meta") or {}).get("charged_credits"),
