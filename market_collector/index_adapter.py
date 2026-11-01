@@ -22,16 +22,25 @@ def discover_index_pages(http, source, events, now_func):
         seen.add(url)
         try:
             r=http.get(url)
-            if r.status_code!=200:
-                events.append({"source":source["name"],"url":url,"observed_at":now_func(),"status":"http_error","http_status":r.status_code})
+            html=None
+            final_url=r.url
+            mode="http"
+            status=r.status_code
+            if r.status_code==200:
+                html=r.text
+            elif r.status_code in (401,403,429):
+                status,html,final_url=http.browser_html(url)
+                mode="browser"
+            if status!=200 or not html:
+                events.append({"source":source["name"],"url":url,"observed_at":now_func(),"status":"http_error","http_status":status,"mode":mode})
                 continue
-            soup=BeautifulSoup(r.text,"html.parser")
+            soup=BeautifulSoup(html,"html.parser")
         except Exception as exc:
             events.append({"source":source["name"],"url":url,"observed_at":now_func(),"status":"fetch_error","error":str(exc)[:500]})
             continue
 
         for a in soup.find_all("a", href=True):
-            full=urljoin(r.url,a["href"])
+            full=urljoin(final_url,a["href"])
             p=urlparse(full)
             if allow and (p.hostname or "") not in allow:
                 continue
