@@ -28,6 +28,7 @@
       <div class="filters">
         <select id="brandFilter"><option value="">Все марки</option></select>
         <select id="yearFilter"><option value="">Все годы</option></select>
+        <select id="bodyFilter"><option value="">Все типы</option></select>
         <select id="countryFilter"><option value="">Все страны</option></select>
         <select id="statusFilter">
           <option value="">Все статусы</option>
@@ -96,8 +97,9 @@ function render(){
   const brands=[...new Set(L.map(x=>x.brand).filter(Boolean))].sort();
   const years=[...new Set(L.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
   const countries=[...new Set(L.map(x=>x.country).filter(Boolean))].sort();
+  const bodies=[...new Set(L.map(x=>x.body_type).filter(Boolean))].sort();
   const fill=(id,arr)=>{const e=document.getElementById(id); const old=e.value; e.innerHTML=e.options[0].outerHTML+arr.map(x=>'<option>'+esc(x)+'</option>').join(''); e.value=old;};
-  fill('brandFilter',brands); fill('yearFilter',years); fill('countryFilter',countries);
+  fill('brandFilter',brands); fill('yearFilter',years); fill('bodyFilter',bodies); fill('countryFilter',countries);
 
   document.getElementById('kpis').innerHTML=[
     ['Карточек',data.stats?.listings??L.length],
@@ -107,8 +109,8 @@ function render(){
     ['Кандидатов',L.filter(x=>x.status==='interesting').length]
   ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
 
-  const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
-  const F=L.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!cf||x.country===cf)&&(!sf||x.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
+  const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, tf=document.getElementById('bodyFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
+  const F=L.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
 
   document.getElementById('opportunities').innerHTML=F.slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
     <article class="deal-card">
@@ -141,7 +143,7 @@ function render(){
 
   document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
 }
-['brandFilter','yearFilter','countryFilter','statusFilter','search'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
+['brandFilter','yearFilter','bodyFilter','countryFilter','statusFilter','search'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
 fetch('/api/market-center').then(r=>r.json()).then(x=>{data=x;render()}).catch(()=>{document.getElementById('syncStatus').textContent='Ошибка загрузки данных'});
 </script>
 </body>
