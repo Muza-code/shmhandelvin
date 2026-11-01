@@ -893,55 +893,75 @@ def collect_reef_mobile(http,cfg,src,rows,events):
     except Exception as e:
         events.append({"source":src["name"],"url":makes_endpoint,"observed_at":now(),"status":"makes_lookup_failed","error":str(e)[:500]})
 
+    search_aliases={
+        "Kögel":["Koegel","Kogel","Kögel"],
+        "Krone":["Krone"],
+        "Schmitz Cargobull":["Schmitz","Schmitz Cargobull","Cargobull"],
+        "Schwarzmüller":["Schwarzmueller","Schwarzmuller","Schwarzmüller"]
+    }
+
     for brand in cfg["brands"]:
         for year in years:
-            for page in range(1,max_pages+1):
-                payload={
-                    "vehicle_type":vehicle_type,
-                    "year_min":year,
-                    "year_max":year,
-                    "seller_type":"dealer",
-                    "page":page,
-                    "page_size":page_size,
-                    "language":"en"
-                }
-                if brand in make_map:
-                    payload["make"]=make_map[brand]
-                else:
-                    # Fallback: free-text search still lets mobile.de find trailer
-                    # brands even if ReefAPI's structured truck make list omits them.
-                    payload["query"]=brand
-                try:
-                    r=http.s.post(endpoint,headers=headers,json=payload,timeout=45)
-                    if r.status_code!=200:
-                        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"http_error","http_status":r.status_code,"brand":brand,"year":year,"page":page,"text":r.text[:500]})
-                        break
-                    body=r.json()
-                    if not body.get("ok",False):
-                        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"api_error","brand":brand,"year":year,"page":page,"error":body.get("error")})
-                        break
-                    data=body.get("data") or {}
-                    items=data.get("results") or data.get("listings") or data.get("items") or []
-                    before=len(rows)
-                    for item in items:
-                        if not isinstance(item,dict):
-                            continue
-                        rec=reef_mobile_record(src["name"],item)
-                        if rec:
-                            rows.append(rec)
-                    events.append({
-                        "source":src["name"],"url":endpoint,"observed_at":now(),"status":"source_page",
-                        "brand":brand,"year":year,"page":page,"cards_added":len(rows)-before,
-                        "record_count":(body.get("meta") or {}).get("record_count"),
-                        "charged_credits":(body.get("meta") or {}).get("charged_credits"),
-                        "remaining_credits":r.headers.get("X-Credits-Remaining")
-                    })
-                    has_more=data.get("has_more")
-                    if has_more is False or not items:
-                        break
-                except Exception as e:
-                    events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"fetch_error","brand":brand,"year":year,"page":page,"error":str(e)[:500]})
+            attempts=[]
+            if brand in make_map:
+                attempts.append(("make",make_map[brand]))
+            for alias in search_aliases.get(brand,[brand]):
+                if ("query",alias) not in attempts:
+                    attempts.append(("query",alias))
+
+            brand_done=False
+            for mode,value in attempts:
+                if brand_done:
                     break
+                for page in range(1,max_pages+1):
+                    payload={
+                        "vehicle_type":vehicle_type,
+                        "year_min":year,
+                        "year_max":year,
+                        "seller_type":"dealer",
+                        "page":page,
+                        "page_size":page_size,
+                        "language":"en"
+                    }
+                    payload[mode]=value
+                    try:
+                        r=http.s.post(endpoint,headers=headers,json=payload,timeout=45)
+                        if r.status_code!=200:
+                            events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"http_error","http_status":r.status_code,"brand":brand,"year":year,"page":page,"search_mode":mode,"search_value":value,"text":r.text[:500]})
+                            break
+                        body=r.json()
+                        if not body.get("ok",False):
+                            events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"api_error","brand":brand,"year":year,"page":page,"search_mode":mode,"search_value":value,"error":body.get("error")})
+                            break
+                        data=body.get("data") or {}
+                        items=data.get("results") or data.get("listings") or data.get("items") or []
+                        before_count=len(rows)
+                        for item in items:
+                            if not isinstance(item,dict):
+                                continue
+                            rec=reef_mobile_record(src["name"],item)
+                            if rec and rec.get("brand")==brand:
+                                rows.append(rec)
+                        added=len(rows)-before_count
+                        events.append({
+                            "source":src["name"],"url":endpoint,"observed_at":now(),"status":"source_page",
+                            "brand":brand,"year":year,"page":page,"search_mode":mode,"search_value":value,
+                            "cards_added":added,
+                            "items_seen":len(items),
+                            "total_results":data.get("total_results"),
+                            "record_count":(body.get("meta") or {}).get("record_count"),
+                            "charged_credits":(body.get("meta") or {}).get("charged_credits"),
+                            "remaining_credits":r.headers.get("X-Credits-Remaining")
+                        })
+                        if added>0:
+                            brand_done=True
+                            break
+                        has_more=data.get("has_more")
+                        if has_more is False or not items:
+                            break
+                    except Exception as e:
+                        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"fetch_error","brand":brand,"year":year,"page":page,"search_mode":mode,"search_value":value,"error":str(e)[:500]})
+                        break
 
 def write_ndjson(path,rows):
     with path.open("w",encoding="utf-8") as f:
