@@ -22,6 +22,25 @@ BRANDS = {
     "Schmitz Cargobull": re.compile(r"\b(?:SCHMITZ(?:\s+CARGOBULL)?|CARGOBULL)\b", re.I),
     "Schwarzmüller": re.compile(r"\b(?:SCHWARZM[ÜU]LLER|SCHWARZMUELLER)\b", re.I),
 }
+BODY_TYPES = [
+    ("curtainsider", re.compile(r"curtain|tautliner|pritsche.?plane|plane|schiebeplane|open semitrailer with tarp", re.I)),
+    ("reefer", re.compile(r"reefer|refrigerat|freezer|k[üu]hl|frigo", re.I)),
+    ("box", re.compile(r"box semi|closed box|koffer", re.I)),
+    ("tipper", re.compile(r"tipper|kipper|dump|kipp", re.I)),
+    ("container_chassis", re.compile(r"container chassis|containerchassis|bdf|port 45|20ft|30ft|40ft|45ft", re.I)),
+    ("flatbed_platform", re.compile(r"flatbed|platform|plattform|pritsche(?!.?plane)", re.I)),
+    ("walking_floor", re.compile(r"walking floor|schubboden|moving floor", re.I)),
+    ("low_loader", re.compile(r"low loader|deeploader|tieflader|semi deeploader", re.I)),
+    ("tanker_silo", re.compile(r"tank|silo", re.I)),
+    ("timber", re.compile(r"timber|log transport|holztransport", re.I)),
+]
+
+def body_type_of(text):
+    for name,rx in BODY_TYPES:
+        if rx.search(text or ""):
+            return name
+    return "other"
+
 COUNTRY_NAMES = {
     "Germany":"DE","Netherlands":"NL","Belgium":"BE","France":"FR","Spain":"ES",
     "Italy":"IT","Poland":"PL","Lithuania":"LT","Latvia":"LV","Estonia":"EE",
@@ -151,6 +170,7 @@ def html_record(source,url,html):
     vins=vins_of(text)
     f={k:bool(rx.search(text)) for k,rx in FEATURES.items()}
     axle="SAF" if f["saf"] else "BPW" if f["bpw"] else "Schmitz ROTOS" if f["rotos"] else None
+    body_type=body_type_of(" ".join([title,text]))
     stock=None
     m=re.search(r"(?:Info[- ]?no\.?|Info[- ]?Nr\.?|stock\s*(?:no|nr)\.?)\s*[:#]?\s*([A-Z0-9._/-]{3,40})",text,re.I)
     if m: stock=m.group(1)
@@ -167,7 +187,7 @@ def html_record(source,url,html):
         "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,"country":country,
         "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
         "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\bEUR\b",text,re.I) else None,
-        "tax_basis":tax_of(text),"axle_maker":axle,
+        "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
         "code_xl":True if f["code_xl"] else None,"mega":True if f["mega"] else None,
         "coil":True if f["coil"] else None,"joloda":True if f["joloda"] else None,
