@@ -376,7 +376,7 @@ def collect_index_cards(http,src,rows,events):
                             }
                         except Exception:
                             detail_urls=set()
-                        if 80 <= len(txt) <= 7000 and brand_of(txt) and YEAR_RE.search(txt) and len(detail_urls) <= 1:
+                        if 80 <= len(txt) <= 7000 and (brand_of(txt) or src.get("source_segment")) and (YEAR_RE.search(txt) or src.get("target_year")) and len(detail_urls) <= 1:
                             score=0
                             if re.search(r"€|\\bEUR\\b",txt,re.I): score+=8
                             if re.search(r"price|preis|fixed price|netto|vat|mwst",txt,re.I): score+=4
@@ -387,8 +387,16 @@ def collect_index_cards(http,src,rows,events):
                         node=node.parent
                     best=max(candidates,key=lambda z:(z[0],z[1]))[2] if candidates else None
                     if best is not None:
-                        rec=html_record(src["name"],key,str(best))
+                        fragment=str(best)
+                        if src.get("source_segment"):
+                            fragment=f"<div>Source brand: {src['source_segment']}</div>"+fragment
+                        if src.get("target_year"):
+                            fragment=f"<div>Source filtered year: {src['target_year']}</div>"+fragment
+                        rec=html_record(src["name"],key,fragment)
                         if rec:
+                            if rec.get("market_year") is None and src.get("target_year"):
+                                rec["market_year"]=int(src["target_year"])
+                                rec["year_basis"]="source_filter_year"
                             rec["url"]=key
                             rows.append(rec)
                             card_seen.add(key)
