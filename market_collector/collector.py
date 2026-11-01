@@ -533,6 +533,78 @@ def collect_planet_cards(http,src,rows,events):
         except Exception as e:
             events.append({"source":src["name"],"url":page_url,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
 
+def collect_via_mobilis_cards(http,src,rows,events):
+    before_total=len(rows)
+    ref_rx=re.compile(r"(?:Website\s*ref|Ref\.\s*web|Réf\.\s*site|Ref\.\s*site)\s*[:|]?\s*([0-9]{5,12})",re.I)
+    for page_url in src.get("seed_pages",[]):
+        before=len(rows)
+        try:
+            if src.get("force_browser"):
+                status,html,final_url=http.browser_html(page_url)
+                mode="browser"
+            else:
+                status,html,final_url,mode=fetch_html(http,page_url)
+            if status!=200 or not html:
+                events.append({"source":src["name"],"url":page_url,"observed_at":now(),"status":"http_error","http_status":status,"mode":mode})
+                continue
+            soup=BeautifulSoup(html,"html.parser")
+            full_text=clean(soup.get_text(" ",strip=True))
+            seen_refs=set()
+            ref_nodes=soup.find_all(string=re.compile(r"(?:Website\s*ref|Ref\.\s*web|Réf\.\s*site|Ref\.\s*site)",re.I))
+            for node in ref_nodes:
+                holder=node.parent
+                candidates=[]
+                depth=0
+                while holder is not None and depth<12:
+                    txt=clean(holder.get_text(" ",strip=True))
+                    mref=ref_rx.search(txt)
+                    if mref and 120<=len(txt)<=10000 and brand_of(txt):
+                        score=0
+                        if re.search(r"€|\bEUR\b",txt,re.I): score+=7
+                        if re.search(r"Bodywork|Carrosserie|Make|Marque|Condition|Etat|Year|Année|Country|Pays",txt,re.I): score+=6
+                        if re.search(r"Axles|Essieux|Airlift axle|Essieu relevable|Pallet|Coffre à palettes|VIN|Serial number",txt,re.I): score+=3
+                        score-=depth*0.1
+                        candidates.append((score,len(txt),holder,mref.group(1)))
+                    holder=holder.parent
+                    depth+=1
+                if not candidates:
+                    continue
+                _,_,best,ref=max(candidates,key=lambda z:(z[0],-z[1]))
+                if ref in seen_refs:
+                    continue
+                seen_refs.add(ref)
+                rec=html_record(src["name"],final_url+"#website-ref-"+ref,str(best))
+                if not rec:
+                    continue
+                marker=ref_rx.search(full_text)
+                if rec.get("price_amount") is None:
+                    # Search near this exact ref in the flattened page; price is typically before structured block.
+                    pos=full_text.find(ref)
+                    context=full_text[max(0,pos-2200):min(len(full_text),pos+1200)] if pos>=0 else ""
+                    valid=[]
+                    for rx in (PRICE_RE,PRICE_AFTER_RE):
+                        for pm in rx.finditer(context):
+                            candidate=price_of(pm.group(0))
+                            if candidate is not None:
+                                valid.append((pm.start(),candidate))
+                    if valid:
+                        valid.sort(key=lambda z:z[0])
+                        rec["price_amount"]=valid[-1][1]
+                        rec["price_currency"]="EUR"
+                    if rec.get("tax_basis") is None:
+                        if re.search(r"Ex\.\s*VAT|HT|sin IVA|Netto",context,re.I):
+                            rec["tax_basis"]="net"
+                rec["source_listing_id"]=ref
+                rec["source_page_url"]=final_url
+                rows.append(rec)
+            events.append({
+                "source":src["name"],"url":final_url,"observed_at":now(),"status":"source_summary",
+                "cards_added":len(rows)-before,"website_ref_nodes":len(ref_nodes)
+            })
+        except Exception as e:
+            events.append({"source":src["name"],"url":page_url,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
+    events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"via_mobilis_total","cards_added":len(rows)-before_total})
+
 def collect_index(http,src,rows,events):
     before=len(rows)
     pages=discover_index_pages(http,src,events,now)
@@ -643,6 +715,7 @@ def main():
         elif src["type"]=="crawl_index": collect_index(http,src,rows,events)
         elif src["type"]=="index_cards": collect_index_cards(http,src,rows,events)
         elif src["type"]=="planet_cards": collect_planet_cards(http,src,rows,events)
+        elif src["type"]=="via_mobilis_cards": collect_via_mobilis_cards(http,src,rows,events)
         elif src["type"]=="mobile_api": collect_mobile(http,cfg,src,rows,events)
     dedup={(r["source"],r.get("source_listing_id") or r["url"]):r for r in rows}; rows=list(dedup.values())
     summary={"started_at":started,"finished_at":now(),"listings":len(rows),"vin_found":sum(bool(r["vin_candidates"]) for r in rows),"by_brand":{b:sum(r["brand"]==b for r in rows) for b in cfg["brands"]},"access_events":len(events)}
