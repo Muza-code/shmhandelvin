@@ -699,6 +699,193 @@ def collect_mobile(http,cfg,src,rows,events):
             rec=mobile_record(src["name"],key,detail)
             if rec: rows.append(rec); n+=1
 
+
+def reef_mobile_record(source,item):
+    raw=json.dumps(item,ensure_ascii=False,sort_keys=True)
+    text=clean(flatten(item))
+    brand=brand_of(text)
+    if not brand:
+        return None
+
+    listing_id=item.get("listing_id") or item.get("id") or item.get("ad_id") or item.get("key")
+    title=item.get("title") or item.get("headline") or item.get("model") or item.get("model_description")
+    fr_raw=item.get("first_registration") or item.get("firstRegistration") or item.get("first_registration_date")
+    fr=None
+    if fr_raw:
+        m=re.search(r"(20\d{2})",str(fr_raw))
+        if m:
+            y=int(m.group(1))
+            if 2008<=y<=2021:
+                fr=y
+
+    cy=None
+    for k in ("construction_year","constructionYear","year","year_of_construction"):
+        v=item.get(k)
+        if v is None:
+            continue
+        m=re.search(r"(20\d{2})",str(v))
+        if m:
+            y=int(m.group(1))
+            if 2008<=y<=2021:
+                cy=y
+                break
+
+    market_year=cy or fr
+    if market_year is None:
+        return None
+    year_basis="construction_year" if cy else "first_registration_proxy"
+
+    gross=item.get("price")
+    net=item.get("price_net")
+    amount=None
+    tax_basis=None
+    try:
+        if net is not None:
+            amount=float(net); tax_basis="net"
+        elif gross is not None:
+            amount=float(gross); tax_basis="gross"
+    except Exception:
+        amount=None
+
+    seller=None
+    for k in ("dealer_name","seller_name","seller","dealer"):
+        v=item.get(k)
+        if isinstance(v,str) and v.strip():
+            seller=clean(v); break
+        if isinstance(v,dict):
+            for kk in ("name","company_name","company"):
+                vv=v.get(kk)
+                if vv:
+                    seller=clean(str(vv)); break
+        if seller: break
+
+    location=None
+    for k in ("location","town","city"):
+        v=item.get(k)
+        if isinstance(v,str) and v.strip():
+            location=clean(v); break
+        if isinstance(v,dict):
+            vv=v.get("city") or v.get("town") or v.get("name")
+            if vv:
+                location=clean(str(vv)); break
+
+    country=None
+    for k in ("country","country_code","countryCode"):
+        v=item.get(k)
+        if isinstance(v,str) and len(v.strip()) in (2,3):
+            country=v.strip().upper()[:2]
+            break
+    if country is None:
+        for name,code in COUNTRY_NAMES.items():
+            if re.search(r"\b"+re.escape(name)+r"\b",text,re.I):
+                country=code; break
+
+    vins=vins_of(text)
+    feat={k:bool(rx.search(text)) for k,rx in FEATURES.items()}
+    axle="SAF" if feat["saf"] else "BPW" if feat["bpw"] else "Schmitz ROTOS" if feat["rotos"] else None
+    return {
+        "source":source,
+        "source_listing_id":str(listing_id) if listing_id is not None else None,
+        "url":item.get("url") or item.get("listing_url") or (f"https://suchen.mobile.de/fahrzeuge/details.html?id={listing_id}" if listing_id else None),
+        "observed_at":now(),
+        "title":clean(str(title)) if title else None,
+        "brand":brand,
+        "construction_year":cy,
+        "first_registration_year":fr,
+        "market_year":market_year,
+        "year_basis":year_basis,
+        "source_year":None,
+        "country":country,
+        "seller":seller,
+        "location":location,
+        "vin":vins[0] if len(vins)==1 else None,
+        "vin_candidates":vins,
+        "vin_refs":vin_refs_of(text),
+        "price_amount":amount,
+        "price_currency":"EUR" if amount is not None else None,
+        "tax_basis":tax_basis,
+        "price_gross_eur":float(gross) if isinstance(gross,(int,float)) else None,
+        "price_net_eur":float(net) if isinstance(net,(int,float)) else None,
+        "vat_rate":item.get("vat_rate"),
+        "vat_deductible":item.get("vat_deductible"),
+        "previous_price_eur":item.get("previous_price"),
+        "axle_maker":axle,
+        "body_type":body_type_of(text),
+        "asset_type":"semi_trailer",
+        "lift_axle":True if feat["lift_axle"] else None,
+        "pallet_box":True if feat["pallet_box"] else None,
+        "code_xl":True if feat["code_xl"] else None,
+        "mega":True if feat["mega"] else None,
+        "coil":True if feat["coil"] else None,
+        "joloda":True if feat["joloda"] else None,
+        "huckepack":True if feat["huckepack"] else None,
+        "raw_hash":hash_text(raw),
+        "evidence_excerpt":text[:2000],
+        "acquisition_mode":"third_party_api"
+    }
+
+def collect_reef_mobile(http,cfg,src,rows,events):
+    key=os.getenv("REEF_API_KEY","").strip()
+    endpoint="https://api.reefapi.com/mobile-de/v1/search"
+    if not key:
+        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"not_configured","reason":"REEF_API_KEY missing"})
+        return
+
+    years=list(src.get("years") or cfg.get("years",{}).get("priority",[2021]))
+    if src.get("rotate_historical_year"):
+        historical=[y for y in range(cfg["years"]["min"],cfg["years"]["max"]+1) if y not in years]
+        if historical:
+            years=years+[historical[datetime.now(timezone.utc).timetuple().tm_yday % len(historical)]]
+
+    page_size=int(src.get("page_size",100))
+    max_pages=int(src.get("max_pages_per_query",2))
+    headers={"x-api-key":key,"content-type":"application/json","User-Agent":UA}
+
+    for brand in cfg["brands"]:
+        for year in years:
+            for page in range(1,max_pages+1):
+                payload={
+                    "vehicle_type":src.get("vehicle_type","truck"),
+                    "make":brand,
+                    "year_min":year,
+                    "year_max":year,
+                    "seller_type":"dealer",
+                    "page":page,
+                    "page_size":page_size,
+                    "language":"en"
+                }
+                try:
+                    r=http.s.post(endpoint,headers=headers,json=payload,timeout=45)
+                    if r.status_code!=200:
+                        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"http_error","http_status":r.status_code,"brand":brand,"year":year,"page":page,"text":r.text[:500]})
+                        break
+                    body=r.json()
+                    if not body.get("ok",False):
+                        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"api_error","brand":brand,"year":year,"page":page,"error":body.get("error")})
+                        break
+                    data=body.get("data") or {}
+                    items=data.get("results") or data.get("listings") or data.get("items") or []
+                    before=len(rows)
+                    for item in items:
+                        if not isinstance(item,dict):
+                            continue
+                        rec=reef_mobile_record(src["name"],item)
+                        if rec:
+                            rows.append(rec)
+                    events.append({
+                        "source":src["name"],"url":endpoint,"observed_at":now(),"status":"source_page",
+                        "brand":brand,"year":year,"page":page,"cards_added":len(rows)-before,
+                        "record_count":(body.get("meta") or {}).get("record_count"),
+                        "charged_credits":(body.get("meta") or {}).get("charged_credits"),
+                        "remaining_credits":r.headers.get("X-Credits-Remaining")
+                    })
+                    has_more=data.get("has_more")
+                    if has_more is False or not items:
+                        break
+                except Exception as e:
+                    events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"fetch_error","brand":brand,"year":year,"page":page,"error":str(e)[:500]})
+                    break
+
 def write_ndjson(path,rows):
     with path.open("w",encoding="utf-8") as f:
         for r in rows:f.write(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n")
@@ -725,6 +912,7 @@ def main():
         elif src["type"]=="planet_cards": collect_planet_cards(http,src,rows,events)
         elif src["type"]=="via_mobilis_cards": collect_via_mobilis_cards(http,src,rows,events)
         elif src["type"]=="mobile_api": collect_mobile(http,cfg,src,rows,events)
+        elif src["type"]=="reef_mobile_api": collect_reef_mobile(http,cfg,src,rows,events)
     dedup={(r["source"],r.get("source_listing_id") or r["url"]):r for r in rows}; rows=list(dedup.values())
     summary={"started_at":started,"finished_at":now(),"listings":len(rows),"vin_found":sum(bool(r["vin_candidates"]) for r in rows),"by_brand":{b:sum(r["brand"]==b for r in rows) for b in cfg["brands"]},"access_events":len(events)}
     write_ndjson(out/"listings.ndjson",rows); write_ndjson(out/"access_events.ndjson",events)
