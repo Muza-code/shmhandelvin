@@ -712,6 +712,9 @@ def main():
         if runner_kind=="github" and src.get("github_enabled") is False:
             events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"skipped_on_github_runner"})
             continue
+        if runner_kind!="github" and src.get("local_enabled") is False:
+            events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"skipped_on_local_runner"})
+            continue
         if src["type"]=="sitemap": collect_sitemap(http,src,rows,events)
         elif src["type"]=="crawl_index": collect_index(http,src,rows,events)
         elif src["type"]=="index_cards": collect_index_cards(http,src,rows,events)
