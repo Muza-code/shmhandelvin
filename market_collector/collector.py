@@ -13,15 +13,23 @@ from index_adapter import discover_index_pages
 
 UA = "SHM-Market-Collector/0.1"
 VIN_RE = re.compile(r"(?<![A-Z0-9])([A-HJ-NPR-Z0-9]{17})(?![A-Z0-9])", re.I)
-VIN_LABEL_RE = re.compile(r"\b(?:VIN|FIN|chassis(?:\s*(?:no|nr|number))?)\s*[:#-]?\s*([A-Z0-9-]{6,20})\b", re.I)
+VIN_LABEL_RE = re.compile(r"\b(?:VIN|FIN|chassis(?:\s*(?:no|nr|number))?)\b\s*(?:[:#-]\s*|\s+)([A-Z0-9-]{6,20})\b", re.I)
 YEAR_RE = re.compile(r"(?<!\d)(20(?:0[8-9]|1\d|2[01]))(?!\d)")
-PRICE_RE = re.compile(r"(?:€|EUR\s*)\s*([0-9]{1,3}(?:[.\s][0-9]{3})*(?:,[0-9]{1,2})?|[0-9]{4,6})", re.I)
+PRICE_RE = re.compile(r"(?:€|EUR)\s*([0-9][0-9.,\s]{2,14})", re.I)
 BRANDS = {
     "Kögel": re.compile(r"\b(?:KÖGEL|KOEGEL|KOGEL)\b", re.I),
     "Krone": re.compile(r"\bKRONE\b", re.I),
     "Schmitz Cargobull": re.compile(r"\b(?:SCHMITZ(?:\s+CARGOBULL)?|CARGOBULL)\b", re.I),
     "Schwarzmüller": re.compile(r"\b(?:SCHWARZM[ÜU]LLER|SCHWARZMUELLER)\b", re.I),
 }
+COUNTRY_NAMES = {
+    "Germany":"DE","Netherlands":"NL","Belgium":"BE","France":"FR","Spain":"ES",
+    "Italy":"IT","Poland":"PL","Lithuania":"LT","Latvia":"LV","Estonia":"EE",
+    "Austria":"AT","Czech Republic":"CZ","Hungary":"HU","Croatia":"HR",
+    "Portugal":"PT","Denmark":"DK","Sweden":"SE","Norway":"NO","Finland":"FI",
+    "Slovakia":"SK","Slovenia":"SI","Romania":"RO","Bulgaria":"BG"
+}
+
 FEATURES = {
     "saf": re.compile(r"\bSAF\b", re.I),
     "bpw": re.compile(r"\bBPW\b", re.I),
@@ -71,9 +79,24 @@ def vin_refs_of(text):
 
 def price_of(text):
     for m in PRICE_RE.finditer(text):
-        raw=m.group(1).replace(" ","")
-        if "." in raw and "," not in raw: raw=raw.replace(".","")
-        raw=raw.replace(",",".")
+        raw=re.sub(r"\s+","",m.group(1))
+        raw=re.sub(r"[^0-9.,]","",raw)
+        if not raw:
+            continue
+        # European/English marketplace prices commonly use . or , as thousands separators.
+        if "," in raw and "." in raw:
+            last=max(raw.rfind(","),raw.rfind("."))
+            decimals=len(raw)-last-1
+            if decimals in (1,2):
+                raw=raw[:last].replace(",","").replace(".","")+"."+raw[last+1:]
+            else:
+                raw=raw.replace(",","").replace(".","")
+        elif "," in raw:
+            tail=len(raw)-raw.rfind(",")-1
+            raw=raw.replace(",","") if tail==3 else raw.replace(",",".")
+        elif "." in raw:
+            tail=len(raw)-raw.rfind(".")-1
+            raw=raw.replace(".","") if tail==3 else raw
         try: v=float(raw)
         except ValueError: continue
         if 1000 <= v <= 500000: return v
@@ -88,20 +111,22 @@ def tax_of(text):
 def html_record(source,url,html):
     soup=BeautifulSoup(html,"html.parser")
     title=clean(soup.title.get_text(" ",strip=True) if soup.title else "")
+    if not title:
+        h=soup.find(["h1","h2","h3","h4"])
+        if h:
+            title=clean(h.get_text(" ",strip=True))
     docs=[]
     for tag in soup.find_all("script",attrs={"type":"application/ld+json"}):
         try: docs.append(json.loads(tag.string or tag.get_text(" ",strip=True)))
         except Exception: pass
-    text=clean(" ".join([title,soup.get_text(" ",strip=True),flatten(docs)]))
-    brand=brand_of(text)
+    alts=" ".join(clean(img.get("alt","")) for img in soup.find_all("img") if img.get("alt"))
+    text=clean(" ".join([title,alts,soup.get_text(" ",strip=True),flatten(docs)]))
     url_text=url.replace("-", " ").replace("_", " ")
-    if not brand:
-        brand=brand_of(url_text)
-    years=sorted({int(y) for y in YEAR_RE.findall(text)})
+    brand=brand_of(url_text) or brand_of(text)
+    url_years=sorted({int(y) for y in YEAR_RE.findall(url_text)})
+    url_years=[y for y in url_years if 2008 <= y <= 2021]
+    years=url_years or sorted({int(y) for y in YEAR_RE.findall(text)})
     years=[y for y in years if 2008 <= y <= 2021]
-    if not years:
-        years=sorted({int(y) for y in YEAR_RE.findall(url_text)})
-        years=[y for y in years if 2008 <= y <= 2021]
     if not brand or not years: return None
     cy=None
     m=re.search(r"(?:construction year|baujahr|year of manufacture|rok produkcji)\s*[:\-]?\s*(20\d{2})",text,re.I)
@@ -119,9 +144,14 @@ def html_record(source,url,html):
     if not stock:
         ds=re.findall(r"(?<!\d)(\d{6,10})(?!\d)",url)
         stock=ds[-1] if ds else None
+    country=None
+    for name,code in COUNTRY_NAMES.items():
+        if re.search(r"\b"+re.escape(name)+r"\b",text,re.I):
+            country=code
+            break
     return {
         "source":source,"source_listing_id":stock,"url":url,"observed_at":now(),
-        "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,
+        "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,"country":country,
         "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
         "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\bEUR\b",text,re.I) else None,
         "tax_basis":tax_of(text),"axle_maker":axle,
