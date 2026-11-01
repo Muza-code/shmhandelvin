@@ -2,6 +2,10 @@ name: SHM Market Collector
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'market_collector/**'
+      - '.github/workflows/shm-market-collector.yml'
   schedule:
     - cron: '17 5 * * *'
     - cron: '17 17 * * *'
