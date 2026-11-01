@@ -15,7 +15,8 @@ UA = "SHM-Market-Collector/0.1"
 VIN_RE = re.compile(r"(?<![A-Z0-9])([A-HJ-NPR-Z0-9]{17})(?![A-Z0-9])", re.I)
 VIN_LABEL_RE = re.compile(r"\b(?:VIN|FIN|chassis(?:\s*(?:no|nr|number))?)\b\s*(?:[:#-]\s*|\s+)([A-Z0-9-]{6,20})\b", re.I)
 YEAR_RE = re.compile(r"(?<!\d)(20(?:0[8-9]|1\d|2[01]))(?!\d)")
-PRICE_RE = re.compile(r"(?:€|EUR)\s*([0-9][0-9.,\s]{2,14})", re.I)
+PRICE_RE = re.compile(r"(?:€|EUR)\s*([0-9][0-9.,\s\u00a0\u202f]{2,14})", re.I)
+PRICE_AFTER_RE = re.compile(r"([0-9][0-9.,\s\u00a0\u202f]{2,14})\s*(?:EUR|€)", re.I)
 BRANDS = {
     "Kögel": re.compile(r"\b(?:KÖGEL|KOEGEL|KOGEL)\b", re.I),
     "Krone": re.compile(r"\bKRONE\b", re.I),
@@ -133,8 +134,13 @@ def vin_refs_of(text):
     return sorted(set(refs))
 
 def price_of(text):
-    for m in PRICE_RE.finditer(text):
-        raw=re.sub(r"\s+","",m.group(1))
+    matches=[]
+    for rx in (PRICE_RE,PRICE_AFTER_RE):
+        for m in rx.finditer(text or ""):
+            matches.append((m.start(),m.group(1)))
+    matches.sort(key=lambda z:z[0])
+    for _,candidate in matches:
+        raw=re.sub(r"[\s\u00a0\u202f]+","",candidate)
         raw=re.sub(r"[^0-9.,]","",raw)
         if not raw:
             continue
@@ -154,12 +160,13 @@ def price_of(text):
             raw=raw.replace(".","") if tail==3 else raw
         try: v=float(raw)
         except ValueError: continue
-        if 1000 <= v <= 500000: return v
+        if 1000 <= v <= 500000:
+            return v
     return None
 
 def tax_of(text):
     t=text.lower()
-    if any(x in t for x in ["excl. vat","zzgl. mwst","plus vat","netto","net price","hors taxe"]): return "net"
+    if any(x in t for x in ["excl. vat","ex. vat","ex vat","zzgl. mwst","plus vat","netto","net price","hors taxe"]): return "net"
     if any(x in t for x in ["incl. vat","inkl. mwst","brutto"]): return "gross"
     return None
 
@@ -493,12 +500,14 @@ def collect_planet_cards(http,src,rows,events):
                         # Price is commonly in the listing header before the structured "Website ref" block.
                         if rec.get("price_amount") is None:
                             valid=[]
-                            for pm in PRICE_RE.finditer(before):
-                                candidate=price_of(pm.group(0))
-                                if candidate is not None:
-                                    valid.append(candidate)
+                            for rx in (PRICE_RE,PRICE_AFTER_RE):
+                                for pm in rx.finditer(before):
+                                    candidate=price_of(pm.group(0))
+                                    if candidate is not None:
+                                        valid.append((pm.start(),candidate))
+                            valid.sort(key=lambda z:z[0])
                             if valid:
-                                rec["price_amount"]=valid[-1]
+                                rec["price_amount"]=valid[-1][1]
                                 rec["price_currency"]="EUR"
                         if rec.get("tax_basis") is None:
                             rec["tax_basis"]=tax_of(before[-700:]+" "+after[:400])
