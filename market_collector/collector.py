@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
+from index_adapter import discover_index_pages
 
 UA = "SHM-Market-Collector/0.1"
 VIN_RE = re.compile(r"(?<![A-Z0-9])([A-HJ-NPR-Z0-9]{17})(?![A-Z0-9])", re.I)
@@ -160,6 +161,19 @@ def collect_sitemap(http,src,rows,events):
             events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
         if i%40==0: time.sleep(.5)
 
+def collect_index(http,src,rows,events):
+    pages=discover_index_pages(http,src,events,now)
+    for i,u in enumerate(pages,1):
+        try:
+            r=http.get(u)
+            if r.status_code!=200:
+                events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"http_error","http_status":r.status_code}); continue
+            rec=html_record(src["name"],r.url,r.text)
+            if rec: rows.append(rec)
+        except Exception as e:
+            events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
+        if i%40==0: time.sleep(.5)
+
 def deep(obj,names):
     out=[]
     if isinstance(obj,dict):
@@ -243,6 +257,7 @@ def main():
     http=Http(); rows=[]; events=[]; started=now()
     for src in cfg["sources"]:
         if src["type"]=="sitemap": collect_sitemap(http,src,rows,events)
+        elif src["type"]=="crawl_index": collect_index(http,src,rows,events)
         elif src["type"]=="mobile_api": collect_mobile(http,cfg,src,rows,events)
     dedup={(r["source"],r.get("source_listing_id") or r["url"]):r for r in rows}; rows=list(dedup.values())
     summary={"started_at":started,"finished_at":now(),"listings":len(rows),"vin_found":sum(bool(r["vin_candidates"]) for r in rows),"by_brand":{b:sum(r["brand"]==b for r in rows) for b in cfg["brands"]},"access_events":len(events)}
