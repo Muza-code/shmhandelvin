@@ -390,7 +390,11 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--config",required=True); ap.add_argument("--out",required=True); a=ap.parse_args()
     cfg=json.loads(Path(a.config).read_text(encoding="utf-8")); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
     http=Http(); rows=[]; events=[]; started=now()
+    runner_kind=os.getenv("SHM_RUNNER_KIND","local")
     for src in cfg["sources"]:
+        if runner_kind=="github" and src.get("github_enabled") is False:
+            events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"skipped_on_github_runner"})
+            continue
         if src["type"]=="sitemap": collect_sitemap(http,src,rows,events)
         elif src["type"]=="crawl_index": collect_index(http,src,rows,events)
         elif src["type"]=="index_cards": collect_index_cards(http,src,rows,events)
