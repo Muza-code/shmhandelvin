@@ -442,7 +442,67 @@
       "max_index_pages": 12,
       "max_pages_per_run": 0,
       "force_browser": false,
-      "github_enabled": true
+      "github_enabled": false
+    },
+    {
+      "name": "Planet-Trucks",
+      "type": "planet_cards",
+      "seed_pages": [
+        "https://www.planet-trucks.com/kogel-semi-trailer/1-35-412/used-kogel-semi-trailer.html"
+      ],
+      "allow_hosts": [
+        "www.planet-trucks.com"
+      ],
+      "max_index_pages": 1,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Kögel"
+    },
+    {
+      "name": "Planet-Trucks",
+      "type": "planet_cards",
+      "seed_pages": [
+        "https://www.planet-trucks.com/krone-semi-trailer/1-35-428/used-krone-semi-trailer.html"
+      ],
+      "allow_hosts": [
+        "www.planet-trucks.com"
+      ],
+      "max_index_pages": 1,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Krone"
+    },
+    {
+      "name": "Planet-Trucks",
+      "type": "planet_cards",
+      "seed_pages": [
+        "https://www.planet-trucks.com/schmitz-cargobull-semi-trailer/1-35-680/used-schmitz-cargobull-semi-trailer.html"
+      ],
+      "allow_hosts": [
+        "www.planet-trucks.com"
+      ],
+      "max_index_pages": 1,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Schmitz Cargobull"
+    },
+    {
+      "name": "Planet-Trucks",
+      "type": "planet_cards",
+      "seed_pages": [
+        "https://www.planet-trucks.com/schwarzmuller-semi-trailer/1-35-682/used-schwarzmuller-semi-trailer.html"
+      ],
+      "allow_hosts": [
+        "www.planet-trucks.com"
+      ],
+      "max_index_pages": 1,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Schwarzmüller"
     }
   ]
 }
