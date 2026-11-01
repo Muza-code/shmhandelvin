@@ -274,7 +274,7 @@ def fetch_html(http,url):
     r=http.get(url)
     if r.status_code==200:
         return 200,r.text,r.url,'http'
-    if r.status_code in (401,403,429):
+    if r.status_code in (202,401,403,429):
         status,html,final_url=http.browser_html(url)
         if html:
             return status or 200,html,final_url,'browser'
