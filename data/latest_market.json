@@ -1,98 +1,743 @@
 {
-  "updated_at": "2026-11-01T14:06:57Z",
+  "updated_at": "2026-11-01T14:08:55Z",
   "stats": {
-    "listings": 4,
+    "listings": 35,
     "active": null,
-    "vin_found": 4,
+    "vin_found": 25,
     "sources": 2
   },
   "coverage": [
     {
+      "source": "BAS World",
+      "state": "live",
+      "state_label": "работает",
+      "note": "19 cards"
+    },
+    {
+      "source": "Kleyn Trucks",
+      "state": "partial",
+      "state_label": "проверить",
+      "note": "1 access events, no cards"
+    },
+    {
+      "source": "Schmitz Cargobull Trailer Store",
+      "state": "partial",
+      "state_label": "проверить",
+      "note": "1 access events, no cards"
+    },
+    {
       "source": "TruckScout24",
       "state": "live",
       "state_label": "работает",
-      "note": "2 cards"
+      "note": "16 cards"
     },
     {
       "source": "TrucksNL",
-      "state": "live",
-      "state_label": "работает",
-      "note": "2 cards"
+      "state": "partial",
+      "state_label": "проверить",
+      "note": "1 access events, no cards"
     }
   ],
   "listings": [
     {
       "brand": "Kögel",
-      "model": "S24-1 3 axles APK 04/27 Lift Axle SAF",
-      "year": 2021,
-      "country": "Netherlands",
-      "seller": "BAS World Trucks",
-      "price_net_eur": 13400,
-      "vin": null,
-      "vin_ref": "70336705",
-      "features": [
-        "SAF",
-        "Lift axle",
-        "Mega",
-        "Lifting roof"
-      ],
-      "source": "TrucksNL",
-      "status": "check",
-      "url": "https://www.trucksnl.com/kogel-s24-1-3-axles-apk-04-27-lift-axle-saf-9211008-vd"
-    },
-    {
-      "brand": "Kögel",
-      "model": "SN24 + Tõstetava Katusega",
-      "year": 2021,
-      "country": "Estonia",
-      "seller": "OÜ ScanBalt Trucks",
-      "price_net_eur": 13000,
-      "vin": null,
-      "vin_ref": "255673",
-      "features": [
-        "SAF",
-        "Lift axle",
-        "Lifting roof"
-      ],
-      "source": "TrucksNL",
-      "status": "check",
-      "url": "https://www.trucksnl.com/kogel-sn24-8959776-vd"
-    },
-    {
-      "brand": "Kögel",
-      "model": "SN 24 Tautliner Hubdach SAF-Disc",
-      "year": 2021,
-      "country": "Germany",
+      "model": null,
+      "year": 2016,
+      "country": null,
       "seller": null,
-      "price_net_eur": 17900,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
-      "vin_ref": "A230-85-096",
+      "vin_ref": null,
       "features": [
         "SAF",
-        "Hubdach",
-        "Disc"
-      ],
-      "source": "TruckScout24",
-      "status": "expensive",
-      "url": "https://www.truckscout24.com/tsp/ts-230-85-096"
-    },
-    {
-      "brand": "Kögel",
-      "model": "Port 45 BDF Multi Chassis Liftachse",
-      "year": 2021,
-      "country": "Germany",
-      "seller": null,
-      "price_net_eur": 13900,
-      "vin": null,
-      "vin_ref": "0326215",
-      "features": [
-        "BPW",
-        "Lift axle",
-        "Drum brakes"
+        "Pallet box"
       ],
       "source": "TruckScout24",
       "status": "unknown",
-      "url": "https://www.truckscout24.com/tsp/ts-214-48-207"
+      "url": "https://www.truckscout24.com/tsp/ts-231-97-961",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": "ANCING",
+      "features": [
+        "SAF",
+        "Code XL"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-228-80-900",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2016,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF",
+        "Pallet box"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-24-101",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2015,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW",
+        "Mega"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-52-950",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2016,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": "WK0S0002400199801",
+      "vin_ref": null,
+      "features": [
+        "SAF",
+        "Lift axle",
+        "Mega"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-69-042",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2016,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-217-24-613",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2016,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-217-24-618",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF",
+        "Joloda"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-230-25-061",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2012,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-206-29-860",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2008,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-226-91-937",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2008,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-51-912",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2017,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-229-71-837",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2017,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": "ANCING",
+      "features": [
+        "BPW",
+        "Code XL"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-53-361",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2017,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": "ANCING",
+      "features": [
+        "Code XL",
+        "Mega"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-229-51-881",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2017,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": "ANCING",
+      "features": [
+        "Code XL",
+        "Mega"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-229-51-886",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": null,
+      "year": 2017,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": "ANCING",
+      "features": [
+        "Code XL",
+        "Mega"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-229-51-891",
+      "observed_at": "2026-11-01T14:08:38Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338958",
+      "observed_at": "2026-11-01T14:08:40Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338938",
+      "observed_at": "2026-11-01T14:08:41Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338959",
+      "observed_at": "2026-11-01T14:08:42Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338956",
+      "observed_at": "2026-11-01T14:08:42Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2020,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2020-70340125",
+      "observed_at": "2026-11-01T14:08:44Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Refrigerated Semi-Trailer - BAS World",
+      "year": 2020,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2020-70324791",
+      "observed_at": "2026-11-01T14:08:45Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Closed Box semi trailer - BAS World",
+      "year": 2020,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2020-70339564",
+      "observed_at": "2026-11-01T14:08:46Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2019-70325713",
+      "observed_at": "2026-11-01T14:08:46Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338942",
+      "observed_at": "2026-11-01T14:08:47Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle",
+        "Pallet box"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2019-70331510",
+      "observed_at": "2026-11-01T14:08:48Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Container chassis - BAS World",
+      "year": 2014,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "DESCRIPTION",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2014-70328155",
+      "observed_at": "2026-11-01T14:08:48Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2014,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-2014-70338834",
+      "observed_at": "2026-11-01T14:08:49Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Refrigerated Semi-Trailer - BAS World",
+      "year": 2014,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2014-70328745",
+      "observed_at": "2026-11-01T14:08:50Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70325655",
+      "observed_at": "2026-11-01T14:08:50Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2017,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2017-70330082",
+      "observed_at": "2026-11-01T14:08:52Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle",
+        "Mega"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338949",
+      "observed_at": "2026-11-01T14:08:53Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2019-70322979",
+      "observed_at": "2026-11-01T14:08:54Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70285996",
+      "observed_at": "2026-11-01T14:08:55Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Krone Curtainside semi-trailer - BAS World",
+      "year": 2021,
+      "country": null,
+      "seller": null,
+      "price_net_eur": null,
+      "price_original": null,
+      "currency": "EUR",
+      "tax_basis": null,
+      "vin": null,
+      "vin_ref": "REFRIGERATED",
+      "features": [
+        "Lift axle",
+        "Mega"
+      ],
+      "source": "BAS World",
+      "status": "unknown",
+      "url": "https://www.basworld.com/vehicles/used/truck-krone-sd-2021-70338948",
+      "observed_at": "2026-11-01T14:08:55Z"
     }
   ]
 }
