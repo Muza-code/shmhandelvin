@@ -79,6 +79,21 @@ def clean(s):
 def hash_text(s):
     return hashlib.sha256(s.encode("utf-8", errors="replace")).hexdigest()
 
+def seller_from_jsonld(docs):
+    names=[]
+    def walk(v):
+        if isinstance(v,dict):
+            for k,z in v.items():
+                if k.lower() in {"seller","dealer","vendor"} and isinstance(z,dict):
+                    n=z.get("name")
+                    if isinstance(n,str) and 2<=len(n.strip())<=120:
+                        names.append(n.strip())
+                walk(z)
+        elif isinstance(v,list):
+            for z in v: walk(z)
+    walk(docs)
+    return names[0] if names else None
+
 def flatten(x):
     out=[]
     def walk(v):
@@ -212,6 +227,11 @@ def html_record(source,url,html):
     if not stock:
         ds=re.findall(r"(?<!\d)(\d{6,10})(?!\d)",url)
         stock=ds[-1] if ds else None
+    seller=seller_from_jsonld(docs)
+    if not seller:
+        ms=re.search(r"([A-ZÀ-Ž0-9][A-Za-zÀ-ž0-9&.,'()\- ]{2,90}?)\s+Seller\s+for\s+\d+\s+(?:year|years|month|months)",text,re.I)
+        if ms:
+            seller=clean(ms.group(1))
     country=None
     for name,code in COUNTRY_NAMES.items():
         if re.search(r"\b"+re.escape(name)+r"\b",text,re.I):
@@ -430,6 +450,52 @@ def collect_index_cards(http,src,rows,events):
         "detail_anchor_count":detail_anchor_count,"href_samples":href_samples
     })
 
+def collect_planet_cards(http,src,rows,events):
+    before=len(rows)
+    for page_url in src.get("seed_pages",[]):
+        try:
+            status,html,final_url,mode=fetch_html(http,page_url)
+            if status!=200 or not html:
+                events.append({"source":src["name"],"url":page_url,"observed_at":now(),"status":"http_error","http_status":status,"mode":mode})
+                continue
+            soup=BeautifulSoup(html,"html.parser")
+            seen_refs=set()
+            ref_nodes=soup.find_all(string=re.compile(r"Website\s*ref",re.I))
+            for node in ref_nodes:
+                holder=node.parent
+                candidates=[]
+                depth=0
+                while holder is not None and depth<10:
+                    txt=clean(holder.get_text(" ",strip=True))
+                    if 100<=len(txt)<=9000 and brand_of(txt):
+                        mref=re.search(r"Website\s*ref\.?\s*[:|]?\s*([0-9]{5,12})",txt,re.I)
+                        if mref:
+                            score=0
+                            if re.search(r"€|\bEUR\b",txt,re.I): score+=6
+                            if re.search(r"Bodywork|Make|Condition|Year|Country",txt,re.I): score+=6
+                            if re.search(r"Axles|Airlift axle|Pallet trunk|VIN",txt,re.I): score+=3
+                            score-=depth*0.1
+                            candidates.append((score,len(txt),holder,mref.group(1)))
+                    holder=holder.parent
+                    depth+=1
+                if not candidates:
+                    continue
+                _,_,best,ref=max(candidates,key=lambda z:(z[0],-z[1]))
+                if ref in seen_refs:
+                    continue
+                seen_refs.add(ref)
+                rec=html_record(src["name"],final_url+"#website-ref-"+ref,str(best))
+                if rec:
+                    rec["source_listing_id"]=ref
+                    rec["source_page_url"]=final_url
+                    rows.append(rec)
+            events.append({
+                "source":src["name"],"url":final_url,"observed_at":now(),"status":"source_summary",
+                "cards_added":len(rows)-before,"website_ref_nodes":len(ref_nodes)
+            })
+        except Exception as e:
+            events.append({"source":src["name"],"url":page_url,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
+
 def collect_index(http,src,rows,events):
     before=len(rows)
     pages=discover_index_pages(http,src,events,now)
@@ -539,6 +605,7 @@ def main():
         if src["type"]=="sitemap": collect_sitemap(http,src,rows,events)
         elif src["type"]=="crawl_index": collect_index(http,src,rows,events)
         elif src["type"]=="index_cards": collect_index_cards(http,src,rows,events)
+        elif src["type"]=="planet_cards": collect_planet_cards(http,src,rows,events)
         elif src["type"]=="mobile_api": collect_mobile(http,cfg,src,rows,events)
     dedup={(r["source"],r.get("source_listing_id") or r["url"]):r for r in rows}; rows=list(dedup.values())
     summary={"started_at":started,"finished_at":now(),"listings":len(rows),"vin_found":sum(bool(r["vin_candidates"]) for r in rows),"by_brand":{b:sum(r["brand"]==b for r in rows) for b in cfg["brands"]},"access_events":len(events)}
