@@ -700,16 +700,38 @@ def collect_mobile(http,cfg,src,rows,events):
             if rec: rows.append(rec); n+=1
 
 
-def reef_mobile_record(source,item):
+def deep_values(obj, keys):
+    wanted={str(k).lower() for k in keys}
+    out=[]
+    def walk(v):
+        if isinstance(v,dict):
+            for k,z in v.items():
+                if str(k).lower() in wanted and z is not None:
+                    out.append(z)
+                walk(z)
+        elif isinstance(v,list):
+            for z in v:
+                walk(z)
+    walk(obj)
+    return out
+
+def deep_first(obj, keys):
+    vals=deep_values(obj,keys)
+    return vals[0] if vals else None
+
+def reef_mobile_record(source,item,expected_brand=None):
     raw=json.dumps(item,ensure_ascii=False,sort_keys=True)
     text=clean(flatten(item))
-    brand=brand_of(text)
+    detected_brand=brand_of(text)
+    if detected_brand and expected_brand and detected_brand!=expected_brand:
+        return None
+    brand=detected_brand or expected_brand
     if not brand:
         return None
 
-    listing_id=item.get("listing_id") or item.get("id") or item.get("ad_id") or item.get("key")
-    title=item.get("title") or item.get("headline") or item.get("model") or item.get("model_description")
-    fr_raw=item.get("first_registration") or item.get("firstRegistration") or item.get("first_registration_date")
+    listing_id=deep_first(item,("listing_id","id","ad_id","key"))
+    title=deep_first(item,("title","headline","model","model_description","modelDescription"))
+    fr_raw=deep_first(item,("first_registration","firstRegistration","first_registration_date","firstRegistrationDate","registration_date","registrationDate"))
     fr=None
     if fr_raw:
         m=re.search(r"(20\d{2})",str(fr_raw))
@@ -719,10 +741,7 @@ def reef_mobile_record(source,item):
                 fr=y
 
     cy=None
-    for k in ("construction_year","constructionYear","year","year_of_construction"):
-        v=item.get(k)
-        if v is None:
-            continue
+    for v in deep_values(item,("construction_year","constructionYear","year","year_of_construction","constructionYearFrom","registrationYear")):
         m=re.search(r"(20\d{2})",str(v))
         if m:
             y=int(m.group(1))
@@ -735,8 +754,8 @@ def reef_mobile_record(source,item):
         return None
     year_basis="construction_year" if cy else "first_registration_proxy"
 
-    gross=item.get("price")
-    net=item.get("price_net")
+    gross=deep_first(item,("price","gross_price","grossPrice","price_gross","priceGross"))
+    net=deep_first(item,("price_net","net_price","netPrice","priceNet"))
     amount=None
     tax_basis=None
     try:
@@ -939,7 +958,7 @@ def collect_reef_mobile(http,cfg,src,rows,events):
                         for item in items:
                             if not isinstance(item,dict):
                                 continue
-                            rec=reef_mobile_record(src["name"],item)
+                            rec=reef_mobile_record(src["name"],item,expected_brand=brand)
                             if rec and rec.get("brand")==brand:
                                 rows.append(rec)
                         added=len(rows)-before_count
