@@ -94,8 +94,14 @@ def html_record(source,url,html):
         except Exception: pass
     text=clean(" ".join([title,soup.get_text(" ",strip=True),flatten(docs)]))
     brand=brand_of(text)
+    url_text=url.replace("-", " ").replace("_", " ")
+    if not brand:
+        brand=brand_of(url_text)
     years=sorted({int(y) for y in YEAR_RE.findall(text)})
     years=[y for y in years if 2008 <= y <= 2021]
+    if not years:
+        years=sorted({int(y) for y in YEAR_RE.findall(url_text)})
+        years=[y for y in years if 2008 <= y <= 2021]
     if not brand or not years: return None
     cy=None
     m=re.search(r"(?:construction year|baujahr|year of manufacture|rok produkcji)\\s*[:\\-]?\\s*(20\\d{2})",text,re.I)
