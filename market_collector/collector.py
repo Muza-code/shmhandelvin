@@ -854,13 +854,50 @@ def collect_reef_mobile(http,cfg,src,rows,events):
     page_size=int(src.get("page_size",100))
     max_pages=int(src.get("max_pages_per_query",2))
     headers={"x-api-key":key,"content-type":"application/json","User-Agent":UA}
+    vehicle_type=src.get("vehicle_type","truck")
+
+    # Resolve mobile.de's own make IDs first. ReefAPI validates make values
+    # against this list, and trailer brands are not guaranteed to use the
+    # spelling we use internally (e.g. Koegel/Kögel).
+    makes_endpoint="https://api.reefapi.com/mobile-de/v1/makes"
+    make_map={}
+    try:
+        mr=http.s.post(makes_endpoint,headers=headers,json={"vehicle_type":vehicle_type},timeout=30)
+        mb=mr.json() if mr.status_code==200 else {}
+        md=mb.get("data") or {}
+        candidates=md.get("makes") or md.get("items") or md.get("results") or (md if isinstance(md,list) else [])
+        def _norm_make(v):
+            s=str(v or "").strip().lower()
+            for a,b in (("ä","ae"),("ö","oe"),("ü","ue"),("ß","ss")):
+                s=s.replace(a,b)
+            return re.sub(r"[^a-z0-9]+","",s)
+        aliases={
+            "Kögel":["Kögel","Koegel","Kogel"],
+            "Krone":["Krone"],
+            "Schmitz Cargobull":["Schmitz Cargobull","Schmitz","Cargobull"],
+            "Schwarzmüller":["Schwarzmüller","Schwarzmueller","Schwarzmuller"]
+        }
+        if isinstance(candidates,list):
+            for brand in cfg["brands"]:
+                wanted={_norm_make(x) for x in aliases.get(brand,[brand])}
+                for m in candidates:
+                    if not isinstance(m,dict):
+                        continue
+                    name=m.get("name") or m.get("label") or m.get("make")
+                    mid=m.get("id") or m.get("make_id") or m.get("value")
+                    nm=_norm_make(name)
+                    if nm in wanted or any(w and (w in nm or nm in w) for w in wanted):
+                        make_map[brand]=str(mid or name)
+                        break
+        events.append({"source":src["name"],"url":makes_endpoint,"observed_at":now(),"status":"makes_resolved","vehicle_type":vehicle_type,"resolved":make_map,"available_make_count":len(candidates) if isinstance(candidates,list) else None})
+    except Exception as e:
+        events.append({"source":src["name"],"url":makes_endpoint,"observed_at":now(),"status":"makes_lookup_failed","error":str(e)[:500]})
 
     for brand in cfg["brands"]:
         for year in years:
             for page in range(1,max_pages+1):
                 payload={
-                    "vehicle_type":src.get("vehicle_type","truck"),
-                    "make":brand,
+                    "vehicle_type":vehicle_type,
                     "year_min":year,
                     "year_max":year,
                     "seller_type":"dealer",
@@ -868,6 +905,12 @@ def collect_reef_mobile(http,cfg,src,rows,events):
                     "page_size":page_size,
                     "language":"en"
                 }
+                if brand in make_map:
+                    payload["make"]=make_map[brand]
+                else:
+                    # Fallback: free-text search still lets mobile.de find trailer
+                    # brands even if ReefAPI's structured truck make list omits them.
+                    payload["query"]=brand
                 try:
                     r=http.s.post(endpoint,headers=headers,json=payload,timeout=45)
                     if r.status_code!=200:
