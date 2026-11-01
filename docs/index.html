@@ -131,7 +131,7 @@ function render(){
   fill('brandFilter',brands); fill('yearFilter',years); fill('bodyFilter',bodies); fill('countryFilter',countries);
 
   document.getElementById('kpis').innerHTML=[
-    ['Карточек',data.stats?.listings??L.length],
+    ['Полуприцепов',data.stats?.semitrailers??L.filter(x=>x.asset_type!=='swap_body'&&x.asset_type!=='trailer').length],
     ['Активных',data.stats?.active??'—'],
     ['VIN найден',data.stats?.vin_found??L.filter(x=>x.vin).length],
     ['Источников',data.stats?.sources??new Set(L.map(x=>x.source)).size],
@@ -167,7 +167,7 @@ function render(){
   const bc={}; L.forEach(x=>bc[x.brand]=(bc[x.brand]||0)+1);
   document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
 
-  const y2021=L.filter(x=>String(x.year)==='2021');
+  const y2021=L.filter(x=>String(x.year)==='2021' && (x.asset_type||'semi_trailer')==='semi_trailer');
   const by2021={};
   y2021.forEach(x=>(by2021[x.brand]??=[]).push(x));
   document.getElementById('snapshot2021').innerHTML=['Kögel','Krone','Schmitz Cargobull','Schwarzmüller'].map(b=>{
