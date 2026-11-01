@@ -224,17 +224,23 @@ def collect_sitemap(http,src,rows,events):
         if i%40==0: time.sleep(.5)
 
 def collect_index(http,src,rows,events):
+    before=len(rows)
     pages=discover_index_pages(http,src,events,now)
+    events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"discovery_summary","detail_urls":len(pages)})
     for i,u in enumerate(pages,1):
         try:
-            r=http.get(u)
-            if r.status_code!=200:
-                events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"http_error","http_status":r.status_code}); continue
-            rec=html_record(src["name"],r.url,r.text)
-            if rec: rows.append(rec)
+            status,html,final_url,mode=fetch_html(http,u)
+            if status!=200 or not html:
+                events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"http_error","http_status":status,"mode":mode}); continue
+            rec=html_record(src["name"],final_url,html)
+            if rec:
+                rows.append(rec)
+            else:
+                events.append({"source":src["name"],"url":final_url,"observed_at":now(),"status":"detail_not_relevant_or_unparsed","mode":mode})
         except Exception as e:
             events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
         if i%40==0: time.sleep(.5)
+    events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"source_summary","detail_urls":len(pages),"cards_added":len(rows)-before})
 
 def deep(obj,names):
     out=[]
