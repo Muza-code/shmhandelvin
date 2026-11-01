@@ -316,20 +316,29 @@ def collect_index_cards(http,src,rows,events):
                     if key in card_seen:
                         continue
                     node=a
-                    best=None
-                    for _ in range(9):
+                    candidates=[]
+                    for depth in range(10):
                         if node is None:
                             break
                         txt=clean(node.get_text(" ",strip=True))
-                        detail_links=0
                         try:
-                            detail_links=sum(1 for z in node.find_all("a",href=True) if detail_rx.search(urljoin(final_url,z.get("href",""))))
+                            detail_urls={
+                                urljoin(final_url,z.get("href","")).split("?")[0]
+                                for z in node.find_all("a",href=True)
+                                if detail_rx.search(urljoin(final_url,z.get("href","")))
+                            }
                         except Exception:
-                            detail_links=99
-                        if 80 <= len(txt) <= 5000 and brand_of(txt) and YEAR_RE.search(txt) and detail_links <= 1:
-                            best=node
-                            break
+                            detail_urls=set()
+                        if 80 <= len(txt) <= 7000 and brand_of(txt) and YEAR_RE.search(txt) and len(detail_urls) <= 1:
+                            score=0
+                            if re.search(r"€|\\bEUR\\b",txt,re.I): score+=8
+                            if re.search(r"price|preis|fixed price|netto|vat|mwst",txt,re.I): score+=4
+                            if VIN_RE.search(txt) or VIN_LABEL_RE.search(txt): score+=2
+                            score+=sum(1 for rx in FEATURES.values() if rx.search(txt))
+                            score-=depth*0.15
+                            candidates.append((score,len(txt),node))
                         node=node.parent
+                    best=max(candidates,key=lambda z:(z[0],z[1]))[2] if candidates else None
                     if best is not None:
                         rec=html_record(src["name"],key,str(best))
                         if rec:
