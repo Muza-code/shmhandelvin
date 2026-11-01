@@ -708,7 +708,11 @@ def main():
     cfg=json.loads(Path(a.config).read_text(encoding="utf-8")); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
     http=Http(); rows=[]; events=[]; started=now()
     runner_kind=os.getenv("SHM_RUNNER_KIND","local")
+    source_filter={x.strip().lower() for x in os.getenv("SHM_SOURCE_NAMES","").split(",") if x.strip()}
     for src in cfg["sources"]:
+        if source_filter and src.get("name","").lower() not in source_filter:
+            events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"skipped_by_source_filter"})
+            continue
         if runner_kind=="github" and src.get("github_enabled") is False:
             events.append({"source":src["name"],"url":None,"observed_at":now(),"status":"skipped_on_github_runner"})
             continue
