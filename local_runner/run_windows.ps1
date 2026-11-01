@@ -6,6 +6,21 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 Set-Location $RepoRoot
 
+# Refresh persisted API credentials into this PowerShell process.
+# This matters when a key was saved from another PowerShell process.
+if (-not $env:REEF_API_KEY) {
+  $savedReefKey = [Environment]::GetEnvironmentVariable("REEF_API_KEY", "User")
+  if ($savedReefKey) { $env:REEF_API_KEY = $savedReefKey }
+}
+if (-not $env:MOBILEDE_USERNAME) {
+  $savedMobileUser = [Environment]::GetEnvironmentVariable("MOBILEDE_USERNAME", "User")
+  if ($savedMobileUser) { $env:MOBILEDE_USERNAME = $savedMobileUser }
+}
+if (-not $env:MOBILEDE_PASSWORD) {
+  $savedMobilePass = [Environment]::GetEnvironmentVariable("MOBILEDE_PASSWORD", "User")
+  if ($savedMobilePass) { $env:MOBILEDE_PASSWORD = $savedMobilePass }
+}
+
 $Stamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $OutDir = Join-Path $RepoRoot ("local_out\" + $Stamp)
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
