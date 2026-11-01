@@ -101,23 +101,25 @@ function confidence(x){
   const m=marketContext(x);
   let score=0;
   if((m.n||0)>=10) score+=2; else if((m.n||0)>=5) score+=1;
+  if((m.sources||0)>=2) score+=1;
+  if((m.countries||0)>=2) score+=1;
   if(x.construction_year!=null) score+=2; else if(x.year_basis) score+=1;
   if(x.tax_basis) score+=1;
   if(x.vin||x.vin_ref) score+=1;
   if((x.features||[]).length>=2) score+=1;
-  if(score>=6) return {label:'HIGH',cls:'interesting'};
+  if(score>=6 && (m.sources||0)>=2) return {label:'HIGH',cls:'interesting'};
   if(score>=3) return {label:'MEDIUM',cls:'check'};
   return {label:'LOW',cls:'unknown'};
 }
 function marketContext(x){
   const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
   const ask=x.price_original;
-  if(!seg || !ask || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0};
+  if(!seg || !ask || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0,sources:seg?.sources||0,countries:seg?.countries||0};
   const diff=(ask/seg.median_ask_eur-1)*100;
   let status='check';
   if(seg.q1_ask_eur!=null && ask<=seg.q1_ask_eur) status='interesting';
   else if(diff>=15) status='expensive';
-  return {status,median:seg.median_ask_eur,q1:seg.q1_ask_eur,diff,n:seg.priced};
+  return {status,median:seg.median_ask_eur,q1:seg.q1_ask_eur,diff,n:seg.priced,sources:seg.sources||0,countries:seg.countries||0};
 }
 function render(){
   const L=data.listings||[];
