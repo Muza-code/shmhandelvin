@@ -52,9 +52,6 @@
       "country": "Netherlands",
       "seller": "BAS World Trucks",
       "price_net_eur": 13400,
-      "delivered_eur": null,
-      "max_buy_eur": 16000,
-      "headroom": null,
       "vin": null,
       "vin_ref": "70336705",
       "features": [
@@ -74,9 +71,6 @@
       "country": "Estonia",
       "seller": "OÜ ScanBalt Trucks",
       "price_net_eur": 13000,
-      "delivered_eur": null,
-      "max_buy_eur": 16000,
-      "headroom": null,
       "vin": null,
       "vin_ref": "255673",
       "features": [
@@ -95,9 +89,6 @@
       "country": "Germany",
       "seller": null,
       "price_net_eur": 17900,
-      "delivered_eur": null,
-      "max_buy_eur": 16000,
-      "headroom": -1900,
       "vin": null,
       "vin_ref": "A230-85-096",
       "features": [
@@ -116,9 +107,6 @@
       "country": "Germany",
       "seller": null,
       "price_net_eur": 13900,
-      "delivered_eur": null,
-      "max_buy_eur": null,
-      "headroom": null,
       "vin": null,
       "vin_ref": "0326215",
       "features": [
