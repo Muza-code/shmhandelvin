@@ -57,6 +57,11 @@
       </div>
 
       <div class="panel">
+        <div class="panel-head"><div><div class="section-label">Data quality</div><h3>Качество источников</h3></div></div>
+        <div id="sourceQuality"></div>
+      </div>
+
+      <div class="panel">
         <div class="panel-head"><div><div class="section-label">Market</div><h3>По маркам</h3></div></div>
         <div id="brands"></div>
       </div>
@@ -163,6 +168,19 @@ function render(){
     </article>`).join('') || '<div class="empty">По текущим фильтрам кандидатов нет.</div>';
 
   document.getElementById('coverage').innerHTML=(data.coverage||[]).map(x=>`<div class="coverage-row"><div><b>${esc(x.source)}</b><span>${esc(x.note||'')}</span></div><div class="right"><span class="dot ${esc(x.state||'unknown')}"></span>${esc(x.state_label||x.state||'')}</div></div>`).join('');
+
+  const sq={};
+  L.forEach(x=>{
+    const s=x.source||'unknown';
+    sq[s]??={n:0,fresh:0,price:0,vin:0};
+    sq[s].n++;
+    if(x.seen_this_run) sq[s].fresh++;
+    if(typeof x.price_original==='number') sq[s].price++;
+    if(x.vin||x.vin_ref) sq[s].vin++;
+  });
+  document.getElementById('sourceQuality').innerHTML=Object.entries(sq)
+    .sort((a,b)=>b[1].fresh-a[1].fresh)
+    .map(([s,x])=>`<div class="coverage-row"><div><b>${esc(s)}</b><span>${x.fresh} fresh / ${x.n} total</span></div><div class="right"><span>${x.price} € · ${x.vin} VIN/ref</span></div></div>`).join('');
 
   const bc={}; L.forEach(x=>bc[x.brand]=(bc[x.brand]||0)+1);
   document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
