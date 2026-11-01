@@ -18,22 +18,19 @@
   "sources": [
     {
       "name": "Schmitz Cargobull Trailer Store",
-      "type": "sitemap",
-      "base_url": "https://www.trailer-store.com",
-      "sitemaps": [
-        "https://www.trailer-store.com/sitemap.xml"
+      "type": "crawl_index",
+      "seed_pages": [
+        "https://www.trailer-store.com/de/fahrzeugsuche.html"
       ],
       "allow_hosts": [
         "www.trailer-store.com"
       ],
-      "url_include": [
-        "koegel",
-        "kogel",
-        "krone",
-        "schmitz",
-        "schwarzm"
+      "index_url_tokens": [
+        "fahrzeugsuche"
       ],
-      "max_pages_per_run": 600
+      "detail_url_regex": "\\d{6,10}\\.html(?:$|\\?)",
+      "max_index_pages": 40,
+      "max_pages_per_run": 700
     },
     {
       "name": "mobile.de Search API",
