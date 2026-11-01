@@ -59,6 +59,47 @@ def market_center_data():
         }), 503
 
 
+@app.get("/api/market-segment")
+def market_segment_api():
+    try:
+        data=json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return jsonify({"error": f"market data unavailable: {exc}"}),503
+
+    brand=request.args.get("brand")
+    year=request.args.get("year",type=int)
+    body=request.args.get("body_type")
+    rows=[]
+    for x in data.get("listings",[]):
+        if (x.get("asset_type") or "semi_trailer")!="semi_trailer":
+            continue
+        if brand and x.get("brand")!=brand:
+            continue
+        if year and x.get("year")!=year:
+            continue
+        if body and (x.get("body_type") or "other")!=body:
+            continue
+        rows.append(x)
+
+    seg=None
+    if brand and year and body:
+        seg=next((s for s in data.get("segments",[]) if s.get("brand")==brand and s.get("year")==year and s.get("body_type")==body),None)
+
+    priced=[x for x in rows if isinstance(x.get("price_original"),(int,float))]
+    priced.sort(key=lambda x:x.get("price_original"))
+    return jsonify({
+        "filters":{"brand":brand,"year":year,"body_type":body},
+        "count":len(rows),
+        "priced_count":len(priced),
+        "segment":seg,
+        "sources":len({x.get("source") for x in rows if x.get("source")}),
+        "countries":len({x.get("country") for x in rows if x.get("country")}),
+        "fresh_count":sum(bool(x.get("seen_this_run")) for x in rows),
+        "lowest":priced[:10],
+        "highest":priced[-10:],
+    })
+
+
 @app.post("/api/private/evaluate")
 def private_evaluate():
     token = os.getenv("SHM_PRIVATE_TOKEN", "")
