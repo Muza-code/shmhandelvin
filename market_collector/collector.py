@@ -467,6 +467,7 @@ def collect_planet_cards(http,src,rows,events):
                 continue
             soup=BeautifulSoup(html,"html.parser")
             seen_refs=set()
+            debug_samples=0
             ref_nodes=soup.find_all(string=re.compile(r"Website\s*ref",re.I))
             for node in ref_nodes:
                 holder=node.parent
@@ -495,8 +496,15 @@ def collect_planet_cards(http,src,rows,events):
                 if rec:
                     marker=re.search(r"Website\\s*ref\\.?\\s*[:|]?\\s*"+re.escape(ref),full_text,re.I)
                     if marker:
-                        before=full_text[max(0,marker.start()-1800):marker.start()]
-                        after=full_text[marker.end():min(len(full_text),marker.end()+1200)]
+                        before=full_text[max(0,marker.start()-5000):marker.start()]
+                        after=full_text[marker.end():min(len(full_text),marker.end()+1800)]
+                        if debug_samples < 2:
+                            events.append({
+                                "source":src["name"],"url":final_url,"observed_at":now(),
+                                "status":"planet_context_sample","website_ref":ref,
+                                "before_tail":before[-2800:],"after_head":after[:800]
+                            })
+                            debug_samples+=1
                         # Price is commonly in the listing header before the structured "Website ref" block.
                         if rec.get("price_amount") is None:
                             valid=[]
