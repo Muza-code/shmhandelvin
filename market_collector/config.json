@@ -503,6 +503,20 @@
       "force_browser": false,
       "github_enabled": true,
       "source_segment": "Schwarzmüller"
+    },
+    {
+      "name": "Via Mobilis",
+      "type": "via_mobilis_cards",
+      "seed_pages": [
+        "https://www.via-mobilis.com/used/kogel-semi-trailer/germany/~a1b35e412nDE",
+        "https://www.via-mobilis.com/used/krone-semi-trailer/germany/~a1b35e428nDE",
+        "https://www.via-mobilis.com/used/schmitz-cargobull-semi-trailer/germany/~a1b35e680nDE",
+        "https://www.via-mobilis.com/used/schwarzmuller-semi-trailer/germany/~a1b35e682nDE"
+      ],
+      "max_index_pages": 4,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true
     }
   ]
 }
