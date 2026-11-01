@@ -25,6 +25,7 @@ jobs:
           cache: pip
           cache-dependency-path: market_collector/requirements.txt
       - run: pip install -r market_collector/requirements.txt
+      - run: python -m playwright install --with-deps chromium
       - name: Collect and normalize market data
         env:
           MOBILEDE_USERNAME: ${{ secrets.MOBILEDE_USERNAME }}
