@@ -64,7 +64,7 @@
         <div class="panel-head"><div><div class="section-label">Analytics</div><h3>Сегменты рынка</h3></div><span class="muted">asking prices · EUR net only when explicit</span></div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Марка</th><th>Год</th><th>Карточек</th><th>С ценой</th><th>Q1</th><th>Медиана</th><th>Q3</th><th>VIN/ref</th><th>Источники</th><th>Страны</th></tr></thead>
+            <thead><tr><th>Марка</th><th>Год</th><th>Карточек</th><th>С ценой</th><th>Ask Q1</th><th>Ask median</th><th>Ask Q3</th><th>Net known</th><th>VIN/ref</th><th>Источники</th><th>Страны</th></tr></thead>
             <tbody id="segments"></tbody>
           </table>
         </div>
@@ -131,8 +131,8 @@ function render(){
 
   document.getElementById('segments').innerHTML=(data.segments||[]).map(x=>`<tr>
     <td><b>${esc(x.brand)}</b></td><td>${esc(x.year)}</td><td>${x.cards}</td><td>${x.priced}</td>
-    <td>${euro(x.q1_net_eur)}</td><td><b>${euro(x.median_net_eur)}</b></td><td>${euro(x.q3_net_eur)}</td>
-    <td>${x.vin_found}</td><td>${x.sources}</td><td>${x.countries}</td>
+    <td>${euro(x.q1_ask_eur)}</td><td><b>${euro(x.median_ask_eur)}</b></td><td>${euro(x.q3_ask_eur)}</td>
+    <td>${x.net_priced||0}</td><td>${x.vin_found}</td><td>${x.sources}</td><td>${x.countries}</td>
   </tr>`).join('');
 
   document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
