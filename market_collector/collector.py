@@ -12,6 +12,7 @@ from index_adapter import discover_index_pages
 
 UA = "SHM-Market-Collector/0.1"
 VIN_RE = re.compile(r"(?<![A-Z0-9])([A-HJ-NPR-Z0-9]{17})(?![A-Z0-9])", re.I)
+VIN_LABEL_RE = re.compile(r"\b(?:VIN|FIN|chassis(?:\s*(?:no|nr|number))?)\s*[:#-]?\s*([A-Z0-9-]{6,20})\b", re.I)
 YEAR_RE = re.compile(r"(?<!\\d)(20(?:0[8-9]|1\\d|2[01]))(?!\\d)")
 PRICE_RE = re.compile(r"(?:€|EUR\\s*)\\s*([0-9]{1,3}(?:[.\\s][0-9]{3})*(?:,[0-9]{1,2})?|[0-9]{4,6})", re.I)
 BRANDS = {
@@ -58,6 +59,14 @@ def brand_of(text):
 
 def vins_of(text):
     return sorted({m.group(1).upper() for m in VIN_RE.finditer(text)})
+
+def vin_refs_of(text):
+    refs=[]
+    for m in VIN_LABEL_RE.finditer(text):
+        v=m.group(1).upper().strip("-")
+        if 6 <= len(v) <= 20:
+            refs.append(v)
+    return sorted(set(refs))
 
 def price_of(text):
     for m in PRICE_RE.finditer(text):
@@ -106,7 +115,7 @@ def html_record(source,url,html):
     return {
         "source":source,"source_listing_id":stock,"url":url,"observed_at":now(),
         "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,
-        "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,
+        "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
         "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\\bEUR\\b",text,re.I) else None,
         "tax_basis":tax_of(text),"axle_maker":axle,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
@@ -207,7 +216,7 @@ def mobile_record(source,key,ad):
         "source":source,"source_listing_id":str(key),"url":f"https://suchen.mobile.de/fahrzeuge/details.html?id={key}",
         "observed_at":now(),"title":str((deep(ad,{"headline","title","modeldescription"}) or [None])[0]),
         "brand":brand,"construction_year":cy,"first_registration_year":None,
-        "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,
+        "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
         "price_amount":prices[0] if prices else None,"price_currency":"EUR","tax_basis":None,"axle_maker":axle,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
         "code_xl":True if f["code_xl"] else None,"mega":True if f["mega"] else None,
