@@ -33,23 +33,48 @@
       "max_pages_per_run": 120
     },
     {
-      "name": "mobile.de Search API",
-      "type": "mobile_api",
-      "enabled_env": "MOBILEDE_USERNAME",
-      "countries": [
-        "DE",
-        "NL",
-        "BE",
-        "AT",
-        "FR",
-        "ES",
-        "IT",
-        "PL",
-        "LT",
-        "LV",
-        "CZ"
+      "name": "TrucksNL",
+      "type": "crawl_index",
+      "seed_pages": [
+        "https://www.trucksnl.com/semi-trailers/kogel",
+        "https://www.trucksnl.com/semi-trailers/krone",
+        "https://www.trucksnl.com/semi-trailers/schmitz-cargobull",
+        "https://www.trucksnl.com/semi-trailers/schwarzmuller"
       ],
-      "page_size": 100
+      "allow_hosts": [
+        "www.trucksnl.com"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/kogel",
+        "/semi-trailers/krone",
+        "/semi-trailers/schmitz-cargobull",
+        "/semi-trailers/schwarzmuller"
+      ],
+      "detail_url_regex": "-[0-9]{5,10}-vd(?:$|\\?)",
+      "max_index_pages": 20,
+      "max_pages_per_run": 160
+    },
+    {
+      "name": "TruckScout24",
+      "type": "crawl_index",
+      "seed_pages": [
+        "https://www.truckscout24.com/semi-trailers/used/all/koegel",
+        "https://www.truckscout24.com/semi-trailers/used/all/krone",
+        "https://www.truckscout24.com/semi-trailers/used/all/schmitz-cargobull",
+        "https://www.truckscout24.com/semi-trailers/used/all/schwarzmuller"
+      ],
+      "allow_hosts": [
+        "www.truckscout24.com"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/used/all/koegel",
+        "/semi-trailers/used/all/krone",
+        "/semi-trailers/used/all/schmitz",
+        "/semi-trailers/used/all/schwar"
+      ],
+      "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
+      "max_index_pages": 20,
+      "max_pages_per_run": 160
     }
   ]
 }
