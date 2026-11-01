@@ -11,7 +11,7 @@ on:
     - cron: '17 17 * * *'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   collect:
@@ -32,6 +32,19 @@ jobs:
           SHM_INGEST_URL: ${{ secrets.SHM_INGEST_URL }}
           SHM_INGEST_TOKEN: ${{ secrets.SHM_INGEST_TOKEN }}
         run: python market_collector/collector.py --config market_collector/config.json --out out
+      - name: Build Market Center dataset
+        run: python market_collector/build_dashboard_data.py
+      - name: Commit refreshed public market dataset
+        run: |
+          if git diff --quiet -- data/latest_market.json; then
+            echo "No dataset change"
+          else
+            git config user.name "shm-market-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/latest_market.json
+            git commit -m "data: refresh public market snapshot"
+            git push
+          fi
       - name: Upload run artifact
         uses: actions/upload-artifact@v4
         with:
