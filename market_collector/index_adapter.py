@@ -26,7 +26,10 @@ def discover_index_pages(http, source, events, now_func):
             final_url=r.url
             mode="http"
             status=r.status_code
-            if r.status_code==200:
+            if source.get("force_browser"):
+                status,html,final_url=http.browser_html(url)
+                mode="browser"
+            elif r.status_code==200:
                 html=r.text
             elif r.status_code in (401,403,429):
                 status,html,final_url=http.browser_html(url)
