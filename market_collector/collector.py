@@ -67,14 +67,27 @@ def brand_of(text):
     return next((b for b,r in BRANDS.items() if r.search(text)), None)
 
 def vins_of(text):
-    return sorted({m.group(1).upper() for m in VIN_RE.finditer(text)})
+    vals=set()
+    for m in VIN_RE.finditer(text):
+        v=m.group(1).upper()
+        if "XXX" in v:
+            continue
+        if not any(ch.isdigit() for ch in v):
+            continue
+        vals.add(v)
+    return sorted(vals)
 
 def vin_refs_of(text):
     refs=[]
     for m in VIN_LABEL_RE.finditer(text):
         v=m.group(1).upper().strip("-")
-        if 6 <= len(v) <= 20:
-            refs.append(v)
+        if not (6 <= len(v) <= 20):
+            continue
+        if not any(ch.isdigit() for ch in v):
+            continue
+        if v in {"000000","0000000","00000000"}:
+            continue
+        refs.append(v)
     return sorted(set(refs))
 
 def price_of(text):
