@@ -63,7 +63,7 @@
         "https://www.truckscout24.com/semi-trailers/used/all/koegel",
         "https://www.truckscout24.com/semi-trailers/used/all/krone",
         "https://www.truckscout24.com/semi-trailers/used/all/schmitz-cargobull",
-        "https://www.truckscout24.com/semi-trailers/used/all/schwarzmuller"
+        "https://www.truckscout24.com/semi-trailers/used/all/schwarzmueller"
       ],
       "allow_hosts": [
         "www.truckscout24.com"
@@ -103,7 +103,7 @@
     },
     {
       "name": "BAS World",
-      "type": "crawl_index",
+      "type": "index_cards",
       "seed_pages": [
         "https://www.basworld.com/stock/semi-trailer/k%C3%B6gel",
         "https://www.basworld.com/stock/semi-trailer/krone",
@@ -118,8 +118,9 @@
       ],
       "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
       "max_index_pages": 4,
-      "max_pages_per_run": 180,
-      "github_enabled": true
+      "max_pages_per_run": 0,
+      "github_enabled": true,
+      "force_browser": false
     }
   ]
 }
