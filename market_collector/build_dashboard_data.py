@@ -6,6 +6,17 @@ from datetime import datetime, timezone
 OUT=Path("out")
 TARGET=Path("data/latest_market.json")
 
+def infer_asset_type(x):
+    v=x.get("asset_type")
+    if v:
+        return v
+    text=" ".join(str(x.get(k) or "") for k in ("model","body_type")).lower()
+    if "swap body" in text or "wechselbrücke" in text or "wechselbruecke" in text:
+        return "swap_body"
+    if "drawbar trailer" in text or "central axle" in text or "tandem trailer" in text:
+        return "trailer"
+    return "semi_trailer"
+
 def percentile(values,p):
     if not values: return None
     xs=sorted(values)
@@ -62,7 +73,7 @@ for r in rows:
         "brand":r.get("brand"),"model":r.get("title"),
         "year":r.get("market_year"),"year_basis":r.get("year_basis"),
         "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
-        "body_type":r.get("body_type"),
+        "body_type":r.get("body_type"),"asset_type":r.get("asset_type") or "semi_trailer",
         "country":r.get("country"),"seller":r.get("seller"),
         "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" else None,
         "price_original":r.get("price_amount"),"currency":r.get("price_currency"),"tax_basis":r.get("tax_basis"),
@@ -88,6 +99,9 @@ for s in sorted(set(list(sources)+[e.get("source") for e in events if e.get("sou
 segments=[]
 groups={}
 for x in listings:
+    x["asset_type"]=infer_asset_type(x)
+    if x["asset_type"]!="semi_trailer":
+        continue
     key=(x.get("brand"),x.get("year"),x.get("body_type") or "other")
     if not key[0] or not key[1]: continue
     g=groups.setdefault(key,{"net_prices":[],"ask_eur":[],"cards":0,"vin":0,"construction_known":0,"sources":set(),"countries":set()})
@@ -115,6 +129,7 @@ data={
     "updated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
     "stats":{
         "listings":len(listings),
+        "semitrailers":sum(infer_asset_type(x)=="semi_trailer" for x in listings),
         "active":sum(bool(x.get("seen_this_run")) for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
