@@ -228,6 +228,86 @@
       "github_enabled": true,
       "force_browser": false,
       "source_segment": "Schwarzmüller"
+    },
+    {
+      "name": "Truck1",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.truck1.eu/semi-trailers/kogel/yr-2021"
+      ],
+      "allow_hosts": [
+        "www.truck1.eu"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/kogel/yr-2021"
+      ],
+      "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 2,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Kögel",
+      "target_year": 2021
+    },
+    {
+      "name": "Truck1",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.truck1.eu/semi-trailers/krone/yr-2021"
+      ],
+      "allow_hosts": [
+        "www.truck1.eu"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/krone/yr-2021"
+      ],
+      "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 2,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Krone",
+      "target_year": 2021
+    },
+    {
+      "name": "Truck1",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.truck1.eu/semi-trailers/schmitz/yr-2021"
+      ],
+      "allow_hosts": [
+        "www.truck1.eu"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/schmitz/yr-2021"
+      ],
+      "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 2,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Schmitz Cargobull",
+      "target_year": 2021
+    },
+    {
+      "name": "Truck1",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.truck1.eu/semi-trailers/schwarzmuller/yr-2021"
+      ],
+      "allow_hosts": [
+        "www.truck1.eu"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/schwarzmuller/yr-2021"
+      ],
+      "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 2,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true,
+      "source_segment": "Schwarzmüller",
+      "target_year": 2021
     }
   ]
 }
