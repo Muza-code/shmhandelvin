@@ -41,6 +41,14 @@ def body_type_of(text):
             return name
     return "other"
 
+def asset_type_of(text):
+    t=text or ""
+    if re.search(r"swap\s*body|wechselbr[üu]cke|wechselbruecke",t,re.I):
+        return "swap_body"
+    if re.search(r"drawbar\s*trailer|central\s*axle|tandem\s*trailer|anh[äa]nger(?!.*auflieger)",t,re.I):
+        return "trailer"
+    return "semi_trailer"
+
 COUNTRY_NAMES = {
     "Germany":"DE","Netherlands":"NL","Belgium":"BE","France":"FR","Spain":"ES",
     "Italy":"IT","Poland":"PL","Lithuania":"LT","Latvia":"LV","Estonia":"EE",
@@ -197,6 +205,7 @@ def html_record(source,url,html):
     f={k:bool(rx.search(text)) for k,rx in FEATURES.items()}
     axle="SAF" if f["saf"] else "BPW" if f["bpw"] else "Schmitz ROTOS" if f["rotos"] else None
     body_type=body_type_of(" ".join([title,text]))
+    asset_type=asset_type_of(" ".join([title,text]))
     stock=None
     m=re.search(r"(?:Info[- ]?no\.?|Info[- ]?Nr\.?|stock\s*(?:no|nr)\.?)\s*[:#]?\s*([A-Z0-9._/-]{3,40})",text,re.I)
     if m: stock=m.group(1)
