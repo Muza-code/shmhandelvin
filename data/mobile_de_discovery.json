@@ -1,0 +1,94 @@
+{
+  "updated_at": "2026-11-01",
+  "source": "mobile.de",
+  "acquisition_mode": "search_index_discovery",
+  "confidence": "discovery_only",
+  "notes": [
+    "Collected from search-index-visible mobile.de result pages because direct automated browser access returns HTTP 403.",
+    "These observations are not canonical listings and must not be used as independent realized-sale evidence.",
+    "EZ is first registration, not confirmed construction year unless explicitly stated."
+  ],
+  "pages": [
+    {
+      "brand": "Kögel",
+      "source_page": "https://suchen.mobile.de/lkw/koegel-auflieger.html",
+      "observations": [
+        {
+          "title": "Kögel KÖGEL S24 Auflieger 2020.TÜV NEU.XL. Coilmulde",
+          "price_eur": 10294,
+          "tax_basis": "net",
+          "first_registration": "2020-01",
+          "body_type": "curtainsider",
+          "seller": "Gewerbe",
+          "location": "46248 Bottrop"
+        },
+        {
+          "title": "Kögel SN24 MEGA Coil mulde verbreiterbar",
+          "price_eur": 18200,
+          "tax_basis": "net",
+          "first_registration": "2021",
+          "body_type": "curtainsider",
+          "seller": "Laskowski Logistics",
+          "location": "PL-89-650 Czersk / Złotowo"
+        }
+      ]
+    },
+    {
+      "brand": "Krone",
+      "source_page": "https://suchen.mobile.de/lkw/krone-auflieger.html",
+      "observations": [
+        {
+          "title": "Krone Schiebeplanen Auflieger mit Liftachse",
+          "price_eur": 8900,
+          "tax_basis": "net",
+          "first_registration": "2018-01",
+          "body_type": "curtainsider",
+          "seller": "Wiese GmbH & Co. KG Fahrzeugbau und Nutzfahrzeuge",
+          "location": "32469 Petershagen"
+        },
+        {
+          "title": "Krone Stahlmatten Auflieger",
+          "price_eur": 18500,
+          "tax_basis": "net",
+          "first_registration": "2019-06",
+          "body_type": "platform",
+          "seller": "Wiese GmbH & Co. KG Fahrzeugbau und Nutzfahrzeuge",
+          "location": "32469 Petershagen"
+        }
+      ]
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "source_page": "https://suchen.mobile.de/lkw/schmitz-cargobull-curtainsider.html",
+      "observations": [
+        {
+          "title": "Schmitz Cargobull Curtainsider Standard",
+          "price_eur": 18900,
+          "tax_basis": "net",
+          "first_registration": "2021-11",
+          "body_type": "curtainsider",
+          "seller": "Schmitz Cargobull Bulgaria EOOD",
+          "location": "BG-01855 Dolni Bogrov"
+        },
+        {
+          "title": "Schmitz Cargobull Semitrailer Curtainsider Standard",
+          "price_eur": 15960,
+          "tax_basis": "net",
+          "first_registration": "2021-09",
+          "body_type": "curtainsider",
+          "seller": "SCHMITZ CARGOBULL d.o.o.",
+          "location": "Sesvete, Zagreb"
+        },
+        {
+          "title": "Schmitz Cargobull Curtainsider Standard Getränke",
+          "price_eur": 21500,
+          "tax_basis": "net",
+          "first_registration": "2021-08",
+          "body_type": "curtainsider",
+          "seller": "Cargobull Trailer Store GmbH (Altenberge)",
+          "location": "48341 Altenberge"
+        }
+      ]
+    }
+  ]
+}
