@@ -516,7 +516,7 @@
       "max_index_pages": 4,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true
+      "github_enabled": false
     }
   ]
 }
