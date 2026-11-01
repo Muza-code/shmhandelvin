@@ -1,0 +1,30 @@
+{
+  "priorities": [
+    {
+      "source": "mobile.de",
+      "priority": 1,
+      "mode": "local_public_browser",
+      "status": "mandatory",
+      "reason": "core German market; corrected public search URLs"
+    },
+    {
+      "source": "Autoline",
+      "priority": 2,
+      "mode": "discovery_market_reference",
+      "status": "active_reference",
+      "reason": "important European benchmark; avoid bulk automated crawl without authorized access"
+    },
+    {
+      "source": "OLX Poland",
+      "priority": 3,
+      "mode": "local_public_browser",
+      "status": "testing",
+      "reason": "important Poland/Eastern Europe classifieds; public cards expose year/price/seller"
+    }
+  ],
+  "principles": [
+    "Asking prices remain separate from realized transactions.",
+    "Do not bypass CAPTCHA, login, anti-bot or access controls.",
+    "Mirrors and cross-posts are not independent market observations."
+  ]
+}
