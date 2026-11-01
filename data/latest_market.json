@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01T14:22:28Z",
+  "updated_at": "2026-11-01T14:25:23Z",
   "stats": {
     "listings": 123,
     "active": null,
@@ -49,6 +49,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 2,
+      "construction_year_known": 0,
       "q1_ask_eur": 14750.0,
       "median_ask_eur": 14750.0,
       "q3_ask_eur": 14750.0,
@@ -66,6 +67,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 17900.0,
       "median_ask_eur": 17900.0,
       "q3_ask_eur": 17900.0,
@@ -83,6 +85,7 @@
       "vin_found": 0,
       "sources": 2,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 11000.0,
       "median_ask_eur": 11600.0,
       "q3_ask_eur": 12200.0,
@@ -100,6 +103,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 30900.0,
       "median_ask_eur": 30900.0,
       "q3_ask_eur": 30900.0,
@@ -117,6 +121,7 @@
       "vin_found": 0,
       "sources": 2,
       "countries": 2,
+      "construction_year_known": 1,
       "q1_ask_eur": 8000.0,
       "median_ask_eur": 9900.0,
       "q3_ask_eur": 10990.0,
@@ -134,6 +139,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 10950.0,
       "median_ask_eur": 10950.0,
       "q3_ask_eur": 10950.0,
@@ -151,6 +157,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 7300.0,
       "median_ask_eur": 7300.0,
       "q3_ask_eur": 7300.0,
@@ -168,6 +175,7 @@
       "vin_found": 0,
       "sources": 2,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 5985.0,
       "median_ask_eur": 6720.0,
       "q3_ask_eur": 7455.0,
@@ -185,6 +193,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 5900.0,
       "median_ask_eur": 5900.0,
       "q3_ask_eur": 5900.0,
@@ -202,6 +211,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 7,
       "q1_ask_eur": 3900.0,
       "median_ask_eur": 7250.0,
       "q3_ask_eur": 7400.0,
@@ -219,6 +229,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 3,
+      "construction_year_known": 4,
       "q1_ask_eur": 3900.0,
       "median_ask_eur": 4390.0,
       "q3_ask_eur": 4400.0,
@@ -236,6 +247,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 4900.0,
       "median_ask_eur": 4900.0,
       "q3_ask_eur": 4900.0,
@@ -253,6 +265,7 @@
       "vin_found": 0,
       "sources": 2,
       "countries": 2,
+      "construction_year_known": 1,
       "q1_ask_eur": 5287.5,
       "median_ask_eur": 6325.0,
       "q3_ask_eur": 7362.5,
@@ -270,6 +283,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 9900.0,
       "median_ask_eur": 9900.0,
       "q3_ask_eur": 9900.0,
@@ -287,6 +301,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 8800.0,
       "median_ask_eur": 8800.0,
       "q3_ask_eur": 8800.0,
@@ -304,6 +319,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 2,
       "q1_ask_eur": 4450.0,
       "median_ask_eur": 4450.0,
       "q3_ask_eur": 4450.0,
@@ -321,6 +337,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 13900.0,
       "median_ask_eur": 13900.0,
       "q3_ask_eur": 13900.0,
@@ -338,6 +355,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 7900.0,
       "median_ask_eur": 7900.0,
       "q3_ask_eur": 7900.0,
@@ -355,6 +373,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 10500.0,
       "median_ask_eur": 10500.0,
       "q3_ask_eur": 10500.0,
@@ -372,6 +391,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 4,
       "q1_ask_eur": 7100.0,
       "median_ask_eur": 7200.0,
       "q3_ask_eur": 7200.0,
@@ -389,6 +409,7 @@
       "vin_found": 1,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 2,
       "q1_ask_eur": 5100.0,
       "median_ask_eur": 5200.0,
       "q3_ask_eur": 7200.0,
@@ -406,6 +427,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 8500.0,
       "median_ask_eur": 8500.0,
       "q3_ask_eur": 8500.0,
@@ -423,6 +445,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 1,
       "q1_ask_eur": 3800.0,
       "median_ask_eur": 3800.0,
       "q3_ask_eur": 3800.0,
@@ -440,6 +463,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 2,
       "q1_ask_eur": 3375.0,
       "median_ask_eur": 3550.0,
       "q3_ask_eur": 3725.0,
@@ -457,6 +481,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 35864.0,
       "median_ask_eur": 35864.0,
       "q3_ask_eur": 35864.0,
@@ -474,6 +499,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 19900.0,
       "median_ask_eur": 19900.0,
       "q3_ask_eur": 19900.0,
@@ -491,6 +517,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 19900.0,
       "median_ask_eur": 19900.0,
       "q3_ask_eur": 19900.0,
@@ -508,6 +535,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 11450.0,
       "median_ask_eur": 11450.0,
       "q3_ask_eur": 15175.0,
@@ -525,6 +553,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 11900.0,
       "median_ask_eur": 11900.0,
       "q3_ask_eur": 11900.0,
@@ -542,6 +571,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 18900.0,
       "median_ask_eur": 18900.0,
       "q3_ask_eur": 18900.0,
@@ -559,6 +589,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 10250.0,
       "median_ask_eur": 10250.0,
       "q3_ask_eur": 10250.0,
@@ -576,6 +607,7 @@
       "vin_found": 0,
       "sources": 2,
       "countries": 2,
+      "construction_year_known": 1,
       "q1_ask_eur": 16750.0,
       "median_ask_eur": 16900.0,
       "q3_ask_eur": 17150.0,
@@ -593,6 +625,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 8250.0,
       "median_ask_eur": 8250.0,
       "q3_ask_eur": 8250.0,
@@ -610,6 +643,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 14950.0,
       "median_ask_eur": 14950.0,
       "q3_ask_eur": 14950.0,
@@ -627,6 +661,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 16250.0,
       "median_ask_eur": 16250.0,
       "q3_ask_eur": 16250.0,
@@ -644,6 +679,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 6200.0,
       "median_ask_eur": 6200.0,
       "q3_ask_eur": 6200.0,
@@ -661,6 +697,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 11900.0,
       "median_ask_eur": 11900.0,
       "q3_ask_eur": 11900.0,
@@ -678,6 +715,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 16525.0,
       "median_ask_eur": 16525.0,
       "q3_ask_eur": 16525.0,
@@ -695,6 +733,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 5900.0,
       "median_ask_eur": 5900.0,
       "q3_ask_eur": 5962.5,
@@ -712,6 +751,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 2,
+      "construction_year_known": 2,
       "q1_ask_eur": 8162.5,
       "median_ask_eur": 9075.0,
       "q3_ask_eur": 9987.5,
@@ -729,6 +769,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 12950.0,
       "median_ask_eur": 12950.0,
       "q3_ask_eur": 12950.0,
@@ -746,6 +787,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 2,
+      "construction_year_known": 2,
       "q1_ask_eur": 3250.0,
       "median_ask_eur": 3250.0,
       "q3_ask_eur": 3250.0,
@@ -763,6 +805,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 11150.0,
       "median_ask_eur": 11400.0,
       "q3_ask_eur": 11650.0,
@@ -780,6 +823,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 5900.0,
       "median_ask_eur": 5900.0,
       "q3_ask_eur": 5900.0,
@@ -797,6 +841,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 4250.0,
       "median_ask_eur": 4250.0,
       "q3_ask_eur": 4250.0,
@@ -814,6 +859,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 3304.0,
       "median_ask_eur": 3304.0,
       "q3_ask_eur": 3304.0,
@@ -831,6 +877,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 5450.0,
       "median_ask_eur": 5450.0,
       "q3_ask_eur": 5450.0,
@@ -848,6 +895,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 5750.0,
       "median_ask_eur": 5750.0,
       "q3_ask_eur": 5750.0,
@@ -865,6 +913,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 4950.0,
       "median_ask_eur": 4950.0,
       "q3_ask_eur": 4950.0,
@@ -882,6 +931,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 0,
       "q1_ask_eur": 16900.0,
       "median_ask_eur": 16900.0,
       "q3_ask_eur": 16900.0,
@@ -899,6 +949,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 2,
       "q1_ask_eur": 8392.5,
       "median_ask_eur": 8895.0,
       "q3_ask_eur": 9397.5,
@@ -916,6 +967,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": null,
       "median_ask_eur": null,
       "q3_ask_eur": null,
@@ -933,6 +985,7 @@
       "vin_found": 1,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 6900.0,
       "median_ask_eur": 6900.0,
       "q3_ask_eur": 6900.0,
@@ -950,6 +1003,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 2,
       "q1_ask_eur": 11900.0,
       "median_ask_eur": 11900.0,
       "q3_ask_eur": 11900.0,
@@ -967,6 +1021,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 0,
       "q1_ask_eur": 12990.0,
       "median_ask_eur": 12990.0,
       "q3_ask_eur": 12990.0,
@@ -984,6 +1039,7 @@
       "vin_found": 1,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 1,
       "q1_ask_eur": 8112.5,
       "median_ask_eur": 9725.0,
       "q3_ask_eur": 11337.5,
@@ -1001,6 +1057,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
+      "construction_year_known": 3,
       "q1_ask_eur": 8249.5,
       "median_ask_eur": 10999.0,
       "q3_ask_eur": 16744.5,
@@ -1018,6 +1075,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 2,
       "q1_ask_eur": 4150.0,
       "median_ask_eur": 4150.0,
       "q3_ask_eur": 4700.0,
@@ -1035,6 +1093,7 @@
       "vin_found": 1,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 1,
       "q1_ask_eur": 7900.0,
       "median_ask_eur": 7900.0,
       "q3_ask_eur": 7900.0,
@@ -1052,6 +1111,7 @@
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
+      "construction_year_known": 1,
       "q1_ask_eur": 4400.0,
       "median_ask_eur": 4400.0,
       "q3_ask_eur": 4400.0,
@@ -1065,6 +1125,9 @@
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KÖGEL Kögel Light Palettenkasten E-Rad XL-Zertifikat",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1081,12 +1144,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-97-961",
-      "observed_at": "2026-11-01T14:22:10Z"
+      "observed_at": "2026-11-01T14:24:58Z"
     },
     {
       "brand": "Kögel",
       "model": "Box semitrailer Kögel SKH24 Iso-Koffer PurFerro SAF Achsen",
       "year": 2019,
+      "year_basis": "construction_year",
+      "construction_year": 2019,
+      "first_registration_year": 2019,
       "body_type": "box",
       "country": "DE",
       "seller": null,
@@ -1103,12 +1169,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-80-900",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KÖGEL Palka Lochrahmen SAF Achsen XL Zertifikat",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1125,12 +1194,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-24-101",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KÖGEL SN 24 MEGA Doppelstock",
       "year": 2015,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2015,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1147,12 +1219,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-52-950",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Beverage semitrailer KÖGEL S24-1*LBW*Beidseitig Schiebeplane*Vollluft*BPW*",
       "year": 2016,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2016,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1168,12 +1243,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-217-24-613",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KÖGEL S24-1*LBW*Beidseitig Schiebeplane*Vollluft*BPW*",
       "year": 2016,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2016,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1189,12 +1267,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-217-24-618",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KöGEL 3-ACHS PLANENAUFLIEGER STANDARD, SAF",
       "year": 2019,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2019,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1211,12 +1292,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-25-061",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KÖGEL SN 24-1 SAF",
       "year": 2012,
+      "year_basis": "construction_year",
+      "construction_year": 2012,
+      "first_registration_year": 2012,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1232,12 +1316,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-206-29-860",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp KÖGEL SN 24 Tautliner MEGA - SAF - LIFT Nr.: 801",
       "year": 2016,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2016,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1255,12 +1342,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-69-042",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Kögel Kögel",
       "year": 2008,
+      "year_basis": "construction_year",
+      "construction_year": 2008,
+      "first_registration_year": 2008,
       "body_type": "other",
       "country": "BE",
       "seller": null,
@@ -1276,12 +1366,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-91-937",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:24:59Z"
     },
     {
       "brand": "Kögel",
       "model": "Kögel SAF AXXLE-BELGIAN ORIGINE",
       "year": 2008,
+      "year_basis": "construction_year",
+      "construction_year": 2008,
+      "first_registration_year": 2008,
       "body_type": "other",
       "country": "BE",
       "seller": null,
@@ -1297,12 +1390,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-912",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:25:00Z"
     },
     {
       "brand": "Kögel",
       "model": "2017 KÖGEL Port 45 simplex/ extendible/ saf disc KÖGEL Port 45 simplex/ extendible/ saf disc",
       "year": 2017,
+      "year_basis": "construction_year",
+      "construction_year": 2017,
+      "first_registration_year": 2017,
       "body_type": "container_chassis",
       "country": "NL",
       "seller": null,
@@ -1318,12 +1414,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-71-837",
-      "observed_at": "2026-11-01T14:22:11Z"
+      "observed_at": "2026-11-01T14:25:00Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp Kögel S 24 Tautliner, Code XL, BPW, TÜV 10-2027",
       "year": 2017,
+      "year_basis": "construction_year",
+      "construction_year": 2017,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1340,12 +1439,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-53-361",
-      "observed_at": "2026-11-01T14:22:12Z"
+      "observed_at": "2026-11-01T14:25:00Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp Kögel Curtainsider Mega",
       "year": 2017,
+      "year_basis": "construction_year",
+      "construction_year": 2017,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1362,12 +1464,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-51-881",
-      "observed_at": "2026-11-01T14:22:12Z"
+      "observed_at": "2026-11-01T14:25:01Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp Kögel Curtainsider Mega",
       "year": 2017,
+      "year_basis": "construction_year",
+      "construction_year": 2017,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1384,12 +1489,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-51-886",
-      "observed_at": "2026-11-01T14:22:12Z"
+      "observed_at": "2026-11-01T14:25:01Z"
     },
     {
       "brand": "Kögel",
       "model": "Open semitrailer with tarp Kögel Curtainsider Mega",
       "year": 2017,
+      "year_basis": "construction_year",
+      "construction_year": 2017,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1406,12 +1514,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-51-891",
-      "observed_at": "2026-11-01T14:22:12Z"
+      "observed_at": "2026-11-01T14:25:01Z"
     },
     {
       "brand": "Krone",
       "model": "Krone KRONE Koffer / Textil / Conefctie / BPW Axles / Discbrakes LT4723 Krone KRONE Koffer / Textil / Conefctie / BPW Axles /...",
       "year": 2009,
+      "year_basis": "construction_year",
+      "construction_year": 2009,
+      "first_registration_year": 2009,
       "body_type": "box",
       "country": "NL",
       "seller": null,
@@ -1427,12 +1538,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-50-622",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Open semitrailer with tarp KRONE SD, Getränke, Safe Curtain, LBW, VDI 2700",
       "year": 2020,
+      "year_basis": "construction_year",
+      "construction_year": 2020,
+      "first_registration_year": 2020,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1448,12 +1562,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-25-416",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Open semitrailer with tarp KRONE SD Tautliner - SAF / KRONE Achse Nr.: 707",
       "year": 2018,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2018,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1471,12 +1588,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-83-805",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD sliding curtains/roof – drum brakes – APK 11/2026 Krone SD Sliding Curtains/Roof - Drum Brakes - APK 11...",
       "year": 2014,
+      "year_basis": "construction_year",
+      "construction_year": 2014,
+      "first_registration_year": 2014,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -1490,12 +1610,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-218-46-628",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / BPW Disc Brakes / Huckepack Krone SD / BPW Disk / Huckepack",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2015,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1512,12 +1635,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-225-53-992",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Box semitrailer Krone 3 Achs Jumboaufl. Koffer, Doppelstock, Rolltor",
       "year": 2012,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2012,
       "body_type": "box",
       "country": null,
       "seller": null,
@@ -1533,12 +1659,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-50-559",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / Mega / Disc brakes Krone SD / Mega / Disk brakes",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1554,12 +1683,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-189",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Open semitrailer with tarp KRONE 1.Achs Cutainsider/EDSCHA/TRIDEC/Rollplane",
       "year": 2019,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2019,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1573,12 +1705,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-69-126",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Open semitrailer with tarp KRONE SD * * LIFTACHSE * BPW-ACHSEN *2,70 M HOCH",
       "year": 2019,
+      "year_basis": "construction_year",
+      "construction_year": 2019,
+      "first_registration_year": 2019,
       "body_type": "curtainsider",
       "country": "AT",
       "seller": null,
@@ -1595,12 +1730,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-36-081",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD 27 Koffer / Textil / Conefctie / BPW Axles / Discbrakes LT4747 Krone SD 27 Koffer / Textil / Conefctie / BPW Axles /...",
       "year": 2009,
+      "year_basis": "construction_year",
+      "construction_year": 2009,
+      "first_registration_year": 2009,
       "body_type": "box",
       "country": "NL",
       "seller": null,
@@ -1616,12 +1754,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-26-436",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / Drum Brakes / DHOLLANDIA 2,000 kg Krone SD / Drum brakes / DHOLLANDIA 2000KG",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1635,12 +1776,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-093",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / Mega / BPW drum Krone SD / Mega / BPW Drum",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1657,12 +1801,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-88-726",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Open semitrailer with tarp KRONE SD Pritsche Plane XL MegaLiner Edscha Bordwände",
       "year": 2016,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2016,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1678,12 +1825,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-266",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / Mega / Disc brakes Krone SD / Mega / Disk brakes",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1699,12 +1849,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-88-741",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / Mega / Disc brakes Krone SD / Mega / Disk brakes",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1720,12 +1873,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-88-736",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Open semitrailer with tarp KRONE SD,COIL LINER,MULDE 8580 MM,LIFT ACHSE,HUBDACH",
       "year": 2017,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1744,12 +1900,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-926",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:05Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / steering axle / lift axle / mounted forklift / drum brakes Krone SD / Steering axle / Lift axle / Mounted forkli...",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1765,12 +1924,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-102",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / steering axle / lift axle / mounted forklift / drum brakes Krone SD / Steering axle / Lift axle / Mounted forkli...",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1786,12 +1948,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-108",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Profiliner, standard, tool box, 3 units!!! Krone SD Profiliner, Standard, Tool Box, 3 Units!!!",
       "year": 2019,
+      "year_basis": "construction_year",
+      "construction_year": 2019,
+      "first_registration_year": 2020,
       "body_type": "other",
       "country": "HU",
       "seller": null,
@@ -1805,12 +1970,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-56-892",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / steering axle / lift axle / mounted forklift / drum brakes Krone SD / Steering axle / Lift axle / Mounted forkli...",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1826,12 +1994,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-105",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Krone",
       "model": "Krone Mega / sliding roof (Edscha) / lift axle Krone Mega / Edscha / Liftachse",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2015,
       "body_type": "other",
       "country": "DE",
       "seller": null,
@@ -1848,12 +2019,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-216-93-073",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Krone",
       "model": "KRONE SD P27-ALU BORDEN/RIDEAUX/LADEBOARD KRONE SD P27-ALU BORDEN/RIDEAUX/LADEBOARD",
       "year": 2015,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2015,
       "body_type": "other",
       "country": "BE",
       "seller": null,
@@ -1867,12 +2041,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-44-496",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD / Mega / BPW drum Krone SD / Mega / BPW Drum",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2015,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1889,12 +2066,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-225-48-727",
-      "observed_at": "2026-11-01T14:22:15Z"
+      "observed_at": "2026-11-01T14:25:06Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "2008 Schmitz Cargobull SCS/24L-13.62 E.B. / SCHMITZ AXLES. APK/TUV 27-08-2027 Schmitz Cargobull SCS/24L-13.62 E.B. / SCHMITZ AXLES. APK/TUV 27-...",
       "year": 2008,
+      "year_basis": "construction_year",
+      "construction_year": 2008,
+      "first_registration_year": 2008,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -1908,12 +2088,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-62-431",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull SCB*S3B - Frigo Schmitz - Meat hooks/rail systems/meat hanging - ATP/FRC - Pallet Schmitz Cargobull SCB*S3B - Frigo Schmitz - Hooks/Rohrbahnen/Vlee...",
       "year": 2020,
+      "year_basis": "construction_year",
+      "construction_year": 2020,
+      "first_registration_year": 2020,
       "body_type": "reefer",
       "country": "NL",
       "seller": null,
@@ -1929,12 +2112,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-78-395",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Tipper semitrailer SCHMITZ CARGOBULL Cargobull GOTHA SGF*S3 3 Achse Rollplane",
       "year": 2019,
+      "year_basis": "construction_year",
+      "construction_year": 2019,
+      "first_registration_year": 2019,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -1948,12 +2134,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-76-855",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull box semi-trailer with Carrier unit Schmitz Cargobull box semi-trailer with Carrier unit",
       "year": 2010,
+      "year_basis": "construction_year",
+      "construction_year": 2010,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "NO",
       "seller": null,
@@ -1967,12 +2156,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-59-922",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Curtainsider Schmitz Cargobull Schuifzeil",
       "year": 2017,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2017,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -1986,12 +2178,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-20-656",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull SGF S3 Schmitz Cargobull SGF S3",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": null,
       "body_type": "other",
       "country": "DE",
       "seller": null,
@@ -2005,12 +2200,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-66-520",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull SCB*S3B FRIGO CARRIER VECTOR 1950 Mt - BI-TEMP - 2 COMPARTIMENTS - DISC - LIFT-AXL Schmitz Cargobull SCB*S3B FRIGO CARRIER VECTOR 1950 Mt - BI-TEMP ...",
       "year": 2017,
+      "year_basis": "construction_year",
+      "construction_year": 2017,
+      "first_registration_year": 2017,
       "body_type": "reefer",
       "country": "BE",
       "seller": null,
@@ -2026,12 +2224,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-15-656",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Schmitz Cargobull",
       "year": 2019,
+      "year_basis": "construction_year",
+      "construction_year": 2019,
+      "first_registration_year": 2019,
       "body_type": "other",
       "country": "BE",
       "seller": null,
@@ -2045,12 +2246,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-16-886",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:09Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull box semi-trailer with Carrier refrigeration unit. Schmitz Cargobull box semi-trailer with Carrier refrigeration unit.",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "NO",
       "seller": null,
@@ -2064,12 +2268,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-55-387",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Tipper semitrailer SCHMITZ CARGOBULL Cargobull CARGOBULL GOTHA SKI 24 SL 7.2",
       "year": 2018,
+      "year_basis": "construction_year",
+      "construction_year": 2018,
+      "first_registration_year": 2018,
       "body_type": "tipper",
       "country": null,
       "seller": null,
@@ -2083,12 +2290,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-209-04-247",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Themoking SLXe Spectrum ,Multi ,SAF scheiben bremsen,lift Schmitz Cargobull Themoking SLXe Spectrum ,Multi ,SAF scheiben br...",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2015,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -2104,12 +2314,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-216-38-223",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull SGF*S3 20FT Kipper-Tipper-Kiep / 1x Lift-Axle / Disc Brakes LT4683 Schmitz Cargobull SGF*S3 20FT Kipper-Tipper-Kiep / 1x Lift-Axle /...",
       "year": 2014,
+      "year_basis": "construction_year",
+      "construction_year": 2014,
+      "first_registration_year": 2014,
       "body_type": "tipper",
       "country": "NL",
       "seller": null,
@@ -2125,12 +2338,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-50-631",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull SKO 24/L-13.62 FP25 EXPRESS-2 SKO 24, 3 axles, disc brakes, NL trailer, top condit Schmitz Cargobull SKO 24/L-13.62 FP25 EXPRESS-2 SKO 24, 3 Achsen,...",
       "year": 2009,
+      "year_basis": "construction_year",
+      "construction_year": 2009,
+      "first_registration_year": 2009,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -2144,12 +2360,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-217-29-778",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Curtainsider Schmitz Cargobull Schuifzeil",
       "year": 2019,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2019,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2165,12 +2384,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-20-676",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull SCF24 20 FT Chassis / Tank / ADR / BPW Axles / Discbrakes LT4064 Schmitz Cargobull SCF24 20 FT Chassis / Tank / ADR / BPW Axles / ...",
       "year": 2008,
+      "year_basis": "construction_year",
+      "construction_year": 2008,
+      "first_registration_year": 2008,
       "body_type": "tanker_silo",
       "country": "NL",
       "seller": null,
@@ -2186,12 +2408,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-02-191",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Schmitz Cargobull",
       "year": 2011,
+      "year_basis": "construction_year",
+      "construction_year": 2011,
+      "first_registration_year": 2011,
       "body_type": "other",
       "country": "BE",
       "seller": null,
@@ -2207,12 +2432,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-60-651",
-      "observed_at": "2026-11-01T14:22:18Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Box Semi-Trailer with Refrigeration/Freezer Unit – Schmitz Cargobull Box Semi-Trailer with Refrigeration/Freezer Unit –",
       "year": 2021,
+      "year_basis": "construction_year",
+      "construction_year": 2021,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "NO",
       "seller": null,
@@ -2228,12 +2456,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-90-117",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Curtainsider Schmitz Cargobull Schuifzeil",
       "year": 2019,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2019,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2249,12 +2480,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-20-641",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull / Hertoghs O3 / Curtainside Trailer / SAF Disk / APK TUV 06-27 Schmitz Cargobull / Hertoghs O3 / Curtainside Trailer / SAF Disk ...",
       "year": 2012,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2012,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2270,12 +2504,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-80-021",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull N/A SCB*S3B Schmitz Cargobull N/A SCB*S3B",
       "year": 2016,
+      "year_basis": "construction_year",
+      "construction_year": 2016,
+      "first_registration_year": 2016,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -2291,12 +2528,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-35-235",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Schmitz Cargobull",
       "year": 2013,
+      "year_basis": "construction_year",
+      "construction_year": 2013,
+      "first_registration_year": 2013,
       "body_type": "other",
       "country": "BE",
       "seller": null,
@@ -2312,12 +2552,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-89-106",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull Curtainsider Schmitz Cargobull Schuifzeil",
       "year": 2018,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2018,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2333,12 +2576,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-32-232",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Cargobull 3 CARRIER VECTOR 1950 + LIFT + APK 07-26 TR1063 Schmitz Cargobull 3 CARRIER VECTOR 1950 + LIFT + APK 07-26",
       "year": 2013,
+      "year_basis": "construction_year",
+      "construction_year": 2013,
+      "first_registration_year": 2013,
       "body_type": "other",
       "country": "NL",
       "seller": null,
@@ -2354,12 +2600,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-213-12-492",
-      "observed_at": "2026-11-01T14:22:19Z"
+      "observed_at": "2026-11-01T14:25:10Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Tipper semitrailer SCHWARZMÜLLER Schwarzmüller K-Serie Kippauflieger Alufelgen",
       "year": 2017,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2017,
       "body_type": "tipper",
       "country": null,
       "seller": null,
@@ -2376,12 +2625,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-220-40-398",
-      "observed_at": "2026-11-01T14:22:21Z"
+      "observed_at": "2026-11-01T14:25:13Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER S1 | EDSCHA | Coilmulde I LENKACHSE",
       "year": 2014,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2014,
       "body_type": "curtainsider",
       "country": "DE",
       "seller": null,
@@ -2398,12 +2650,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-46-323",
-      "observed_at": "2026-11-01T14:22:22Z"
+      "observed_at": "2026-11-01T14:25:14Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER Megatrailer Coil Verbreiterbar BPW Hubdach",
       "year": 2018,
+      "year_basis": "construction_year",
+      "construction_year": 2018,
+      "first_registration_year": 2018,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2420,12 +2675,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-52-773",
-      "observed_at": "2026-11-01T14:22:22Z"
+      "observed_at": "2026-11-01T14:25:14Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER J-serien",
       "year": 2014,
+      "year_basis": "construction_year",
+      "construction_year": 2014,
+      "first_registration_year": 2014,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2439,12 +2697,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-46-479",
-      "observed_at": "2026-11-01T14:22:22Z"
+      "observed_at": "2026-11-01T14:25:14Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer SCHWARZMÜLLER J-SERIE * 2X LIFT * MITNAHMESTAPLER * SAF",
       "year": 2015,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2015,
       "body_type": "flatbed_platform",
       "country": null,
       "seller": null,
@@ -2460,12 +2721,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-51-752",
-      "observed_at": "2026-11-01T14:22:22Z"
+      "observed_at": "2026-11-01T14:25:14Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Tipper semitrailer SCHWARZMÜLLER Kipper Stahl 25 Kubik",
       "year": 2012,
+      "year_basis": "construction_year",
+      "construction_year": 2012,
+      "first_registration_year": 2012,
       "body_type": "tipper",
       "country": null,
       "seller": null,
@@ -2481,12 +2745,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-16-347",
-      "observed_at": "2026-11-01T14:22:22Z"
+      "observed_at": "2026-11-01T14:25:14Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Log semitrailer SCHWARZMÜLLER Y203 / Liftachse / Alu-Felgen",
       "year": 2010,
+      "year_basis": "construction_year",
+      "construction_year": 2010,
+      "first_registration_year": 2010,
       "body_type": "other",
       "country": null,
       "seller": null,
@@ -2503,12 +2770,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-216-15-913",
-      "observed_at": "2026-11-01T14:22:22Z"
+      "observed_at": "2026-11-01T14:25:15Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Beverage semitrailer SCHWARZMÜLLER QuickSlider 2in1*light Chassis*2to LBW*LIft*BPW",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2015,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2525,12 +2795,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-321",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER QuickSlider 2in1*light Chassis*2to LBW*LIft*BPW",
       "year": 2015,
+      "year_basis": "construction_year",
+      "construction_year": 2015,
+      "first_registration_year": 2015,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2547,12 +2820,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-316",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER W103, COIL MULDE",
       "year": 2011,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2011,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2569,12 +2845,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-196-75-661",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER J-Serie, Liftachse, LBW",
       "year": 2016,
+      "year_basis": "first_registration_proxy",
+      "construction_year": null,
+      "first_registration_year": 2016,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2590,12 +2869,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-02-681",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Tipper semitrailer Schwarzmüller M Serie M10VLN3",
       "year": 2012,
+      "year_basis": "construction_year",
+      "construction_year": 2012,
+      "first_registration_year": 2013,
       "body_type": "tipper",
       "country": "AT",
       "seller": null,
@@ -2609,12 +2891,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-12-397",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "2012 Schwarzmüller HKS2/E Tipper Schwarzmüller HKS2/E Kipper / Swiss-Vehicle",
       "year": 2012,
+      "year_basis": "construction_year",
+      "construction_year": 2012,
+      "first_registration_year": 2012,
       "body_type": "tipper",
       "country": null,
       "seller": null,
@@ -2628,12 +2913,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-52-280",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "2010 Schwarzmüller HKS2/E Tipper Schwarzmüller HKS2/E Kipper / Swiss-Vehicle",
       "year": 2010,
+      "year_basis": "construction_year",
+      "construction_year": 2010,
+      "first_registration_year": 2010,
       "body_type": "tipper",
       "country": null,
       "seller": null,
@@ -2647,12 +2935,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-52-295",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:16Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER Light Palettenkasten SAF Achsen",
       "year": 2018,
+      "year_basis": "construction_year",
+      "construction_year": 2018,
+      "first_registration_year": 2018,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2669,12 +2960,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-97-976",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:17Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER Tautliner Zurringe Reserverad",
       "year": 2011,
+      "year_basis": "construction_year",
+      "construction_year": 2011,
+      "first_registration_year": 2011,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2688,12 +2982,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-76-960",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:17Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Open semitrailer with tarp SCHWARZMÜLLER Tautliner Zurringe Reserverad",
       "year": 2011,
+      "year_basis": "construction_year",
+      "construction_year": 2011,
+      "first_registration_year": 2011,
       "body_type": "curtainsider",
       "country": null,
       "seller": null,
@@ -2707,12 +3004,15 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-76-975",
-      "observed_at": "2026-11-01T14:22:23Z"
+      "observed_at": "2026-11-01T14:25:17Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2728,12 +3028,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338958",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2749,12 +3052,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338938",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2770,12 +3076,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338959",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2791,12 +3100,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338956",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2020,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2812,12 +3124,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2020-70340125",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Refrigerated Semi-Trailer",
       "year": 2020,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "ES",
       "seller": null,
@@ -2831,12 +3146,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2020-70324791",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Closed Box semi trailer",
       "year": 2020,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "box",
       "country": "NL",
       "seller": null,
@@ -2850,12 +3168,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2020-70339564",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2019,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2869,12 +3190,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2019-70325713",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2890,12 +3214,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338942",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2019,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -2912,12 +3239,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2019-70331510",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Container chassis",
       "year": 2014,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "container_chassis",
       "country": "NL",
       "seller": null,
@@ -2931,12 +3261,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2014-70328155",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone Curtainside semi-trailer",
       "year": 2014,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "BE",
       "seller": null,
@@ -2952,12 +3285,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-2014-70338834",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Refrigerated Semi-Trailer",
       "year": 2014,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "NL",
       "seller": null,
@@ -2973,12 +3309,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2014-70328745",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "AT",
       "seller": null,
@@ -2992,12 +3331,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70325655",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2017,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3011,12 +3353,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2017-70330082",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "AT",
       "seller": null,
@@ -3033,12 +3378,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338949",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2019,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3052,12 +3400,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2019-70322979",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3073,12 +3424,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70285996",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Krone",
       "model": "Krone SD Curtainside semi-trailer",
       "year": 2021,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "AT",
       "seller": null,
@@ -3095,12 +3449,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338948",
-      "observed_at": "2026-11-01T14:22:26Z"
+      "observed_at": "2026-11-01T14:25:20Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2015,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3114,12 +3471,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70325529",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3D Tipper",
       "year": 2020,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "tipper",
       "country": "NL",
       "seller": null,
@@ -3135,12 +3495,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3d-2020-70337812",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3154,12 +3517,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339913",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SGF*S3 Tipper",
       "year": 2017,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "tipper",
       "country": "NL",
       "seller": null,
@@ -3175,12 +3541,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-sgf*s3-2017-70335786",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3B Refrigerated Semi-Trailer",
       "year": 2013,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "NL",
       "seller": null,
@@ -3196,12 +3565,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3b-2013-70342315",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3215,12 +3587,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339714",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3B Refrigerated Semi-Trailer",
       "year": 2013,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "reefer",
       "country": "NL",
       "seller": null,
@@ -3236,12 +3611,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3b-2013-70331624",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3255,12 +3633,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70332374",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3274,12 +3655,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339716",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3293,12 +3677,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339895",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2015,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3312,12 +3699,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70333296",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3331,12 +3721,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339894",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3350,12 +3743,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339896",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2015,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3369,12 +3765,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70331220",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3388,12 +3787,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70337350",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3407,12 +3809,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339715",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3426,12 +3831,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339934",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SGF*S3 Tipper",
       "year": 2018,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "tipper",
       "country": "NL",
       "seller": null,
@@ -3447,12 +3855,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-sgf*s3-2018-70335582",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz Tipper",
       "year": 2018,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "tipper",
       "country": "AT",
       "seller": null,
@@ -3468,12 +3879,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-2018-70326261",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3487,12 +3901,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339950",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3506,12 +3923,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339713",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2016,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3525,12 +3945,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339900",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SCB*S3T Curtainside semi-trailer",
       "year": 2015,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "curtainsider",
       "country": "NL",
       "seller": null,
@@ -3544,12 +3967,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70331881",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "Schmitz SGF*S3 Tipper",
       "year": 2019,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "tipper",
       "country": "NL",
       "seller": null,
@@ -3565,12 +3991,15 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-sgf*s3-2019-70334836",
-      "observed_at": "2026-11-01T14:22:27Z"
+      "observed_at": "2026-11-01T14:25:22Z"
     },
     {
       "brand": "Schwarzmüller",
       "model": "Schwarzmüller SM Tipper",
       "year": 2019,
+      "year_basis": "source_url_year",
+      "construction_year": null,
+      "first_registration_year": null,
       "body_type": "tipper",
       "country": "NL",
       "seller": null,
@@ -3587,7 +4016,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schwarzmüller-sm-2019-70341662",
-      "observed_at": "2026-11-01T14:22:28Z"
+      "observed_at": "2026-11-01T14:25:23Z"
     }
   ]
 }
