@@ -827,9 +827,23 @@ def reef_mobile_record(source,item):
 def collect_reef_mobile(http,cfg,src,rows,events):
     key=os.getenv("REEF_API_KEY","").strip()
     endpoint="https://api.reefapi.com/mobile-de/v1/search"
+    credits_url="https://api.reefapi.com/account/v1/credits"
     if not key:
         events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"not_configured","reason":"REEF_API_KEY missing"})
         return
+
+    try:
+        cr=http.s.get(credits_url,headers={"x-api-key":key,"User-Agent":UA},timeout=15)
+        if cr.status_code==200:
+            info=cr.json()
+            remaining=info.get("remaining") if isinstance(info,dict) else None
+            events.append({"source":src["name"],"url":credits_url,"observed_at":now(),"status":"credit_check","remaining_credits":remaining})
+            floor=int(src.get("min_credits_to_run",40))
+            if isinstance(remaining,(int,float)) and remaining<floor:
+                events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"skipped_low_credits","remaining_credits":remaining,"minimum":floor})
+                return
+    except Exception as e:
+        events.append({"source":src["name"],"url":credits_url,"observed_at":now(),"status":"credit_check_failed","error":str(e)[:300]})
 
     years=list(src.get("years") or cfg.get("years",{}).get("priority",[2021]))
     if src.get("rotate_historical_year"):
