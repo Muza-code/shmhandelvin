@@ -14,32 +14,32 @@ from index_adapter import discover_index_pages
 UA = "SHM-Market-Collector/0.1"
 VIN_RE = re.compile(r"(?<![A-Z0-9])([A-HJ-NPR-Z0-9]{17})(?![A-Z0-9])", re.I)
 VIN_LABEL_RE = re.compile(r"\b(?:VIN|FIN|chassis(?:\s*(?:no|nr|number))?)\s*[:#-]?\s*([A-Z0-9-]{6,20})\b", re.I)
-YEAR_RE = re.compile(r"(?<!\\d)(20(?:0[8-9]|1\\d|2[01]))(?!\\d)")
-PRICE_RE = re.compile(r"(?:€|EUR\\s*)\\s*([0-9]{1,3}(?:[.\\s][0-9]{3})*(?:,[0-9]{1,2})?|[0-9]{4,6})", re.I)
+YEAR_RE = re.compile(r"(?<!\d)(20(?:0[8-9]|1\d|2[01]))(?!\d)")
+PRICE_RE = re.compile(r"(?:€|EUR\s*)\s*([0-9]{1,3}(?:[.\s][0-9]{3})*(?:,[0-9]{1,2})?|[0-9]{4,6})", re.I)
 BRANDS = {
-    "Kögel": re.compile(r"\\b(?:KÖGEL|KOEGEL|KOGEL)\\b", re.I),
-    "Krone": re.compile(r"\\bKRONE\\b", re.I),
-    "Schmitz Cargobull": re.compile(r"\\b(?:SCHMITZ(?:\\s+CARGOBULL)?|CARGOBULL)\\b", re.I),
-    "Schwarzmüller": re.compile(r"\\b(?:SCHWARZM[ÜU]LLER|SCHWARZMUELLER)\\b", re.I),
+    "Kögel": re.compile(r"\b(?:KÖGEL|KOEGEL|KOGEL)\b", re.I),
+    "Krone": re.compile(r"\bKRONE\b", re.I),
+    "Schmitz Cargobull": re.compile(r"\b(?:SCHMITZ(?:\s+CARGOBULL)?|CARGOBULL)\b", re.I),
+    "Schwarzmüller": re.compile(r"\b(?:SCHWARZM[ÜU]LLER|SCHWARZMUELLER)\b", re.I),
 }
 FEATURES = {
-    "saf": re.compile(r"\\bSAF\\b", re.I),
-    "bpw": re.compile(r"\\bBPW\\b", re.I),
-    "rotos": re.compile(r"\\bROTOS\\b", re.I),
-    "lift_axle": re.compile(r"\\b(?:lift\\s*axle|liftachse|essieu\\s+relevable|oś\\s+podnoszona)\\b", re.I),
-    "pallet_box": re.compile(r"\\b(?:pallet\\s*box|palletbox|palettenkasten|palletkist|skrzynia\\s+paletowa)\\b", re.I),
-    "code_xl": re.compile(r"\\b(?:code\\s*XL|DIN\\s*EN\\s*12642)\\b", re.I),
-    "mega": re.compile(r"\\bMEGA\\b", re.I),
-    "coil": re.compile(r"\\bCOIL\\b", re.I),
-    "joloda": re.compile(r"\\bJOLODA\\b", re.I),
-    "huckepack": re.compile(r"\\b(?:HUCKEPACK|P400)\\b", re.I),
+    "saf": re.compile(r"\bSAF\b", re.I),
+    "bpw": re.compile(r"\bBPW\b", re.I),
+    "rotos": re.compile(r"\bROTOS\b", re.I),
+    "lift_axle": re.compile(r"\b(?:lift\s*axle|liftachse|essieu\s+relevable|oś\s+podnoszona)\b", re.I),
+    "pallet_box": re.compile(r"\b(?:pallet\s*box|palletbox|palettenkasten|palletkist|skrzynia\s+paletowa)\b", re.I),
+    "code_xl": re.compile(r"\b(?:code\s*XL|DIN\s*EN\s*12642)\b", re.I),
+    "mega": re.compile(r"\bMEGA\b", re.I),
+    "coil": re.compile(r"\bCOIL\b", re.I),
+    "joloda": re.compile(r"\bJOLODA\b", re.I),
+    "huckepack": re.compile(r"\b(?:HUCKEPACK|P400)\b", re.I),
 }
 
 def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
 
 def clean(s):
-    return re.sub(r"\\s+", " ", s or "").strip()
+    return re.sub(r"\s+", " ", s or "").strip()
 
 def hash_text(s):
     return hashlib.sha256(s.encode("utf-8", errors="replace")).hexdigest()
@@ -104,26 +104,26 @@ def html_record(source,url,html):
         years=[y for y in years if 2008 <= y <= 2021]
     if not brand or not years: return None
     cy=None
-    m=re.search(r"(?:construction year|baujahr|year of manufacture|rok produkcji)\\s*[:\\-]?\\s*(20\\d{2})",text,re.I)
+    m=re.search(r"(?:construction year|baujahr|year of manufacture|rok produkcji)\s*[:\-]?\s*(20\d{2})",text,re.I)
     if m: cy=int(m.group(1))
     else: cy=years[0]
     fr=None
-    m=re.search(r"(?:first registration|initial registration|erstzulassung|première immatriculation)\\s*[:\\-]?\\s*(?:\\d{1,2}[./-])?(?:\\d{1,2}[./-])?(20\\d{2})",text,re.I)
+    m=re.search(r"(?:first registration|initial registration|erstzulassung|première immatriculation)\s*[:\-]?\s*(?:\d{1,2}[./-])?(?:\d{1,2}[./-])?(20\d{2})",text,re.I)
     if m: fr=int(m.group(1))
     vins=vins_of(text)
     f={k:bool(rx.search(text)) for k,rx in FEATURES.items()}
     axle="SAF" if f["saf"] else "BPW" if f["bpw"] else "Schmitz ROTOS" if f["rotos"] else None
     stock=None
-    m=re.search(r"(?:Info[- ]?no\\.?|Info[- ]?Nr\\.?|stock\\s*(?:no|nr)\\.?)\\s*[:#]?\\s*([A-Z0-9._/-]{3,40})",text,re.I)
+    m=re.search(r"(?:Info[- ]?no\.?|Info[- ]?Nr\.?|stock\s*(?:no|nr)\.?)\s*[:#]?\s*([A-Z0-9._/-]{3,40})",text,re.I)
     if m: stock=m.group(1)
     if not stock:
-        ds=re.findall(r"(?<!\\d)(\\d{6,10})(?!\\d)",url)
+        ds=re.findall(r"(?<!\d)(\d{6,10})(?!\d)",url)
         stock=ds[-1] if ds else None
     return {
         "source":source,"source_listing_id":stock,"url":url,"observed_at":now(),
         "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,
         "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
-        "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\\bEUR\\b",text,re.I) else None,
+        "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\bEUR\b",text,re.I) else None,
         "tax_basis":tax_of(text),"axle_maker":axle,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
         "code_xl":True if f["code_xl"] else None,"mega":True if f["mega"] else None,
@@ -213,7 +213,7 @@ def collect_sitemap(http,src,rows,events):
                 for u in locs:
                     if allow and (urlparse(u).hostname or "") not in allow: continue
                     low=u.lower()
-                    if inc and not any(x in low for x in inc) and not re.search(r"\\d{6,10}\\.html(?:$|\\?)",low): continue
+                    if inc and not any(x in low for x in inc) and not re.search(r"\d{6,10}\.html(?:$|\?)",low): continue
                     pages.append(u)
                     if len(pages)>=limit: break
         except Exception as e:
@@ -397,7 +397,7 @@ def collect_mobile(http,cfg,src,rows,events):
 
 def write_ndjson(path,rows):
     with path.open("w",encoding="utf-8") as f:
-        for r in rows:f.write(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\\n")
+        for r in rows:f.write(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n")
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--config",required=True); ap.add_argument("--out",required=True); a=ap.parse_args()
@@ -422,7 +422,7 @@ def main():
             summary["ingest"]={"configured":True,"ok":q.ok,"status_code":q.status_code,"response":q.text[:500]}
         except Exception as e: summary["ingest"]={"configured":True,"ok":False,"error":str(e)[:500]}
     else: summary["ingest"]={"configured":False}
-    (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)+"\\n",encoding="utf-8")
+    (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False,indent=2))
     http.close()
 
