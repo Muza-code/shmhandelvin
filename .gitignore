@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+private/valuation_anchors.json
+private/*.secret.json
+local_out/
