@@ -31,7 +31,8 @@
       "detail_url_regex": "\\d{6,10}\\.html(?:$|\\?)",
       "max_index_pages": 12,
       "max_pages_per_run": 120,
-      "github_enabled": false
+      "github_enabled": false,
+      "local_enabled": true
     },
     {
       "name": "TrucksNL",
@@ -54,7 +55,9 @@
       "detail_url_regex": "-[0-9]{5,10}-vd(?:$|\\?)",
       "max_index_pages": 20,
       "max_pages_per_run": 160,
-      "github_enabled": false
+      "github_enabled": false,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "TruckScout24",
@@ -73,7 +76,8 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": true,
-      "source_segment": "Kögel"
+      "source_segment": "Kögel",
+      "local_enabled": true
     },
     {
       "name": "TruckScout24",
@@ -92,7 +96,8 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": true,
-      "source_segment": "Krone"
+      "source_segment": "Krone",
+      "local_enabled": true
     },
     {
       "name": "TruckScout24",
@@ -111,7 +116,8 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": true,
-      "source_segment": "Schmitz Cargobull"
+      "source_segment": "Schmitz Cargobull",
+      "local_enabled": true
     },
     {
       "name": "TruckScout24",
@@ -130,7 +136,8 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": true,
-      "source_segment": "Schwarzmüller"
+      "source_segment": "Schwarzmüller",
+      "local_enabled": true
     },
     {
       "name": "Kleyn Trucks",
@@ -151,7 +158,9 @@
       "detail_url_regex": "/en/vehicle/details/[0-9]+/",
       "max_index_pages": 24,
       "max_pages_per_run": 180,
-      "github_enabled": false
+      "github_enabled": false,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "BAS World",
@@ -170,7 +179,8 @@
       "max_pages_per_run": 0,
       "github_enabled": true,
       "force_browser": false,
-      "source_segment": "Kögel"
+      "source_segment": "Kögel",
+      "local_enabled": true
     },
     {
       "name": "BAS World",
@@ -189,7 +199,8 @@
       "max_pages_per_run": 0,
       "github_enabled": true,
       "force_browser": false,
-      "source_segment": "Krone"
+      "source_segment": "Krone",
+      "local_enabled": true
     },
     {
       "name": "BAS World",
@@ -208,7 +219,8 @@
       "max_pages_per_run": 0,
       "github_enabled": true,
       "force_browser": false,
-      "source_segment": "Schmitz Cargobull"
+      "source_segment": "Schmitz Cargobull",
+      "local_enabled": true
     },
     {
       "name": "BAS World",
@@ -227,7 +239,8 @@
       "max_pages_per_run": 0,
       "github_enabled": true,
       "force_browser": false,
-      "source_segment": "Schwarzmüller"
+      "source_segment": "Schwarzmüller",
+      "local_enabled": true
     },
     {
       "name": "Truck1",
@@ -247,7 +260,9 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Kögel",
-      "target_year": 2021
+      "target_year": 2021,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "Truck1",
@@ -267,7 +282,9 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Krone",
-      "target_year": 2021
+      "target_year": 2021,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "Truck1",
@@ -287,7 +304,9 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Schmitz Cargobull",
-      "target_year": 2021
+      "target_year": 2021,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "Truck1",
@@ -307,7 +326,9 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Schwarzmüller",
-      "target_year": 2021
+      "target_year": 2021,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "KRONE Used",
@@ -325,7 +346,8 @@
       "max_index_pages": 10,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true
+      "github_enabled": true,
+      "local_enabled": true
     },
     {
       "name": "Heisterkamp Used",
@@ -343,7 +365,8 @@
       "max_index_pages": 5,
       "max_pages_per_run": 0,
       "force_browser": false,
-      "github_enabled": true
+      "github_enabled": true,
+      "local_enabled": true
     },
     {
       "name": "mobile.de public",
@@ -363,7 +386,9 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
-      "source_segment": "Kögel"
+      "source_segment": "Kögel",
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "mobile.de public",
@@ -383,7 +408,9 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
-      "source_segment": "Krone"
+      "source_segment": "Krone",
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "mobile.de public",
@@ -403,7 +430,9 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
-      "source_segment": "Schmitz Cargobull"
+      "source_segment": "Schmitz Cargobull",
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "mobile.de public",
@@ -423,7 +452,9 @@
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
-      "source_segment": "Schwarzmüller"
+      "source_segment": "Schwarzmüller",
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     },
     {
       "name": "Autoplius",
@@ -442,7 +473,8 @@
       "max_index_pages": 12,
       "max_pages_per_run": 0,
       "force_browser": false,
-      "github_enabled": false
+      "github_enabled": false,
+      "local_enabled": true
     },
     {
       "name": "Planet-Trucks",
@@ -457,7 +489,8 @@
       "max_pages_per_run": 0,
       "force_browser": false,
       "github_enabled": true,
-      "source_segment": "Kögel"
+      "source_segment": "Kögel",
+      "local_enabled": true
     },
     {
       "name": "Planet-Trucks",
@@ -472,7 +505,8 @@
       "max_pages_per_run": 0,
       "force_browser": false,
       "github_enabled": true,
-      "source_segment": "Krone"
+      "source_segment": "Krone",
+      "local_enabled": true
     },
     {
       "name": "Planet-Trucks",
@@ -487,7 +521,8 @@
       "max_pages_per_run": 0,
       "force_browser": false,
       "github_enabled": true,
-      "source_segment": "Schmitz Cargobull"
+      "source_segment": "Schmitz Cargobull",
+      "local_enabled": true
     },
     {
       "name": "Planet-Trucks",
@@ -502,7 +537,8 @@
       "max_pages_per_run": 0,
       "force_browser": false,
       "github_enabled": true,
-      "source_segment": "Schwarzmüller"
+      "source_segment": "Schwarzmüller",
+      "local_enabled": true
     },
     {
       "name": "Via Mobilis",
@@ -516,7 +552,9 @@
       "max_index_pages": 4,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": false
+      "github_enabled": false,
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
     }
   ]
 }
