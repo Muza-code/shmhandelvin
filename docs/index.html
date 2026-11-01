@@ -121,14 +121,20 @@ function render(){
     ['Активных',data.stats?.active??'—'],
     ['VIN найден',data.stats?.vin_found??L.filter(x=>x.vin).length],
     ['Источников',data.stats?.sources??new Set(L.map(x=>x.source)).size],
-    ['Кандидатов',L.filter(x=>x.status==='interesting').length]
+    ['Ниже Q1',L.filter(x=>marketContext(x).status==='interesting').length]
   ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
 
   const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, tf=document.getElementById('bodyFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
   const enriched=L.map(x=>({...x,_market:marketContext(x)}));
   const F=enriched.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x._market.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
 
-  document.getElementById('opportunities').innerHTML=F.slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
+  const opp=F.filter(x=>x._market.status==='interesting'||x._market.status==='check')
+    .sort((a,b)=>{
+      const da=a._market.diff==null?1e9:a._market.diff;
+      const db=b._market.diff==null?1e9:b._market.diff;
+      return da-db;
+    }).slice(0,8);
+  document.getElementById('opportunities').innerHTML=opp.map(x=>`
     <article class="deal-card">
       <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div>${badge(x._market.status)}</div>
       <div class="deal-price">${euro(x.price_net_eur)} <small>ask</small></div>
