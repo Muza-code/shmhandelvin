@@ -29,8 +29,8 @@
         "fahrzeugsuche"
       ],
       "detail_url_regex": "\\d{6,10}\\.html(?:$|\\?)",
-      "max_index_pages": 40,
-      "max_pages_per_run": 700
+      "max_index_pages": 12,
+      "max_pages_per_run": 120
     },
     {
       "name": "mobile.de Search API",
