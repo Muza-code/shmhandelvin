@@ -955,12 +955,36 @@ def collect_reef_mobile(http,cfg,src,rows,events):
                         data=body.get("data") or {}
                         items=data.get("results") or data.get("listings") or data.get("items") or []
                         before_count=len(rows)
+                        drop_reasons={}
+                        dropped_samples=[]
                         for item in items:
                             if not isinstance(item,dict):
                                 continue
                             rec=reef_mobile_record(src["name"],item,expected_brand=brand)
                             if rec and rec.get("brand")==brand:
                                 rows.append(rec)
+                            else:
+                                _text=clean(flatten(item))
+                                _det=brand_of(_text)
+                                if _det and _det!=brand:
+                                    _reason="brand_conflict:"+str(_det)
+                                else:
+                                    _years=[]
+                                    for _v in deep_values(item,("construction_year","constructionYear","year","year_of_construction","constructionYearFrom","registrationYear","first_registration","firstRegistration","first_registration_date","firstRegistrationDate","registration_date","registrationDate")):
+                                        _m=re.search(r"(20\\d{2})",str(_v))
+                                        if _m:
+                                            _years.append(int(_m.group(1)))
+                                    _valid=[_y for _y in _years if 2008<=_y<=2021]
+                                    _reason="no_market_year" if not _valid else "other_parser_reject"
+                                drop_reasons[_reason]=drop_reasons.get(_reason,0)+1
+                                if len(dropped_samples)<5:
+                                    dropped_samples.append({
+                                        "reason":_reason,
+                                        "detected_brand":_det,
+                                        "years":_years if "_years" in locals() else [],
+                                        "title":clean(str(deep_first(item,("title","headline","model","model_description","modelDescription")) or ""))[:180],
+                                        "top_keys":list(item.keys())[:30]
+                                    })
                         added=len(rows)-before_count
                         sample_titles=[]
                         if added==0 and items:
@@ -974,6 +998,8 @@ def collect_reef_mobile(http,cfg,src,rows,events):
                             "brand":brand,"year":year,"page":page,"search_mode":mode,"search_value":value,
                             "cards_added":added,
                             "items_seen":len(items),
+                            "drop_reasons":drop_reasons,
+                            "dropped_samples":dropped_samples,
                             "sample_titles":sample_titles,
                             "total_results":data.get("total_results"),
                             "record_count":(body.get("meta") or {}).get("record_count"),
