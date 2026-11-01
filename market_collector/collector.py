@@ -395,7 +395,13 @@ def collect_index_cards(http,src,rows,events):
                     continue
 
                 low=full.lower()
-                if index_tokens and any(t in low for t in index_tokens) and full not in seen and full not in queue:
+                label=clean(a.get_text(" ",strip=True)).lower()
+                pagination_label=bool(
+                    re.fullmatch(r"\d{1,3}",label) or
+                    label in {"next","next page","weiter","volgende","suivant","siguiente","następna",">","»","›"} or
+                    re.search(r"[?&](?:page|p|pg)=\d+",full,re.I)
+                )
+                if index_tokens and any(t in low for t in index_tokens) and pagination_label and full not in seen and full not in queue:
                     queue.append(full)
 
         except Exception as e:
