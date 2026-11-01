@@ -317,12 +317,18 @@ def collect_index_cards(http,src,rows,events):
                         continue
                     node=a
                     best=None
-                    for _ in range(7):
+                    for _ in range(9):
                         if node is None:
                             break
                         txt=clean(node.get_text(" ",strip=True))
-                        if 120 <= len(txt) <= 7000 and brand_of(txt) and YEAR_RE.search(txt):
+                        detail_links=0
+                        try:
+                            detail_links=sum(1 for z in node.find_all("a",href=True) if detail_rx.search(urljoin(final_url,z.get("href",""))))
+                        except Exception:
+                            detail_links=99
+                        if 80 <= len(txt) <= 5000 and brand_of(txt) and YEAR_RE.search(txt) and detail_links <= 1:
                             best=node
+                            break
                         node=node.parent
                     if best is not None:
                         rec=html_record(src["name"],key,str(best))
