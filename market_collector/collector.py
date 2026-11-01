@@ -233,6 +233,8 @@ def collect_index_cards(http,src,rows,events):
     index_tokens=[x.lower() for x in src.get("index_url_tokens") or []]
     allow=set(src.get("allow_hosts") or [])
     card_seen=set()
+    detail_anchor_count=0
+    href_samples=[]
 
     while queue and len(seen)<max_pages:
         url=queue.pop(0)
@@ -258,6 +260,9 @@ def collect_index_cards(http,src,rows,events):
                     continue
 
                 if detail_rx.search(full):
+                    detail_anchor_count += 1
+                    if len(href_samples) < 20:
+                        href_samples.append(full)
                     key=full.split("?")[0]
                     if key in card_seen:
                         continue
@@ -287,7 +292,8 @@ def collect_index_cards(http,src,rows,events):
 
     events.append({
         "source":src["name"],"url":None,"observed_at":now(),"status":"source_summary",
-        "index_pages":len(seen),"cards_added":len(rows)-before
+        "index_pages":len(seen),"cards_added":len(rows)-before,
+        "detail_anchor_count":detail_anchor_count,"href_samples":href_samples
     })
 
 def collect_index(http,src,rows,events):
@@ -303,7 +309,8 @@ def collect_index(http,src,rows,events):
             if rec:
                 rows.append(rec)
             else:
-                events.append({"source":src["name"],"url":final_url,"observed_at":now(),"status":"detail_not_relevant_or_unparsed","mode":mode})
+                sample=clean(BeautifulSoup(html,"html.parser").get_text(" ",strip=True))[:1800]
+                events.append({"source":src["name"],"url":final_url,"observed_at":now(),"status":"detail_not_relevant_or_unparsed","mode":mode,"text_sample":sample})
         except Exception as e:
             events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
         if i%40==0: time.sleep(.5)
