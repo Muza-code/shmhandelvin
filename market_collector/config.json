@@ -372,7 +372,7 @@
       "name": "mobile.de public",
       "type": "index_cards",
       "seed_pages": [
-        "https://suchen.mobile.de/lkw/koegel.html"
+        "https://suchen.mobile.de/lkw/koegel-auflieger.html"
       ],
       "allow_hosts": [
         "suchen.mobile.de",
@@ -387,14 +387,14 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Kögel",
-      "local_enabled": false,
-      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
+      "local_enabled": true,
+      "local_note": "priority source; corrected public search URL after SHM Windows test"
     },
     {
       "name": "mobile.de public",
       "type": "index_cards",
       "seed_pages": [
-        "https://suchen.mobile.de/lkw/krone.html"
+        "https://suchen.mobile.de/lkw/krone-auflieger.html"
       ],
       "allow_hosts": [
         "suchen.mobile.de",
@@ -409,8 +409,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Krone",
-      "local_enabled": false,
-      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
+      "local_enabled": true,
+      "local_note": "priority source; corrected public search URL after SHM Windows test"
     },
     {
       "name": "mobile.de public",
@@ -431,8 +431,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Schmitz Cargobull",
-      "local_enabled": false,
-      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
+      "local_enabled": true,
+      "local_note": "priority source; corrected public search URL after SHM Windows test"
     },
     {
       "name": "mobile.de public",
@@ -453,8 +453,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Schwarzmüller",
-      "local_enabled": false,
-      "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
+      "local_enabled": true,
+      "local_note": "priority source; corrected public search URL after SHM Windows test"
     },
     {
       "name": "Autoplius",
@@ -555,6 +555,86 @@
       "github_enabled": false,
       "local_enabled": false,
       "local_note": "disabled after SHM Windows test: blocked, timed out, or no parsable cards"
+    },
+    {
+      "name": "OLX Poland",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.olx.pl/motoryzacja/przyczepy-i-naczepy/q-kogel/"
+      ],
+      "allow_hosts": [
+        "www.olx.pl"
+      ],
+      "index_url_tokens": [
+        "/q-kogel/"
+      ],
+      "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": false,
+      "local_enabled": true,
+      "source_segment": "Kögel"
+    },
+    {
+      "name": "OLX Poland",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.olx.pl/motoryzacja/przyczepy-i-naczepy/q-krone/"
+      ],
+      "allow_hosts": [
+        "www.olx.pl"
+      ],
+      "index_url_tokens": [
+        "/q-krone/"
+      ],
+      "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": false,
+      "local_enabled": true,
+      "source_segment": "Krone"
+    },
+    {
+      "name": "OLX Poland",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.olx.pl/motoryzacja/przyczepy-i-naczepy/q-schmitz/"
+      ],
+      "allow_hosts": [
+        "www.olx.pl"
+      ],
+      "index_url_tokens": [
+        "/q-schmitz/"
+      ],
+      "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": false,
+      "local_enabled": true,
+      "source_segment": "Schmitz Cargobull"
+    },
+    {
+      "name": "OLX Poland",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.olx.pl/motoryzacja/przyczepy-i-naczepy/q-schwarzmuller/"
+      ],
+      "allow_hosts": [
+        "www.olx.pl"
+      ],
+      "index_url_tokens": [
+        "/q-schwarzmuller/"
+      ],
+      "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": false,
+      "local_enabled": true,
+      "source_segment": "Schwarzmüller"
     }
   ]
 }
