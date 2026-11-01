@@ -155,18 +155,44 @@ def html_record(source,url,html):
     text=clean(" ".join([title,alts,soup.get_text(" ",strip=True),flatten(docs)]))
     url_text=url.replace("-", " ").replace("_", " ")
     brand=brand_of(url_text) or brand_of(text)
+    if not brand:
+        return None
+
+    cy=None
+    construction_patterns=[
+        r"(?:construction year|year of construction|baujahr|year of manufacture|body construction year|body year|rok produkcji)\s*[:\-]?\s*(20\d{2})",
+        r"(?:manufactured|manufacturing year)\s*[:\-]?\s*(20\d{2})",
+    ]
+    for pat in construction_patterns:
+        m=re.search(pat,text,re.I)
+        if m:
+            y=int(m.group(1))
+            if 2008 <= y <= 2021:
+                cy=y
+                break
+
+    fr=None
+    m=re.search(r"(?:first registration|initial registration|erstzulassung|première immatriculation|date of first registration)\s*[:\-]?\s*(?:\d{1,2}[./-])?(?:\d{1,2}[./-])?(20\d{2})",text,re.I)
+    if m:
+        y=int(m.group(1))
+        if 2008 <= y <= 2021:
+            fr=y
+
     url_years=sorted({int(y) for y in YEAR_RE.findall(url_text)})
     url_years=[y for y in url_years if 2008 <= y <= 2021]
-    years=url_years or sorted({int(y) for y in YEAR_RE.findall(text)})
-    years=[y for y in years if 2008 <= y <= 2021]
-    if not brand or not years: return None
-    cy=None
-    m=re.search(r"(?:construction year|baujahr|year of manufacture|rok produkcji)\s*[:\-]?\s*(20\d{2})",text,re.I)
-    if m: cy=int(m.group(1))
-    else: cy=years[0]
-    fr=None
-    m=re.search(r"(?:first registration|initial registration|erstzulassung|première immatriculation)\s*[:\-]?\s*(?:\d{1,2}[./-])?(?:\d{1,2}[./-])?(20\d{2})",text,re.I)
-    if m: fr=int(m.group(1))
+    source_year=url_years[0] if url_years else None
+
+    if cy is not None:
+        market_year=cy
+        year_basis="construction_year"
+    elif source_year is not None:
+        market_year=source_year
+        year_basis="source_url_year"
+    elif fr is not None:
+        market_year=fr
+        year_basis="first_registration_proxy"
+    else:
+        return None
     vins=vins_of(text)
     f={k:bool(rx.search(text)) for k,rx in FEATURES.items()}
     axle="SAF" if f["saf"] else "BPW" if f["bpw"] else "Schmitz ROTOS" if f["rotos"] else None
@@ -184,7 +210,8 @@ def html_record(source,url,html):
             break
     return {
         "source":source,"source_listing_id":stock,"url":url,"observed_at":now(),
-        "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,"country":country,
+        "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,
+        "market_year":market_year,"year_basis":year_basis,"source_year":source_year,"country":country,
         "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
         "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\bEUR\b",text,re.I) else None,
         "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,
