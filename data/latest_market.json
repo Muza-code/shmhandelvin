@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-11-01T14:18:26Z",
+  "updated_at": "2026-11-01T14:20:30Z",
   "stats": {
-    "listings": 108,
+    "listings": 122,
     "active": null,
-    "vin_found": 8,
+    "vin_found": 10,
     "sources": 2
   },
   "coverage": [
@@ -29,7 +29,7 @@
       "source": "TruckScout24",
       "state": "live",
       "state_label": "работает",
-      "note": "64 cards"
+      "note": "78 cards"
     },
     {
       "source": "TrucksNL",
@@ -43,94 +43,126 @@
       "brand": "Krone",
       "year": 2021,
       "cards": 10,
-      "priced": 0,
+      "priced": 10,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 2,
       "countries": 3,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 14750.0,
+      "median_ask_eur": 14750.0,
+      "q3_ask_eur": 14862.5,
+      "q1_net_eur": 26954.0,
+      "median_net_eur": 26954.0,
+      "q3_net_eur": 26954.0
     },
     {
       "brand": "Krone",
       "year": 2020,
-      "cards": 4,
-      "priced": 0,
-      "vin_found": 0,
+      "cards": 5,
+      "priced": 5,
+      "net_priced": 1,
+      "vin_found": 1,
       "sources": 2,
       "countries": 2,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 11900.0,
+      "median_ask_eur": 12800.0,
+      "q3_ask_eur": 17900.0,
+      "q1_net_eur": 12800.0,
+      "median_net_eur": 12800.0,
+      "q3_net_eur": 12800.0
     },
     {
       "brand": "Krone",
       "year": 2019,
-      "cards": 9,
-      "priced": 0,
+      "cards": 10,
+      "priced": 10,
+      "net_priced": 7,
       "vin_found": 0,
       "sources": 2,
-      "countries": 2,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 3,
+      "q1_ask_eur": 8850.0,
+      "median_ask_eur": 10950.0,
+      "q3_ask_eur": 13172.5,
+      "q1_net_eur": 10425.0,
+      "median_net_eur": 10950.0,
+      "q3_net_eur": 14745.0
     },
     {
       "brand": "Krone",
       "year": 2018,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 7300.0,
+      "median_ask_eur": 7300.0,
+      "q3_ask_eur": 7300.0,
+      "q1_net_eur": 7300.0,
+      "median_net_eur": 7300.0,
+      "q3_net_eur": 7300.0
     },
     {
       "brand": "Krone",
       "year": 2017,
       "cards": 4,
-      "priced": 0,
+      "priced": 4,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 2,
-      "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 2,
+      "q1_ask_eur": 5737.5,
+      "median_ask_eur": 9700.0,
+      "q3_ask_eur": 15100.0,
+      "q1_net_eur": 9700.0,
+      "median_net_eur": 13500.0,
+      "q3_net_eur": 16700.0
     },
     {
       "brand": "Krone",
       "year": 2016,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 7125.0,
+      "median_ask_eur": 8350.0,
+      "q3_ask_eur": 9575.0,
+      "q1_net_eur": 7125.0,
+      "median_net_eur": 8350.0,
+      "q3_net_eur": 9575.0
     },
     {
       "brand": "Krone",
       "year": 2015,
-      "cards": 1,
-      "priced": 0,
+      "cards": 3,
+      "priced": 3,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 3,
+      "q1_ask_eur": 2794.5,
+      "median_ask_eur": 4400.0,
+      "q3_ask_eur": 5125.0,
+      "q1_net_eur": 2794.5,
+      "median_net_eur": 4400.0,
+      "q3_net_eur": 5125.0
     },
     {
       "brand": "Krone",
       "year": 2014,
       "cards": 3,
-      "priced": 0,
+      "priced": 3,
+      "net_priced": 0,
       "vin_found": 0,
       "sources": 1,
       "countries": 2,
+      "q1_ask_eur": 6650.0,
+      "median_ask_eur": 8400.0,
+      "q3_ask_eur": 9150.0,
       "q1_net_eur": null,
       "median_net_eur": null,
       "q3_net_eur": null
@@ -138,23 +170,31 @@
     {
       "brand": "Krone",
       "year": 2013,
-      "cards": 1,
-      "priced": 0,
-      "vin_found": 0,
+      "cards": 2,
+      "priced": 2,
+      "net_priced": 2,
+      "vin_found": 1,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 2,
+      "q1_ask_eur": 4236.5,
+      "median_ask_eur": 4486.0,
+      "q3_ask_eur": 4735.5,
+      "q1_net_eur": 4236.5,
+      "median_net_eur": 4486.0,
+      "q3_net_eur": 4735.5
     },
     {
       "brand": "Krone",
       "year": 2012,
       "cards": 1,
       "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
-      "countries": 0,
+      "countries": 1,
+      "q1_ask_eur": 7500.0,
+      "median_ask_eur": 7500.0,
+      "q3_ask_eur": 7500.0,
       "q1_net_eur": 7500.0,
       "median_net_eur": 7500.0,
       "q3_net_eur": 7500.0
@@ -163,190 +203,286 @@
       "brand": "Krone",
       "year": 2011,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 4999.0,
+      "median_ask_eur": 4999.0,
+      "q3_ask_eur": 4999.0,
+      "q1_net_eur": 4999.0,
+      "median_net_eur": 4999.0,
+      "q3_net_eur": 4999.0
+    },
+    {
+      "brand": "Krone",
+      "year": 2009,
+      "cards": 1,
+      "priced": 1,
+      "net_priced": 1,
+      "vin_found": 0,
+      "sources": 1,
+      "countries": 1,
+      "q1_ask_eur": 4450.0,
+      "median_ask_eur": 4450.0,
+      "q3_ask_eur": 4450.0,
+      "q1_net_eur": 4450.0,
+      "median_net_eur": 4450.0,
+      "q3_net_eur": 4450.0
+    },
+    {
+      "brand": "Krone",
+      "year": 2008,
+      "cards": 1,
+      "priced": 1,
+      "net_priced": 1,
+      "vin_found": 0,
+      "sources": 1,
+      "countries": 1,
+      "q1_ask_eur": 8950.0,
+      "median_ask_eur": 8950.0,
+      "q3_ask_eur": 8950.0,
+      "q1_net_eur": 8950.0,
+      "median_net_eur": 8950.0,
+      "q3_net_eur": 8950.0
     },
     {
       "brand": "Kögel",
       "year": 2019,
       "cards": 3,
-      "priced": 0,
+      "priced": 3,
+      "net_priced": 3,
       "vin_found": 2,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 1,
+      "q1_ask_eur": 16150.0,
+      "median_ask_eur": 18400.0,
+      "q3_ask_eur": 20200.0,
+      "q1_net_eur": 16150.0,
+      "median_net_eur": 18400.0,
+      "q3_net_eur": 20200.0
     },
     {
       "brand": "Kögel",
       "year": 2018,
       "cards": 3,
-      "priced": 0,
+      "priced": 3,
+      "net_priced": 3,
       "vin_found": 1,
       "sources": 1,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 8825.0,
+      "median_ask_eur": 10900.0,
+      "q3_ask_eur": 14700.0,
+      "q1_net_eur": 8825.0,
+      "median_net_eur": 10900.0,
+      "q3_net_eur": 14700.0
     },
     {
       "brand": "Kögel",
       "year": 2017,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 1,
+      "q1_ask_eur": 7725.0,
+      "median_ask_eur": 8650.0,
+      "q3_ask_eur": 9575.0,
+      "q1_net_eur": 7725.0,
+      "median_net_eur": 8650.0,
+      "q3_net_eur": 9575.0
     },
     {
       "brand": "Kögel",
       "year": 2016,
-      "cards": 1,
-      "priced": 0,
+      "cards": 2,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 5625.0,
+      "median_ask_eur": 6150.0,
+      "q3_ask_eur": 6675.0,
+      "q1_net_eur": 5625.0,
+      "median_net_eur": 6150.0,
+      "q3_net_eur": 6675.0
     },
     {
       "brand": "Kögel",
       "year": 2015,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 5867.5,
+      "median_ask_eur": 6745.0,
+      "q3_ask_eur": 7622.5,
+      "q1_net_eur": 5867.5,
+      "median_net_eur": 6745.0,
+      "q3_net_eur": 7622.5
     },
     {
       "brand": "Kögel",
       "year": 2012,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 3800.0,
+      "median_ask_eur": 3800.0,
+      "q3_ask_eur": 3800.0,
+      "q1_net_eur": 3800.0,
+      "median_net_eur": 3800.0,
+      "q3_net_eur": 3800.0
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2021,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 35864.0,
+      "median_ask_eur": 35864.0,
+      "q3_ask_eur": 35864.0,
+      "q1_net_eur": 35864.0,
+      "median_net_eur": 35864.0,
+      "q3_net_eur": 35864.0
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2020,
       "cards": 4,
-      "priced": 0,
+      "priced": 4,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 2,
-      "countries": 2,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 3,
+      "q1_ask_eur": 17147.5,
+      "median_ask_eur": 19900.0,
+      "q3_ask_eur": 22277.75,
+      "q1_net_eur": 14395.0,
+      "median_net_eur": 19900.0,
+      "q3_net_eur": 24655.5
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2019,
-      "cards": 1,
-      "priced": 0,
+      "cards": 2,
+      "priced": 2,
+      "net_priced": 1,
       "vin_found": 0,
-      "sources": 1,
+      "sources": 2,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 18900.0,
+      "median_ask_eur": 18900.0,
+      "q3_ask_eur": 18900.0,
+      "q1_net_eur": 18900.0,
+      "median_net_eur": 18900.0,
+      "q3_net_eur": 18900.0
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2018,
-      "cards": 3,
-      "priced": 0,
+      "cards": 4,
+      "priced": 4,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 2,
       "countries": 3,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 16825.0,
+      "median_ask_eur": 17150.0,
+      "q3_ask_eur": 18207.75,
+      "q1_net_eur": 17832.75,
+      "median_net_eur": 18765.5,
+      "q3_net_eur": 19698.25
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2017,
-      "cards": 2,
-      "priced": 0,
+      "cards": 3,
+      "priced": 3,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 2,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 7450.0,
+      "median_ask_eur": 8250.0,
+      "q3_ask_eur": 12250.0,
+      "q1_net_eur": 7050.0,
+      "median_net_eur": 7450.0,
+      "q3_net_eur": 7850.0
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2016,
       "cards": 16,
-      "priced": 0,
+      "priced": 16,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 2,
       "countries": 2,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 6200.0,
+      "median_ask_eur": 6200.0,
+      "q3_ask_eur": 6250.0,
+      "q1_net_eur": 14351.0,
+      "median_net_eur": 16525.0,
+      "q3_net_eur": 17437.5
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2015,
-      "cards": 6,
-      "priced": 0,
+      "cards": 7,
+      "priced": 7,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 2,
-      "countries": 2,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 3,
+      "q1_ask_eur": 5900.0,
+      "median_ask_eur": 5900.0,
+      "q3_ask_eur": 6700.0,
+      "q1_net_eur": 6120.0,
+      "median_net_eur": 7250.0,
+      "q3_net_eur": 9579.5
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2014,
       "cards": 3,
-      "priced": 0,
+      "priced": 3,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 1,
+      "q1_ask_eur": 6950.0,
+      "median_ask_eur": 7950.0,
+      "q3_ask_eur": 10450.0,
+      "q1_net_eur": 6950.0,
+      "median_net_eur": 7950.0,
+      "q3_net_eur": 10450.0
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2013,
-      "cards": 3,
-      "priced": 0,
+      "cards": 4,
+      "priced": 4,
+      "net_priced": 0,
       "vin_found": 0,
       "sources": 2,
-      "countries": 1,
+      "countries": 2,
+      "q1_ask_eur": 11650.0,
+      "median_ask_eur": 13400.0,
+      "q3_ask_eur": 15550.0,
       "q1_net_eur": null,
       "median_net_eur": null,
       "q3_net_eur": null
@@ -355,134 +491,190 @@
       "brand": "Schmitz Cargobull",
       "year": 2010,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 3304.0,
+      "median_ask_eur": 3304.0,
+      "q3_ask_eur": 3304.0,
+      "q1_net_eur": 3304.0,
+      "median_net_eur": 3304.0,
+      "q3_net_eur": 3304.0
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "year": 2009,
+      "cards": 1,
+      "priced": 1,
+      "net_priced": 1,
+      "vin_found": 0,
+      "sources": 1,
+      "countries": 1,
+      "q1_ask_eur": 5450.0,
+      "median_ask_eur": 5450.0,
+      "q3_ask_eur": 5450.0,
+      "q1_net_eur": 5450.0,
+      "median_net_eur": 5450.0,
+      "q3_net_eur": 5450.0
     },
     {
       "brand": "Schmitz Cargobull",
       "year": 2008,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 1,
+      "q1_ask_eur": 5750.0,
+      "median_ask_eur": 5750.0,
+      "q3_ask_eur": 5750.0,
+      "q1_net_eur": 5750.0,
+      "median_net_eur": 5750.0,
+      "q3_net_eur": 5750.0
     },
     {
       "brand": "Schwarzmüller",
       "year": 2021,
       "cards": 3,
-      "priced": 0,
+      "priced": 3,
+      "net_priced": 3,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 21150.0,
+      "median_ask_eur": 28400.0,
+      "q3_ask_eur": 29150.0,
+      "q1_net_eur": 21150.0,
+      "median_net_eur": 28400.0,
+      "q3_net_eur": 29150.0
     },
     {
       "brand": "Schwarzmüller",
       "year": 2020,
       "cards": 1,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 11900.0,
+      "median_ask_eur": 11900.0,
+      "q3_ask_eur": 11900.0,
+      "q1_net_eur": 11900.0,
+      "median_net_eur": 11900.0,
+      "q3_net_eur": 11900.0
     },
     {
       "brand": "Schwarzmüller",
       "year": 2019,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 1,
       "vin_found": 0,
       "sources": 2,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 17650.0,
+      "median_ask_eur": 18400.0,
+      "q3_ask_eur": 19150.0,
+      "q1_net_eur": 19900.0,
+      "median_net_eur": 19900.0,
+      "q3_net_eur": 19900.0
     },
     {
       "brand": "Schwarzmüller",
       "year": 2017,
       "cards": 2,
-      "priced": 0,
+      "priced": 1,
+      "net_priced": 1,
       "vin_found": 1,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 1,
+      "q1_ask_eur": 17800.0,
+      "median_ask_eur": 17800.0,
+      "q3_ask_eur": 17800.0,
+      "q1_net_eur": 17800.0,
+      "median_net_eur": 17800.0,
+      "q3_net_eur": 17800.0
     },
     {
       "brand": "Schwarzmüller",
       "year": 2015,
       "cards": 4,
-      "priced": 0,
+      "priced": 4,
+      "net_priced": 4,
       "vin_found": 0,
       "sources": 1,
       "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 11900.0,
+      "median_ask_eur": 12445.0,
+      "q3_ask_eur": 13217.5,
+      "q1_net_eur": 11900.0,
+      "median_net_eur": 12445.0,
+      "q3_net_eur": 13217.5
     },
     {
       "brand": "Schwarzmüller",
       "year": 2014,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 2,
       "sources": 1,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 14912.5,
+      "median_ask_eur": 16875.0,
+      "q3_ask_eur": 18837.5,
+      "q1_net_eur": 14912.5,
+      "median_net_eur": 16875.0,
+      "q3_net_eur": 18837.5
     },
     {
       "brand": "Schwarzmüller",
       "year": 2012,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 0,
       "sources": 1,
-      "countries": 0,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "countries": 1,
+      "q1_ask_eur": 13871.75,
+      "median_ask_eur": 16744.5,
+      "q3_ask_eur": 19617.25,
+      "q1_net_eur": 13871.75,
+      "median_net_eur": 16744.5,
+      "q3_net_eur": 19617.25
     },
     {
       "brand": "Schwarzmüller",
       "year": 2010,
       "cards": 2,
-      "priced": 0,
+      "priced": 2,
+      "net_priced": 2,
       "vin_found": 2,
       "sources": 1,
       "countries": 1,
-      "q1_net_eur": null,
-      "median_net_eur": null,
-      "q3_net_eur": null
+      "q1_ask_eur": 7900.0,
+      "median_ask_eur": 7900.0,
+      "q3_ask_eur": 7900.0,
+      "q1_net_eur": 7900.0,
+      "median_net_eur": 7900.0,
+      "q3_net_eur": 7900.0
     }
   ],
   "listings": [
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Open semitrailer with tarp KÖGEL Kögel Light Palettenkasten E-Rad XL-Zertifikat",
       "year": 2016,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 7200.0,
+      "price_original": 7200.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -492,18 +684,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-97-961",
-      "observed_at": "2026-11-01T14:17:58Z"
+      "observed_at": "2026-11-01T14:20:04Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Reefer semitrailer Kögel S24-4",
       "year": 2019,
-      "country": null,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 22000.0,
+      "price_original": 22000.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": "WK0S0002400231814",
       "vin_ref": null,
       "features": [
@@ -512,18 +704,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-221-77-932",
-      "observed_at": "2026-11-01T14:17:58Z"
+      "observed_at": "2026-11-01T14:20:04Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Open semitrailer with tarp KÖGEL S24-1 | Hubdach | EDSCHA",
       "year": 2018,
       "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 6750.0,
+      "price_original": 6750.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": "WK0S0002400220469",
       "vin_ref": "WK0S0002400220469",
       "features": [
@@ -532,18 +724,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-45-855",
-      "observed_at": "2026-11-01T14:17:59Z"
+      "observed_at": "2026-11-01T14:20:06Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Open semitrailer with tarp KÖGEL Mega Liner S 18 SAF-Achsen hydraulisches Hubdach",
       "year": 2018,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 10900.0,
+      "price_original": 10900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -553,18 +745,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-51-816",
-      "observed_at": "2026-11-01T14:17:59Z"
+      "observed_at": "2026-11-01T14:20:06Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Working platform semitrailer KÖGEL SN24 Plattform Liftachse SAF-Achsen Rungen",
       "year": 2015,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 4990.0,
+      "price_original": 4990.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -574,18 +766,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-32-217",
-      "observed_at": "2026-11-01T14:17:59Z"
+      "observed_at": "2026-11-01T14:20:06Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Tipper semitrailer KÖGEL SKM24",
       "year": 2018,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 18500.0,
+      "price_original": 18500.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -594,18 +786,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-52-947",
-      "observed_at": "2026-11-01T14:17:59Z"
+      "observed_at": "2026-11-01T14:20:06Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Box semitrailer Kögel SKH24 Iso-Koffer PurFerro SAF Achsen",
       "year": 2019,
-      "country": null,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 13900.0,
+      "price_original": 13900.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -615,18 +807,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-228-80-900",
-      "observed_at": "2026-11-01T14:18:01Z"
+      "observed_at": "2026-11-01T14:20:08Z"
     },
     {
       "brand": "Kögel",
       "model": "2017 KÖGEL Port 45 simplex/ extendible/ saf disc KÖGEL Port 45 simplex/ extendible/ saf disc",
       "year": 2017,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 10500.0,
+      "price_original": 10500.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -635,18 +827,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-71-837",
-      "observed_at": "2026-11-01T14:18:01Z"
+      "observed_at": "2026-11-01T14:20:09Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Open semitrailer with tarp KÖGEL SN 24-1 SAF",
       "year": 2012,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 3800.0,
+      "price_original": 3800.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -655,18 +847,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-206-29-860",
-      "observed_at": "2026-11-01T14:18:01Z"
+      "observed_at": "2026-11-01T14:20:09Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Open semitrailer with tarp KÖGEL SN 24 MEGA Doppelstock",
       "year": 2015,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 8500.0,
+      "price_original": 8500.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -676,18 +868,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-52-950",
-      "observed_at": "2026-11-01T14:18:01Z"
+      "observed_at": "2026-11-01T14:20:09Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Open semitrailer with tarp Kögel S 24 Tautliner, Code XL, BPW, TÜV 10-2027",
       "year": 2017,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 6800.0,
+      "price_original": 6800.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -697,18 +889,38 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-53-361",
-      "observed_at": "2026-11-01T14:18:02Z"
+      "observed_at": "2026-11-01T14:20:10Z"
     },
     {
       "brand": "Kögel",
-      "model": null,
+      "model": "Beverage semitrailer KÖGEL S24-1*LBW*Beidseitig Schiebeplane*Vollluft*BPW*",
+      "year": 2016,
+      "country": null,
+      "seller": null,
+      "price_net_eur": 5100.0,
+      "price_original": 5100.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-217-24-613",
+      "observed_at": "2026-11-01T14:20:11Z"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Tipper semitrailer KÖGEL SKM24 Kipper",
       "year": 2019,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 18400.0,
+      "price_original": 18400.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": "WK0S0002400247081",
       "vin_ref": null,
       "features": [
@@ -717,13 +929,13 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-204-29-570",
-      "observed_at": "2026-11-01T14:18:03Z"
+      "observed_at": "2026-11-01T14:20:11Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "KRONE COIL WELL SEMITRAILER KRONE SEMIRIMORCHIO BUCA COILS",
       "year": 2012,
-      "country": null,
+      "country": "IT",
       "seller": null,
       "price_net_eur": 7500.0,
       "price_original": 7500.0,
@@ -737,75 +949,152 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-225-04-302",
-      "observed_at": "2026-11-01T14:18:05Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
-      "year": 2018,
-      "country": null,
+      "model": "Krone KRONE Koffer / Textil / Conefctie / BPW Axles / Discbrakes LT4723 Krone KRONE Koffer / Textil / Conefctie / BPW Axles /...",
+      "year": 2009,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 4450.0,
+      "price_original": 4450.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
+        "BPW"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-50-622",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Open semitrailer with tarp KRONE SD Tautliner - SAF / KRONE Achse Nr.: 707",
+      "year": 2018,
+      "country": null,
+      "seller": null,
+      "price_net_eur": 7300.0,
+      "price_original": 7300.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF",
         "Lift axle",
         "Pallet box"
       ],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-83-805",
-      "observed_at": "2026-11-01T14:18:06Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Krone 3-axle curtain-sided trailer with 2-axle Krone dol Krone 3-axle curtain-sided trailer with 2-axle Krone dol",
       "year": 2021,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 26954.0,
+      "price_original": 26954.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-34-431",
-      "observed_at": "2026-11-01T14:18:06Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
-      "year": 2019,
-      "country": null,
+      "model": "Krone AZ DB07CLNF 18F Krone AZ DB07CLNF 18F",
+      "year": 2015,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 1189.0,
+      "price_original": 1189.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-69-468",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Krone 3x BPW carrier vector + 265 height TR1300 Krone 3x BPW carrier vector + 265 height",
+      "year": 2008,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 8950.0,
+      "price_original": 8950.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-213-14-182",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Krone SD Profiliner, standard, tool box, 3 units!!! Krone SD Profiliner, Standard, Tool Box, 3 Units!!!",
+      "year": 2019,
+      "country": "HU",
+      "seller": null,
+      "price_net_eur": 10950.0,
+      "price_original": 10950.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-56-892",
-      "observed_at": "2026-11-01T14:18:06Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Krone 3-axle curtainsider / tarp semitrailer Krone 3 axle Curtainsider / Planenauflieger",
+      "year": 2013,
+      "country": "DK",
+      "seller": null,
+      "price_net_eur": 3987.0,
+      "price_original": 3987.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": "WKESD000000584216",
+      "vin_ref": null,
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-230-87-021",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Working platform semitrailer KRONE Stahlmatten Auflieger",
       "year": 2019,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 18500.0,
+      "price_original": 18500.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -814,36 +1103,36 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-35-872",
-      "observed_at": "2026-11-01T14:18:07Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "KRONE SD P27-ALU BORDEN/RIDEAUX/LADEBOARD KRONE SD P27-ALU BORDEN/RIDEAUX/LADEBOARD",
       "year": 2015,
-      "country": null,
+      "country": "BE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 5850.0,
+      "price_original": 5850.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-44-496",
-      "observed_at": "2026-11-01T14:18:07Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Krone GARMENT / CLOTHING / BPW / NL-trailer Krone GARMENT / KLEIDER / BPW / NL-trailer",
       "year": 2013,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 4985.0,
+      "price_original": 4985.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -852,18 +1141,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-85-446",
-      "observed_at": "2026-11-01T14:18:07Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Open semitrailer with tarp KRONE SD, Getränke, Safe Curtain, LBW, VDI 2700",
       "year": 2020,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 12800.0,
+      "price_original": 12800.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -872,39 +1161,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-25-416",
-      "observed_at": "2026-11-01T14:18:07Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
-      "year": 2011,
-      "country": null,
-      "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
-      "vin": null,
-      "vin_ref": null,
-      "features": [
-        "BPW",
-        "Lift axle"
-      ],
-      "source": "TruckScout24",
-      "status": "unknown",
-      "url": "https://www.truckscout24.com/tsp/ts-219-57-383",
-      "observed_at": "2026-11-01T14:18:07Z"
-    },
-    {
-      "brand": "Krone",
-      "model": null,
+      "model": "Open semitrailer with tarp KRONE SD * * LIFTACHSE * BPW-ACHSEN *2,70 M HOCH",
       "year": 2019,
       "country": "AT",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 10990.0,
+      "price_original": 10990.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -914,18 +1182,39 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-36-081",
-      "observed_at": "2026-11-01T14:18:07Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Box semitrailer KRONE SDK 27 Doppelstock Rolltor Tridec Lenkachse XL",
+      "year": 2011,
+      "country": null,
+      "seller": null,
+      "price_net_eur": 4999.0,
+      "price_original": 4999.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW",
+        "Lift axle"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-219-57-383",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Open semitrailer with tarp KRONE SD Pritsche Plane XL MegaLiner Edscha Bordwände",
       "year": 2016,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
+      "price_net_eur": 5900.0,
       "price_original": 5900.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -934,36 +1223,36 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-266",
-      "observed_at": "2026-11-01T14:18:08Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Open semitrailer with tarp Krone savoyarde",
       "year": 2017,
-      "country": null,
+      "country": "FR",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 13500.0,
+      "price_original": 13500.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-83-216",
-      "observed_at": "2026-11-01T14:18:08Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Swap body semitrailer KRONE SD BDF Laborcontainer / Bürocontainer",
       "year": 2017,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 19900.0,
+      "price_original": 19900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -972,18 +1261,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-35-736",
-      "observed_at": "2026-11-01T14:18:08Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Krone SD / MultiTemp / BPW + Disc / Huckepack Krone SD / MultiTemp / BPW + Disc / Huckepack",
       "year": 2019,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 18750.0,
+      "price_original": 18750.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -993,18 +1282,36 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-225-79-437",
-      "observed_at": "2026-11-01T14:18:08Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Open semitrailer with tarp KRONE 1.Achs Cutainsider/EDSCHA/TRIDEC/Rollplane",
       "year": 2019,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 9900.0,
+      "price_original": 9900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-69-126",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Krone N/A SD Tautliner / Boorden / Dhollandia Laadklep / BPW + Disc Krone N/A SD Tautliner / Boorden / Dhollandia Laadkle...",
+      "year": 2019,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 10950.0,
+      "price_original": 10950.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1013,18 +1320,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-83-076",
-      "observed_at": "2026-11-01T14:18:08Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Swap body semitrailer KRONE eLTU6, Schlitten, Front und Heckausschub, Lift, ALU",
       "year": 2016,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 10800.0,
+      "price_original": 10800.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1033,18 +1340,57 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-36-735",
-      "observed_at": "2026-11-01T14:18:08Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
-      "year": 2019,
+      "model": "Krone SD / BPW Disc Brakes / Huckepack Krone SD / BPW Disk / Huckepack",
+      "year": 2015,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 4400.0,
+      "price_original": 4400.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW",
+        "Huckepack/P400"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-225-53-992",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Semitrailer Krone B50 Standard",
+      "year": 2020,
       "country": null,
       "seller": null,
       "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
+      "price_original": 11900.0,
+      "currency": "EUR",
       "tax_basis": null,
+      "vin": null,
+      "vin_ref": "WKESD00000929142",
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-34-956",
+      "observed_at": "2026-11-01T14:20:14Z"
+    },
+    {
+      "brand": "Krone",
+      "model": "Open semitrailer with tarp KRONE SD Curtainsider/Rungen/Hubdach/Box/Liftachse",
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": 8500.0,
+      "price_original": 8500.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1054,18 +1400,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-231-78-251",
-      "observed_at": "2026-11-01T14:18:09Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Krone",
-      "model": null,
+      "model": "Open semitrailer with tarp KRONE 2-Achser MEGA*13,60m+Hubdach+LIFTACHE+Edscha*",
       "year": 2017,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 5900.0,
+      "price_original": 5900.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1074,18 +1420,54 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-93-836",
-      "observed_at": "2026-11-01T14:18:09Z"
+      "observed_at": "2026-11-01T14:20:14Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
-      "year": 2020,
+      "model": "Tipper semitrailer SCHMITZ CARGOBULL Cargobull CARGOBULL GOTHA SKI 24 SL 7.2",
+      "year": 2018,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 16900.0,
+      "price_original": 16900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-209-04-247",
+      "observed_at": "2026-11-01T14:20:17Z"
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "model": "Tipper semitrailer SCHMITZ CARGOBULL Cargobull GOTHA SGF*S3 3 Achse Rollplane",
+      "year": 2019,
+      "country": null,
+      "seller": null,
+      "price_net_eur": 18900.0,
+      "price_original": 18900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-227-76-855",
+      "observed_at": "2026-11-01T14:20:17Z"
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "model": "Schmitz Cargobull SCB*S3B - Frigo Schmitz - Meat hooks/rail systems/meat hanging - ATP/FRC - Pallet Schmitz Cargobull SCB*S3B - Frigo Schmitz - Hooks/Rohrbahnen/Vlee...",
+      "year": 2020,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 19900.0,
+      "price_original": 19900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1094,54 +1476,54 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-78-395",
-      "observed_at": "2026-11-01T14:18:12Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull box semi-trailer with Carrier refrigeration unit. Schmitz Cargobull box semi-trailer with Carrier refrigeration unit.",
       "year": 2016,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 16525.0,
+      "price_original": 16525.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-55-387",
-      "observed_at": "2026-11-01T14:18:12Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
       "model": "2008 Schmitz Cargobull SCS/24L-13.62 E.B. / SCHMITZ AXLES. APK/TUV 27-08-2027 Schmitz Cargobull SCS/24L-13.62 E.B. / SCHMITZ AXLES. APK/TUV 27-...",
       "year": 2008,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 5750.0,
+      "price_original": 5750.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-62-431",
-      "observed_at": "2026-11-01T14:18:12Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull SGF*S3 20FT Kipper-Tipper-Kiep / 1x Lift-Axle / Disc Brakes LT4683 Schmitz Cargobull SGF*S3 20FT Kipper-Tipper-Kiep / 1x Lift-Axle /...",
       "year": 2014,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 12950.0,
+      "price_original": 12950.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1150,18 +1532,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-50-631",
-      "observed_at": "2026-11-01T14:18:13Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull SCB*C2 Carrier Supra 900U with 2,000 kg tail lift and through-loading capability Schmitz Cargobull SCB*C2 Carrier Supra 900U LBW 2.000kg Durchlade",
       "year": 2020,
-      "country": null,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 8890.0,
+      "price_original": 8890.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1170,90 +1552,108 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-69-216",
-      "observed_at": "2026-11-01T14:18:13Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull box semi-trailer with Carrier unit Schmitz Cargobull box semi-trailer with Carrier unit",
       "year": 2010,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 3304.0,
+      "price_original": 3304.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-59-922",
-      "observed_at": "2026-11-01T14:18:13Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull SCB*S3B / Frigo / Vector 1950 MT / Multitemp / Disc Brakes Schmitz Cargobull SCB*S3B / Frigo / Vector 1950 MT / Multitemp / ...",
       "year": 2016,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 18350.0,
+      "price_original": 18350.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-25-141",
-      "observed_at": "2026-11-01T14:18:13Z"
+      "observed_at": "2026-11-01T14:20:17Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull SCB*S3B / Frigo / Vector 1950 MT / Multitemp / Laadklep Schmitz Cargobull SCB*S3B / Frigo / Vector 1950 MT / Multitemp / ...",
       "year": 2014,
-      "country": null,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 7950.0,
+      "price_original": 7950.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-92-171",
-      "observed_at": "2026-11-01T14:18:13Z"
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull Box semi-trailer – Single-temperature refrigeratio Schmitz Cargobull Box semi-trailer – Single-temperature refrigeratio",
       "year": 2018,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 20631.0,
+      "price_original": 20631.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-79-427",
-      "observed_at": "2026-11-01T14:18:13Z"
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull Curtainsider Schmitz Cargobull Schuifzeil",
+      "year": 2017,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 8250.0,
+      "price_original": 8250.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-232-20-656",
+      "observed_at": "2026-11-01T14:20:18Z"
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "model": "Schmitz Cargobull Box Semi-Trailer with Refrigeration/Freezer Unit a Schmitz Cargobull Box Semi-Trailer with Refrigeration/Freezer Unit a",
       "year": 2020,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 29411.0,
+      "price_original": 29411.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1262,31 +1662,31 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-90-122",
-      "observed_at": "2026-11-01T14:18:14Z"
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull 2-axle box trailer with Carrier refrigeration unit Schmitz Cargobull 2-axle box trailer with Carrier refrigeration unit",
       "year": 2016,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 12177.0,
+      "price_original": 12177.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-57-597",
-      "observed_at": "2026-11-01T14:18:14Z"
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull Kippmulde 3 Achser 28 Kubik Schmitz Cargobull Kippmulde 3 Achser 28 Kubik",
       "year": 2013,
-      "country": null,
+      "country": "DE",
       "seller": null,
       "price_net_eur": null,
       "price_original": 17500.0,
@@ -1298,54 +1698,94 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-204-43-955",
-      "observed_at": "2026-11-01T14:18:14Z"
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull with refrigeration/freezing unit Schmitz Cargobull with refrigeration/freezing unit",
       "year": 2015,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 11909.0,
+      "price_original": 11909.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-55-902",
-      "observed_at": "2026-11-01T14:18:14Z"
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
-      "year": 2014,
-      "country": null,
+      "model": "Schmitz Cargobull Kippmulde 26 Kubik Stahlaufbau Schmitz Cargobull Kippmulde 26 Kubik Stahlaufbau",
+      "year": 2013,
+      "country": "DE",
       "seller": null,
       "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
+      "price_original": 14900.0,
+      "currency": "EUR",
       "tax_basis": null,
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "BPW"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-204-45-175",
+      "observed_at": "2026-11-01T14:20:18Z"
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "model": "Schmitz Cargobull SKO 24/L-13.62 FP25 EXPRESS-2 SKO 24, 3 axles, disc brakes, NL trailer, top condit Schmitz Cargobull SKO 24/L-13.62 FP25 EXPRESS-2 SKO 24, 3 Achsen,...",
+      "year": 2009,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 5450.0,
+      "price_original": 5450.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
-      "url": "https://www.truckscout24.com/tsp/ts-225-67-332",
-      "observed_at": "2026-11-01T14:18:15Z"
+      "url": "https://www.truckscout24.com/tsp/ts-217-29-778",
+      "observed_at": "2026-11-01T14:20:18Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
-      "year": 2017,
-      "country": null,
+      "model": "Schmitz Cargobull N/A SCB*S3T / Tautliner / Huckepack / Disc brakes Schmitz Cargobull N/A SCB*S3T / Tautliner / Huckepack / Disc brakes",
+      "year": 2014,
+      "country": "NL",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 5950.0,
+      "price_original": 5950.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "Huckepack/P400"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-225-67-332",
+      "observed_at": "2026-11-01T14:20:19Z"
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "model": "Schmitz Cargobull SCB*S3T / Coil / Tautliner / Disc Brakes Schmitz Cargobull SCB*S3T / Coil / Tautliner / Disc Brakes",
+      "year": 2017,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 6650.0,
+      "price_original": 6650.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1354,18 +1794,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-225-59-917",
-      "observed_at": "2026-11-01T14:18:15Z"
+      "observed_at": "2026-11-01T14:20:19Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull Mega / Edscha sliding roof / lifting roof Schmitz Cargobull Mega / Edscha / Hubdach",
       "year": 2015,
-      "country": null,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 4990.0,
+      "price_original": 4990.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1374,18 +1814,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-230-11-046",
-      "observed_at": "2026-11-01T14:18:15Z"
+      "observed_at": "2026-11-01T14:20:19Z"
     },
     {
       "brand": "Schmitz Cargobull",
-      "model": null,
+      "model": "Schmitz Cargobull Box Semi-Trailer with Refrigeration/Freezer Unit – Schmitz Cargobull Box Semi-Trailer with Refrigeration/Freezer Unit –",
       "year": 2021,
       "country": "NO",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 35864.0,
+      "price_original": 35864.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1394,18 +1834,38 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-90-117",
-      "observed_at": "2026-11-01T14:18:15Z"
+      "observed_at": "2026-11-01T14:20:19Z"
+    },
+    {
+      "brand": "Schmitz Cargobull",
+      "model": "Schmitz Cargobull Themoking SLXe Spectrum ,Multi ,SAF scheiben bremsen,lift Schmitz Cargobull Themoking SLXe Spectrum ,Multi ,SAF scheiben br...",
+      "year": 2015,
+      "country": "NL",
+      "seller": null,
+      "price_net_eur": 7250.0,
+      "price_original": 7250.0,
+      "currency": "EUR",
+      "tax_basis": "net",
+      "vin": null,
+      "vin_ref": null,
+      "features": [
+        "SAF"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-216-38-223",
+      "observed_at": "2026-11-01T14:20:19Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Log semitrailer SCHWARZMÜLLER Y203 / Liftachse / Alu-Felgen",
       "year": 2010,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 7900.0,
+      "price_original": 7900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": "VAVY20339AH7542",
       "features": [
@@ -1415,18 +1875,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-216-15-913",
-      "observed_at": "2026-11-01T14:18:18Z"
+      "observed_at": "2026-11-01T14:20:22Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Tipper Schwarzmüller SK Stahlrundmulde",
       "year": 2017,
-      "country": null,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 17800.0,
+      "price_original": 17800.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": "396158",
       "features": [
@@ -1435,36 +1895,36 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-957-17-57",
-      "observed_at": "2026-11-01T14:18:19Z"
+      "observed_at": "2026-11-01T14:20:22Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Tipper semitrailer Schwarzmüller M Serie M10VLN3",
       "year": 2012,
-      "country": null,
+      "country": "AT",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 22490.0,
+      "price_original": 22490.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-12-397",
-      "observed_at": "2026-11-01T14:18:19Z"
+      "observed_at": "2026-11-01T14:20:22Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Open semitrailer with tarp SCHWARZMÜLLER J-Series Pritche Plane Edscha Paletten Trommel",
       "year": 2020,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 11900.0,
+      "price_original": 11900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1474,18 +1934,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-70-257",
-      "observed_at": "2026-11-01T14:18:19Z"
+      "observed_at": "2026-11-01T14:20:23Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Open semitrailer SCHWARZMÜLLER J-SERIE * 2X LIFT * MITNAHMESTAPLER * SAF",
       "year": 2015,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 12990.0,
+      "price_original": 12990.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1494,11 +1954,11 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-227-51-752",
-      "observed_at": "2026-11-01T14:18:20Z"
+      "observed_at": "2026-11-01T14:20:23Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Tipper semitrailer SCHWARZMÜLLER Schwarzmüller K-Serie Kippauflieger Alufelgen",
       "year": 2017,
       "country": null,
       "seller": null,
@@ -1515,18 +1975,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-220-40-398",
-      "observed_at": "2026-11-01T14:18:20Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Open semitrailer with tarp SCHWARZMÜLLER S1 | EDSCHA | Coilmulde I LENKACHSE",
       "year": 2014,
       "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 12950.0,
+      "price_original": 12950.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": "VAVWS1348EH346240",
       "vin_ref": "VAVWS1348EH346240",
       "features": [
@@ -1536,18 +1996,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-46-323",
-      "observed_at": "2026-11-01T14:18:20Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Log semitrailer SCHWARZMÜLLER Holz Auflieger mit Schemel und Rungen TÜV NEU",
       "year": 2019,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 19900.0,
+      "price_original": 19900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1556,18 +2016,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-15-772",
-      "observed_at": "2026-11-01T14:18:21Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Tipper Schwarzmüller SK Alurundmulde mit Kunststoffboden",
       "year": 2014,
-      "country": null,
+      "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 20800.0,
+      "price_original": 20800.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": "345946",
       "features": [
@@ -1576,16 +2036,16 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-917-61-17",
-      "observed_at": "2026-11-01T14:18:21Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Tipper semitrailer SCHWARZMÜLLER Kipper Stahl 25 Kubik",
       "year": 2012,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 10999.0,
+      "price_original": 10999.0,
       "currency": "EUR",
       "tax_basis": "net",
       "vin": null,
@@ -1596,18 +2056,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-224-16-347",
-      "observed_at": "2026-11-01T14:18:21Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Log semitrailer SCHWARZMÜLLER Y203 | Alu-Felgen | Liftachse",
       "year": 2010,
       "country": "DE",
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 7900.0,
+      "price_original": 7900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": "VAVY20339AH7540",
       "features": [
@@ -1617,38 +2077,39 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-10-972",
-      "observed_at": "2026-11-01T14:18:21Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Open semitrailer with tarp SCHWARZMÜLLER SPA 3/E Pritsche Plane Liftachse SAF-Achsen",
       "year": 2021,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 13900.0,
+      "price_original": 13900.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
-        "SAF"
+        "SAF",
+        "Lift axle"
       ],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-226-94-402",
-      "observed_at": "2026-11-01T14:18:21Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Car carrying semitrailer SCHWARZMÜLLER S1 Autotransporter LBW Hubkraft 4000 kg",
       "year": 2015,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
+      "price_net_eur": 13900.0,
+      "price_original": 13900.0,
       "currency": "EUR",
-      "tax_basis": null,
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1657,38 +2118,39 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-222-46-002",
-      "observed_at": "2026-11-01T14:18:21Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Walking floor semitrailer SCHWARZMüLLER LIFTACHSE, FUNK, STAHLBODEN!!! SAF-ACHSEN ,2 STüCK 11 MM BODEN",
       "year": 2021,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 29900.0,
+      "price_original": 29900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
-        "SAF"
+        "SAF",
+        "Lift axle"
       ],
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-180-55-471",
-      "observed_at": "2026-11-01T14:18:22Z"
+      "observed_at": "2026-11-01T14:20:24Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Beverage semitrailer SCHWARZMÜLLER QuickSlider 2in1*light Chassis*2to LBW*LIft*BPW",
       "year": 2015,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 11900.0,
+      "price_original": 11900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1698,18 +2160,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-321",
-      "observed_at": "2026-11-01T14:18:22Z"
+      "observed_at": "2026-11-01T14:20:25Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Open semitrailer with tarp SCHWARZMÜLLER QuickSlider 2in1*light Chassis*2to LBW*LIft*BPW",
       "year": 2015,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 11900.0,
+      "price_original": 11900.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1719,18 +2181,18 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-232-23-316",
-      "observed_at": "2026-11-01T14:18:22Z"
+      "observed_at": "2026-11-01T14:20:25Z"
     },
     {
       "brand": "Schwarzmüller",
-      "model": null,
+      "model": "Tipper semitrailer Schwarzmüller Vollalu, Lift Kombitür, 54m³ Palettenbreite,",
       "year": 2021,
       "country": null,
       "seller": null,
-      "price_net_eur": null,
-      "price_original": null,
-      "currency": null,
-      "tax_basis": null,
+      "price_net_eur": 28400.0,
+      "price_original": 28400.0,
+      "currency": "EUR",
+      "tax_basis": "net",
       "vin": null,
       "vin_ref": null,
       "features": [
@@ -1740,7 +2202,7 @@
       "source": "TruckScout24",
       "status": "unknown",
       "url": "https://www.truckscout24.com/tsp/ts-229-45-121",
-      "observed_at": "2026-11-01T14:18:22Z"
+      "observed_at": "2026-11-01T14:20:25Z"
     },
     {
       "brand": "Krone",
@@ -1760,7 +2222,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338958",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:27Z"
     },
     {
       "brand": "Krone",
@@ -1780,7 +2242,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338938",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:27Z"
     },
     {
       "brand": "Krone",
@@ -1800,7 +2262,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338959",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:27Z"
     },
     {
       "brand": "Krone",
@@ -1820,7 +2282,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338956",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1840,7 +2302,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2020-70340125",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1858,7 +2320,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2020-70324791",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1876,7 +2338,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2020-70339564",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1894,7 +2356,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2019-70325713",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1914,7 +2376,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338942",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1935,7 +2397,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2019-70331510",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1953,7 +2415,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2014-70328155",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1973,7 +2435,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-2014-70338834",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -1993,7 +2455,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2014-70328745",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -2011,7 +2473,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70325655",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -2029,7 +2491,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2017-70330082",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -2050,7 +2512,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338949",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -2068,7 +2530,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2019-70322979",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -2088,7 +2550,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70285996",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Krone",
@@ -2109,7 +2571,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-krone-sd-2021-70338948",
-      "observed_at": "2026-11-01T14:18:24Z"
+      "observed_at": "2026-11-01T14:20:28Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2127,7 +2589,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70325529",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2147,7 +2609,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3d-2020-70337812",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2165,7 +2627,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339913",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2185,7 +2647,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-sgf*s3-2017-70335786",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2205,7 +2667,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3b-2013-70342315",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2223,7 +2685,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339714",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2243,7 +2705,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3b-2013-70331624",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2261,7 +2723,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70332374",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2279,7 +2741,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339716",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2297,7 +2759,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339895",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2315,7 +2777,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70333296",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2333,7 +2795,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339894",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2351,7 +2813,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339896",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2369,7 +2831,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70331220",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2387,7 +2849,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70337350",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2405,7 +2867,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339715",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2423,7 +2885,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339934",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2443,7 +2905,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-sgf*s3-2018-70335582",
-      "observed_at": "2026-11-01T14:18:25Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2463,7 +2925,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-2018-70326261",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2481,7 +2943,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339950",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2499,7 +2961,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339713",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2517,7 +2979,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2016-70339900",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2535,7 +2997,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-scb*s3t-2015-70331881",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schmitz Cargobull",
@@ -2555,7 +3017,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schmitz-sgf*s3-2019-70334836",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:29Z"
     },
     {
       "brand": "Schwarzmüller",
@@ -2576,7 +3038,7 @@
       "source": "BAS World",
       "status": "unknown",
       "url": "https://www.basworld.com/vehicles/used/semi-trailer-schwarzmüller-sm-2019-70341662",
-      "observed_at": "2026-11-01T14:18:26Z"
+      "observed_at": "2026-11-01T14:20:30Z"
     }
   ]
 }
