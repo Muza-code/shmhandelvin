@@ -387,8 +387,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Kögel",
-      "local_enabled": true,
-      "local_note": "priority source; corrected public search URL after SHM Windows test"
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: mobile.de returned HTTP 403 to automated browser. Keep as manual/discovery fallback; official Search API is preferred."
     },
     {
       "name": "mobile.de public",
@@ -409,8 +409,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Krone",
-      "local_enabled": true,
-      "local_note": "priority source; corrected public search URL after SHM Windows test"
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: mobile.de returned HTTP 403 to automated browser. Keep as manual/discovery fallback; official Search API is preferred."
     },
     {
       "name": "mobile.de public",
@@ -431,8 +431,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Schmitz Cargobull",
-      "local_enabled": true,
-      "local_note": "priority source; corrected public search URL after SHM Windows test"
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: mobile.de returned HTTP 403 to automated browser. Keep as manual/discovery fallback; official Search API is preferred."
     },
     {
       "name": "mobile.de public",
@@ -453,8 +453,8 @@
       "force_browser": true,
       "github_enabled": false,
       "source_segment": "Schwarzmüller",
-      "local_enabled": true,
-      "local_note": "priority source; corrected public search URL after SHM Windows test"
+      "local_enabled": false,
+      "local_note": "disabled after SHM Windows test: mobile.de returned HTTP 403 to automated browser. Keep as manual/discovery fallback; official Search API is preferred."
     },
     {
       "name": "Autoplius",
@@ -569,7 +569,7 @@
         "/q-kogel/"
       ],
       "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
-      "max_index_pages": 3,
+      "max_index_pages": 8,
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
@@ -589,7 +589,7 @@
         "/q-krone/"
       ],
       "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
-      "max_index_pages": 3,
+      "max_index_pages": 8,
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
@@ -609,7 +609,7 @@
         "/q-schmitz/"
       ],
       "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
-      "max_index_pages": 3,
+      "max_index_pages": 8,
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
@@ -629,7 +629,7 @@
         "/q-schwarzmuller/"
       ],
       "detail_url_regex": "/d/oferta/[^?#]+-CID5-ID[0-9A-Za-z]+\\.html",
-      "max_index_pages": 3,
+      "max_index_pages": 8,
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": false,
@@ -723,6 +723,22 @@
       "discovery_only": true,
       "source_segment": "Schwarzmüller",
       "local_note": "market-reference/discovery only; do not bulk crawl without authorized access"
+    },
+    {
+      "name": "mobile.de Search API",
+      "type": "mobile_api",
+      "github_enabled": false,
+      "local_enabled": true,
+      "countries": [
+        "DE",
+        "NL",
+        "BE",
+        "PL",
+        "AT",
+        "CZ"
+      ],
+      "max_ads_per_run": 1200,
+      "note": "Official mobile.de Search API / Ad-Integration. Requires MOBILEDE_USERNAME and MOBILEDE_PASSWORD."
     }
   ]
 }
