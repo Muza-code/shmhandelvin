@@ -223,6 +223,73 @@ def collect_sitemap(http,src,rows,events):
             events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
         if i%40==0: time.sleep(.5)
 
+def collect_index_cards(http,src,rows,events):
+    from urllib.parse import urljoin, urlparse
+    before=len(rows)
+    queue=list(src.get("seed_pages") or [])
+    seen=set()
+    max_pages=int(src.get("max_index_pages",20))
+    detail_rx=re.compile(src.get("detail_url_regex"), re.I)
+    index_tokens=[x.lower() for x in src.get("index_url_tokens") or []]
+    allow=set(src.get("allow_hosts") or [])
+    card_seen=set()
+
+    while queue and len(seen)<max_pages:
+        url=queue.pop(0)
+        if url in seen:
+            continue
+        seen.add(url)
+        try:
+            if src.get("force_browser"):
+                status,html,final_url=http.browser_html(url)
+                mode="browser"
+            else:
+                status,html,final_url,mode=fetch_html(http,url)
+            if status!=200 or not html:
+                events.append({"source":src["name"],"url":url,"observed_at":now(),"status":"http_error","http_status":status,"mode":mode})
+                continue
+
+            soup=BeautifulSoup(html,"html.parser")
+            anchors=soup.find_all("a",href=True)
+            for a in anchors:
+                full=urljoin(final_url,a["href"])
+                host=urlparse(full).hostname or ""
+                if allow and host not in allow:
+                    continue
+
+                if detail_rx.search(full):
+                    key=full.split("?")[0]
+                    if key in card_seen:
+                        continue
+                    node=a
+                    best=None
+                    for _ in range(7):
+                        if node is None:
+                            break
+                        txt=clean(node.get_text(" ",strip=True))
+                        if 120 <= len(txt) <= 7000 and brand_of(txt) and YEAR_RE.search(txt):
+                            best=node
+                        node=node.parent
+                    if best is not None:
+                        rec=html_record(src["name"],key,str(best))
+                        if rec:
+                            rec["url"]=key
+                            rows.append(rec)
+                            card_seen.add(key)
+                    continue
+
+                low=full.lower()
+                if index_tokens and any(t in low for t in index_tokens) and full not in seen and full not in queue:
+                    queue.append(full)
+
+        except Exception as e:
+            events.append({"source":src["name"],"url":url,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
+
+    events.append({
+        "source":src["name"],"url":None,"observed_at":now(),"status":"source_summary",
+        "index_pages":len(seen),"cards_added":len(rows)-before
+    })
+
 def collect_index(http,src,rows,events):
     before=len(rows)
     pages=discover_index_pages(http,src,events,now)
@@ -326,6 +393,7 @@ def main():
     for src in cfg["sources"]:
         if src["type"]=="sitemap": collect_sitemap(http,src,rows,events)
         elif src["type"]=="crawl_index": collect_index(http,src,rows,events)
+        elif src["type"]=="index_cards": collect_index_cards(http,src,rows,events)
         elif src["type"]=="mobile_api": collect_mobile(http,cfg,src,rows,events)
     dedup={(r["source"],r.get("source_listing_id") or r["url"]):r for r in rows}; rows=list(dedup.values())
     summary={"started_at":started,"finished_at":now(),"listings":len(rows),"vin_found":sum(bool(r["vin_candidates"]) for r in rows),"by_brand":{b:sum(r["brand"]==b for r in rows) for b in cfg["brands"]},"access_events":len(events)}
