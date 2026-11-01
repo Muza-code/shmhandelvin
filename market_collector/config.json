@@ -1,0 +1,58 @@
+{
+  "brands": [
+    "Kögel",
+    "Krone",
+    "Schmitz Cargobull",
+    "Schwarzmüller"
+  ],
+  "years": {
+    "min": 2008,
+    "max": 2021,
+    "priority": [
+      2021
+    ]
+  },
+  "vin": {
+    "required_when_visible": true
+  },
+  "sources": [
+    {
+      "name": "Schmitz Cargobull Trailer Store",
+      "type": "sitemap",
+      "base_url": "https://www.trailer-store.com",
+      "sitemaps": [
+        "https://www.trailer-store.com/sitemap.xml"
+      ],
+      "allow_hosts": [
+        "www.trailer-store.com"
+      ],
+      "url_include": [
+        "koegel",
+        "kogel",
+        "krone",
+        "schmitz",
+        "schwarzm"
+      ],
+      "max_pages_per_run": 600
+    },
+    {
+      "name": "mobile.de Search API",
+      "type": "mobile_api",
+      "enabled_env": "MOBILEDE_USERNAME",
+      "countries": [
+        "DE",
+        "NL",
+        "BE",
+        "AT",
+        "FR",
+        "ES",
+        "IT",
+        "PL",
+        "LT",
+        "LV",
+        "CZ"
+      ],
+      "page_size": 100
+    }
+  ]
+}
