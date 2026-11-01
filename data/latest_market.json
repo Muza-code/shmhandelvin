@@ -1,47 +1,23 @@
 {
-  "updated_at": "2026-11-01",
+  "updated_at": "2026-11-01T12:43:15Z",
   "stats": {
-    "listings": 93,
-    "active": 88,
-    "vin_found": 1,
-    "sources": 22
+    "listings": 4,
+    "active": null,
+    "vin_found": 4,
+    "sources": 2
   },
   "coverage": [
     {
       "source": "TruckScout24",
       "state": "live",
-      "state_label": "подключаем",
-      "note": "public pages"
+      "state_label": "работает",
+      "note": "2 cards"
     },
     {
       "source": "TrucksNL",
       "state": "live",
-      "state_label": "подключаем",
-      "note": "public pages"
-    },
-    {
-      "source": "Trailer Store",
-      "state": "partial",
-      "state_label": "адаптер чинится",
-      "note": "detail crawl"
-    },
-    {
-      "source": "Autoline",
-      "state": "partial",
-      "state_label": "discovery",
-      "note": "без обхода защиты"
-    },
-    {
-      "source": "mobile.de",
-      "state": "partial",
-      "state_label": "следующий адаптер",
-      "note": "public search"
-    },
-    {
-      "source": "BAS World / Kleyn",
-      "state": "partial",
-      "state_label": "следующий",
-      "note": "dealer stock"
+      "state_label": "работает",
+      "note": "2 cards"
     }
   ],
   "listings": [
