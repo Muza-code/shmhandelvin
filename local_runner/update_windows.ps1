@@ -9,7 +9,8 @@ $Base = "https://raw.githubusercontent.com/Muza-code/shmhandelvin/main"
 $Files = @(
   "market_collector/collector.py",
   "market_collector/config.json",
-  "local_runner/run_windows.ps1"
+  "local_runner/run_windows.ps1",
+  "local_runner/set_reefapi_key.ps1"
 )
 
 $Backup = Join-Path $Root ("local_runner\backup-" + (Get-Date -Format "yyyyMMdd-HHmmss"))
