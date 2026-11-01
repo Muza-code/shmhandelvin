@@ -13,6 +13,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: shm-market-collector
+  cancel-in-progress: true
+
 jobs:
   collect:
     runs-on: ubuntu-24.04
