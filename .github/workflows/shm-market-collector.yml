@@ -44,6 +44,7 @@ jobs:
             git config user.email "actions@users.noreply.github.com"
             git add data/latest_market.json
             git commit -m "data: refresh public market snapshot"
+            git pull --rebase --autostash origin main
             git push
           fi
       - name: Upload run artifact
