@@ -30,7 +30,8 @@
       ],
       "detail_url_regex": "\\d{6,10}\\.html(?:$|\\?)",
       "max_index_pages": 12,
-      "max_pages_per_run": 120
+      "max_pages_per_run": 120,
+      "github_enabled": false
     },
     {
       "name": "TrucksNL",
@@ -52,7 +53,8 @@
       ],
       "detail_url_regex": "-[0-9]{5,10}-vd(?:$|\\?)",
       "max_index_pages": 20,
-      "max_pages_per_run": 160
+      "max_pages_per_run": 160,
+      "github_enabled": false
     },
     {
       "name": "TruckScout24",
@@ -75,7 +77,8 @@
       "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
       "max_index_pages": 12,
       "max_pages_per_run": 0,
-      "force_browser": true
+      "force_browser": true,
+      "github_enabled": true
     },
     {
       "name": "Kleyn Trucks",
@@ -95,7 +98,8 @@
       ],
       "detail_url_regex": "/en/vehicle/details/[0-9]+/",
       "max_index_pages": 24,
-      "max_pages_per_run": 180
+      "max_pages_per_run": 180,
+      "github_enabled": false
     },
     {
       "name": "BAS World",
@@ -113,7 +117,8 @@
       ],
       "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
       "max_index_pages": 24,
-      "max_pages_per_run": 180
+      "max_pages_per_run": 180,
+      "github_enabled": true
     }
   ]
 }
