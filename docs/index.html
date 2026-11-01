@@ -98,6 +98,11 @@ const euro=v=>v==null?'—':new Intl.NumberFormat('de-DE',{style:'currency',curr
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 let data={listings:[],coverage:[],benchmarks:[]};
 
+function yearBasisLabel(x){
+  const b=x.year_basis||'unknown';
+  const map={construction_year:'Baujahr',source_url_year:'URL year',source_filter_year:'filter year',first_registration_proxy:'EZ proxy',unknown:'year ?'};
+  return map[b]||b;
+}
 function badge(status){
   const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',unknown:'НЕТ ОЦЕНКИ'};
   return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
@@ -155,7 +160,7 @@ function render(){
     }).slice(0,8);
   document.getElementById('opportunities').innerHTML=opp.map(x=>`
     <article class="deal-card">
-      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div><div>${badge(x._market.status)} <span class="badge ${confidence(x).cls}">CONF ${confidence(x).label}</span></div></div>
+      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(yearBasisLabel(x))} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div><div>${badge(x._market.status)} <span class="badge ${confidence(x).cls}">CONF ${confidence(x).label}</span></div></div>
       <div class="deal-price">${euro(x.price_net_eur)} <small>ask</small></div>
       <div class="deal-grid">
         <div><span>Segment median</span><b>${euro(x._market.median)}</b></div>
