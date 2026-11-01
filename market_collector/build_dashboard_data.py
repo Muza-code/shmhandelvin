@@ -6,6 +6,14 @@ from datetime import datetime, timezone
 OUT=Path("out")
 TARGET=Path("data/latest_market.json")
 
+def percentile(values,p):
+    if not values: return None
+    xs=sorted(values)
+    if len(xs)==1: return xs[0]
+    k=(len(xs)-1)*p
+    lo=int(k); hi=min(lo+1,len(xs)-1)
+    return round(xs[lo]+(xs[hi]-xs[lo])*(k-lo),2)
+
 def read_ndjson(path):
     if not path.exists(): return []
     rows=[]
@@ -54,6 +62,27 @@ for s in sorted(set(list(sources)+[e.get("source") for e in events if e.get("sou
     if errs and not sources.get(s,0): note=f"{len(errs)} access events, no cards"
     coverage.append({"source":s,"state":state,"state_label":"работает" if state=="live" else "проверить","note":note})
 
+segments=[]
+groups={}
+for x in listings:
+    key=(x.get("brand"),x.get("year"))
+    if not key[0] or not key[1]: continue
+    g=groups.setdefault(key,{"prices":[],"cards":0,"vin":0,"sources":set(),"countries":set()})
+    g["cards"]+=1
+    if x.get("vin") or x.get("vin_ref"): g["vin"]+=1
+    if x.get("source"): g["sources"].add(x["source"])
+    if x.get("country"): g["countries"].add(x["country"])
+    p=x.get("price_net_eur")
+    if isinstance(p,(int,float)): g["prices"].append(float(p))
+for (brand,year),g in groups.items():
+    ps=g["prices"]
+    segments.append({
+        "brand":brand,"year":year,"cards":g["cards"],"priced":len(ps),"vin_found":g["vin"],
+        "sources":len(g["sources"]),"countries":len(g["countries"]),
+        "q1_net_eur":percentile(ps,.25),"median_net_eur":percentile(ps,.5),"q3_net_eur":percentile(ps,.75)
+    })
+segments.sort(key=lambda x:(x["brand"],-x["year"]))
+
 data={
     "updated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
     "stats":{
@@ -63,6 +92,7 @@ data={
         "sources":len(sources)
     },
     "coverage":coverage,
+    "segments":segments,
     "listings":listings
 }
 TARGET.parent.mkdir(parents=True,exist_ok=True)
