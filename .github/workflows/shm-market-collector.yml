@@ -40,16 +40,18 @@ jobs:
         run: python market_collector/collector.py --config market_collector/config.json --out out
       - name: Build Market Center dataset
         run: python market_collector/build_dashboard_data.py
+      - name: Sync GitHub Pages dataset
+        run: cp data/latest_market.json docs/latest_market.json
       - name: Append public observation history
         run: python market_collector/append_public_history.py
       - name: Commit refreshed public market dataset
         run: |
-          if git diff --quiet -- data/latest_market.json data/public_observations.ndjson; then
+          if git diff --quiet -- data/latest_market.json data/public_observations.ndjson docs/latest_market.json; then
             echo "No dataset change"
           else
             git config user.name "shm-market-bot"
             git config user.email "actions@users.noreply.github.com"
-            git add data/latest_market.json data/public_observations.ndjson
+            git add data/latest_market.json data/public_observations.ndjson docs/latest_market.json
             git commit -m "data: refresh public market snapshot"
             git pull --rebase --autostash origin main
             git push
