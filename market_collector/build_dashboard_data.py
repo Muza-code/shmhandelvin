@@ -45,7 +45,7 @@ else:
             if key=="axle_maker" and v: features.append(str(v))
             elif v is True: features.append(label)
         listings.append({
-            "brand":r.get("brand"),"model":r.get("title"),"year":r.get("construction_year"),
+            "brand":r.get("brand"),"model":r.get("title"),"year":r.get("construction_year"),"body_type":r.get("body_type"),
             "country":r.get("country"),"seller":r.get("seller"),"price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" else None,
             "price_original":r.get("price_amount"),"currency":r.get("price_currency"),"tax_basis":r.get("tax_basis"),
             "vin":r.get("vin"),"vin_ref":(r.get("vin_refs") or [None])[0],
@@ -65,7 +65,7 @@ for s in sorted(set(list(sources)+[e.get("source") for e in events if e.get("sou
 segments=[]
 groups={}
 for x in listings:
-    key=(x.get("brand"),x.get("year"))
+    key=(x.get("brand"),x.get("year"),x.get("body_type") or "other")
     if not key[0] or not key[1]: continue
     g=groups.setdefault(key,{"net_prices":[],"ask_eur":[],"cards":0,"vin":0,"sources":set(),"countries":set()})
     g["cards"]+=1
@@ -76,16 +76,16 @@ for x in listings:
     if isinstance(p,(int,float)): g["net_prices"].append(float(p))
     ask=x.get("price_original")
     if x.get("currency")=="EUR" and isinstance(ask,(int,float)): g["ask_eur"].append(float(ask))
-for (brand,year),g in groups.items():
+for (brand,year,body_type),g in groups.items():
     ps=g["net_prices"]; asks=g["ask_eur"]
     segments.append({
-        "brand":brand,"year":year,"cards":g["cards"],
+        "brand":brand,"year":year,"body_type":body_type,"cards":g["cards"],
         "priced":len(asks),"net_priced":len(ps),"vin_found":g["vin"],
         "sources":len(g["sources"]),"countries":len(g["countries"]),
         "q1_ask_eur":percentile(asks,.25),"median_ask_eur":percentile(asks,.5),"q3_ask_eur":percentile(asks,.75),
         "q1_net_eur":percentile(ps,.25),"median_net_eur":percentile(ps,.5),"q3_net_eur":percentile(ps,.75)
     })
-segments.sort(key=lambda x:(x["brand"],-x["year"]))
+segments.sort(key=lambda x:(x["brand"],-x["year"],x["body_type"]))
 
 data={
     "updated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
