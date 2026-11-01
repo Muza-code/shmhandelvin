@@ -105,9 +105,10 @@
       "name": "BAS World",
       "type": "crawl_index",
       "seed_pages": [
+        "https://www.basworld.com/stock/semi-trailer/k%C3%B6gel",
         "https://www.basworld.com/stock/semi-trailer/krone",
         "https://www.basworld.com/stock/semi-trailer/schmitz",
-        "https://www.basworld.com/stock/semi-trailer?cond%5B%5D=used&page=1"
+        "https://www.basworld.com/stock/semi-trailer/schwarzm%C3%BCller"
       ],
       "allow_hosts": [
         "www.basworld.com"
@@ -116,7 +117,7 @@
         "/stock/semi-trailer"
       ],
       "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
-      "max_index_pages": 3,
+      "max_index_pages": 4,
       "max_pages_per_run": 180,
       "github_enabled": true
     }
