@@ -61,6 +61,11 @@
         <div id="sourceQuality"></div>
       </div>
 
+      <div class="panel span2">
+        <div class="panel-head"><div><div class="section-label">Discovery</div><h3>mobile.de через поисковый индекс</h3></div><span class="muted">не входит в рыночную медиану до канонической проверки</span></div>
+        <div id="mobileDiscovery" class="cards"></div>
+      </div>
+
       <div class="panel">
         <div class="panel-head"><div><div class="section-label">Market</div><h3>По маркам</h3></div></div>
         <div id="brands"></div>
@@ -186,6 +191,16 @@ function render(){
   document.getElementById('sourceQuality').innerHTML=Object.entries(sq)
     .sort((a,b)=>b[1].fresh-a[1].fresh)
     .map(([s,x])=>`<div class="coverage-row"><div><b>${esc(s)}</b><span>${x.fresh} fresh / ${x.n} total</span></div><div class="right"><span>${x.price} € · ${x.vin} VIN/ref</span></div></div>`).join('');
+
+  const md=data.discovery?.mobile_de;
+  const mdRows=(md?.pages||[]).flatMap(p=>(p.observations||[]).map(x=>({...x,brand:p.brand,source_page:p.source_page})));
+  document.getElementById('mobileDiscovery').innerHTML=mdRows.map(x=>`
+    <article class="deal-card">
+      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.title||'')}</b><span>${esc(x.first_registration||'EZ ?')} · ${esc(x.location||'')}</span></div><span class="badge check">DISCOVERY</span></div>
+      <div class="deal-price">${euro(x.price_eur)} <small>${esc(x.tax_basis||'ask')}</small></div>
+      <div class="deal-grid"><div><span>Продавец</span><b>${esc(x.seller||'—')}</b></div><div><span>Тип</span><b>${esc(x.body_type||'other')}</b></div></div>
+      <a target="_blank" rel="noopener" href="${esc(x.source_page)}">Открыть mobile.de ↗</a>
+    </article>`).join('') || '<div class="empty">mobile.de discovery пока пуст.</div>';
 
   const bc={}; L.forEach(x=>bc[x.brand]=(bc[x.brand]||0)+1);
   document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
