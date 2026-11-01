@@ -1,3 +1,7 @@
+param(
+  [string]$Sources = ""
+)
+
 $ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $PSScriptRoot
@@ -30,4 +34,9 @@ Write-Host "Update complete."
 Write-Host "Backup: $Backup"
 Write-Host ""
 Write-Host "Starting one test collection..."
-& (Join-Path $PSScriptRoot "run_windows.ps1")
+if ($Sources) {
+  & (Join-Path $PSScriptRoot "run_windows.ps1") -Sources $Sources
+}
+else {
+  & (Join-Path $PSScriptRoot "run_windows.ps1")
+}
