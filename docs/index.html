@@ -62,6 +62,11 @@
       </div>
 
       <div class="panel span2">
+        <div class="panel-head"><div><div class="section-label">Priority 2021</div><h3>2021 сейчас</h3></div><span class="muted">public asking market · не SHM transaction price</span></div>
+        <div id="snapshot2021" class="cards"></div>
+      </div>
+
+      <div class="panel span2">
         <div class="panel-head"><div><div class="section-label">Analytics</div><h3>Сегменты рынка</h3></div><span class="muted">asking prices · EUR net only when explicit</span></div>
         <div class="table-wrap">
           <table>
@@ -141,6 +146,17 @@ function render(){
 
   const bc={}; L.forEach(x=>bc[x.brand]=(bc[x.brand]||0)+1);
   document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
+
+  const y2021=L.filter(x=>String(x.year)==='2021');
+  const by2021={};
+  y2021.forEach(x=>(by2021[x.brand]??=[]).push(x));
+  document.getElementById('snapshot2021').innerHTML=['Kögel','Krone','Schmitz Cargobull','Schwarzmüller'].map(b=>{
+    const a=by2021[b]||[];
+    const ps=a.map(x=>x.price_original).filter(x=>typeof x==='number').sort((x,y)=>x-y);
+    const med=ps.length?ps[Math.floor((ps.length-1)/2)]:null;
+    const vins=a.filter(x=>x.vin||x.vin_ref).length;
+    return `<article class="deal-card"><div class="deal-top"><div><b>${esc(b)}</b><span>2021</span></div><span class="badge unknown">${a.length} CARDS</span></div><div class="deal-grid"><div><span>С ценой</span><b>${ps.length}</b></div><div><span>VIN/ref</span><b>${vins}</b></div><div><span>Мин. ask</span><b>${euro(ps[0]??null)}</b></div><div><span>Median ask</span><b>${euro(med)}</b></div></div></article>`;
+  }).join('');
 
   document.getElementById('segments').innerHTML=(data.segments||[]).map(x=>`<tr>
     <td><b>${esc(x.brand)}</b></td><td>${esc(x.year)}</td><td>${esc(x.body_type||'other')}</td><td>${x.cards}</td><td>${x.construction_year_known||0}</td><td>${x.priced}</td>
