@@ -1,0 +1,134 @@
+{
+  "updated_at": "2026-11-01",
+  "stats": {
+    "listings": 93,
+    "active": 88,
+    "vin_found": 1,
+    "sources": 22
+  },
+  "coverage": [
+    {
+      "source": "TruckScout24",
+      "state": "live",
+      "state_label": "подключаем",
+      "note": "public pages"
+    },
+    {
+      "source": "TrucksNL",
+      "state": "live",
+      "state_label": "подключаем",
+      "note": "public pages"
+    },
+    {
+      "source": "Trailer Store",
+      "state": "partial",
+      "state_label": "адаптер чинится",
+      "note": "detail crawl"
+    },
+    {
+      "source": "Autoline",
+      "state": "partial",
+      "state_label": "discovery",
+      "note": "без обхода защиты"
+    },
+    {
+      "source": "mobile.de",
+      "state": "partial",
+      "state_label": "следующий адаптер",
+      "note": "public search"
+    },
+    {
+      "source": "BAS World / Kleyn",
+      "state": "partial",
+      "state_label": "следующий",
+      "note": "dealer stock"
+    }
+  ],
+  "listings": [
+    {
+      "brand": "Kögel",
+      "model": "S24-1 3 axles APK 04/27 Lift Axle SAF",
+      "year": 2021,
+      "country": "Netherlands",
+      "seller": "BAS World Trucks",
+      "price_net_eur": 13400,
+      "delivered_eur": null,
+      "max_buy_eur": 16000,
+      "headroom": null,
+      "vin": null,
+      "vin_ref": "70336705",
+      "features": [
+        "SAF",
+        "Lift axle",
+        "Mega",
+        "Lifting roof"
+      ],
+      "source": "TrucksNL",
+      "status": "check",
+      "url": "https://www.trucksnl.com/kogel-s24-1-3-axles-apk-04-27-lift-axle-saf-9211008-vd"
+    },
+    {
+      "brand": "Kögel",
+      "model": "SN24 + Tõstetava Katusega",
+      "year": 2021,
+      "country": "Estonia",
+      "seller": "OÜ ScanBalt Trucks",
+      "price_net_eur": 13000,
+      "delivered_eur": null,
+      "max_buy_eur": 16000,
+      "headroom": null,
+      "vin": null,
+      "vin_ref": "255673",
+      "features": [
+        "SAF",
+        "Lift axle",
+        "Lifting roof"
+      ],
+      "source": "TrucksNL",
+      "status": "check",
+      "url": "https://www.trucksnl.com/kogel-sn24-8959776-vd"
+    },
+    {
+      "brand": "Kögel",
+      "model": "SN 24 Tautliner Hubdach SAF-Disc",
+      "year": 2021,
+      "country": "Germany",
+      "seller": null,
+      "price_net_eur": 17900,
+      "delivered_eur": null,
+      "max_buy_eur": 16000,
+      "headroom": -1900,
+      "vin": null,
+      "vin_ref": "A230-85-096",
+      "features": [
+        "SAF",
+        "Hubdach",
+        "Disc"
+      ],
+      "source": "TruckScout24",
+      "status": "expensive",
+      "url": "https://www.truckscout24.com/tsp/ts-230-85-096"
+    },
+    {
+      "brand": "Kögel",
+      "model": "Port 45 BDF Multi Chassis Liftachse",
+      "year": 2021,
+      "country": "Germany",
+      "seller": null,
+      "price_net_eur": 13900,
+      "delivered_eur": null,
+      "max_buy_eur": null,
+      "headroom": null,
+      "vin": null,
+      "vin_ref": "0326215",
+      "features": [
+        "BPW",
+        "Lift axle",
+        "Drum brakes"
+      ],
+      "source": "TruckScout24",
+      "status": "unknown",
+      "url": "https://www.truckscout24.com/tsp/ts-214-48-207"
+    }
+  ]
+}
