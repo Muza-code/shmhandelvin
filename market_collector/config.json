@@ -749,9 +749,9 @@
       "years": [
         2021
       ],
-      "rotate_historical_year": true,
+      "rotate_historical_year": false,
       "page_size": 100,
-      "max_pages_per_query": 2,
+      "max_pages_per_query": 1,
       "note": "Third-party live mobile.de market search via ReefAPI. Requires REEF_API_KEY. Free tier currently 1,000 credits."
     }
   ]
