@@ -28,6 +28,7 @@
       <div class="filters">
         <select id="brandFilter"><option value="">Все марки</option></select>
         <select id="yearFilter"><option value="">Все годы</option></select>
+        <select id="bodyFilter"><option value="">Все типы</option></select>
         <select id="countryFilter"><option value="">Все страны</option></select>
         <select id="statusFilter">
           <option value="">Все статусы</option>
@@ -64,7 +65,7 @@
         <div class="panel-head"><div><div class="section-label">Analytics</div><h3>Сегменты рынка</h3></div><span class="muted">asking prices · EUR net only when explicit</span></div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Марка</th><th>Год</th><th>Карточек</th><th>С ценой</th><th>Ask Q1</th><th>Ask median</th><th>Ask Q3</th><th>Net known</th><th>VIN/ref</th><th>Источники</th><th>Страны</th></tr></thead>
+            <thead><tr><th>Марка</th><th>Год</th><th>Тип</th><th>Карточек</th><th>Baujahr known</th><th>С ценой</th><th>Ask Q1</th><th>Ask median</th><th>Ask Q3</th><th>Net known</th><th>VIN/ref</th><th>Источники</th><th>Страны</th></tr></thead>
             <tbody id="segments"></tbody>
           </table>
         </div>
@@ -74,7 +75,7 @@
         <div class="panel-head"><div><div class="section-label">Catalogue</div><h3>Последние карточки</h3></div><input id="search" placeholder="VIN, модель, продавец…"></div>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Техника</th><th>Год</th><th>Страна</th><th>Цена</th><th>VIN / ref</th><th>Оснащение</th><th>Источник</th><th>Статус</th></tr></thead>
+            <thead><tr><th>Техника</th><th>Год</th><th>Тип</th><th>Страна</th><th>Цена</th><th>VIN / ref</th><th>Оснащение</th><th>Источник</th><th>Статус</th></tr></thead>
             <tbody id="listings"></tbody>
           </table>
         </div>
@@ -88,16 +89,27 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&
 let data={listings:[],coverage:[],benchmarks:[]};
 
 function badge(status){
-  const labels={interesting:'ИНТЕРЕСНО',check:'ПРОВЕРИТЬ',expensive:'ДОРОГО',unknown:'НЕТ ОЦЕНКИ'};
+  const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',unknown:'НЕТ ОЦЕНКИ'};
   return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
+}
+function marketContext(x){
+  const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
+  const ask=x.price_original;
+  if(!seg || !ask || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0};
+  const diff=(ask/seg.median_ask_eur-1)*100;
+  let status='check';
+  if(seg.q1_ask_eur!=null && ask<=seg.q1_ask_eur) status='interesting';
+  else if(diff>=15) status='expensive';
+  return {status,median:seg.median_ask_eur,q1:seg.q1_ask_eur,diff,n:seg.priced};
 }
 function render(){
   const L=data.listings||[];
   const brands=[...new Set(L.map(x=>x.brand).filter(Boolean))].sort();
   const years=[...new Set(L.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
   const countries=[...new Set(L.map(x=>x.country).filter(Boolean))].sort();
+  const bodies=[...new Set(L.map(x=>x.body_type).filter(Boolean))].sort();
   const fill=(id,arr)=>{const e=document.getElementById(id); const old=e.value; e.innerHTML=e.options[0].outerHTML+arr.map(x=>'<option>'+esc(x)+'</option>').join(''); e.value=old;};
-  fill('brandFilter',brands); fill('yearFilter',years); fill('countryFilter',countries);
+  fill('brandFilter',brands); fill('yearFilter',years); fill('bodyFilter',bodies); fill('countryFilter',countries);
 
   document.getElementById('kpis').innerHTML=[
     ['Карточек',data.stats?.listings??L.length],
@@ -107,18 +119,19 @@ function render(){
     ['Кандидатов',L.filter(x=>x.status==='interesting').length]
   ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
 
-  const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
-  const F=L.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!cf||x.country===cf)&&(!sf||x.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
+  const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, tf=document.getElementById('bodyFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
+  const enriched=L.map(x=>({...x,_market:marketContext(x)}));
+  const F=enriched.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x._market.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
 
   document.getElementById('opportunities').innerHTML=F.slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
     <article class="deal-card">
-      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.country||'—')}</span></div>${badge(x.status)}</div>
+      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div>${badge(x._market.status)}</div>
       <div class="deal-price">${euro(x.price_net_eur)} <small>ask</small></div>
       <div class="deal-grid">
-        <div><span>Delivered Wyhl</span><b>${euro(x.delivered_eur)}</b></div>
-        <div><span>SHM max-buy</span><b>${euro(x.max_buy_eur)}</b></div>
-        <div><span>Headroom</span><b>${euro(x.headroom)}</b></div>
-        <div><span>VIN</span><b>${esc(x.vin||x.vin_ref||'—')}</b></div>
+        <div><span>Segment median</span><b>${euro(x._market.median)}</b></div>
+        <div><span>Vs median</span><b>${x._market.diff==null?'—':(x._market.diff>0?'+':'')+x._market.diff.toFixed(1)+'%'}</b></div>
+        <div><span>Comparable asks</span><b>${x._market.n||'—'}</b></div>
+        <div><span>VIN / ref</span><b>${esc(x.vin||x.vin_ref||'—')}</b></div>
       </div>
       <p>${esc((x.features||[]).join(' · ')||'Комплектация ещё не подтверждена')}</p>
       ${x.url?'<a target="_blank" rel="noopener" href="'+esc(x.url)+'">Открыть объявление ↗</a>':''}
@@ -130,18 +143,18 @@ function render(){
   document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
 
   document.getElementById('segments').innerHTML=(data.segments||[]).map(x=>`<tr>
-    <td><b>${esc(x.brand)}</b></td><td>${esc(x.year)}</td><td>${x.cards}</td><td>${x.priced}</td>
+    <td><b>${esc(x.brand)}</b></td><td>${esc(x.year)}</td><td>${esc(x.body_type||'other')}</td><td>${x.cards}</td><td>${x.construction_year_known||0}</td><td>${x.priced}</td>
     <td>${euro(x.q1_ask_eur)}</td><td><b>${euro(x.median_ask_eur)}</b></td><td>${euro(x.q3_ask_eur)}</td>
     <td>${x.net_priced||0}</td><td>${x.vin_found}</td><td>${x.sources}</td><td>${x.countries}</td>
   </tr>`).join('');
 
   document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
-    <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_net_eur)}</b></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc((x.features||[]).slice(0,4).join(', '))}</td><td>${esc(x.source||'—')}</td><td>${badge(x.status)}</td>
+    <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}<small>${esc(x.year_basis||'')}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_net_eur)}</b></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc((x.features||[]).slice(0,4).join(', '))}</td><td>${esc(x.source||'—')}</td><td>${badge(x._market.status)}</td>
   </tr>`).join('');
 
   document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
 }
-['brandFilter','yearFilter','countryFilter','statusFilter','search'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
+['brandFilter','yearFilter','bodyFilter','countryFilter','statusFilter','search'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
 fetch('./data/latest_market.json').then(r=>r.json()).then(x=>{data=x;render()}).catch(()=>{document.getElementById('syncStatus').textContent='Ошибка загрузки данных'});
 </script>
 </body>
