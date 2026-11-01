@@ -61,6 +61,16 @@
       </div>
 
       <div class="panel span2">
+        <div class="panel-head"><div><div class="section-label">Analytics</div><h3>Сегменты рынка</h3></div><span class="muted">asking prices · EUR net only when explicit</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Марка</th><th>Год</th><th>Карточек</th><th>С ценой</th><th>Q1</th><th>Медиана</th><th>Q3</th><th>VIN/ref</th><th>Источники</th><th>Страны</th></tr></thead>
+            <tbody id="segments"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel span2">
         <div class="panel-head"><div><div class="section-label">Catalogue</div><h3>Последние карточки</h3></div><input id="search" placeholder="VIN, модель, продавец…"></div>
         <div class="table-wrap">
           <table>
@@ -118,6 +128,12 @@ function render(){
 
   const bc={}; L.forEach(x=>bc[x.brand]=(bc[x.brand]||0)+1);
   document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
+
+  document.getElementById('segments').innerHTML=(data.segments||[]).map(x=>`<tr>
+    <td><b>${esc(x.brand)}</b></td><td>${esc(x.year)}</td><td>${x.cards}</td><td>${x.priced}</td>
+    <td>${euro(x.q1_net_eur)}</td><td><b>${euro(x.median_net_eur)}</b></td><td>${euro(x.q3_net_eur)}</td>
+    <td>${x.vin_found}</td><td>${x.sources}</td><td>${x.countries}</td>
+  </tr>`).join('');
 
   document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
     <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_net_eur)}</b></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc((x.features||[]).slice(0,4).join(', '))}</td><td>${esc(x.source||'—')}</td><td>${badge(x.status)}</td>
