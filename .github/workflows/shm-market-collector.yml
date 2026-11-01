@@ -36,6 +36,7 @@ jobs:
           MOBILEDE_PASSWORD: ${{ secrets.MOBILEDE_PASSWORD }}
           SHM_INGEST_URL: ${{ secrets.SHM_INGEST_URL }}
           SHM_INGEST_TOKEN: ${{ secrets.SHM_INGEST_TOKEN }}
+          SHM_RUNNER_KIND: github
         run: python market_collector/collector.py --config market_collector/config.json --out out
       - name: Build Market Center dataset
         run: python market_collector/build_dashboard_data.py
