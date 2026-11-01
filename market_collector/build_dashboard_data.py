@@ -30,31 +30,51 @@ if TARGET.exists():
 
 rows=read_ndjson(OUT/"listings.ndjson")
 events=read_ndjson(OUT/"access_events.ndjson")
-if not rows:
-    # Preserve last good catalogue if a crawl yields nothing; only refresh coverage/status.
-    listings=old.get("listings",[])
-else:
-    listings=[]
-    for r in rows:
-        features=[]
-        for key,label in [
-            ("axle_maker",None),("lift_axle","Lift axle"),("pallet_box","Pallet box"),
-            ("code_xl","Code XL"),("mega","Mega"),("coil","Coil"),("joloda","Joloda"),("huckepack","Huckepack/P400")
-        ]:
-            v=r.get(key)
-            if key=="axle_maker" and v: features.append(str(v))
-            elif v is True: features.append(label)
-        listings.append({
-            "brand":r.get("brand"),"model":r.get("title"),
-            "year":r.get("market_year"),"year_basis":r.get("year_basis"),
-            "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
-            "body_type":r.get("body_type"),
-            "country":r.get("country"),"seller":r.get("seller"),"price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" else None,
-            "price_original":r.get("price_amount"),"currency":r.get("price_currency"),"tax_basis":r.get("tax_basis"),
-            "vin":r.get("vin"),"vin_ref":(r.get("vin_refs") or [None])[0],
-            "features":features,"source":r.get("source"),"status":"unknown","url":r.get("url"),
-            "observed_at":r.get("observed_at")
-        })
+
+old_listings=old.get("listings",[]) if isinstance(old,dict) else []
+catalogue={}
+for x in old_listings:
+    key=(x.get("source"),x.get("url"))
+    if not key[0] or not key[1]:
+        continue
+    y=dict(x)
+    y.setdefault("first_seen_at",y.get("observed_at"))
+    y.setdefault("last_seen_at",y.get("observed_at"))
+    y["seen_this_run"]=False
+    catalogue[key]=y
+
+for r in rows:
+    features=[]
+    for key,label in [
+        ("axle_maker",None),("lift_axle","Lift axle"),("pallet_box","Pallet box"),
+        ("code_xl","Code XL"),("mega","Mega"),("coil","Coil"),("joloda","Joloda"),("huckepack","Huckepack/P400")
+    ]:
+        v=r.get(key)
+        if key=="axle_maker" and v: features.append(str(v))
+        elif v is True: features.append(label)
+
+    key=(r.get("source"),r.get("url"))
+    if not key[0] or not key[1]:
+        continue
+    previous=catalogue.get(key,{})
+    observed=r.get("observed_at")
+    catalogue[key]={
+        "brand":r.get("brand"),"model":r.get("title"),
+        "year":r.get("market_year"),"year_basis":r.get("year_basis"),
+        "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
+        "body_type":r.get("body_type"),
+        "country":r.get("country"),"seller":r.get("seller"),
+        "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" else None,
+        "price_original":r.get("price_amount"),"currency":r.get("price_currency"),"tax_basis":r.get("tax_basis"),
+        "vin":r.get("vin"),"vin_ref":(r.get("vin_refs") or [None])[0],
+        "features":features,"source":r.get("source"),"status":"unknown","url":r.get("url"),
+        "observed_at":observed,
+        "first_seen_at":previous.get("first_seen_at") or previous.get("observed_at") or observed,
+        "last_seen_at":observed,
+        "seen_this_run":True
+    }
+
+listings=list(catalogue.values())
 
 sources=Counter(x.get("source") for x in listings if x.get("source"))
 coverage=[]
@@ -95,7 +115,8 @@ data={
     "updated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
     "stats":{
         "listings":len(listings),
-        "active":None,
+        "active":sum(bool(x.get("seen_this_run")) for x in listings),
+        "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
         "sources":len(sources)
     },
