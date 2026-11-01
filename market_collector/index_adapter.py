@@ -9,6 +9,7 @@ def discover_index_pages(http, source, events, now_func):
     queue=seeds[:]
     seen=set()
     details=[]
+    link_samples=[]
     allow=set(source.get("allow_hosts") or [])
     index_tokens=[x.lower() for x in source.get("index_url_tokens") or []]
     detail_rx=re.compile(source.get("detail_url_regex", r"\d{6,10}\.html(?:$|\?)"), re.I)
@@ -44,6 +45,8 @@ def discover_index_pages(http, source, events, now_func):
 
         for a in soup.find_all("a", href=True):
             full=urljoin(final_url,a["href"])
+            if len(link_samples) < 40:
+                link_samples.append(full)
             p=urlparse(full)
             if allow and (p.hostname or "") not in allow:
                 continue
@@ -56,4 +59,13 @@ def discover_index_pages(http, source, events, now_func):
             if index_tokens and any(t in low for t in index_tokens) and full not in seen and full not in queue:
                 queue.append(full)
 
-    return list(dict.fromkeys(details))
+    unique=list(dict.fromkeys(details))
+    if not unique:
+        events.append({
+            "source":source["name"],
+            "url":seeds[0] if seeds else None,
+            "observed_at":now_func(),
+            "status":"index_no_detail_match",
+            "links_sample":list(dict.fromkeys(link_samples))[:40],
+        })
+    return unique
