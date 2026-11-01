@@ -60,25 +60,77 @@
       "name": "TruckScout24",
       "type": "index_cards",
       "seed_pages": [
-        "https://www.truckscout24.com/semi-trailers/used/all/koegel",
-        "https://www.truckscout24.com/semi-trailers/used/all/krone",
-        "https://www.truckscout24.com/semi-trailers/used/all/schmitz-cargobull",
+        "https://www.truckscout24.com/semi-trailers/used/all/koegel"
+      ],
+      "allow_hosts": [
+        "www.truckscout24.com"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/used/all/koegel"
+      ],
+      "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
+      "max_index_pages": 5,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Kögel"
+    },
+    {
+      "name": "TruckScout24",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.truckscout24.com/semi-trailers/used/all/krone"
+      ],
+      "allow_hosts": [
+        "www.truckscout24.com"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/used/all/krone"
+      ],
+      "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
+      "max_index_pages": 5,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Krone"
+    },
+    {
+      "name": "TruckScout24",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.truckscout24.com/semi-trailers/used/all/schmitz-cargobull"
+      ],
+      "allow_hosts": [
+        "www.truckscout24.com"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/used/all/schmitz-cargobull"
+      ],
+      "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
+      "max_index_pages": 5,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Schmitz Cargobull"
+    },
+    {
+      "name": "TruckScout24",
+      "type": "index_cards",
+      "seed_pages": [
         "https://www.truckscout24.com/semi-trailers/used/all/schwarzmueller"
       ],
       "allow_hosts": [
         "www.truckscout24.com"
       ],
       "index_url_tokens": [
-        "/semi-trailers/used/all/koegel",
-        "/semi-trailers/used/all/krone",
-        "/semi-trailers/used/all/schmitz",
-        "/semi-trailers/used/all/schwar"
+        "/semi-trailers/used/all/schwarzmueller"
       ],
       "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
-      "max_index_pages": 4,
+      "max_index_pages": 5,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true
+      "github_enabled": true,
+      "source_segment": "Schwarzmüller"
     },
     {
       "name": "Kleyn Trucks",
@@ -105,22 +157,77 @@
       "name": "BAS World",
       "type": "index_cards",
       "seed_pages": [
-        "https://www.basworld.com/stock/semi-trailer/k%C3%B6gel",
-        "https://www.basworld.com/stock/semi-trailer/krone",
-        "https://www.basworld.com/stock/semi-trailer/schmitz",
+        "https://www.basworld.com/stock/semi-trailer/k%C3%B6gel"
+      ],
+      "allow_hosts": [
+        "www.basworld.com"
+      ],
+      "index_url_tokens": [
+        "/stock/semi-trailer/k%C3%B6gel"
+      ],
+      "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "github_enabled": true,
+      "force_browser": false,
+      "source_segment": "Kögel"
+    },
+    {
+      "name": "BAS World",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.basworld.com/stock/semi-trailer/krone"
+      ],
+      "allow_hosts": [
+        "www.basworld.com"
+      ],
+      "index_url_tokens": [
+        "/stock/semi-trailer/krone"
+      ],
+      "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "github_enabled": true,
+      "force_browser": false,
+      "source_segment": "Krone"
+    },
+    {
+      "name": "BAS World",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.basworld.com/stock/semi-trailer/schmitz"
+      ],
+      "allow_hosts": [
+        "www.basworld.com"
+      ],
+      "index_url_tokens": [
+        "/stock/semi-trailer/schmitz"
+      ],
+      "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "github_enabled": true,
+      "force_browser": false,
+      "source_segment": "Schmitz Cargobull"
+    },
+    {
+      "name": "BAS World",
+      "type": "index_cards",
+      "seed_pages": [
         "https://www.basworld.com/stock/semi-trailer/schwarzm%C3%BCller"
       ],
       "allow_hosts": [
         "www.basworld.com"
       ],
       "index_url_tokens": [
-        "/stock/semi-trailer"
+        "/stock/semi-trailer/schwarzm%C3%BCller"
       ],
       "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
-      "max_index_pages": 4,
+      "max_index_pages": 3,
       "max_pages_per_run": 0,
       "github_enabled": true,
-      "force_browser": false
+      "force_browser": false,
+      "source_segment": "Schwarzmüller"
     }
   ]
 }
