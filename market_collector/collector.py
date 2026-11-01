@@ -466,6 +466,7 @@ def collect_planet_cards(http,src,rows,events):
                 events.append({"source":src["name"],"url":page_url,"observed_at":now(),"status":"http_error","http_status":status,"mode":mode})
                 continue
             soup=BeautifulSoup(html,"html.parser")
+            full_text=clean(soup.get_text(" ",strip=True))
             seen_refs=set()
             debug_samples=0
             ref_nodes=soup.find_all(string=re.compile(r"Website\s*ref",re.I))
