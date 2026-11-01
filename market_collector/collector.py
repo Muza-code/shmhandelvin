@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright
 from index_adapter import discover_index_pages
 
 UA = "SHM-Market-Collector/0.1"
@@ -125,12 +126,64 @@ def html_record(source,url,html):
         "raw_hash":hash_text(html),"evidence_excerpt":text[:2000]
     }
 
+class BrowserFetcher:
+    def __init__(self):
+        self._pw = sync_playwright().start()
+        self.browser = self._pw.chromium.launch(headless=True)
+        self.context = self.browser.new_context(
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/150 Safari/537.36',
+            locale='de-DE',
+            viewport={'width': 1440, 'height': 1000},
+        )
+
+    def get_html(self, url):
+        page = self.context.new_page()
+        try:
+            resp = page.goto(url, wait_until='domcontentloaded', timeout=30000)
+            status = resp.status if resp else None
+            if status in (401, 403, 429):
+                return status, None, page.url
+            body = (page.locator('body').inner_text(timeout=5000) or '')[:3000].lower()
+            if any(x in body for x in ['captcha', 'verify you are human', 'access denied', 'cloudflare challenge']):
+                return 403, None, page.url
+            page.wait_for_timeout(1200)
+            return status or 200, page.content(), page.url
+        finally:
+            page.close()
+
+    def close(self):
+        try:
+            self.context.close()
+            self.browser.close()
+            self._pw.stop()
+        except Exception:
+            pass
+
 class Http:
     def __init__(self):
         self.s=requests.Session()
         self.s.headers.update({"User-Agent":UA,"Accept-Language":"en,de;q=0.8"})
+        self.browser=None
     def get(self,url,**kw):
         return self.s.get(url,timeout=25,allow_redirects=True,**kw)
+    def browser_html(self,url):
+        if self.browser is None:
+            self.browser=BrowserFetcher()
+        return self.browser.get_html(url)
+    def close(self):
+        if self.browser:
+            self.browser.close()
+
+def fetch_html(http,url):
+    r=http.get(url)
+    if r.status_code==200:
+        return 200,r.text,r.url,'http'
+    if r.status_code in (401,403,429):
+        status,html,final_url=http.browser_html(url)
+        if html:
+            return status or 200,html,final_url,'browser'
+        return status or r.status_code,None,final_url,'browser_blocked'
+    return r.status_code,None,r.url,'http'
 
 def sitemap_locs(xml):
     root=ET.fromstring(xml)
@@ -161,10 +214,10 @@ def collect_sitemap(http,src,rows,events):
             events.append({"source":src["name"],"url":sm,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
     for i,u in enumerate(dict.fromkeys(pages),1):
         try:
-            r=http.get(u)
-            if r.status_code!=200:
-                events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"http_error","http_status":r.status_code}); continue
-            rec=html_record(src["name"],r.url,r.text)
+            status,html,final_url,mode=fetch_html(http,u)
+            if status!=200 or not html:
+                events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"http_error","http_status":status,"mode":mode}); continue
+            rec=html_record(src["name"],final_url,html)
             if rec: rows.append(rec)
         except Exception as e:
             events.append({"source":src["name"],"url":u,"observed_at":now(),"status":"fetch_error","error":str(e)[:500]})
@@ -280,5 +333,6 @@ def main():
     else: summary["ingest"]={"configured":False}
     (out/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2,sort_keys=True)+"\\n",encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False,indent=2))
+    http.close()
 
 if __name__=="__main__": main()
