@@ -74,7 +74,8 @@
       ],
       "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
       "max_index_pages": 20,
-      "max_pages_per_run": 160
+      "max_pages_per_run": 160,
+      "force_browser": true
     },
     {
       "name": "Kleyn Trucks",
@@ -100,7 +101,6 @@
       "name": "BAS World",
       "type": "crawl_index",
       "seed_pages": [
-        "https://www.basworld.com/stock/semi-trailer/kogel",
         "https://www.basworld.com/stock/semi-trailer/krone",
         "https://www.basworld.com/stock/semi-trailer/schmitz",
         "https://www.basworld.com/stock/semi-trailer?cond%5B%5D=used&page=1"
@@ -111,7 +111,7 @@
       "index_url_tokens": [
         "/stock/semi-trailer"
       ],
-      "detail_url_regex": "/stock/[A-Za-z0-9/_-]+-[0-9]{5,10}(?:$|\\?)",
+      "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
       "max_index_pages": 24,
       "max_pages_per_run": 180
     }
