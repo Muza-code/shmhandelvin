@@ -1,0 +1,43 @@
+name: Deploy SHM Market Center
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'market_center_static/**'
+      - 'data/latest_market.json'
+      - '.github/workflows/deploy-market-center-pages.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build static site
+        run: |
+          rm -rf _site
+          mkdir -p _site/data
+          cp market_center_static/index.html _site/index.html
+          cp market_center_static/market_center.css _site/market_center.css
+          cp data/latest_market.json _site/data/latest_market.json
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
