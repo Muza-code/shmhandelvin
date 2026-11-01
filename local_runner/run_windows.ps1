@@ -43,4 +43,21 @@ finally {
 
 Write-Host "SHM collector finished."
 Write-Host ("Output: " + $OutDir)
+
+# Build Market Center dataset from this local run.
+# The dashboard builder merges new observations with the existing catalogue/history.
+$CanonicalOut = Join-Path $RepoRoot "out"
+New-Item -ItemType Directory -Force -Path $CanonicalOut | Out-Null
+Copy-Item (Join-Path $OutDir "listings.ndjson") (Join-Path $CanonicalOut "listings.ndjson") -Force
+Copy-Item (Join-Path $OutDir "access_events.ndjson") (Join-Path $CanonicalOut "access_events.ndjson") -Force
+Copy-Item (Join-Path $OutDir "summary.json") (Join-Path $CanonicalOut "summary.json") -Force
+
+python market_collector\build_dashboard_data.py
+if ($LASTEXITCODE -ne 0) { throw "Market Center dataset build failed." }
+
+if (Test-Path "data\latest_market.json") {
+  Copy-Item "data\latest_market.json" "docs\latest_market.json" -Force
+}
+
+Write-Host "Market Center dataset updated: data\latest_market.json"
 Write-Host "This local runner does not automatically publish private SHM data."
