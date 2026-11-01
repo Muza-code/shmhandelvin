@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import requests
+from analytics.valuation import evaluate
 
 app = Flask(__name__)
 
@@ -56,6 +57,22 @@ def market_center_data():
             "listings": [],
             "error": f"market data unavailable: {exc}",
         }), 503
+
+
+@app.post("/api/private/evaluate")
+def private_evaluate():
+    token = os.getenv("SHM_PRIVATE_TOKEN", "")
+    auth = request.headers.get("Authorization", "")
+    if not token or auth != f"Bearer {token}":
+        return jsonify({"error": "private valuation unavailable"}), 403
+    payload = request.get_json(silent=True) or {}
+    target = payload.get("target") or {}
+    return jsonify(evaluate(
+        target,
+        transport_to_wyhl_eur=payload.get("transport_to_wyhl_eur"),
+        post_arrival_costs_eur=payload.get("post_arrival_costs_eur"),
+        target_profit_eur=payload.get("target_profit_eur"),
+    ))
 
 
 @app.get("/health")
