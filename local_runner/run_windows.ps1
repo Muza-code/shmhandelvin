@@ -10,6 +10,12 @@ Set-Location $RepoRoot
 # This matters when a key was saved from another PowerShell process.
 if (-not $env:REEF_API_KEY) {
   $savedReefKey = [Environment]::GetEnvironmentVariable("REEF_API_KEY", "User")
+  if (-not $savedReefKey) {
+    $reefFile = Join-Path $PSScriptRoot "reefapi_key.txt"
+    if (Test-Path $reefFile) {
+      $savedReefKey = (Get-Content $reefFile -Raw).Trim()
+    }
+  }
   if ($savedReefKey) { $env:REEF_API_KEY = $savedReefKey }
 }
 if (-not $env:MOBILEDE_USERNAME) {
