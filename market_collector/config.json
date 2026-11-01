@@ -75,7 +75,7 @@
         "/semi-trailers/used/all/schwar"
       ],
       "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
-      "max_index_pages": 12,
+      "max_index_pages": 1,
       "max_pages_per_run": 0,
       "force_browser": true,
       "github_enabled": true
@@ -116,7 +116,7 @@
         "/stock/semi-trailer"
       ],
       "detail_url_regex": "/vehicles/used/.+-[0-9]{8}(?:$|\\?)",
-      "max_index_pages": 24,
+      "max_index_pages": 1,
       "max_pages_per_run": 180,
       "github_enabled": true
     }
