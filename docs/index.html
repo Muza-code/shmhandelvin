@@ -97,6 +97,18 @@ function badge(status){
   const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',unknown:'НЕТ ОЦЕНКИ'};
   return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
 }
+function confidence(x){
+  const m=marketContext(x);
+  let score=0;
+  if((m.n||0)>=10) score+=2; else if((m.n||0)>=5) score+=1;
+  if(x.construction_year!=null) score+=2; else if(x.year_basis) score+=1;
+  if(x.tax_basis) score+=1;
+  if(x.vin||x.vin_ref) score+=1;
+  if((x.features||[]).length>=2) score+=1;
+  if(score>=6) return {label:'HIGH',cls:'interesting'};
+  if(score>=3) return {label:'MEDIUM',cls:'check'};
+  return {label:'LOW',cls:'unknown'};
+}
 function marketContext(x){
   const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
   const ask=x.price_original;
@@ -136,7 +148,7 @@ function render(){
     }).slice(0,8);
   document.getElementById('opportunities').innerHTML=opp.map(x=>`
     <article class="deal-card">
-      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div>${badge(x._market.status)}</div>
+      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div><div>${badge(x._market.status)} <span class="badge ${confidence(x).cls}">CONF ${confidence(x).label}</span></div></div>
       <div class="deal-price">${euro(x.price_net_eur)} <small>ask</small></div>
       <div class="deal-grid">
         <div><span>Segment median</span><b>${euro(x._market.median)}</b></div>
