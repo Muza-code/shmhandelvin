@@ -75,6 +75,45 @@
       "detail_url_regex": "/tsp/ts-[0-9-]+(?:$|\\?)",
       "max_index_pages": 20,
       "max_pages_per_run": 160
+    },
+    {
+      "name": "Kleyn Trucks",
+      "type": "crawl_index",
+      "seed_pages": [
+        "https://www.kleyntrucks.com/en/stock?facet=kind%3ASMT%2CTRR%3Bmake%3AKOGEL",
+        "https://www.kleyntrucks.com/en/stock?facet=kind%3ASMT%2CTRR%3Bmake%3AKRONE",
+        "https://www.kleyntrucks.com/en/stock?facet=kind%3ASMT%2CTRR%3Bmake%3ASCHMITZ",
+        "https://www.kleyntrucks.com/en/kleyn-trailers/brands"
+      ],
+      "allow_hosts": [
+        "www.kleyntrucks.com"
+      ],
+      "index_url_tokens": [
+        "/en/stock",
+        "/en/kleyn-trailers/brands"
+      ],
+      "detail_url_regex": "/en/vehicle/details/[0-9]+/",
+      "max_index_pages": 24,
+      "max_pages_per_run": 180
+    },
+    {
+      "name": "BAS World",
+      "type": "crawl_index",
+      "seed_pages": [
+        "https://www.basworld.com/stock/semi-trailer/kogel",
+        "https://www.basworld.com/stock/semi-trailer/krone",
+        "https://www.basworld.com/stock/semi-trailer/schmitz",
+        "https://www.basworld.com/stock/semi-trailer?cond%5B%5D=used&page=1"
+      ],
+      "allow_hosts": [
+        "www.basworld.com"
+      ],
+      "index_url_tokens": [
+        "/stock/semi-trailer"
+      ],
+      "detail_url_regex": "/stock/[A-Za-z0-9/_-]+-[0-9]{5,10}(?:$|\\?)",
+      "max_index_pages": 24,
+      "max_pages_per_run": 180
     }
   ]
 }
