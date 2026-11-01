@@ -67,18 +67,22 @@ groups={}
 for x in listings:
     key=(x.get("brand"),x.get("year"))
     if not key[0] or not key[1]: continue
-    g=groups.setdefault(key,{"prices":[],"cards":0,"vin":0,"sources":set(),"countries":set()})
+    g=groups.setdefault(key,{"net_prices":[],"ask_eur":[],"cards":0,"vin":0,"sources":set(),"countries":set()})
     g["cards"]+=1
     if x.get("vin") or x.get("vin_ref"): g["vin"]+=1
     if x.get("source"): g["sources"].add(x["source"])
     if x.get("country"): g["countries"].add(x["country"])
     p=x.get("price_net_eur")
-    if isinstance(p,(int,float)): g["prices"].append(float(p))
+    if isinstance(p,(int,float)): g["net_prices"].append(float(p))
+    ask=x.get("price_original")
+    if x.get("currency")=="EUR" and isinstance(ask,(int,float)): g["ask_eur"].append(float(ask))
 for (brand,year),g in groups.items():
-    ps=g["prices"]
+    ps=g["net_prices"]; asks=g["ask_eur"]
     segments.append({
-        "brand":brand,"year":year,"cards":g["cards"],"priced":len(ps),"vin_found":g["vin"],
+        "brand":brand,"year":year,"cards":g["cards"],
+        "priced":len(asks),"net_priced":len(ps),"vin_found":g["vin"],
         "sources":len(g["sources"]),"countries":len(g["countries"]),
+        "q1_ask_eur":percentile(asks,.25),"median_ask_eur":percentile(asks,.5),"q3_ask_eur":percentile(asks,.75),
         "q1_net_eur":percentile(ps,.25),"median_net_eur":percentile(ps,.5),"q3_net_eur":percentile(ps,.75)
     })
 segments.sort(key=lambda x:(x["brand"],-x["year"]))
