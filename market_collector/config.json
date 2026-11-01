@@ -739,6 +739,20 @@
       ],
       "max_ads_per_run": 1200,
       "note": "Official mobile.de Search API / Ad-Integration. Requires MOBILEDE_USERNAME and MOBILEDE_PASSWORD."
+    },
+    {
+      "name": "mobile.de via ReefAPI",
+      "type": "reef_mobile_api",
+      "github_enabled": true,
+      "local_enabled": true,
+      "vehicle_type": "truck",
+      "years": [
+        2021
+      ],
+      "rotate_historical_year": true,
+      "page_size": 100,
+      "max_pages_per_query": 2,
+      "note": "Third-party live mobile.de market search via ReefAPI. Requires REEF_API_KEY. Free tier currently 1,000 credits."
     }
   ]
 }
