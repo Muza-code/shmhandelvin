@@ -235,14 +235,14 @@ class BrowserFetcher:
     def get_html(self, url):
         page = self.context.new_page()
         try:
-            resp = page.goto(url, wait_until='domcontentloaded', timeout=30000)
+            resp = page.goto(url, wait_until='domcontentloaded', timeout=12000)
             status = resp.status if resp else None
             if status in (401, 403, 429):
                 return status, None, page.url
             body = (page.locator('body').inner_text(timeout=5000) or '')[:3000].lower()
             if any(x in body for x in ['captcha', 'verify you are human', 'access denied', 'cloudflare challenge']):
                 return 403, None, page.url
-            page.wait_for_timeout(1200)
+            page.wait_for_timeout(400)
             return status or 200, page.content(), page.url
         finally:
             page.close()
