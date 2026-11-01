@@ -486,6 +486,26 @@ def collect_planet_cards(http,src,rows,events):
                 seen_refs.add(ref)
                 rec=html_record(src["name"],final_url+"#website-ref-"+ref,str(best))
                 if rec:
+                    marker=re.search(r"Website\\s*ref\\.?\\s*[:|]?\\s*"+re.escape(ref),full_text,re.I)
+                    if marker:
+                        before=full_text[max(0,marker.start()-1800):marker.start()]
+                        after=full_text[marker.end():min(len(full_text),marker.end()+1200)]
+                        # Price is commonly in the listing header before the structured "Website ref" block.
+                        if rec.get("price_amount") is None:
+                            valid=[]
+                            for pm in PRICE_RE.finditer(before):
+                                candidate=price_of(pm.group(0))
+                                if candidate is not None:
+                                    valid.append(candidate)
+                            if valid:
+                                rec["price_amount"]=valid[-1]
+                                rec["price_currency"]="EUR"
+                        if rec.get("tax_basis") is None:
+                            rec["tax_basis"]=tax_of(before[-700:]+" "+after[:400])
+                        if not rec.get("seller"):
+                            ms=re.search(r"([A-ZÀ-Ž0-9][A-Za-zÀ-ž0-9&.,'()\\- ]{2,90}?)\\s+Seller\\s+for\\s+\\d+\\s+(?:year|years|month|months)",before,re.I)
+                            if ms:
+                                rec["seller"]=clean(ms.group(1))
                     rec["source_listing_id"]=ref
                     rec["source_page_url"]=final_url
                     rows.append(rec)
