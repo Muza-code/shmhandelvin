@@ -635,6 +635,94 @@
       "github_enabled": false,
       "local_enabled": true,
       "source_segment": "Schwarzmüller"
+    },
+    {
+      "name": "Autoline",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://autoline.info/-/semi-trailers/Kogel--c43tm2636"
+      ],
+      "allow_hosts": [
+        "autoline.info"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/"
+      ],
+      "detail_url_regex": "/[^?#]*--a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 0,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": false,
+      "local_enabled": false,
+      "discovery_only": true,
+      "source_segment": "Kögel",
+      "local_note": "market-reference/discovery only; do not bulk crawl without authorized access"
+    },
+    {
+      "name": "Autoline",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://autoline.info/-/semi-trailers/Krone--c43tm2640"
+      ],
+      "allow_hosts": [
+        "autoline.info"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/"
+      ],
+      "detail_url_regex": "/[^?#]*--a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 0,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": false,
+      "local_enabled": false,
+      "discovery_only": true,
+      "source_segment": "Krone",
+      "local_note": "market-reference/discovery only; do not bulk crawl without authorized access"
+    },
+    {
+      "name": "Autoline",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://autoline.info/-/semi-trailers/Schmitz-Cargobull--c43tm2745"
+      ],
+      "allow_hosts": [
+        "autoline.info"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/"
+      ],
+      "detail_url_regex": "/[^?#]*--a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 0,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": false,
+      "local_enabled": false,
+      "discovery_only": true,
+      "source_segment": "Schmitz Cargobull",
+      "local_note": "market-reference/discovery only; do not bulk crawl without authorized access"
+    },
+    {
+      "name": "Autoline",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://autoline.info/-/semi-trailers/Schwarzmuller--c43tm2779"
+      ],
+      "allow_hosts": [
+        "autoline.info"
+      ],
+      "index_url_tokens": [
+        "/semi-trailers/"
+      ],
+      "detail_url_regex": "/[^?#]*--a[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 0,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": false,
+      "local_enabled": false,
+      "discovery_only": true,
+      "source_segment": "Schwarzmüller",
+      "local_note": "market-reference/discovery only; do not bulk crawl without authorized access"
     }
   ]
 }
