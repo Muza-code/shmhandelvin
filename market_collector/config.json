@@ -362,7 +362,7 @@
       "max_index_pages": 3,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Kögel"
     },
     {
@@ -382,7 +382,7 @@
       "max_index_pages": 3,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Krone"
     },
     {
@@ -402,7 +402,7 @@
       "max_index_pages": 3,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Schmitz Cargobull"
     },
     {
@@ -422,8 +422,27 @@
       "max_index_pages": 3,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Schwarzmüller"
+    },
+    {
+      "name": "Autoplius",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://en.m.autoplius.lt/ads/semi-trailers-trailers?category_id=25"
+      ],
+      "allow_hosts": [
+        "en.m.autoplius.lt",
+        "autoplius.lt"
+      ],
+      "index_url_tokens": [
+        "/ads/semi-trailers-trailers"
+      ],
+      "detail_url_regex": "/ads/[^?#]+-[0-9]+\\.html(?:$|\\?)",
+      "max_index_pages": 12,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true
     }
   ]
 }
