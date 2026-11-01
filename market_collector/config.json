@@ -244,7 +244,7 @@
       "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
       "max_index_pages": 2,
       "max_pages_per_run": 0,
-      "force_browser": false,
+      "force_browser": true,
       "github_enabled": true,
       "source_segment": "Kögel",
       "target_year": 2021
@@ -264,7 +264,7 @@
       "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
       "max_index_pages": 2,
       "max_pages_per_run": 0,
-      "force_browser": false,
+      "force_browser": true,
       "github_enabled": true,
       "source_segment": "Krone",
       "target_year": 2021
@@ -284,7 +284,7 @@
       "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
       "max_index_pages": 2,
       "max_pages_per_run": 0,
-      "force_browser": false,
+      "force_browser": true,
       "github_enabled": true,
       "source_segment": "Schmitz Cargobull",
       "target_year": 2021
@@ -304,10 +304,46 @@
       "detail_url_regex": "-a[0-9]+\\.html(?:$|\\?)",
       "max_index_pages": 2,
       "max_pages_per_run": 0,
-      "force_browser": false,
+      "force_browser": true,
       "github_enabled": true,
       "source_segment": "Schwarzmüller",
       "target_year": 2021
+    },
+    {
+      "name": "KRONE Used",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.krone-used.com/"
+      ],
+      "allow_hosts": [
+        "www.krone-used.com"
+      ],
+      "index_url_tokens": [
+        "krone-used.com"
+      ],
+      "detail_url_regex": "/app/(?:eng|deu|nld|fra)/[^?#]+-[0-9]+(?:$|\\?)",
+      "max_index_pages": 10,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true
+    },
+    {
+      "name": "Heisterkamp Used",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://www.heisterkamp.eu/en/used-trailers"
+      ],
+      "allow_hosts": [
+        "www.heisterkamp.eu"
+      ],
+      "index_url_tokens": [
+        "/en/used-trailers"
+      ],
+      "detail_url_regex": "/en/used-trailers/[0-9]+/[^?#]+(?:$|\\?)",
+      "max_index_pages": 5,
+      "max_pages_per_run": 0,
+      "force_browser": false,
+      "github_enabled": true
     }
   ]
 }
