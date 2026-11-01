@@ -324,7 +324,7 @@
       "detail_url_regex": "/app/(?:eng|deu|nld|fra)/[^?#]+-[0-9]+(?:$|\\?)",
       "max_index_pages": 10,
       "max_pages_per_run": 0,
-      "force_browser": false,
+      "force_browser": true,
       "github_enabled": true
     },
     {
