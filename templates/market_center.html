@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SHM Market Center</title>
+  <link rel="stylesheet" href="/static/market_center.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">SHM Handels GmbH</div>
+      <h1>Market Center</h1>
+      <p>Полуприцепы Европы · закупка · рынок · возможности</p>
+    </div>
+    <div class="status" id="syncStatus">Загрузка…</div>
+  </header>
+
+  <main>
+    <section class="kpis" id="kpis"></section>
+
+    <section class="panel hero">
+      <div>
+        <div class="section-label">Главное</div>
+        <h2>Где сейчас есть запас для SHM</h2>
+        <p>Сортировка по потенциальному headroom, но неизвестные доставка/состояние никогда не считаются нулём.</p>
+      </div>
+      <div class="filters">
+        <select id="brandFilter"><option value="">Все марки</option></select>
+        <select id="yearFilter"><option value="">Все годы</option></select>
+        <select id="countryFilter"><option value="">Все страны</option></select>
+        <select id="statusFilter">
+          <option value="">Все статусы</option>
+          <option value="interesting">Интересно</option>
+          <option value="check">Проверить</option>
+          <option value="expensive">Дорого</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel span2">
+        <div class="panel-head">
+          <div>
+            <div class="section-label">Opportunities</div>
+            <h3>Кандидаты на закупку</h3>
+          </div>
+          <span class="muted">не прогноз сделки, а очередь на проверку</span>
+        </div>
+        <div id="opportunities" class="cards"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><div class="section-label">Coverage</div><h3>Охват источников</h3></div></div>
+        <div id="coverage"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><div class="section-label">Market</div><h3>По маркам</h3></div></div>
+        <div id="brands"></div>
+      </div>
+
+      <div class="panel span2">
+        <div class="panel-head"><div><div class="section-label">Catalogue</div><h3>Последние карточки</h3></div><input id="search" placeholder="VIN, модель, продавец…"></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Техника</th><th>Год</th><th>Страна</th><th>Цена</th><th>VIN / ref</th><th>Оснащение</th><th>Источник</th><th>Статус</th></tr></thead>
+            <tbody id="listings"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+const euro=v=>v==null?'—':new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+let data={listings:[],coverage:[],benchmarks:[]};
+
+function badge(status){
+  const labels={interesting:'ИНТЕРЕСНО',check:'ПРОВЕРИТЬ',expensive:'ДОРОГО',unknown:'НЕТ ОЦЕНКИ'};
+  return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
+}
+function render(){
+  const L=data.listings||[];
+  const brands=[...new Set(L.map(x=>x.brand).filter(Boolean))].sort();
+  const years=[...new Set(L.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
+  const countries=[...new Set(L.map(x=>x.country).filter(Boolean))].sort();
+  const fill=(id,arr)=>{const e=document.getElementById(id); const old=e.value; e.innerHTML=e.options[0].outerHTML+arr.map(x=>'<option>'+esc(x)+'</option>').join(''); e.value=old;};
+  fill('brandFilter',brands); fill('yearFilter',years); fill('countryFilter',countries);
+
+  document.getElementById('kpis').innerHTML=[
+    ['Карточек',data.stats?.listings??L.length],
+    ['Активных',data.stats?.active??'—'],
+    ['VIN найден',data.stats?.vin_found??L.filter(x=>x.vin).length],
+    ['Источников',data.stats?.sources??new Set(L.map(x=>x.source)).size],
+    ['Кандидатов',L.filter(x=>x.status==='interesting').length]
+  ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
+
+  const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
+  const F=L.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!cf||x.country===cf)&&(!sf||x.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
+
+  document.getElementById('opportunities').innerHTML=F.slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
+    <article class="deal-card">
+      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.country||'—')}</span></div>${badge(x.status)}</div>
+      <div class="deal-price">${euro(x.price_net_eur)} <small>ask</small></div>
+      <div class="deal-grid">
+        <div><span>Delivered Wyhl</span><b>${euro(x.delivered_eur)}</b></div>
+        <div><span>SHM max-buy</span><b>${euro(x.max_buy_eur)}</b></div>
+        <div><span>Headroom</span><b>${euro(x.headroom)}</b></div>
+        <div><span>VIN</span><b>${esc(x.vin||x.vin_ref||'—')}</b></div>
+      </div>
+      <p>${esc((x.features||[]).join(' · ')||'Комплектация ещё не подтверждена')}</p>
+      ${x.url?'<a target="_blank" rel="noopener" href="'+esc(x.url)+'">Открыть объявление ↗</a>':''}
+    </article>`).join('') || '<div class="empty">По текущим фильтрам кандидатов нет.</div>';
+
+  document.getElementById('coverage').innerHTML=(data.coverage||[]).map(x=>`<div class="coverage-row"><div><b>${esc(x.source)}</b><span>${esc(x.note||'')}</span></div><div class="right"><span class="dot ${esc(x.state||'unknown')}"></span>${esc(x.state_label||x.state||'')}</div></div>`).join('');
+
+  const bc={}; L.forEach(x=>bc[x.brand]=(bc[x.brand]||0)+1);
+  document.getElementById('brands').innerHTML=Object.entries(bc).sort((a,b)=>b[1]-a[1]).map(([b,n])=>`<div class="bar-row"><span>${esc(b)}</span><div class="bar"><i style="width:${Math.min(100,n/Math.max(...Object.values(bc))*100)}%"></i></div><b>${n}</b></div>`).join('');
+
+  document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
+    <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_net_eur)}</b></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc((x.features||[]).slice(0,4).join(', '))}</td><td>${esc(x.source||'—')}</td><td>${badge(x.status)}</td>
+  </tr>`).join('');
+
+  document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
+}
+['brandFilter','yearFilter','countryFilter','statusFilter','search'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
+fetch('/api/market-center').then(r=>r.json()).then(x=>{data=x;render()}).catch(()=>{document.getElementById('syncStatus').textContent='Ошибка загрузки данных'});
+</script>
+</body>
+</html>
