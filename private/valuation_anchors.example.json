@@ -1,0 +1,21 @@
+{
+  "anchors": [
+    {
+      "id": "example-only",
+      "brand": "Kögel",
+      "year": 2021,
+      "body_type": "curtainsider",
+      "required_features": [
+        "SAF",
+        "Pallet box"
+      ],
+      "anchor_type": "known_delivered_buy",
+      "amount_eur": null,
+      "tax_basis": "net",
+      "location_basis": "Wyhl delivered",
+      "evidence_level": "user_report",
+      "note": "Put real SHM values only in private/valuation_anchors.json, never commit that file."
+    }
+  ],
+  "cost_rules": []
+}
