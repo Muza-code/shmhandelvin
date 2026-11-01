@@ -245,7 +245,7 @@
       "max_index_pages": 2,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Kögel",
       "target_year": 2021
     },
@@ -265,7 +265,7 @@
       "max_index_pages": 2,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Krone",
       "target_year": 2021
     },
@@ -285,7 +285,7 @@
       "max_index_pages": 2,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Schmitz Cargobull",
       "target_year": 2021
     },
@@ -305,7 +305,7 @@
       "max_index_pages": 2,
       "max_pages_per_run": 0,
       "force_browser": true,
-      "github_enabled": true,
+      "github_enabled": false,
       "source_segment": "Schwarzmüller",
       "target_year": 2021
     },
@@ -344,6 +344,86 @@
       "max_pages_per_run": 0,
       "force_browser": false,
       "github_enabled": true
+    },
+    {
+      "name": "mobile.de public",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://suchen.mobile.de/lkw/koegel.html"
+      ],
+      "allow_hosts": [
+        "suchen.mobile.de",
+        "www.mobile.de"
+      ],
+      "index_url_tokens": [
+        "/lkw/koegel.html"
+      ],
+      "detail_url_regex": "/fahrzeuge/details\\.html\\?id=[0-9]+",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Kögel"
+    },
+    {
+      "name": "mobile.de public",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://suchen.mobile.de/lkw/krone.html"
+      ],
+      "allow_hosts": [
+        "suchen.mobile.de",
+        "www.mobile.de"
+      ],
+      "index_url_tokens": [
+        "/lkw/krone.html"
+      ],
+      "detail_url_regex": "/fahrzeuge/details\\.html\\?id=[0-9]+",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Krone"
+    },
+    {
+      "name": "mobile.de public",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://suchen.mobile.de/lkw/schmitz-cargobull.html"
+      ],
+      "allow_hosts": [
+        "suchen.mobile.de",
+        "www.mobile.de"
+      ],
+      "index_url_tokens": [
+        "/lkw/schmitz-cargobull.html"
+      ],
+      "detail_url_regex": "/fahrzeuge/details\\.html\\?id=[0-9]+",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Schmitz Cargobull"
+    },
+    {
+      "name": "mobile.de public",
+      "type": "index_cards",
+      "seed_pages": [
+        "https://suchen.mobile.de/lkw/schwarzmueller.html"
+      ],
+      "allow_hosts": [
+        "suchen.mobile.de",
+        "www.mobile.de"
+      ],
+      "index_url_tokens": [
+        "/lkw/schwarzmueller.html"
+      ],
+      "detail_url_regex": "/fahrzeuge/details\\.html\\?id=[0-9]+",
+      "max_index_pages": 3,
+      "max_pages_per_run": 0,
+      "force_browser": true,
+      "github_enabled": true,
+      "source_segment": "Schwarzmüller"
     }
   ]
 }
