@@ -45,7 +45,10 @@ else:
             if key=="axle_maker" and v: features.append(str(v))
             elif v is True: features.append(label)
         listings.append({
-            "brand":r.get("brand"),"model":r.get("title"),"year":r.get("construction_year"),"body_type":r.get("body_type"),
+            "brand":r.get("brand"),"model":r.get("title"),
+            "year":r.get("market_year"),"year_basis":r.get("year_basis"),
+            "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
+            "body_type":r.get("body_type"),
             "country":r.get("country"),"seller":r.get("seller"),"price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" else None,
             "price_original":r.get("price_amount"),"currency":r.get("price_currency"),"tax_basis":r.get("tax_basis"),
             "vin":r.get("vin"),"vin_ref":(r.get("vin_refs") or [None])[0],
@@ -67,8 +70,9 @@ groups={}
 for x in listings:
     key=(x.get("brand"),x.get("year"),x.get("body_type") or "other")
     if not key[0] or not key[1]: continue
-    g=groups.setdefault(key,{"net_prices":[],"ask_eur":[],"cards":0,"vin":0,"sources":set(),"countries":set()})
+    g=groups.setdefault(key,{"net_prices":[],"ask_eur":[],"cards":0,"vin":0,"construction_known":0,"sources":set(),"countries":set()})
     g["cards"]+=1
+    if x.get("construction_year") is not None: g["construction_known"]+=1
     if x.get("vin") or x.get("vin_ref"): g["vin"]+=1
     if x.get("source"): g["sources"].add(x["source"])
     if x.get("country"): g["countries"].add(x["country"])
@@ -81,7 +85,7 @@ for (brand,year,body_type),g in groups.items():
     segments.append({
         "brand":brand,"year":year,"body_type":body_type,"cards":g["cards"],
         "priced":len(asks),"net_priced":len(ps),"vin_found":g["vin"],
-        "sources":len(g["sources"]),"countries":len(g["countries"]),
+        "sources":len(g["sources"]),"countries":len(g["countries"]),"construction_year_known":g["construction_known"],
         "q1_ask_eur":percentile(asks,.25),"median_ask_eur":percentile(asks,.5),"q3_ask_eur":percentile(asks,.75),
         "q1_net_eur":percentile(ps,.25),"median_net_eur":percentile(ps,.5),"q3_net_eur":percentile(ps,.75)
     })
