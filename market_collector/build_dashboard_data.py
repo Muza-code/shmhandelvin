@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 
 OUT=Path("out")
 TARGET=Path("data/latest_market.json")
+MOBILE_DISCOVERY=Path("data/mobile_de_discovery.json")
 
 def infer_asset_type(x):
     v=x.get("asset_type")
@@ -125,8 +126,16 @@ for (brand,year,body_type),g in groups.items():
     })
 segments.sort(key=lambda x:(x["brand"],-x["year"],x["body_type"]))
 
+discovery={}
+if MOBILE_DISCOVERY.exists():
+    try:
+        discovery["mobile_de"]=json.loads(MOBILE_DISCOVERY.read_text(encoding="utf-8"))
+    except Exception:
+        discovery["mobile_de"]={"error":"unreadable discovery snapshot"}
+
 data={
     "updated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
+    "discovery":discovery,
     "stats":{
         "listings":len(listings),
         "semitrailers":sum(infer_asset_type(x)=="semi_trailer" for x in listings),
