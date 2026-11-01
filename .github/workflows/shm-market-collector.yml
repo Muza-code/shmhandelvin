@@ -53,8 +53,17 @@ jobs:
             git config user.email "actions@users.noreply.github.com"
             git add data/latest_market.json data/public_observations.ndjson docs/latest_market.json
             git commit -m "data: refresh public market snapshot"
-            git pull --rebase --autostash origin main
-            git push
+            for attempt in 1 2 3 4; do
+              git fetch origin main
+              git rebase origin/main || { git rebase --abort || true; exit 1; }
+              if git push; then
+                exit 0
+              fi
+              echo "Push race on attempt $attempt; retrying against latest main"
+              sleep $((attempt * 2))
+            done
+            echo "Could not publish refreshed dataset after retries"
+            exit 1
           fi
       - name: Upload run artifact
         uses: actions/upload-artifact@v4
