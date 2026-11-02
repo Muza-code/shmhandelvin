@@ -7,6 +7,7 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 $Base = "https://raw.githubusercontent.com/Muza-code/shmhandelvin/main"
 $Files = @(
+  "local_runner/update_windows.ps1",
   "market_collector/collector.py",
   "market_collector/config.json",
   "local_runner/run_windows.ps1",
