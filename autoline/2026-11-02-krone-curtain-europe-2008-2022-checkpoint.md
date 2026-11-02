@@ -37,3 +37,11 @@ Date captured: 2026-11-02
 1. Return to the filter URL and capture page 13, positions 1–25, keeping exact card URLs/IDs.
 2. After finishing this 716-ad brand/category subset, move to the next brand in its own dataset.
 3. Keep each source/brand capture separate until an integration step defines a canonical analytics schema; never merge by editing source rows in place.
+
+
+## Canonical raw integration
+
+- Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
+- 300 observations converted; 300 classified as `semi_trailer`, 278 priced sale records eligible for sale-market analytics; auctions, rentals, and unpriced ads remain separate/excluded from sale-price analysis.
+- Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
+- Resume at page 13; 12 of 29 pages captured (300 of 716 result cards).
