@@ -40,9 +40,12 @@
       8
     ],
     "additional_detail_enrichments": 2,
-    "additional_confirmed_discoveries": 3,
+    "additional_confirmed_discoveries": 4,
     "pages_partially_inspected": [
       8
+    ],
+    "additional_categories_inspected": [
+      "Kögel Semitrailers With Flatbed & Tarpaulin (270 listings in crawled category snapshot)"
     ]
   },
   "deduplication_key": [
@@ -107,7 +110,8 @@
     "17620558",
     "17619548",
     "22051613",
-    "22563072"
+    "22563072",
+    "22974347"
   ],
   "excluded_ids": [
     "23212451",
@@ -123,7 +127,8 @@
     "17085912",
     "19695111",
     "22543662",
-    "22298977"
+    "22298977",
+    "23195871"
   ],
   "review_ids": [
     "23219226",
@@ -205,7 +210,7 @@
       "price_net": 7200,
       "price_gross": 8640,
       "vat": "plus VAT",
-      "seller": null,
+      "seller": "STARENT Truck & Trailer GmbH",
       "location": "Bruck-Waasen, Austria",
       "axle_count": 3,
       "axle_maker": "SAF",
@@ -1517,6 +1522,39 @@
           "block_text": "Fixed price plus VAT; €9,250; (€11,192 gross)"
         }
       ]
+    },
+    {
+      "id": "22974347",
+      "url": "https://www.truckscout24.com/tsp/ts-229-74-347",
+      "brand": "Kögel",
+      "model": "SN24 Standard Edscha",
+      "first_registration": "03/2017",
+      "baujahr": null,
+      "price_net": 8850,
+      "price_gross": 10532,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Ennigerloh, Germany",
+      "axle_count": 3,
+      "axle_maker": "SAF",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": null,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: whole semitrailer, open semitrailer with tarp; XXL certificate stated (not converted to Code XL)",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-229-74-347",
+          "price_net": 8850,
+          "price_gross": 10532,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €8,850; (€10,532 gross)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -1528,7 +1566,8 @@
     "On 2026-11-02, detail pages confirmed exact ID, canonical URL, price block, registration/year, axles and axle maker where explicit, and explicit VINs for IDs 17620558 and 17619548. Seller names were not exposed in the public detail view.",
     "Further verified detail-page enrichment: IDs 23269042 (€5,200 net), 23224101 (€7,200 net), and 21724618 (€5,500 net). A search-index card had shown €5,100 for 21724618, but the current detail-page price block shows €5,500, which is the recorded current observation.",
     "Page 7 produced another confirmed COIL curtainsider: ID 22051613, Kögel S24-1, €9,750 net / €11,798 gross, first registration 01/2020, 3 axles. A separate Mega Light Plus listing (ID 22751987) says fast sliders and sliding roof but not side curtains; it remains in review and is excluded from confirmed segment.",
-    "Page 8 detail inspection: confirmed listing A225-63-072 (ID 22563072), Kögel SN 24 COIL curtainsider, €9,250 net / €11,192 gross, first registration 06/2019, 3 axles, SAF stated in title. Excluded A222-98-977 (ID 22298977): although described as curtainsider, listing states interchangeable platform trailer and is categorized under containers/swap bodies, so it is not counted as a whole semi-trailer."
+    "Page 8 detail inspection: confirmed listing A225-63-072 (ID 22563072), Kögel SN 24 COIL curtainsider, €9,250 net / €11,192 gross, first registration 06/2019, 3 axles, SAF stated in title. Excluded A222-98-977 (ID 22298977): although described as curtainsider, listing states interchangeable platform trailer and is categorized under containers/swap bodies, so it is not counted as a whole semi-trailer.",
+    "Additional category spot-check: the site category Kögel Semitrailers With Flatbed & Tarpaulin showed 270 listings in the crawl, but included clear BDF/Wechselpritsche swap bodies (IDs 23195871 and 18505251), confirming category count cannot be treated as whole curtainsider semitrailer count. Added confirmed whole semi-trailer ID 22974347: Kögel SN24 Standard Edscha, €8,850 net / €10,532 gross, first registration 03/2017, 3 axles, SAF, lift axle. XXL certificate is recorded as stated; Code XL remains unconfirmed."
   ],
   "review_records": [
     {
