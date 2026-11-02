@@ -51,3 +51,11 @@ Date captured: 2026-11-02
 - 350 observations converted and classified as `semi_trailer`; 323 numeric-price sale records are eligible for sale-market analytics. The other 27 comprise 5 auctions, 3 rentals, and 19 unpriced sale ads and are excluded from sale-price analysis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
 - Resume at page 15; 14 of 29 pages captured (350 of 716 result cards). Page 15 was not captured in the latest attempt because Autoline presented a “Verify you are human” interstitial. Do not bypass it; resume when the listing page is accessible.
+
+
+## Canonical data-quality review (2026-11-02)
+
+- All required source-schema keys are present on every observation; nullable values remain explicit as `null`.
+- No duplicate `source_listing_id` or URL values; all construction years are within the requested 2008–2022 range.
+- Each record’s latest `price_history` entry matches its current observed price and currency.
+- Similar seller/model/year/price fingerprints are kept as separate listings unless stronger identity evidence (same source ID/URL, VIN, or stock number) supports a relisting link. Do not merge on matching specifications alone.
