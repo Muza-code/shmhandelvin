@@ -22,7 +22,7 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–23: 575 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18, 19, and 20 added 25 new IDs each.
+- Captured pages 1–24: 600 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18, 19, and 20 added 25 new IDs each.
 - De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15–19 contain 51 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
 - Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 521 unique source records classified as `semi_trailer`; 479 numeric-price sale records are eligible for sale-market analytics. The current capture has 575 page-card observations through page 23, including 54 repeat sightings. The other 42 comprise 5 auctions, 4 rentals, 33 sale ads excluded for no numeric asking price or duplicate/relisting/quality basis.
+- 546 unique source records classified as `semi_trailer`; 503 numeric-price sale records are eligible for sale-market analytics. The current capture has 600 page-card observations through page 24, including 54 repeat sightings. The other 43 comprise 5 auctions, 4 rentals, 34 sale ads excluded for no numeric asking price or duplicate/relisting/quality basis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 24; pages 1–23 reviewed (575 card views; 521 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
+- Resume at page 25; pages 1–24 reviewed (600 card views; 546 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
 
 
 ## Canonical data-quality review (2026-11-02)
@@ -74,3 +74,5 @@ Date captured: 2026-11-02
 - Page 22: 25 cards reviewed; all 25 IDs new. One listing is explicitly price on request and excluded from price analytics; 24 numeric-price sale ads were added. TIP units retain listing IDs separately; title reference numbers are kept in model text, not assumed to be seller stock IDs. Next resume page: 23.
 
 - Page 23: 25 new IDs. A four-country 2017 listing set shares seller stock IMP-4971; one copy is retained for analytics, three are excluded. Page 23’s 2018 €14,000 Mega copy shares stock IMP-3694 with a page 22 Romania listing; the earlier row is linked and the later regional copy excluded. Detail confirmed the Kel-Berg model under Krone brand (stock E16309) and explicit net prices. One on-request ad excluded. Next resume page: 24.
+
+- Page 24: 25 new IDs; one price-on-request listing excluded from price analytics. Three KRONE USED units are distinct (seller stock F0929091, F0929085, F0929087). Gema details confirm three separate stock units (4962, 5059, 5421), explicit net prices, and first registration years; the prior Gema page 20 unit has a different stock ID 4964. Next resume page: 25.
