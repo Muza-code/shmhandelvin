@@ -44,6 +44,18 @@ def body_type_of(text):
 
 def asset_type_of(text):
     t=text or ""
+    # Components / spare parts must never enter vehicle market analytics.
+    part_patterns=[
+        r"\bk[üu]hlmaschine\b", r"\bk[üu]hlaggregat\b", r"\brefrigeration\s+unit\b",
+        r"\bcooling\s+unit\b", r"\bfrigo\s+unit\b", r"\bspare\s+part\b",
+        r"\bersatzteil\b", r"\baggregat\b", r"\bkompressor\b", r"\bcompressor\b",
+        r"\btrailer\s+axle\b", r"\bachse\s+(?:f[üu]r|komplett)\b",
+        r"\blanding\s+legs?\b", r"\bst[üu]tzen\b", r"\bdoor\s+assembly\b",
+        r"\bt[üu]r\s+komplett\b", r"\bbumper\b", r"\bsto[ßs]stange\b",
+        r"\bpallet\s+box\s+only\b", r"\bpalettenkasten\s+einzeln\b"
+    ]
+    if any(re.search(p,t,re.I) for p in part_patterns):
+        return "part_component"
     if re.search(r"swap\s*body|wechselbr[üu]cke|wechselbruecke",t,re.I):
         return "swap_body"
     if re.search(r"drawbar\s*trailer|central\s*axle|tandem\s*trailer|anh[äa]nger(?!.*auflieger)",t,re.I):
@@ -307,7 +319,8 @@ def html_record(source,url,html):
         "price_currency":structured_currency if structured_currency else ("EUR" if fallback_price is not None and re.search(r"€|\bEUR\b",text,re.I) else None),
         "price_confidence":price_confidence if structured_price is not None else ("low" if fallback_price is not None else "none"),
         "price_evidence":price_evidence,
-        "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,
+        "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,"asset_type":asset_type,
+        "seller":seller,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
         "code_xl":True if f["code_xl"] else None,"mega":True if f["mega"] else None,
         "coil":True if f["coil"] else None,"joloda":True if f["joloda"] else None,
