@@ -21,25 +21,25 @@
     3,
     7
   ],
-  "last_processed_page": 6,
-  "last_processed_listing_id": "22404842",
+  "last_processed_page": 7,
+  "last_processed_listing_id": "22622372",
   "next_page_to_process": 7,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 189,
-    "newly_written": 189,
+    "distinct_listing_ids_written": 194,
+    "newly_written": 194,
     "updated": 9,
-    "confirmed_curtain_side": 110,
-    "semi_trailer_asset_type": 144,
+    "confirmed_curtain_side": 111,
+    "semi_trailer_asset_type": 147,
     "quarantine": 26,
-    "swap_body": 10,
+    "swap_body": 12,
     "unknown_asset": 22,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Page 6 audited (25 cards in the current result page, 38 unique IDs tracked across snapshot overlap). Continue from page 7 in relevance order; do not switch to newest until the first pass is complete.",
+  "next_action": "Continue auditing remaining cards on page 7 from stored page_progress; keep relevance sort and do not switch to newest before the first pass is complete.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -83,17 +83,17 @@
   "pagination_last_page_observed": 8,
   "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
   "last_page_batch": {
-    "page": 6,
-    "card_count_processed": 4,
-    "new_ids": 1,
-    "existing_ids": 3,
-    "updated": 3,
-    "accepted_semi_trailer": 1,
+    "page": 7,
+    "card_count_processed": 24,
+    "new_ids": 5,
+    "existing_ids": 19,
+    "updated": 0,
+    "accepted_semi_trailer": 3,
     "other_trailer": 0,
-    "swap_body": 0,
+    "swap_body": 2,
     "quarantined": 0,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "22404842"
+    "last_processed_listing_id": "22622372"
   },
   "page_progress": [
     {
@@ -180,6 +180,36 @@
         "22933091"
       ],
       "remaining_cards_not_audited": false
+    },
+    {
+      "page": 7,
+      "processed_listing_ids": [
+        "22180187",
+        "22951876",
+        "22951871",
+        "22759972",
+        "22759977",
+        "22284517",
+        "22349412",
+        "22800935",
+        "22522092",
+        "22522087",
+        "22526882",
+        "22051613",
+        "22443902",
+        "23096526",
+        "17426413",
+        "18028886",
+        "7874048",
+        "22517427",
+        "17619548",
+        "22576067",
+        "22622372",
+        "18028681",
+        "22517417",
+        "22517412"
+      ],
+      "remaining_cards_not_audited": true
     }
   ]
 }
