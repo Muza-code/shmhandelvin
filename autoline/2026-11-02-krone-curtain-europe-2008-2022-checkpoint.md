@@ -22,7 +22,7 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–26: 650 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18, 19, and 20 added 25 new IDs each.
+- Captured pages 1–27: 675 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18, 19, and 20 added 25 new IDs each.
 - De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15–19 contain 51 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
 - Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 596 unique source records classified as `semi_trailer`; 544 numeric-price sale records are eligible for sale-market analytics. The current capture has 650 page-card observations through page 26, including 54 repeat sightings. The other 52 comprise 6 auctions, 5 rentals, 41 sale ads excluded for no numeric asking price or duplicate/relisting/quality basis.
+- 621 unique source records classified as `semi_trailer`; 566 numeric-price sale records are eligible for sale-market analytics. The current capture has 675 page-card observations through page 27, including 54 repeat sightings. The other 55 comprise 6 auctions, 5 rentals, 44 sale ads excluded for no numeric asking price or duplicate/relisting/quality basis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 27; pages 1–26 reviewed (650 card views; 596 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
+- Resume at page 28; pages 1–27 reviewed (675 card views; 621 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
 
 
 ## Canonical data-quality review (2026-11-02)
@@ -80,3 +80,5 @@ Date captured: 2026-11-02
 - Page 25: 25 new IDs; 21 numeric-price ads eligible for market analysis, two price-on-request ads excluded, and two multi-unit offers (8 units, 3 units) excluded because no per-unit price is confirmed. Reused the same detail tab. Three KRONE USED items have distinct stock numbers; two SEMITRAILER 2017 offers remain distinct source listings because no shared unit identifier was visible. Next resume page: 26.
 
 - Page 26: 25 new listing IDs/observations (23 sale, 1 auction, 1 rent). One price-on-request sale, a 5-unit bundled offer with conflicting €3,500 price block vs €18,000 + VAT for the set, and the auction/rent records are excluded from price medians. The €229,000 Krone L S24-1 was detail-verified as a semi-trailer at €229,000 net / €274,800 gross. Explicit auction VIN WKESD000000755222 was captured. Next resume page: 27.
+
+- Page 27: 25 new IDs; two cards are price on request. A Romania regional clone shares seller stock IMP-4788 with the Hungary listing; one retained, one excluded. The two Danish 2013 curtainsiders are separate units with distinct stocks 0557054 and 0557052; prices explicitly net. Next resume page: 28.
