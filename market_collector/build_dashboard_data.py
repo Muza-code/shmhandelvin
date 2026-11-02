@@ -25,6 +25,9 @@ def sanitize_suspicious_price(x):
     return x
 
 def infer_asset_type(x):
+    explicit=x.get("asset_type")
+    if explicit in {"semi_trailer","swap_body","part_component","trailer","unknown_asset"}:
+        return explicit
     text=" ".join(str(x.get(k) or "") for k in ("model","body_type")).lower()
 
     part_terms=[
@@ -117,7 +120,7 @@ for r in rows:
         "brand":r.get("brand"),"model":r.get("title"),
         "year":r.get("market_year"),"year_basis":r.get("year_basis"),
         "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
-        "body_type":r.get("body_type"),"asset_type":infer_asset_type({"model":r.get("title"),"body_type":r.get("body_type")}),
+        "body_type":r.get("body_type"),"asset_type":previous.get("asset_type") or infer_asset_type({"model":r.get("title"),"body_type":r.get("body_type")}),
         "asset_evidence_score":r.get("asset_evidence_score"),
         "country":r.get("country"),"seller":r.get("seller"),
         "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" and r.get("price_confidence") in (None,"medium","high") else None,
@@ -133,7 +136,7 @@ for r in rows:
         "last_seen_at":observed,
         "seen_this_run":True
     }
-    catalogue[key]=sanitize_suspicious_price(new_row)
+    catalogue[key]=sanitize_suspicious_price({**previous,**new_row})
 
 listings=[]
 for _x in catalogue.values():
@@ -168,7 +171,7 @@ for x in listings:
     if x.get("vin") or x.get("vin_ref"): g["vin"]+=1
     if x.get("source"): g["sources"].add(x["source"])
     if x.get("country"): g["countries"].add(x["country"])
-    price_ok=x.get("price_confidence") not in {"low","rejected"}
+    price_ok=x.get("analytics_eligible") is not False and x.get("price_confidence") not in {"low","rejected"}
     p=x.get("price_net_eur")
     if price_ok and isinstance(p,(int,float)): g["net_prices"].append(float(p))
     ask=x.get("price_original")
