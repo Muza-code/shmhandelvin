@@ -15,7 +15,8 @@
 - Page 1 captured: 25/25 result cards.
 - Page 2 captured: 25/25 result cards; exact listing URLs were read from the live result-page links.
 - Page 3 captured: 25/25 result cards; exact URLs and card data were read from the live page. Two detail pages were checked for tax, registration and equipment.
-- Total captured: 75/206 result cards (3 of 9 pages). Source data is in `autoline/data/kogel-curtain-europe-2008-2022.ndjson`.
+- Page 4 captured: 25/25 result cards; exact URLs and card data were read from the live page.
+- Total captured: 100/206 result cards (4 of 9 pages). Source data is in `autoline/data/kogel-curtain-europe-2008-2022.ndjson`.
 - Cards were used first for price, year, type, seller, location, axles and any visible tags. Detail cards were opened selectively for complete URLs/platform IDs and characteristics not available on the result card.
 - Eight records on page 1, nine records on page 2 and two records on page 3 received detail verification. Platform IDs, full first-registration dates, explicit net-price labels, axle brands/lift axles, and VINs were added only where visible on the detail page.
 - A title fragment such as “VIN 370” or a detail-page field containing only “080” is not stored as a VIN. Full VIN is stored only when Autoline explicitly exposed a complete value.
@@ -26,7 +27,7 @@
 ## Resume point
 
 - Filter: verified Europe / Kögel / curtain-side semi-trailer / manufacture years 2008–2022.
-- Pages 1–3 processed; result pagination showed 9 pages.
-- Next action: proceed to page 4 in the same “Placed on” order. Continue appending rows after URL/ID dedupe; record page and result position.
+- Pages 1–4 processed; result pagination showed 9 pages.
+- Next action: proceed to page 5 in the same “Placed on” order. Continue appending rows after URL/ID dedupe; record page and result position.
 - Analytics: not calculated.
 - No CAPTCHA or access-control bypass was used.
