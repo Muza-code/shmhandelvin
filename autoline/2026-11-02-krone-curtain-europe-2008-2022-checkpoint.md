@@ -42,6 +42,6 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 300 observations converted; 300 classified as `semi_trailer`, 278 priced sale records eligible for sale-market analytics; auctions, rentals, and unpriced ads remain separate/excluded from sale-price analysis.
+- 350 observations converted and classified as `semi_trailer`; 323 numeric-price sale records are eligible for sale-market analytics. The other 27 comprise 5 auctions, 3 rentals, and 19 unpriced sale ads and are excluded from sale-price analysis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 13; 14 of 29 pages captured (350 of 716 result cards).
+- Resume at page 15; 14 of 29 pages captured (350 of 716 result cards). Page 15 was not captured in the latest attempt because Autoline presented a “Verify you are human” interstitial. Do not bypass it; resume when the listing page is accessible.
