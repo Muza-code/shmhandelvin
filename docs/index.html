@@ -77,7 +77,7 @@
       </div>
 
       <div class="panel span2">
-        <div class="panel-head"><div><div class="section-label">Analytics</div><h3>Сегменты рынка</h3></div><span class="muted">asking prices · EUR net only when explicit</span></div>
+        <div class="panel-head"><div><div class="section-label">Analytics</div><h3>Сегменты рынка</h3></div><span class="muted">asking prices · медианы только по eligible продажам; net — лишь при явном указании</span></div>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Марка</th><th>Год</th><th>Тип</th><th>Карточек</th><th>Baujahr known</th><th>С ценой</th><th>Ask Q1</th><th>Ask median</th><th>Ask Q3</th><th>Net known</th><th>VIN/ref</th><th>Источники</th><th>Страны</th></tr></thead>
@@ -127,6 +127,7 @@ function confidence(x){
   return {label:'LOW',cls:'unknown'};
 }
 function marketContext(x){
+  if(x.analytics_eligible===false || ['low','rejected'].includes(String(x.price_confidence||'').toLowerCase()) || ['rent','rental','auction'].includes(String(x.listing_type||'').toLowerCase())) return {status:'unknown',median:null,q1:null,diff:null,n:0,sources:0,countries:0};
   const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
   const ask=x.price_original;
   if(!seg || !ask || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0,sources:seg?.sources||0,countries:seg?.countries||0};
