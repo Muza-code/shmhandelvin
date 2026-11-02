@@ -65,3 +65,5 @@ Date captured: 2026-11-02
 
 - Reused the existing results-list tab to retry page 15; Autoline still returned “Verify you are human”, so no listings were collected from that page.
 - Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
+
+- Tried reading the exact page-15 filter URL through the available source reader as well; it returned “URL is not accessible”, so no page-15 cards were inferred from unrelated or stale indexed results.
