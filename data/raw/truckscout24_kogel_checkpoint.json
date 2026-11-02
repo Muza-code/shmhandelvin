@@ -4,7 +4,7 @@
   "source_file": "data/raw/truckscout24_kogel.ndjson",
   "captured_at": "2026-11-02",
   "search_url": "https://www.truckscout24.com/semi-trailers/used/all/koegel",
-  "search_result_count_live": 273,
+  "search_result_count_live": 274,
   "user_control_count_approx": 276,
   "first_pass_sort": "Relevance",
   "pages_audited": [
@@ -24,11 +24,11 @@
   "full_pass_complete": true,
   "daily_new_id_monitoring": "started",
   "counts": {
-    "distinct_listing_ids_written": 273,
-    "newly_written": 273,
+    "distinct_listing_ids_written": 274,
+    "newly_written": 274,
     "updated": 26,
     "confirmed_curtain_side": 117,
-    "semi_trailer_asset_type": 177,
+    "semi_trailer_asset_type": 178,
     "quarantine": 17,
     "swap_body": 58,
     "unknown_asset": 17,
@@ -37,7 +37,7 @@
     "outside_target_year": 3,
     "trailer_asset_type": 21
   },
-  "next_action": "Full Kögel pass complete. Continue daily with Newest listings; scan newest page(s), stop at the known-ID boundary, append unseen IDs only.",
+  "next_action": "Continue daily newest-listings scan; stop at the known-ID boundary and append unseen IDs only.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -355,20 +355,22 @@
   "daily_newest_scan": {
     "sort_field": "eintragsdatum",
     "sort_direction": "desc",
-    "url": "https://www.truckscout24.com/main/search/index?search-word=k%C3%B6gel+semitrailers&manufacturers%5B0%5D=K%C3%B6gel&sort-field=eintragsdatum&sort-direction=desc",
     "page": 1,
     "card_count_processed": 25,
-    "new_ids": 0,
-    "existing_ids": 25,
+    "unique_listing_ids": 25,
+    "new_ids": 1,
+    "existing_ids": 24,
+    "duplicate_ids_on_page": 0,
     "updated": 0,
-    "accepted_semi_trailer": 18,
-    "other_trailer": 1,
-    "swap_body": 2,
+    "accepted_semi_trailer": 1,
+    "other_trailer": 0,
+    "swap_body": 0,
     "part_component": 0,
-    "quarantined": 4,
+    "quarantined": 0,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "23215296",
+    "last_processed_listing_id": "23215351",
     "processed_listing_ids": [
+      "23273263",
       "23271247",
       "23270167",
       "23269945",
@@ -392,11 +394,12 @@
       "23215336",
       "23215316",
       "23215331",
-      "23215351",
-      "23215296"
+      "23215351"
     ],
-    "result_count_live": 273,
-    "source_unchanged": true
+    "result_count_live": 274,
+    "source_rows_after_scan": 274,
+    "source_blob_sha": "ae102bf743e507f2b4cc0cd7a93e5073be5f9759",
+    "url": "https://www.truckscout24.com/main/search/index?search-word=k%C3%B6gel+semitrailers&manufacturers%5B0%5D=K%C3%B6gel&sort-field=eintragsdatum&sort-direction=desc"
   },
   "daily_scan_history": [
     {
@@ -462,6 +465,54 @@
       ],
       "result_count_live": 273,
       "source_unchanged": true
+    },
+    {
+      "sort_field": "eintragsdatum",
+      "sort_direction": "desc",
+      "page": 1,
+      "card_count_processed": 25,
+      "unique_listing_ids": 25,
+      "new_ids": 1,
+      "existing_ids": 24,
+      "duplicate_ids_on_page": 0,
+      "updated": 0,
+      "accepted_semi_trailer": 1,
+      "other_trailer": 0,
+      "swap_body": 0,
+      "part_component": 0,
+      "quarantined": 0,
+      "processed_at": "2026-11-02",
+      "last_processed_listing_id": "23215351",
+      "processed_listing_ids": [
+        "23273263",
+        "23271247",
+        "23270167",
+        "23269945",
+        "23269042",
+        "23253361",
+        "23252947",
+        "23252950",
+        "23251912",
+        "23251816",
+        "23251837",
+        "23246329",
+        "23236402",
+        "23236405",
+        "23227552",
+        "23224341",
+        "23224101",
+        "23219226",
+        "23215846",
+        "23215306",
+        "23215326",
+        "23215336",
+        "23215316",
+        "23215331",
+        "23215351"
+      ],
+      "result_count_live": 274,
+      "source_rows_after_scan": 274,
+      "source_blob_sha": "ae102bf743e507f2b4cc0cd7a93e5073be5f9759"
     }
   ],
   "last_daily_check_at": "2026-11-02",
@@ -1562,9 +1613,9 @@
     }
   ],
   "final_coverage": {
-    "live_result_count": 273,
-    "source_rows": 273,
-    "source_unique_ids": 273,
+    "live_result_count": 274,
+    "source_rows": 274,
+    "source_unique_ids": 274,
     "sort_union_unique_ids": 273,
     "source_duplicate_ids": 0,
     "unreconciled_ids": 0,
@@ -1572,5 +1623,15 @@
     "curtain_side_derived_rows": 117,
     "quarantine_rows": 17,
     "completed_at": "2026-11-02"
+  },
+  "latest_incremental_checkpoint": {
+    "page": 1,
+    "last_processed_listing_id": "23215351",
+    "sort": "newest listings",
+    "cards_viewed": 25,
+    "new_ids": 1,
+    "duplicates_excluded": 0,
+    "processed_at": "2026-11-02",
+    "source_blob_sha": "ae102bf743e507f2b4cc0cd7a93e5073be5f9759"
   }
 }
