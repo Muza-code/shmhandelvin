@@ -46,7 +46,7 @@
             <div class="section-label">Opportunities</div>
             <h3>Кандидаты на закупку</h3>
           </div>
-          <span class="muted">не прогноз сделки, а очередь на проверку</span>
+          <span class="muted">только комплектные прицепы без подтверждённого повреждения; каждое предложение всё равно требует проверки</span>
         </div>
         <div id="opportunities" class="cards"></div>
       </div>
@@ -109,7 +109,7 @@ function yearBasisLabel(x){
   return map[b]||b;
 }
 function badge(status){
-  const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',unknown:'НЕТ ОЦЕНКИ'};
+  const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',excluded:'ИСКЛЮЧЕНО ИЗ ЗАКУПКИ',unknown:'НЕТ ОЦЕНКИ'};
   return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
 }
 function confidence(x){
@@ -127,7 +127,7 @@ function confidence(x){
   return {label:'LOW',cls:'unknown'};
 }
 function marketContext(x){
-  if(x.analytics_eligible===false || ['low','rejected'].includes(String(x.price_confidence||'').toLowerCase()) || ['rent','rental','auction'].includes(String(x.listing_type||'').toLowerCase())) return {status:'unknown',median:null,q1:null,diff:null,n:0,sources:0,countries:0};
+  if(x.purchase_eligible===false || x.analytics_eligible===false || ['low','rejected'].includes(String(x.price_confidence||'').toLowerCase()) || ['rent','rental','auction'].includes(String(x.listing_type||'').toLowerCase())) return {status:'unknown',median:null,q1:null,diff:null,n:0,sources:0,countries:0};
   const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
   const ask=x.price_original;
   if(!seg || !ask || x.currency!=='EUR' || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0,sources:seg?.sources||0,countries:seg?.countries||0};
