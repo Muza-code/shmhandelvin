@@ -65,7 +65,7 @@
       ]
     },
     "current_confirmed_candidate_count": 75,
-    "last_progress_note": "Pages 6-8 of the relevance-sorted result were partially inspected on 2026-11-02; ten additional whole tarp/curtainsider IDs were confirmed from detail pages in two batches. Full result pass remains incomplete."
+    "last_progress_note": "Pages 6-8 partially inspected; normalized source file written with 104 unique IDs and quarantined incomplete records. Full first pass remains incomplete."
   },
   "deduplication_key": [
     "TruckScout24 listing ID",
@@ -2423,5 +2423,9 @@
         }
       ]
     }
-  ]
+  ],
+  "canonical_source_file": "data/raw/truckscout24_kogel.ndjson",
+  "canonical_checkpoint": "data/raw/truckscout24_kogel_checkpoint.json",
+  "canonical_schema_version": 1,
+  "canonical_record_count": 104
 }
