@@ -133,6 +133,53 @@ def vin_refs_of(text):
         refs.append(v)
     return sorted(set(refs))
 
+def structured_price_from_html(html):
+    """Extract price only from elements explicitly marked as price-related.
+    This is preferred over scanning all visible text because years/TUV dates
+    can otherwise be mistaken for EUR amounts.
+    Returns (amount, currency, evidence, confidence).
+    """
+    try:
+        soup=BeautifulSoup(html or "","html.parser")
+    except Exception:
+        return None,None,None,"none"
+
+    candidates=[]
+
+    # Schema.org / machine-readable price fields are strongest.
+    for tag in soup.select('[itemprop="price"], meta[property="product:price:amount"], meta[itemprop="price"]'):
+        raw=tag.get("content") or tag.get("value") or tag.get_text(" ",strip=True)
+        if raw:
+            candidates.append(("structured",raw,str(tag)[:500]))
+
+    # Marketplace UI normally marks price nodes consistently in class/id/test attributes.
+    for tag in soup.find_all(True):
+        attrs=" ".join([
+            str(tag.get("id") or ""),
+            " ".join(tag.get("class") or []),
+            str(tag.get("data-testid") or ""),
+            str(tag.get("data-test") or ""),
+            str(tag.get("aria-label") or "")
+        ]).lower()
+        if "price" not in attrs and "preis" not in attrs:
+            continue
+        txt=clean(tag.get_text(" ",strip=True))
+        if txt and (re.search(r"€|\bEUR\b",txt,re.I) or re.search(r"\d",txt)):
+            candidates.append(("price_node",txt,str(tag)[:700]))
+
+    seen=set()
+    for kind,raw,evidence in candidates:
+        key=(kind,raw)
+        if key in seen:
+            continue
+        seen.add(key)
+        value=price_of(raw)
+        if value is not None:
+            currency="EUR" if re.search(r"€|\bEUR\b",raw,re.I) else None
+            confidence="high" if kind=="structured" else "medium"
+            return value,currency,evidence,confidence
+    return None,None,None,"none"
+
 def price_of(text):
     matches=[]
     for rx in (PRICE_RE,PRICE_AFTER_RE):
@@ -249,12 +296,17 @@ def html_record(source,url,html):
         if re.search(r"\b"+re.escape(name)+r"\b",text,re.I):
             country=code
             break
+    structured_price,structured_currency,price_evidence,price_confidence=structured_price_from_html(html)
+    fallback_price=price_of(text) if structured_price is None else None
     return {
         "source":source,"source_listing_id":stock,"url":url,"observed_at":now(),
         "title":title or None,"brand":brand,"construction_year":cy,"first_registration_year":fr,
         "market_year":market_year,"year_basis":year_basis,"source_year":source_year,"country":country,
         "vin":vins[0] if len(vins)==1 else None,"vin_candidates":vins,"vin_refs":vin_refs_of(text),
-        "price_amount":price_of(text),"price_currency":"EUR" if re.search(r"€|\bEUR\b",text,re.I) else None,
+        "price_amount":structured_price if structured_price is not None else fallback_price,
+        "price_currency":structured_currency if structured_currency else ("EUR" if fallback_price is not None and re.search(r"€|\bEUR\b",text,re.I) else None),
+        "price_confidence":price_confidence if structured_price is not None else ("low" if fallback_price is not None else "none"),
+        "price_evidence":price_evidence,
         "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
         "code_xl":True if f["code_xl"] else None,"mega":True if f["mega"] else None,
@@ -435,6 +487,15 @@ def collect_index_cards(http,src,rows,events):
                             fragment=f"<div>Source filtered year: {src['target_year']}</div>"+fragment
                         rec=html_record(src["name"],key,fragment)
                         if rec:
+                            # Index-card sources should normally expose price in a stable DOM node.
+                            # Never promote a weak whole-text guess to a buying opportunity.
+                            if rec.get("price_confidence")=="low":
+                                node_price,node_currency,node_evidence,node_conf=structured_price_from_html(fragment)
+                                if node_price is not None:
+                                    rec["price_amount"]=node_price
+                                    rec["price_currency"]=node_currency or rec.get("price_currency")
+                                    rec["price_evidence"]=node_evidence
+                                    rec["price_confidence"]=node_conf
                             if rec.get("market_year") is None and src.get("target_year"):
                                 rec["market_year"]=int(src["target_year"])
                                 rec["year_basis"]="source_filter_year"
