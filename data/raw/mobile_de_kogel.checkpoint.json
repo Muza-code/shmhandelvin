@@ -16,16 +16,16 @@
   "page_10_cards_1_to_6": "reviewed",
   "resume_at": {
     "page": 11,
-    "card": 16
+    "card": 20
   },
-  "records_exported": 215,
-  "unique_ids": 215,
-  "confirmed_semi_trailer": 214,
+  "records_exported": 219,
+  "unique_ids": 219,
+  "confirmed_semi_trailer": 218,
   "quarantine": 1,
-  "remaining_estimated": 25,
+  "remaining_estimated": 21,
   "analytics_enabled": false,
   "dedupe_key": "source_listing_id; fallback url",
-  "browser_note": "Correct 240-result filter active. Page 10 complete; page 11 cards 1-15 detail-checked.",
+  "browser_note": "Correct 240-result filter active. Page 10 complete; page 11 cards 1-19 detail-checked.",
   "source_update_policy": "Append price_history on observed price change; never overwrite prior asking price; status disappeared rather than sold.",
   "page_10_cards_1_to_10": "reviewed",
   "page_10_cards_1_to_14": "reviewed",
@@ -33,5 +33,6 @@
   "page_10_cards_1_to_20": "reviewed",
   "page_11_cards_1_to_7": "reviewed",
   "page_11_cards_1_to_11": "reviewed",
-  "page_11_cards_1_to_15": "reviewed"
+  "page_11_cards_1_to_15": "reviewed",
+  "page_11_cards_1_to_19": "reviewed"
 }
