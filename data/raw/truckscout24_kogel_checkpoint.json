@@ -11,6 +11,7 @@
     1,
     2,
     3,
+    4,
     8
   ],
   "pages_partially_inspected": [
@@ -21,25 +22,25 @@
     6,
     7
   ],
-  "last_processed_page": 8,
-  "last_processed_listing_id": "20320610",
+  "last_processed_page": 4,
+  "last_processed_listing_id": "22733167",
   "next_page_to_process": 4,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 125,
-    "newly_written": 125,
+    "distinct_listing_ids_written": 147,
+    "newly_written": 141,
     "updated": 0,
-    "confirmed_curtain_side": 78,
-    "semi_trailer_asset_type": 90,
-    "quarantine": 23,
-    "swap_body": 5,
-    "unknown_asset": 21,
+    "confirmed_curtain_side": 82,
+    "semi_trailer_asset_type": 101,
+    "quarantine": 24,
+    "swap_body": 7,
+    "unknown_asset": 22,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Resume partially reviewed pages 4–7, starting at page 4. Page 8 appears to be last because its Next link loops to page=8#; resolve remaining partial-page IDs before declaring full first pass complete. Switch to newest sort only afterward.",
+  "next_action": "Continue page 4 after listing 22733167; audit remaining cards on page 4 before proceeding to pages 5–7. Do not switch to newest sort before the full first pass.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -83,11 +84,16 @@
   "pagination_last_page_observed": 8,
   "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
   "last_page_batch": {
-    "page": 8,
-    "card_count": 25,
-    "new_ids": 21,
-    "existing_ids": 4,
+    "page": 4,
+    "card_count": 16,
+    "new_ids": 16,
+    "existing_ids": 0,
+    "updated": 0,
+    "accepted_semi_trailer": 11,
+    "other_trailer": 2,
+    "swap_body": 2,
+    "quarantined": 1,
     "processed_at": "2026-11-02",
-    "last_new_listing_id": "20320610"
+    "last_processed_listing_id": "22733167"
   }
 }
