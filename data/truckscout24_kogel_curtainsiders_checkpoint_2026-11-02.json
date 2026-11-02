@@ -43,13 +43,15 @@
       7,
       8
     ],
-    "additional_detail_enrichments": 12,
-    "additional_confirmed_discoveries": 13,
+    "additional_detail_enrichments": 16,
+    "additional_confirmed_discoveries": 17,
     "pages_partially_inspected": [
       2,
       3,
       4,
       5,
+      6,
+      7,
       8
     ],
     "additional_categories_inspected": [
@@ -61,7 +63,9 @@
         2,
         3
       ]
-    }
+    },
+    "current_confirmed_candidate_count": 69,
+    "last_progress_note": "Pages 6-8 of the relevance-sorted result were partially inspected on 2026-11-02; four additional in-scope whole curtainsider IDs were confirmed from detail pages. Full result pass remains incomplete."
   },
   "deduplication_key": [
     "TruckScout24 listing ID",
@@ -134,7 +138,11 @@
     "21223097",
     "20629860",
     "17620558",
-    "17619548"
+    "17619548",
+    "22522092",
+    "22180187",
+    "22951876",
+    "22951871"
   ],
   "excluded_ids": [
     "23212451",
@@ -1905,6 +1913,138 @@
           "block_text": "Fixed price plus VAT; €12,900; (€15,351 gross)"
         }
       ]
+    },
+    {
+      "id": "22522092",
+      "url": "https://www.truckscout24.com/tsp/ts-225-22-092",
+      "brand": "Kögel",
+      "model": "Curtainsider Mega",
+      "first_registration": "04/2017",
+      "baujahr": 2017,
+      "price_net": 7200,
+      "price_gross": 9144,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bicske, Hungary",
+      "axle_count": 3,
+      "axle_maker": null,
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": true,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: whole Kögel Curtainsider Mega semitrailer; separate Bicske inventory ID",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-225-22-092",
+          "price_net": 7200,
+          "price_gross": 9144,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €7,200; (€9,144 gross)"
+        }
+      ]
+    },
+    {
+      "id": "22180187",
+      "url": "https://www.truckscout24.com/tsp/ts-221-80-187",
+      "brand": "Kögel",
+      "model": "Curtainsider Mega",
+      "first_registration": "03/2018",
+      "baujahr": 2018,
+      "price_net": 8750,
+      "price_gross": 11112,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bicske, Hungary",
+      "axle_count": 3,
+      "axle_maker": null,
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": true,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: whole Kögel Curtainsider Mega semitrailer; separate Bicske inventory ID",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-221-80-187",
+          "price_net": 8750,
+          "price_gross": 11112,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €8,750; (€11,112 gross)"
+        }
+      ]
+    },
+    {
+      "id": "22951876",
+      "url": "https://www.truckscout24.com/tsp/ts-229-51-876",
+      "brand": "Kögel",
+      "model": "Curtainsider Mega",
+      "first_registration": "04/2018",
+      "baujahr": 2018,
+      "price_net": 8950,
+      "price_gross": 11366,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bicske, Hungary",
+      "axle_count": 3,
+      "axle_maker": null,
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": true,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: whole Kögel Curtainsider Mega semitrailer; separate Bicske inventory ID",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-229-51-876",
+          "price_net": 8950,
+          "price_gross": 11366,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €8,950; (€11,366 gross)"
+        }
+      ]
+    },
+    {
+      "id": "22951871",
+      "url": "https://www.truckscout24.com/tsp/ts-229-51-871",
+      "brand": "Kögel",
+      "model": "Curtainsider Mega",
+      "first_registration": "07/2018",
+      "baujahr": 2018,
+      "price_net": 8950,
+      "price_gross": 11366,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bicske, Hungary",
+      "axle_count": 3,
+      "axle_maker": null,
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": true,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: whole Kögel Curtainsider Mega semitrailer; separate Bicske inventory ID",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-229-51-871",
+          "price_net": 8950,
+          "price_gross": 11366,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €8,950; (€11,366 gross)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -1936,10 +2076,21 @@
       "title": "KÖGEL Mega Light Plus Lift 2x Fast Slider, SAF",
       "year": 2020,
       "location": "Greven, Germany",
-      "current_price_net": 15990,
-      "current_price_gross": 19028,
+      "current_price_net": 15490,
+      "current_price_gross": 18433,
       "axle_maker": "SAF Intradisk",
-      "evidence": "Detail description states 2 fast-acting sliders and sliding roof, but does not explicitly confirm curtainside/tarpaulin; detail category is Other semitrailers. Keep in review, outside confirmed segment."
+      "evidence": "Detail description states 2 fast-acting sliders and sliding roof, but does not explicitly confirm curtainside/tarpaulin; detail category is Other semitrailers. Keep in review, outside confirmed segment.",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-227-51-987",
+          "price_net": 15490,
+          "price_gross": 18433,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €15,490; (€18,433 gross); previous €15,990 struck through"
+        }
+      ]
     },
     {
       "id": "22365037",
