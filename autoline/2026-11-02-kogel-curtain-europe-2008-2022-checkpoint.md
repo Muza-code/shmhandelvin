@@ -35,3 +35,10 @@
 - Next: begin the Krone curtain-side semi-trailer filter for Europe / years 2008–2022 in a separate Autoline source dataset. Keep brand datasets separate until the later analytics-center integration step.
 - Analytics: not calculated.
 - No CAPTCHA or access-control bypass was used.
+
+
+## Canonical raw integration
+
+- Canonical source file: `data/raw/autoline_kogel.ndjson`
+- 206 observations converted to the SHM Market Center source schema; 206 classified as `semi_trailer`, 199 sale-price records eligible for sale-market analytics, 7 excluded from sale-price analytics because they are an auction, rental, or have no numeric asking price.
+- Original capture file remains at `autoline/data/kogel-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing, keeps the observed price in an append-only `price_history`, and leaves first/last seen dates at 2026-11-02 pending future monitoring.
