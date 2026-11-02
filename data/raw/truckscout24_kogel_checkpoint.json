@@ -22,24 +22,24 @@
     7
   ],
   "last_processed_page": 6,
-  "last_processed_listing_id": "22404837",
+  "last_processed_listing_id": "23095196",
   "next_page_to_process": 6,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 176,
-    "newly_written": 176,
+    "distinct_listing_ids_written": 188,
+    "newly_written": 188,
     "updated": 6,
-    "confirmed_curtain_side": 101,
-    "semi_trailer_asset_type": 133,
-    "quarantine": 24,
+    "confirmed_curtain_side": 109,
+    "semi_trailer_asset_type": 143,
+    "quarantine": 26,
     "swap_body": 10,
-    "unknown_asset": 20,
+    "unknown_asset": 22,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing remaining cards on page 6; processed IDs are recorded in page_progress. Keep relevance sort until pages 6–7 are complete.",
+  "next_action": "Continue auditing remaining cards on page 6 using relevance sort; page 6 is not complete. Keep previously processed IDs and resume without re-collecting them.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -84,16 +84,16 @@
   "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
   "last_page_batch": {
     "page": 6,
-    "card_count_processed": 12,
-    "new_ids": 5,
-    "existing_ids": 7,
+    "card_count_processed": 34,
+    "new_ids": 12,
+    "existing_ids": 22,
     "updated": 0,
-    "accepted_semi_trailer": 5,
+    "accepted_semi_trailer": 10,
     "other_trailer": 0,
     "swap_body": 0,
-    "quarantined": 0,
+    "quarantined": 2,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "22404837"
+    "last_processed_listing_id": "23095196"
   },
   "page_progress": [
     {
