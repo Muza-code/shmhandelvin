@@ -818,7 +818,7 @@
     "card_positions_processed": 200,
     "distinct_current_ids_seen": 199,
     "new_ids_added": 15,
-    "duplicate_positions": 0
+    "duplicate_positions": 1
   },
   "accessible_pagination_complete": true,
   "accessible_result_page_count": 8,
@@ -1534,5 +1534,43 @@
   "source_unique_ids": 273,
   "missing_current_ids_in_source": [],
   "source_ids_not_in_current_sort_union": [],
-  "reconciled_at": "2026-11-02"
+  "reconciled_at": "2026-11-02",
+  "sort_audit_statistics": [
+    {
+      "sort": "Relevance",
+      "pages": 8,
+      "card_positions": 200,
+      "unique_ids": 199,
+      "duplicate_positions": 1,
+      "new_ids": 15
+    },
+    {
+      "sort": "Newest listings",
+      "pages": 8,
+      "card_positions": 200,
+      "unique_ids": 200,
+      "duplicate_positions": 0,
+      "new_ids": 21
+    },
+    {
+      "sort": "Oldest listings",
+      "pages": 8,
+      "card_positions": 200,
+      "unique_ids": 200,
+      "duplicate_positions": 0,
+      "new_ids": 31
+    }
+  ],
+  "final_coverage": {
+    "live_result_count": 273,
+    "source_rows": 273,
+    "source_unique_ids": 273,
+    "sort_union_unique_ids": 273,
+    "source_duplicate_ids": 0,
+    "unreconciled_ids": 0,
+    "active_confirmed_curtain_side": 117,
+    "curtain_side_derived_rows": 117,
+    "quarantine_rows": 17,
+    "completed_at": "2026-11-02"
+  }
 }
