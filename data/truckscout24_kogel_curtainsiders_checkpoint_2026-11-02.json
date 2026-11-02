@@ -43,12 +43,13 @@
       7,
       8
     ],
-    "additional_detail_enrichments": 10,
-    "additional_confirmed_discoveries": 11,
+    "additional_detail_enrichments": 12,
+    "additional_confirmed_discoveries": 13,
     "pages_partially_inspected": [
       2,
       3,
       4,
+      5,
       8
     ],
     "additional_categories_inspected": [
@@ -108,6 +109,8 @@
     "22723787",
     "22723782",
     "22695687",
+    "22650912",
+    "22650902",
     "22600387",
     "22563072",
     "22558132",
@@ -1836,6 +1839,72 @@
           "block_text": "Fixed price plus VAT; €19,900; (€23,681 gross)"
         }
       ]
+    },
+    {
+      "id": "22650912",
+      "url": "https://www.truckscout24.com/tsp/ts-226-50-12",
+      "brand": "Kögel",
+      "model": "Orten SafeServer 2in1 2t tail lift Lift SAF camera",
+      "first_registration": "08/2014",
+      "baujahr": 2014,
+      "price_net": 12900,
+      "price_gross": 15351,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bernkastel-Kues, Germany",
+      "axle_count": 3,
+      "axle_maker": "SAF",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: SafeServer sliding tarpaulin on left and curtainsider on right; whole beverage/tarp semitrailer; Code XL; duplicate-looking sibling listing with separate ID",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-226-50-12",
+          "price_net": 12900,
+          "price_gross": 15351,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €12,900; (€15,351 gross)"
+        }
+      ]
+    },
+    {
+      "id": "22650902",
+      "url": "https://www.truckscout24.com/tsp/ts-226-50-02",
+      "brand": "Kögel",
+      "model": "Orten SafeServer 2in1 2t tail lift Lift SAF camera",
+      "first_registration": "08/2014",
+      "baujahr": 2014,
+      "price_net": 12900,
+      "price_gross": 15351,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bernkastel-Kues, Germany",
+      "axle_count": 3,
+      "axle_maker": "SAF",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: SafeServer sliding tarpaulin on left and curtainsider on right; whole beverage/tarp semitrailer; Code XL; duplicate-looking sibling listing with separate ID",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-226-50-02",
+          "price_net": 12900,
+          "price_gross": 15351,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €12,900; (€15,351 gross)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -1857,7 +1926,8 @@
     "Main all-Kögel search page 2 detail follow-up confirmed two distinct listing IDs, 22723782 and 22723787, for the 2017 Kögel Orten SafeServer 2in1. Both explicitly describe a SafeServer left side and curtainsider right side, with matching photos/specifications and €14,900 net / €17,731 gross; retained as separate listing IDs under the project dedup rule, with suspected duplicate inventory noted.",
     "Main all-Kögel page 2 also exposed ID 20075155, a genuine tarp semitrailer but first registration 05/2023, so it is preserved separately outside the 2008-2022 target segment. ID 22365037 was inspected: Kögel D4 COIL, 2017, but no curtain/tarp evidence in the description; remains review-only.",
     "Main all-Kögel search page 3 confirmed and enriched IDs 22292667 (€8,750 net/€11,112 gross, EZ 05/2018, Code XL) and 22845855 (€6,750/€8,032, EZ 02/2018, SAF axles, VIN WK0S0002400220469). Added ID 22329057 (€9,500/€11,305, EZ 02/2019, 3 SAF axles, lift axle, pallet box) as a confirmed SN24 curtainsider.",
-    "Main all-Kögel search page 4 added two more distinct listing IDs, 22863765 and 22863770, for a Kögel Mega Orten SafeServer 2in1, first registration 12/2016, 3 SAF axles, €19,900 net / €23,681 gross. TruckScout24 presents one under Open semitrailers with tarp and the near-identical second under Beverage semitrailers; retained by separate IDs and flagged as likely duplicate inventory."
+    "Main all-Kögel search page 4 added two more distinct listing IDs, 22863765 and 22863770, for a Kögel Mega Orten SafeServer 2in1, first registration 12/2016, 3 SAF axles, €19,900 net / €23,681 gross. TruckScout24 presents one under Open semitrailers with tarp and the near-identical second under Beverage semitrailers; retained by separate IDs and flagged as likely duplicate inventory.",
+    "Main all-Kögel search page 5 added two more distinct SafeServer 2in1 IDs, 22650912 and 22650902: 2014, EZ 08/2014, €12,900 net / €15,351 gross, 3 SAF axles and lift axle. Detail text explicitly states sliding tarpaulin on the left and curtainsider on the right, with Code XL. They appear to be duplicate inventory under separate IDs; both retained."
   ],
   "review_records": [
     {
