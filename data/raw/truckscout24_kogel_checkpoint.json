@@ -22,16 +22,16 @@
     7
   ],
   "last_processed_page": 6,
-  "last_processed_listing_id": "23095196",
+  "last_processed_listing_id": "22404842",
   "next_page_to_process": 6,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 188,
-    "newly_written": 188,
-    "updated": 6,
-    "confirmed_curtain_side": 109,
-    "semi_trailer_asset_type": 143,
+    "distinct_listing_ids_written": 189,
+    "newly_written": 189,
+    "updated": 9,
+    "confirmed_curtain_side": 110,
+    "semi_trailer_asset_type": 144,
     "quarantine": 26,
     "swap_body": 10,
     "unknown_asset": 22,
@@ -39,7 +39,7 @@
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing remaining cards on page 6 using relevance sort; page 6 is not complete. Keep previously processed IDs and resume without re-collecting them.",
+  "next_action": "Continue auditing remaining cards on page 6 using relevance sort; page 6 is not complete. Resume from the 38 distinct IDs already in page_progress.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -84,16 +84,16 @@
   "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
   "last_page_batch": {
     "page": 6,
-    "card_count_processed": 34,
-    "new_ids": 12,
-    "existing_ids": 22,
-    "updated": 0,
-    "accepted_semi_trailer": 10,
+    "card_count_processed": 38,
+    "new_ids": 13,
+    "existing_ids": 25,
+    "updated": 3,
+    "accepted_semi_trailer": 1,
     "other_trailer": 0,
     "swap_body": 0,
-    "quarantined": 2,
+    "quarantined": 0,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "23095196"
+    "last_processed_listing_id": "22404842"
   },
   "page_progress": [
     {
@@ -151,7 +151,11 @@
         "22723787",
         "20444525",
         "22404847",
-        "22404837"
+        "22404837",
+        "22517417",
+        "22517262",
+        "22517412",
+        "22404842"
       ],
       "remaining_cards_not_audited": true
     }
