@@ -14,10 +14,10 @@ def condition_signals(x):
     text=" ".join(str(x.get(k) or "") for k in ("model","body_type","evidence_excerpt","description","exclusion_reason")).lower()
     flags=[]
     severe=[]
-    if re.search(r"\\bunfall(?!frei)\\w*|\\baccident(?:[ -]+(?:damaged|damage|vehicle))\\b|\\bcrash(?:ed| damage)\\b|\\bwreck(?:ed)?\\b|rear[- ]end crash|b[uú]ran[áa]",text):
+    if re.search(r"\bunfall(?!frei)\w*|\baccident(?:[ -]+(?:damaged|damage|vehicle))\b|\bcrash(?:ed| damage)\b|\bwreck(?:ed)?\b|rear[- ]end crash|b[uú]ran[áa]",text):
         flags.append("Аварийное повреждение указано в объявлении")
         severe.append("accident_damage")
-    if re.search(r"no (?:registration )?(?:documents|papers)|without (?:registration )?(?:documents|papers)|documents? missing|bez\\s+tp\\b|no vehicle papers|without vehicle papers",text):
+    if re.search(r"no (?:registration )?(?:documents|papers)|without (?:registration )?(?:documents|papers)|documents? missing|bez\s+tp\b|no vehicle papers|without vehicle papers",text):
         flags.append("Документы отсутствуют или указаны как неполные")
         severe.append("missing_documents")
     if re.search(r"not roadworthy|non[- ]running|not running|does not run|nicht fahrbereit|не на ходу|non funziona",text):
@@ -25,7 +25,7 @@ def condition_signals(x):
         severe.append("not_roadworthy")
     if re.search(r"needs? repair|repair required|reparaturbedürftig|reparaturbeduerftig|needs? work|defekt|damaged|beschädigt|beschaedigt",text) and "Аварийное повреждение указано в объявлении" not in flags:
         flags.append("Требуется проверка ремонта/повреждений")
-    tire=re.search(r"(?:tyre|tire|reifen|pneu)[^.%\\n]{0,45}(\\d{1,3})\\s*%",text)
+    tire=re.search(r"(?:tyre|tire|reifen|pneu)[^.%\n]{0,45}(\d{1,3})\s*%",text)
     if tire:
         flags.append(f"Состояние шин в объявлении: {tire.group(1)}% — оценить замену")
     return flags,severe
