@@ -22,16 +22,16 @@
     7
   ],
   "last_processed_page": 7,
-  "last_processed_listing_id": "22622372",
+  "last_processed_listing_id": "22951886",
   "next_page_to_process": 7,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 194,
-    "newly_written": 194,
+    "distinct_listing_ids_written": 196,
+    "newly_written": 196,
     "updated": 9,
-    "confirmed_curtain_side": 111,
-    "semi_trailer_asset_type": 147,
+    "confirmed_curtain_side": 113,
+    "semi_trailer_asset_type": 149,
     "quarantine": 26,
     "swap_body": 12,
     "unknown_asset": 22,
@@ -39,7 +39,7 @@
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing remaining cards on page 7 from stored page_progress; keep relevance sort and do not switch to newest before the first pass is complete.",
+  "next_action": "Continue auditing any remaining page 7 cards using page_progress; relevance sort stays active until first pass is complete.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -85,15 +85,15 @@
   "last_page_batch": {
     "page": 7,
     "card_count_processed": 24,
-    "new_ids": 5,
-    "existing_ids": 19,
+    "new_ids": 7,
+    "existing_ids": 17,
     "updated": 0,
-    "accepted_semi_trailer": 3,
+    "accepted_semi_trailer": 5,
     "other_trailer": 0,
     "swap_body": 2,
     "quarantined": 0,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "22622372"
+    "last_processed_listing_id": "22951886"
   },
   "page_progress": [
     {
@@ -206,8 +206,8 @@
         "22576067",
         "22622372",
         "18028681",
-        "22517417",
-        "22517412"
+        "22951881",
+        "22951886"
       ],
       "remaining_cards_not_audited": true
     }
