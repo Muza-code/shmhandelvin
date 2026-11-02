@@ -42,3 +42,11 @@
 - Canonical source file: `data/raw/autoline_kogel.ndjson`
 - 206 observations converted to the SHM Market Center source schema; 206 classified as `semi_trailer`, 199 sale-price records eligible for sale-market analytics, 7 excluded from sale-price analytics because they are an auction, rental, or have no numeric asking price.
 - Original capture file remains at `autoline/data/kogel-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing, keeps the observed price in an append-only `price_history`, and leaves first/last seen dates at 2026-11-02 pending future monitoring.
+
+
+## Canonical data-quality review (2026-11-02)
+
+- All required source-schema keys are present on every observation; nullable values remain explicit as `null`.
+- No duplicate `source_listing_id` or URL values; all construction years are within the requested 2008–2022 range.
+- Each record’s latest `price_history` entry matches its current observed price and currency.
+- Similar seller/model/year/price fingerprints are kept as separate listings unless stronger identity evidence (same source ID/URL, VIN, or stock number) supports a relisting link. Do not merge on matching specifications alone.
