@@ -40,9 +40,9 @@ Date captured: 2026-11-02
 
 ## Next resume step
 
-1. Return to the filter URL and capture page 20, positions 1–25, keeping exact card URLs/IDs.
-2. After finishing this 716-ad brand/category subset, move to the next brand in its own dataset.
-3. Keep each source/brand capture separate until an integration step defines a canonical analytics schema; never merge by editing source rows in place.
+- Initial Krone capture is complete for all 30 result pages (734 card views; 680 unique listing IDs).
+- For daily new-listing monitoring, return to the same filter URL sorted by “Placed on”, begin at page 1, and compare IDs/URLs against `data/raw/autoline_krone.ndjson`.
+- Preserve the existing source rows and append observations for changed prices or relistings; keep other brands in their own source files.
 
 
 ## Canonical raw integration
@@ -67,7 +67,7 @@ Date captured: 2026-11-02
 - Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
 
 
-- Page 20: 25 cards reviewed; all 25 source IDs were new. Two Gema units and two Equipped4U units retained as separate trailers based on distinct seller stock numbers. Four TIP records have separate listing IDs; title reference numbers retained in the model, not guessed as stock IDs. Details added explicit first registrations, net price basis, BPW/lift axle/pallet box where confirmed. Page 21 was subsequently completed; current resume page is 23.
+- Page 20: 25 cards reviewed; all 25 source IDs were new. Two Gema units and two Equipped4U units retained as separate trailers based on distinct seller stock numbers. Four TIP records have separate listing IDs; title reference numbers retained in the model, not guessed as stock IDs. Details added explicit first registrations, net price basis, BPW/lift axle/pallet box where confirmed. The full collection was subsequently completed through page 30; the current checkpoint is complete.
 
 - Page 21: 25 cards reviewed; 22 new source IDs and 3 repeats from page 20. The 4 regional listings at €19,400 share seller stock IMP-4998; one is retained for market analytics and 3 copies excluded, with a relisting group key. Two ads explicitly priced on request remain excluded. Detail checks confirmed a further Equipped4U unit (stock OP34GP, €6,985 net, 2016-05 first registration, BPW/lifting axle/pallet box) and BAS World unit (stock 70338834, €8,400 net, 2014-06 first registration). One regional clone’s listing card location (Romania) conflicts with linked detail (Serbia), noted and excluded. Next resume page: 22.
 
