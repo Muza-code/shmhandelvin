@@ -2,11 +2,6 @@ name: Deploy SHM Market Center
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'market_center_static/**'
-      - 'data/latest_market.json'
-      - '.github/workflows/deploy-market-center-pages.yml'
 
 permissions:
   contents: read
