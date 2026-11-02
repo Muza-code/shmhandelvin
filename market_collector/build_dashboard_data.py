@@ -123,6 +123,61 @@ for x in old_listings:
     y["seen_this_run"]=False
     catalogue[key]=y
 
+# Import the completed human-reviewed source captures into the persistent catalogue.
+# These are seed snapshots only: they are inserted once and are not marked as freshly
+# observed on later scheduled runs. New live collector rows take precedence.
+SOURCE_ARCHIVES = [
+    Path("data/raw/mobile_de_kogel.ndjson"),
+    Path("data/raw/truckscout24_kogel.ndjson"),
+    Path("data/raw/autoline_krone.ndjson"),
+]
+
+def archive_dashboard_row(x):
+    construction=x.get("construction_year")
+    first_registration=x.get("first_registration_year") or x.get("first_registration")
+    year=x.get("market_year") or x.get("year") or construction or first_registration
+    year_basis=x.get("year_basis") or ("construction_year" if construction else ("first_registration_proxy" if first_registration else "unknown"))
+    features=[]
+    axle_maker=x.get("axle_maker") or x.get("axle_brand")
+    if axle_maker: features.append(str(axle_maker))
+    for key,label in [
+        ("lift_axle","Lift axle"),("pallet_box","Pallet box"),("code_xl","Code XL"),
+        ("mega","Mega"),("coil","Coil"),("joloda","Joloda"),("huckepack","Huckepack/P400")
+    ]:
+        if x.get(key) is True: features.append(label)
+    observed=x.get("observed_at") or x.get("observed_date")
+    return {
+        **x,
+        "brand":x.get("brand"), "model":x.get("model") or x.get("title"),
+        "year":year, "year_basis":year_basis,
+        "construction_year":construction,
+        "first_registration_year":first_registration,
+        "body_type":x.get("body_type") or x.get("source_category"),
+        "asset_type":x.get("asset_type") or infer_asset_type(x),
+        "country":x.get("country"), "seller":x.get("seller"),
+        "price_original":x.get("price_amount",x.get("price")),
+        "currency":x.get("price_currency",x.get("currency")),
+        "tax_basis":x.get("tax_basis"),
+        "price_confidence":x.get("price_confidence") or "legacy",
+        "price_evidence":x.get("price_evidence"),
+        "vin":x.get("vin"), "vin_ref":x.get("vin_ref"),
+        "features":features,
+        "source":x.get("source"), "url":x.get("url") or x.get("listing_url"),
+        "status":x.get("status") or "unknown",
+        "observed_at":observed,
+        "first_seen_at":x.get("first_seen_at") or observed,
+        "last_seen_at":x.get("last_seen_at") or observed,
+        "seen_this_run":False,
+    }
+
+for archive_path in SOURCE_ARCHIVES:
+    for source_row in read_ndjson(archive_path):
+        archive_row=archive_dashboard_row(source_row)
+        key=(archive_row.get("source"),archive_row.get("url"))
+        if key[0] and key[1]:
+            archive_row["asset_type"]=infer_asset_type(archive_row)
+            catalogue.setdefault(key,archive_row)
+
 for r in rows:
     features=[]
     for key,label in [
