@@ -31,7 +31,13 @@
       ],
       "center_approx": 208,
       "confidence": "provisional; do not use as a final count until all result pages are audited"
-    }
+    },
+    "additional_detail_pages_inspected": [
+      4,
+      5
+    ],
+    "additional_detail_enrichments": 2,
+    "additional_confirmed_discoveries": 2
   },
   "deduplication_key": [
     "TruckScout24 listing ID",
@@ -91,7 +97,9 @@
     "22978407",
     "22978397",
     "22695687",
-    "22292667"
+    "22292667",
+    "17620558",
+    "17619548"
   ],
   "excluded_ids": [
     "23212451",
@@ -930,24 +938,34 @@
       "id": "22898710",
       "url": "https://www.truckscout24.com/tsp/ts-228-98-710",
       "brand": "Kögel",
-      "model": null,
-      "first_registration": null,
-      "baujahr": null,
-      "price_net": null,
-      "price_gross": null,
-      "vat": null,
+      "model": "Curtainsider Mega",
+      "first_registration": "04/2018",
+      "baujahr": 2018,
+      "price_net": 9900,
+      "price_gross": 11781,
+      "vat": "plus VAT",
       "seller": null,
-      "location": null,
-      "axle_count": null,
+      "location": "Altenberge, Germany",
+      "axle_count": 3,
       "axle_maker": null,
       "lift_axle": null,
       "pallet_box": null,
-      "code_xl": null,
-      "mega": null,
+      "code_xl": true,
+      "mega": true,
       "coil": null,
       "vin_fin": null,
-      "classification": "curtain-side candidate confirmed from listing card",
-      "price_history": []
+      "classification": "confirmed from title and detail description",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 live price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-228-98-710",
+          "price_net": 9900,
+          "price_gross": 11781,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €9,900; crossed-out former amount €10,750; €11,781 gross"
+        }
+      ]
     },
     {
       "id": "22898715",
@@ -1326,12 +1344,81 @@
       "vin_fin": null,
       "classification": "curtain-side candidate confirmed from listing card",
       "price_history": []
+    },
+    {
+      "id": "17620558",
+      "url": "https://www.truckscout24.com/tsp/ts-176-20-558",
+      "brand": "Kögel",
+      "model": "Curtain side trailer",
+      "first_registration": "01/2015",
+      "baujahr": 2015,
+      "price_net": 10500,
+      "price_gross": 12705,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Hoogerheide, Netherlands",
+      "axle_count": 3,
+      "axle_maker": "BPW Eco Plus",
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": null,
+      "mega": null,
+      "coil": null,
+      "vin_fin": "WK0S0002400185066",
+      "classification": "confirmed from detail page: curtain-sided semitrailer; sliding tarpaulins",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 live price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-176-20-558",
+          "price_net": 10500,
+          "price_gross": 12705,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €10,500; €12,705 gross"
+        }
+      ]
+    },
+    {
+      "id": "17619548",
+      "url": "https://www.truckscout24.com/tsp/ts-176-19-548",
+      "brand": "Kögel",
+      "model": "Curtain side trailer S24-1",
+      "first_registration": "09/2017",
+      "baujahr": 2017,
+      "price_net": 13500,
+      "price_gross": 16335,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Hoogerheide, Netherlands",
+      "axle_count": 3,
+      "axle_maker": "SAF",
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": null,
+      "mega": null,
+      "coil": null,
+      "vin_fin": "WK0S0002400212367",
+      "classification": "confirmed from detail page: curtain-sided semitrailer; sliding tarpaulins; related listing surfaced from listing page, not counted in the initial search-page sample",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 live price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-176-19-548",
+          "price_net": 13500,
+          "price_gross": 16335,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €13,500; €16,335 gross"
+        }
+      ],
+      "discovery_scope": "related detail-page listing; verify against main result pages before including in the 273-result count"
     }
   ],
   "notes": [
     "The live listing count observed in this run was 273, three below the user's approximate control of 276.",
     "The broad Flatbed & Tarpaulin category path mixes real curtainsiders with swap bodies/BDF, reefers, box trailers, platforms and other body types; category membership alone is insufficient.",
     "One listing detail page was opened to capture price from its actual price block. Remaining segment records are listing-page-only; missing fields remain null pending detail-page enrichment.",
-    "URLs for the candidate records use TruckScout24's verified ID-to-URL format; each record retains its listing ID for deduplication."
+    "URLs for the candidate records use TruckScout24's verified ID-to-URL format; each record retains its listing ID for deduplication.",
+    "Continued through TruckScout24 search content and listing detail pages after the initial checkpoint: enriched listing 22898710 and added two directly verified curtain-side listings. Listing 17619548 came from a related-listings panel and is kept separate from the initial search-page count until cross-checked.",
+    "On 2026-11-02, detail pages confirmed exact ID, canonical URL, price block, registration/year, axles and axle maker where explicit, and explicit VINs for IDs 17620558 and 17619548. Seller names were not exposed in the public detail view."
   ]
 }
