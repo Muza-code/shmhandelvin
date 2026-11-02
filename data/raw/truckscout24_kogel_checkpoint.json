@@ -22,24 +22,24 @@
     7
   ],
   "last_processed_page": 5,
-  "last_processed_listing_id": "22517497",
+  "last_processed_listing_id": "20075155",
   "next_page_to_process": 5,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 159,
-    "newly_written": 159,
+    "distinct_listing_ids_written": 165,
+    "newly_written": 165,
     "updated": 5,
-    "confirmed_curtain_side": 95,
-    "semi_trailer_asset_type": 118,
+    "confirmed_curtain_side": 97,
+    "semi_trailer_asset_type": 122,
     "quarantine": 24,
-    "swap_body": 9,
+    "swap_body": 10,
     "unknown_asset": 20,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing the remaining cards on page 5; processed IDs are recorded in page_progress. Keep relevance sort until pages 5–7 are complete.",
+  "next_action": "Continue auditing remaining cards on page 5; processed IDs are recorded in page_progress. Keep relevance sort until pages 5–7 are complete.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -85,15 +85,15 @@
   "last_page_batch": {
     "page": 5,
     "card_count_processed": 12,
-    "new_ids": 5,
-    "existing_ids": 7,
-    "updated": 3,
-    "accepted_semi_trailer": 10,
+    "new_ids": 6,
+    "existing_ids": 6,
+    "updated": 0,
+    "accepted_semi_trailer": 4,
     "other_trailer": 1,
     "swap_body": 1,
     "quarantined": 0,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "22517497"
+    "last_processed_listing_id": "20075155"
   },
   "page_progress": [
     {
@@ -110,7 +110,18 @@
         "22742372",
         "22517517",
         "22853940",
-        "22517497"
+        "22517497",
+        "18944836",
+        "22517352",
+        "22519762",
+        "22863765",
+        "22863770",
+        "22517427",
+        "22751982",
+        "21500512",
+        "22193217",
+        "21599843",
+        "20075155"
       ],
       "remaining_cards_not_audited": true
     }
