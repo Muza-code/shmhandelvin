@@ -20,7 +20,8 @@ $Files = @(
   "local_runner/setup_project_status_task.ps1",
   "local_runner/update_project_status.ps1",
   "local_runner/open_market_center.ps1",
-  "local_runner/repair_market_center.ps1"
+  "local_runner/repair_market_center.ps1",
+  "local_runner/rebuild_clean_market.ps1"
 )
 
 $Backup = Join-Path $Root ("local_runner\backup-" + (Get-Date -Format "yyyyMMdd-HHmmss"))
