@@ -13,6 +13,12 @@ Date captured: 2026-11-02
 - Observed live result count: 716 ads; 29 pages.
 - “Placed on” sorting is shown on the results page and is used for this capture. Keep this sorting for subsequent daily new-listing monitoring.
 
+## Browser workflow
+
+- Keep browser usage lightweight: one results-list tab and one reusable detail tab, plus at most one service tab when needed (maximum 2–3 working tabs).
+- Reuse the same detail tab for listings that need inspection, then return to the results list. Do not open a new tab per listing.
+- Skip detail pages when the results card already provides enough required evidence. Close unneeded tabs periodically.
+
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
