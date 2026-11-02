@@ -13,17 +13,17 @@
     3,
     4,
     5,
+    6,
     8
   ],
   "pages_partially_inspected": [
     2,
     3,
-    6,
     7
   ],
   "last_processed_page": 6,
   "last_processed_listing_id": "22404842",
-  "next_page_to_process": 6,
+  "next_page_to_process": 7,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
@@ -39,7 +39,7 @@
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing remaining cards on page 6 using relevance sort; page 6 is not complete. Resume from the 38 distinct IDs already in page_progress.",
+  "next_action": "Page 6 audited (25 cards in the current result page, 38 unique IDs tracked across snapshot overlap). Continue from page 7 in relevance order; do not switch to newest until the first pass is complete.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -84,9 +84,9 @@
   "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
   "last_page_batch": {
     "page": 6,
-    "card_count_processed": 38,
-    "new_ids": 13,
-    "existing_ids": 25,
+    "card_count_processed": 4,
+    "new_ids": 1,
+    "existing_ids": 3,
     "updated": 3,
     "accepted_semi_trailer": 1,
     "other_trailer": 0,
@@ -155,9 +155,31 @@
         "22517417",
         "22517262",
         "22517412",
-        "22404842"
+        "22404842",
+        "22517422",
+        "22517432",
+        "22517442",
+        "22517452",
+        "22526892",
+        "22526912",
+        "22526907",
+        "22517522",
+        "22392892",
+        "22517387",
+        "23095196",
+        "22978402",
+        "22978407",
+        "22978397",
+        "23215326",
+        "22054698",
+        "22292667",
+        "21610803",
+        "21514747",
+        "22777505",
+        "22284517",
+        "22933091"
       ],
-      "remaining_cards_not_audited": true
+      "remaining_cards_not_audited": false
     }
   ]
 }
