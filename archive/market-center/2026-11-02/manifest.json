@@ -1,0 +1,116 @@
+{
+  "snapshot_date": "2026-11-02",
+  "source_commit": "7aeb1357d9760c06dbd9a0273903606b45fe21ba",
+  "purpose": "Immutable, restore-ready snapshot of Market Center inputs, crawl checkpoints, observations, derived files, and published analytical data.",
+  "preservation": "Each archived file points to the same Git blob as the source file at source_commit; future changes to live paths do not change this snapshot.",
+  "files": [
+    {
+      "source_path": "data/latest_market.json",
+      "archive_path": "archive/market-center/2026-11-02/data/latest_market.json",
+      "git_blob_sha": "49b42cd83aa2176b641ac16ce5a4e64253267816",
+      "size_bytes": 4036660
+    },
+    {
+      "source_path": "data/mobile_de_discovery.json",
+      "archive_path": "archive/market-center/2026-11-02/data/mobile_de_discovery.json",
+      "git_blob_sha": "515ee1bb23a84d21862196e9bde9ace3f54ade51",
+      "size_bytes": 3245
+    },
+    {
+      "source_path": "data/public_observations.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/public_observations.ndjson",
+      "git_blob_sha": "0e3e0c04a3409db58ed8615a4d11e01c23aeb107",
+      "size_bytes": 6387215
+    },
+    {
+      "source_path": "data/truckscout24_kogel_curtainsiders_2026-11-02.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/truckscout24_kogel_curtainsiders_2026-11-02.ndjson",
+      "git_blob_sha": "52074e9715d3bd318c06feb9fa8e931fc039145e",
+      "size_bytes": 66440
+    },
+    {
+      "source_path": "data/truckscout24_kogel_curtainsiders_checkpoint_2026-11-02.json",
+      "archive_path": "archive/market-center/2026-11-02/data/truckscout24_kogel_curtainsiders_checkpoint_2026-11-02.json",
+      "git_blob_sha": "0d901a61d23ff14688571ed0c551a786a6749227",
+      "size_bytes": 79099
+    },
+    {
+      "source_path": "data/raw/README.md",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/README.md",
+      "git_blob_sha": "64c598bf913de5a2d74c3556d3c50ac339256949",
+      "size_bytes": 2370
+    },
+    {
+      "source_path": "data/raw/autoline_kogel.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/autoline_kogel.ndjson",
+      "git_blob_sha": "b25968a4ab96ccfc5fb868ce6bae8142caca0a59",
+      "size_bytes": 308244
+    },
+    {
+      "source_path": "data/raw/autoline_krone.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/autoline_krone.ndjson",
+      "git_blob_sha": "48338f0c35f84762084aa534709672c3db4abdb7",
+      "size_bytes": 1009347
+    },
+    {
+      "source_path": "data/raw/mobile_de_kogel.checkpoint.json",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/mobile_de_kogel.checkpoint.json",
+      "git_blob_sha": "76008bd770aa764598ee879ba0a0ee9c655698b3",
+      "size_bytes": 1832
+    },
+    {
+      "source_path": "data/raw/mobile_de_kogel.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/mobile_de_kogel.ndjson",
+      "git_blob_sha": "2a581f41864d7e26882ebf412a5597029e0d4159",
+      "size_bytes": 356834
+    },
+    {
+      "source_path": "data/raw/truckscout24_kogel.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/truckscout24_kogel.ndjson",
+      "git_blob_sha": "ae102bf743e507f2b4cc0cd7a93e5073be5f9759",
+      "size_bytes": 321643
+    },
+    {
+      "source_path": "data/raw/truckscout24_kogel_checkpoint.json",
+      "archive_path": "archive/market-center/2026-11-02/data/raw/truckscout24_kogel_checkpoint.json",
+      "git_blob_sha": "82b880f075d5ea741c07695428aef1077e4bdc22",
+      "size_bytes": 37629
+    },
+    {
+      "source_path": "data/derived/truckscout24_kogel_curtain_side.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/data/derived/truckscout24_kogel_curtain_side.ndjson",
+      "git_blob_sha": "bf7301603633287b8471ea362a7e086ac0970bc6",
+      "size_bytes": 134721
+    },
+    {
+      "source_path": "docs/latest_market.json",
+      "archive_path": "archive/market-center/2026-11-02/docs/latest_market.json",
+      "git_blob_sha": "49b42cd83aa2176b641ac16ce5a4e64253267816",
+      "size_bytes": 4036660
+    },
+    {
+      "source_path": "autoline/2026-11-02-kogel-curtain-europe-2008-2022-checkpoint.md",
+      "archive_path": "archive/market-center/2026-11-02/autoline/2026-11-02-kogel-curtain-europe-2008-2022-checkpoint.md",
+      "git_blob_sha": "04d940faf4e1206d204730cadd1940495c0684fd",
+      "size_bytes": 4574
+    },
+    {
+      "source_path": "autoline/2026-11-02-krone-curtain-europe-2008-2022-checkpoint.md",
+      "archive_path": "archive/market-center/2026-11-02/autoline/2026-11-02-krone-curtain-europe-2008-2022-checkpoint.md",
+      "git_blob_sha": "b51a06bf3cb6d095f61daa954e3fa783c0bf3ed7",
+      "size_bytes": 11629
+    },
+    {
+      "source_path": "autoline/data/kogel-curtain-europe-2008-2022.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/autoline/data/kogel-curtain-europe-2008-2022.ndjson",
+      "git_blob_sha": "14b68bce1a3145d1146dfe21c6ea096c2cf35339",
+      "size_bytes": 136324
+    },
+    {
+      "source_path": "autoline/data/krone-curtain-europe-2008-2022.ndjson",
+      "archive_path": "archive/market-center/2026-11-02/autoline/data/krone-curtain-europe-2008-2022.ndjson",
+      "git_blob_sha": "5b8fc56df10087bb790eaa9f24a4331c89471910",
+      "size_bytes": 517278
+    }
+  ]
+}
