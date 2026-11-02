@@ -1,4 +1,5 @@
 import json
+import re
 from collections import Counter
 from pathlib import Path
 from datetime import datetime, timezone
@@ -8,6 +9,26 @@ TARGET=Path("data/latest_market.json")
 MOBILE_DISCOVERY=Path("data/mobile_de_discovery.json")
 EXCLUSIONS_PATH=Path("data/raw/market_center_exclusions.json")
 NON_CANONICAL_SOURCES={"mobile.de via ReefAPI"}
+
+def condition_signals(x):
+    text=" ".join(str(x.get(k) or "") for k in ("model","body_type","evidence_excerpt","description","exclusion_reason")).lower()
+    flags=[]
+    severe=[]
+    if re.search(r"\\bunfall(?!frei)\\w*|\\baccident(?:[ -]+(?:damaged|damage|vehicle))\\b|\\bcrash(?:ed| damage)\\b|\\bwreck(?:ed)?\\b|rear[- ]end crash|b[uú]ran[áa]",text):
+        flags.append("Аварийное повреждение указано в объявлении")
+        severe.append("accident_damage")
+    if re.search(r"no (?:registration )?(?:documents|papers)|without (?:registration )?(?:documents|papers)|documents? missing|bez\\s+tp\\b|no vehicle papers|without vehicle papers",text):
+        flags.append("Документы отсутствуют или указаны как неполные")
+        severe.append("missing_documents")
+    if re.search(r"not roadworthy|non[- ]running|not running|does not run|nicht fahrbereit|не на ходу|non funziona",text):
+        flags.append("Не на ходу / не допускается к эксплуатации по описанию")
+        severe.append("not_roadworthy")
+    if re.search(r"needs? repair|repair required|reparaturbedürftig|reparaturbeduerftig|needs? work|defekt|damaged|beschädigt|beschaedigt",text) and "Аварийное повреждение указано в объявлении" not in flags:
+        flags.append("Требуется проверка ремонта/повреждений")
+    tire=re.search(r"(?:tyre|tire|reifen|pneu)[^.%\\n]{0,45}(\\d{1,3})\\s*%",text)
+    if tire:
+        flags.append(f"Состояние шин в объявлении: {tire.group(1)}% — оценить замену")
+    return flags,severe
 
 def sanitize_suspicious_price(x):
     """Remove obvious year-as-price parsing errors from persisted catalogue rows."""
@@ -130,6 +151,7 @@ for r in rows:
         "tax_basis":r.get("tax_basis"),
         "price_confidence":r.get("price_confidence") or "legacy",
         "price_evidence":r.get("price_evidence"),
+        "evidence_excerpt":r.get("evidence_excerpt"),
         "vin":r.get("vin"),"vin_ref":(r.get("vin_refs") or [None])[0],
         "features":features,"source":r.get("source"),"status":"unknown","url":r.get("url"),
         "observed_at":observed,
@@ -168,6 +190,19 @@ for _y in listings:
     _y["exclusion_code"]=rule.get("exclusion_code")
     _y["exclusion_reason"]=rule.get("exclusion_reason")
     _y["asset_type"]=infer_asset_type(_y)
+
+# Preserve source wording and surface explicit condition risks. Missing information
+# stays unknown; it is never treated as evidence that a trailer is in good order.
+for _y in listings:
+    _y.setdefault("evidence_excerpt",None)
+    flags,severe=condition_signals(_y)
+    _y["condition_flags"]=flags
+    _y["condition_status"]="risk_reported" if flags else "unknown"
+    if severe:
+        _y["purchase_eligible"]=False
+        _y["analytics_eligible"]=False
+        _y.setdefault("exclusion_code",severe[0])
+        _y.setdefault("exclusion_reason","; ".join(flags))
 
 sources=Counter(x.get("source") for x in listings if x.get("source"))
 coverage=[]
