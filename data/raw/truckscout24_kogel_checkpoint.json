@@ -10,7 +10,8 @@
   "pages_audited": [
     1,
     2,
-    3
+    3,
+    8
   ],
   "pages_partially_inspected": [
     2,
@@ -18,28 +19,27 @@
     4,
     5,
     6,
-    7,
-    8
+    7
   ],
   "last_processed_page": 8,
-  "last_processed_listing_id": "22759977",
-  "next_page_to_process": 9,
+  "last_processed_listing_id": "20320610",
+  "next_page_to_process": 4,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 104,
-    "newly_written": 104,
+    "distinct_listing_ids_written": 125,
+    "newly_written": 125,
     "updated": 0,
-    "confirmed_curtain_side": 75,
-    "semi_trailer_asset_type": 80,
+    "confirmed_curtain_side": 78,
+    "semi_trailer_asset_type": 90,
     "quarantine": 23,
-    "swap_body": 3,
+    "swap_body": 5,
     "unknown_asset": 21,
-    "target_year_in_scope": 34,
-    "target_year_pending": 41,
+    "target_year_in_scope": 35,
+    "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue primary all-Kögel result pages 9 onward, record each page checkpoint, and cross-check category/related IDs against the base search pool. Switch to newest-listing sort only after the full first pass.",
+  "next_action": "Resume partially reviewed pages 4–7, starting at page 4. Page 8 appears to be last because its Next link loops to page=8#; resolve remaining partial-page IDs before declaring full first pass complete. Switch to newest sort only afterward.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -79,5 +79,15 @@
     "observed_at",
     "evidence_excerpt"
   ],
-  "source_observations": "All retained observations include prior confirmed candidates, review IDs, known exclusions, and out-of-scope semitrailers. Unknown IDs remain quarantined; no unknown price, body, seller, or asset type was inferred."
+  "source_observations": "All retained observations include prior confirmed candidates, review IDs, known exclusions, and out-of-scope semitrailers. Unknown IDs remain quarantined; no unknown price, body, seller, or asset type was inferred.",
+  "pagination_last_page_observed": 8,
+  "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
+  "last_page_batch": {
+    "page": 8,
+    "card_count": 25,
+    "new_ids": 21,
+    "existing_ids": 4,
+    "processed_at": "2026-11-02",
+    "last_new_listing_id": "20320610"
+  }
 }
