@@ -21,7 +21,7 @@
   "last_processed_page": 8,
   "last_processed_listing_id": "22854855",
   "next_page_to_process": null,
-  "full_pass_complete": false,
+  "full_pass_complete": true,
   "daily_new_id_monitoring": "started",
   "counts": {
     "distinct_listing_ids_written": 273,
@@ -37,7 +37,7 @@
     "outside_target_year": 3,
     "trailer_asset_type": 21
   },
-  "next_action": "Audit another visible sort/filter to reach listings beyond the 200-position cap; full_pass_complete remains false until reconciled.",
+  "next_action": "Full Kögel pass complete. Continue daily with Newest listings; scan newest page(s), stop at the known-ID boundary, append unseen IDs only.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -824,8 +824,8 @@
   "accessible_result_page_count": 8,
   "accessible_card_positions": 200,
   "pagination_page_9_status": "404",
-  "result_count_reconciliation_gap": 73,
-  "coverage_note": "The current newest-date sort also exposes only pages 1–8 (25 cards each); page=9 returns 404. The eight pages have been audited and their unseen IDs appended. Continue using alternate visible sorts/filters to reconcile the 273 reported count.",
+  "result_count_reconciliation_gap": 0,
+  "coverage_note": "The union of current TruckScout24 result IDs across Relevance, Newest listings and Oldest listings matches the live count of 273; all page IDs are present once in the source file.",
   "relevance_accessible_pass_complete": true,
   "new_ids_added_during_recheck": 15,
   "current_unique_ids_seen": 199,
@@ -1524,5 +1524,15 @@
     "card_positions_processed": 200,
     "distinct_current_ids_seen": 200,
     "new_ids_added": 31
-  }
+  },
+  "sorts_used_for_full_coverage": [
+    "Relevance",
+    "Newest listings",
+    "Oldest listings"
+  ],
+  "sort_union_distinct_ids": 273,
+  "source_unique_ids": 273,
+  "missing_current_ids_in_source": [],
+  "source_ids_not_in_current_sort_union": [],
+  "reconciled_at": "2026-11-02"
 }
