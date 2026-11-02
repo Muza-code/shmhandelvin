@@ -30,7 +30,9 @@
         225
       ],
       "center_approx": 208,
-      "confidence": "provisional; do not use as a final count until all result pages are audited"
+      "confidence": "provisional; do not use as a final count until all result pages are audited",
+      "metric": "All real Kögel curtain-side semitrailers among the current search result pool, before target first-registration-year filtering; sample estimate, not full count.",
+      "target_year_scope": "2008-2022 first registration; individual scope remains pending where first registration is missing."
     },
     "additional_detail_pages_inspected": [
       4,
@@ -74,7 +76,6 @@
     "23215326",
     "23251837",
     "22876995",
-    "23197966",
     "23085096",
     "23215306",
     "23215336",
@@ -128,7 +129,9 @@
     "19695111",
     "22543662",
     "22298977",
-    "23195871"
+    "23195871",
+    "23197966",
+    "21505557"
   ],
   "review_ids": [
     "23219226",
@@ -591,29 +594,6 @@
     {
       "id": "22876995",
       "url": "https://www.truckscout24.com/tsp/ts-228-76-995",
-      "brand": "Kögel",
-      "model": null,
-      "first_registration": null,
-      "baujahr": null,
-      "price_net": null,
-      "price_gross": null,
-      "vat": null,
-      "seller": null,
-      "location": null,
-      "axle_count": null,
-      "axle_maker": null,
-      "lift_axle": null,
-      "pallet_box": null,
-      "code_xl": null,
-      "mega": null,
-      "coil": null,
-      "vin_fin": null,
-      "classification": "curtain-side candidate confirmed from listing card",
-      "price_history": []
-    },
-    {
-      "id": "23197966",
-      "url": "https://www.truckscout24.com/tsp/ts-231-97-966",
       "brand": "Kögel",
       "model": null,
       "first_registration": null,
@@ -1567,7 +1547,8 @@
     "Further verified detail-page enrichment: IDs 23269042 (€5,200 net), 23224101 (€7,200 net), and 21724618 (€5,500 net). A search-index card had shown €5,100 for 21724618, but the current detail-page price block shows €5,500, which is the recorded current observation.",
     "Page 7 produced another confirmed COIL curtainsider: ID 22051613, Kögel S24-1, €9,750 net / €11,798 gross, first registration 01/2020, 3 axles. A separate Mega Light Plus listing (ID 22751987) says fast sliders and sliding roof but not side curtains; it remains in review and is excluded from confirmed segment.",
     "Page 8 detail inspection: confirmed listing A225-63-072 (ID 22563072), Kögel SN 24 COIL curtainsider, €9,250 net / €11,192 gross, first registration 06/2019, 3 axles, SAF stated in title. Excluded A222-98-977 (ID 22298977): although described as curtainsider, listing states interchangeable platform trailer and is categorized under containers/swap bodies, so it is not counted as a whole semi-trailer.",
-    "Additional category spot-check: the site category Kögel Semitrailers With Flatbed & Tarpaulin showed 270 listings in the crawl, but included clear BDF/Wechselpritsche swap bodies (IDs 23195871 and 18505251), confirming category count cannot be treated as whole curtainsider semitrailer count. Added confirmed whole semi-trailer ID 22974347: Kögel SN24 Standard Edscha, €8,850 net / €10,532 gross, first registration 03/2017, 3 axles, SAF, lift axle. XXL certificate is recorded as stated; Code XL remains unconfirmed."
+    "Additional category spot-check: the site category Kögel Semitrailers With Flatbed & Tarpaulin showed 270 listings in the crawl, but included clear BDF/Wechselpritsche swap bodies (IDs 23195871 and 18505251), confirming category count cannot be treated as whole curtainsider semitrailer count. Added confirmed whole semi-trailer ID 22974347: Kögel SN24 Standard Edscha, €8,850 net / €10,532 gross, first registration 03/2017, 3 axles, SAF, lift axle. XXL certificate is recorded as stated; Code XL remains unconfirmed.",
+    "Project target-year rule applied separately from body classification: real tarp semitrailers A231-97-966 (ID 23197966, first registration 02/2023) and A215-05-557 (ID 21505557, first registration 03/2024) are preserved in out_of_scope_records, not in the 2008-2022 target segment."
   ],
   "review_records": [
     {
@@ -1580,6 +1561,78 @@
       "current_price_gross": 19028,
       "axle_maker": "SAF Intradisk",
       "evidence": "Detail description states 2 fast-acting sliders and sliding roof, but does not explicitly confirm curtainside/tarpaulin; detail category is Other semitrailers. Keep in review, outside confirmed segment."
+    }
+  ],
+  "target_first_registration_years": [
+    2008,
+    2022
+  ],
+  "out_of_scope_records": [
+    {
+      "id": "23197966",
+      "url": "https://www.truckscout24.com/tsp/ts-231-97-966",
+      "brand": "Kögel",
+      "model": "Hubdach Liftachse LED XL + Getränkezertifikat",
+      "first_registration": "02/2023",
+      "baujahr": 2022,
+      "price_net": 19300,
+      "price_gross": 23160,
+      "vat": "plus VAT",
+      "seller": "STARENT Truck & Trailer GmbH",
+      "location": "Bruck-Waasen, Austria",
+      "axle_count": 3,
+      "axle_maker": "BPW",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "real open semitrailer with tarp; excluded from target market because first registration 02/2023 is outside 2008-2022",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-231-97-966",
+          "price_net": 19300,
+          "price_gross": 23160,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €19,300; (€23,160 gross)"
+        }
+      ]
+    },
+    {
+      "id": "21505557",
+      "url": "https://www.truckscout24.com/tsp/ts-215-05-557",
+      "brand": "Kögel",
+      "model": "Light Coil Schiebeplane Edscha Liftachse Alu",
+      "first_registration": "03/2024",
+      "baujahr": null,
+      "price_net": 22900,
+      "price_gross": 27251,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Frankfurt am Main, Germany",
+      "axle_count": 3,
+      "axle_maker": "BPW",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": null,
+      "coil": true,
+      "vin_fin": null,
+      "classification": "real COIL curtainsider semitrailer; excluded from target market because first registration 03/2024 is outside 2008-2022",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-215-05-557",
+          "price_net": 22900,
+          "price_gross": 27251,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €22,900; crossed-out former price €23,900; €27,251 gross"
+        }
+      ]
     }
   ]
 }
