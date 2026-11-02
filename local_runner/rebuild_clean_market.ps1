@@ -15,8 +15,17 @@ foreach ($p in @("data\latest_market.json","docs\latest_market.json","out\listin
 }
 
 Write-Host "Old Market Center snapshot backed up to: $BackupDir"
+
+# Critical: remove the old canonical snapshot so build_dashboard_data.py cannot merge
+# polluted legacy rows back into the new strict catalogue.
+Remove-Item "data\latest_market.json" -Force -ErrorAction SilentlyContinue
+Remove-Item "docs\latest_market.json" -Force -ErrorAction SilentlyContinue
+Remove-Item "out\listings.ndjson" -Force -ErrorAction SilentlyContinue
+Remove-Item "out\access_events.ndjson" -Force -ErrorAction SilentlyContinue
+Remove-Item "out\summary.json" -Force -ErrorAction SilentlyContinue
+
 Write-Host ""
-Write-Host "Running a fresh strict collection from all currently enabled local sources..."
+Write-Host "Old canonical dataset detached. Running a fresh strict collection from all currently enabled local sources..."
 
 $env:SHM_SOURCE_NAMES = ""
 try {
