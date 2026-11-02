@@ -804,37 +804,119 @@ def mobile_record(source,key,ad):
     }
 
 def collect_mobile(http,cfg,src,rows,events):
-    user=os.getenv("MOBILEDE_USERNAME",""); pwd=os.getenv("MOBILEDE_PASSWORD","")
-    if not user or not pwd:
-        events.append({"source":src["name"],"url":"https://services.mobile.de/search-api/search","observed_at":now(),"status":"not_configured"}); return
-    hist=[y for y in range(cfg["years"]["min"],cfg["years"]["max"]+1) if y not in cfg["years"].get("priority",[2021])]
-    rotate=hist[datetime.now(timezone.utc).timetuple().tm_yday % len(hist)] if hist else None
-    years=cfg["years"].get("priority",[2021])+([rotate] if rotate else [])
-    headers={"Accept":"application/vnd.de.mobile.api+json","Accept-Language":"en"}; auth=(user,pwd); cap=int(src.get("max_ads_per_run",700)); n=0
-    for country in src.get("countries",["DE"]):
-      for brand in cfg["brands"]:
-       for year in years:
-        if n>=cap:return
-        params={"classification":"refdata/classes/SemiTrailer","modelDescription":brand,"country":country,"constructionYear.min":year,"constructionYear.max":year,"page.size":min(100,src.get("page_size",100)),"page.number":1,"sort.field":"modificationTime","sort.order":"DESCENDING"}
-        try:
-            r=http.s.get("https://services.mobile.de/search-api/search",params=params,auth=auth,headers=headers,timeout=30)
-            if r.status_code!=200:
-                events.append({"source":src["name"],"url":r.url,"observed_at":now(),"status":"http_error","http_status":r.status_code}); continue
-            ads=r.json().get("ads") or []
-        except Exception as e:
-            events.append({"source":src["name"],"url":"https://services.mobile.de/search-api/search","observed_at":now(),"status":"fetch_error","error":str(e)[:500]}); continue
-        for ad in ads:
-            if n>=cap:return
-            key=ad.get("key") or ad.get("id") or ad.get("adKey")
-            if not key: continue
-            detail=ad
-            try:
-                d=http.s.get(f"https://services.mobile.de/search-api/ad/{key}",auth=auth,headers=headers,timeout=30)
-                if d.status_code==200: detail=d.json()
-            except Exception: pass
-            rec=mobile_record(src["name"],key,detail)
-            if rec: rows.append(rec); n+=1
+    user=os.getenv("MOBILEDE_USERNAME","").strip()
+    pwd=os.getenv("MOBILEDE_PASSWORD","").strip()
+    endpoint="https://services.mobile.de/search-api/search"
+    headers={"Accept":"application/vnd.de.mobile.api+json","Accept-Language":"de"}
+    auth=(user,pwd) if user and pwd else None
 
+    if not auth:
+        events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"not_configured","reason":"MOBILEDE_USERNAME/PASSWORD missing"})
+        return
+
+    # Official mobile.de reference data is public and does not require auth.
+    ref_headers={"Accept":"application/vnd.de.mobile.api+json","Accept-Language":"de"}
+    make_url="https://services.mobile.de/refdata/classes/SemiTrailer/makes"
+    make_map={}
+    try:
+        rr=http.s.get(make_url,headers=ref_headers,timeout=20)
+        if rr.status_code==200:
+            body=rr.json()
+            vals=body.get("values") or body.get("makes") or body.get("items") or []
+            aliases={
+                "Kögel":{"koegel","kogel","kögel"},
+                "Krone":{"krone"},
+                "Schmitz Cargobull":{"schmitz","schmitzcargobull","cargobull"},
+                "Schwarzmüller":{"schwarzmueller","schwarzmuller","schwarzmüller"}
+            }
+            def _nm(v):
+                x=str(v or "").lower()
+                for a,b in (("ä","ae"),("ö","oe"),("ü","ue"),("ß","ss")):
+                    x=x.replace(a,b)
+                return re.sub(r"[^a-z0-9]+","",x)
+            for brand in cfg["brands"]:
+                wanted={_nm(x) for x in aliases.get(brand,{brand})}
+                for m in vals if isinstance(vals,list) else []:
+                    if not isinstance(m,dict): continue
+                    key=m.get("name") or m.get("key") or m.get("id") or m.get("value")
+                    desc=m.get("description") or m.get("label") or key
+                    if _nm(key) in wanted or _nm(desc) in wanted:
+                        make_map[brand]=str(key)
+                        break
+            events.append({"source":src["name"],"url":make_url,"observed_at":now(),"status":"official_make_map","resolved":make_map,"available_make_count":len(vals) if isinstance(vals,list) else None})
+        else:
+            events.append({"source":src["name"],"url":make_url,"observed_at":now(),"status":"refdata_http_error","http_status":rr.status_code})
+    except Exception as ex:
+        events.append({"source":src["name"],"url":make_url,"observed_at":now(),"status":"refdata_error","error":str(ex)[:500]})
+
+    cap=int(src.get("max_ads_per_run",1200))
+    page_size=min(100,int(src.get("page_size",100)))
+    year_min=int(src.get("first_registration_year_min",2008))
+    year_max=int(src.get("first_registration_year_max",2022))
+    n=0
+
+    for brand in cfg["brands"]:
+        if n>=cap: break
+        make_key=make_map.get(brand)
+        if not make_key:
+            events.append({"source":src["name"],"url":make_url,"observed_at":now(),"status":"make_not_resolved","brand":brand})
+            continue
+
+        classification=f"refdata/classes/SemiTrailer/makes/{make_key}"
+        page=1
+        while n<cap:
+            params={
+                "classification":classification,
+                "firstRegistrationDate.min":f"{year_min}-01",
+                "firstRegistrationDate.max":f"{year_max}-12",
+                "page.size":page_size,
+                "page.number":page,
+                "sort.field":"modificationTime",
+                "sort.order":"DESCENDING",
+            }
+            try:
+                r=http.s.get(endpoint,params=params,auth=auth,headers=headers,timeout=30)
+                if r.status_code!=200:
+                    events.append({"source":src["name"],"url":r.url,"observed_at":now(),"status":"http_error","http_status":r.status_code,"brand":brand,"page":page,"response":r.text[:500]})
+                    break
+                body=r.json()
+                ads=body.get("ads") or []
+                total=body.get("total")
+                max_pages=body.get("maxPages")
+                events.append({"source":src["name"],"url":r.url,"observed_at":now(),"status":"official_search_page","brand":brand,"page":page,"ads":len(ads),"total":total,"max_pages":max_pages,"classification":classification})
+            except Exception as ex:
+                events.append({"source":src["name"],"url":endpoint,"observed_at":now(),"status":"fetch_error","brand":brand,"page":page,"error":str(ex)[:500]})
+                break
+
+            if not ads:
+                break
+
+            for ad in ads:
+                if n>=cap: break
+                key=ad.get("mobileAdId") or ad.get("key") or ad.get("id") or ad.get("adKey")
+                if not key: continue
+                detail=ad
+                try:
+                    dr=http.s.get(f"https://services.mobile.de/search-api/ad/{key}",auth=auth,headers=headers,timeout=30)
+                    if dr.status_code==200:
+                        detail=dr.json()
+                except Exception:
+                    pass
+                rec=mobile_record(src["name"],key,detail)
+                if rec:
+                    # Official SemiTrailer class is authoritative for asset class.
+                    rec["asset_type"]="semi_trailer"
+                    rec["asset_confidence"]="official_class"
+                    rec["asset_evidence_score"]=10
+                    rec["acquisition_mode"]="official_mobile_search_api"
+                    rows.append(rec)
+                    n+=1
+
+            if isinstance(max_pages,int) and page>=max_pages:
+                break
+            if len(ads)<page_size:
+                break
+            page+=1
 
 def deep_values(obj, keys):
     wanted={str(k).lower() for k in keys}
