@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 471 unique source records classified as `semi_trailer`; 435 numeric-price sale records are eligible for sale-market analytics. The current capture has 475 page-card observations through page 19, including 51 repeat sightings. The other 31 comprise 5 auctions, 4 rentals, and 22 sale ads excluded for no numeric asking price or unresolved price/quality basis.
+- 471 unique source records classified as `semi_trailer`; 435 numeric-price sale records are eligible for sale-market analytics. The current capture has 525 page-card observations through page 21, including 54 repeat sightings. The other 36 comprise 5 auctions, 4 rentals, 27 sale ads excluded for no numeric asking price or duplicate/quality basis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 22; pages 1–21 reviewed (525 card views; 471 unique IDs).nique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18 and 19 added 25 each. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
+- Resume at page 22; pages 1–21 reviewed (525 card views; 471 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
 
 
 ## Canonical data-quality review (2026-11-02)
@@ -67,6 +67,6 @@ Date captured: 2026-11-02
 - Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
 
 
-- Page 20: 25 cards reviewed; all 25 source IDs were new. Two Gema units and two Equipped4U units retained as separate trailers based on distinct seller stock numbers. Four TIP records have separate listing IDs; title reference numbers retained in the model, not guessed as stock IDs. Details added explicit first registrations, net price basis, BPW/lift axle/pallet box where confirmed. Next page: 21.
+- Page 20: 25 cards reviewed; all 25 source IDs were new. Two Gema units and two Equipped4U units retained as separate trailers based on distinct seller stock numbers. Four TIP records have separate listing IDs; title reference numbers retained in the model, not guessed as stock IDs. Details added explicit first registrations, net price basis, BPW/lift axle/pallet box where confirmed. Page 21 was subsequently completed; current resume page is 22.
 
 - Page 21: 25 cards reviewed; 22 new source IDs and 3 repeats from page 20. The 4 regional listings at €19,400 share seller stock IMP-4998; one is retained for market analytics and 3 copies excluded, with a relisting group key. Two ads explicitly priced on request remain excluded. Detail checks confirmed a further Equipped4U unit (stock OP34GP, €6,985 net, 2016-05 first registration, BPW/lifting axle/pallet box) and BAS World unit (stock 70338834, €8,400 net, 2014-06 first registration). One regional clone’s listing card location (Romania) conflicts with linked detail (Serbia), noted and excluded. Next resume page: 22.
