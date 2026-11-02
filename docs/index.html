@@ -33,7 +33,7 @@
         <select id="countryFilter"><option value="">Все страны</option></select>
         <select id="statusFilter">
           <option value="">Все статусы</option>
-          <option value="interesting">Интересно</option>
+          <option value="interesting">Цена ниже Q1</option>
           <option value="check">Проверить</option>
           <option value="expensive">Дорого</option>
         </select>
@@ -104,7 +104,7 @@ function yearBasisLabel(x){
   return map[b]||b;
 }
 function badge(status){
-  const labels={interesting:'ASK НИЖЕ Q1',check:'ЦЕНУ ПРОВЕРИТЬ',expensive:'ASK ВЫШЕ Q3',excluded:'ИСКЛЮЧЕНО ИЗ ЗАКУПКИ',unknown:'НЕТ ОЦЕНКИ'};
+  const labels={interesting:'НИЖЕ Q1 · ПРОВЕРИТЬ',check:'ЦЕНУ ПРОВЕРИТЬ',expensive:'ASK ВЫШЕ Q3',excluded:'ИСКЛЮЧЕНО ИЗ ЗАКУПКИ',unknown:'НЕТ ОЦЕНКИ'};
   return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
 }
 function conditionSummary(x){
@@ -152,7 +152,7 @@ function render(){
     ['VIN найден',data.stats?.vin_found??L.filter(x=>x.vin).length],
     ['Источников',data.stats?.sources??new Set(L.map(x=>x.source)).size],
     ['Исключено деталей',data.stats?.parts_components??0],
-    ['ASK ниже Q1',L.filter(x=>marketContext(x).status==='interesting').length]
+    ['Цена ниже Q1',L.filter(x=>marketContext(x).status==='interesting').length]
   ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
 
   const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, tf=document.getElementById('bodyFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
@@ -205,7 +205,7 @@ function render(){
   </tr>`).join('');
 
   document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
-    <td><a class="listing-title" target="_blank" rel="noopener" href="${esc(x.url||'#')}"><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'Открыть объявление ↗')}</small></a></td><td>${esc(x.year||'—')}<small>${esc(yearBasisLabel(x))}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_original)}</b><small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small>${badge(x._market.status)}<small>${x._market.median!=null?'Медиана сегмента: '+euro(x._market.median):'Нет надёжного сравнения'}</small></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc([...(x.condition_flags||[]),...(x.features||[])].slice(0,5).join(', ')||'Состояние в объявлении не подтверждено')}</td><td>${esc(x.source||'—')}</td>
+    <td><a class="listing-title" target="_blank" rel="noopener" href="${esc(x.url||'#')}"><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'Открыть объявление ↗')}</small></a></td><td>${esc(x.year||'—')}<small>${esc(yearBasisLabel(x))}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_original)}</b><small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small>${badge(x._market.status)}<small>${x._market.median!=null?'Медиана сегмента: '+euro(x._market.median):'Нет надёжного сравнения'}</small></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc([...(x.condition_flags||[]),...(x.features||[])].slice(0,5).join(', ')||'Оснащение не указано')+'<small>'+esc(conditionSummary(x))+'</small>}</td><td>${esc(x.source||'—')}</td>
   </tr>`).join('') || '<tr><td colspan="8" class="empty">По текущим фильтрам объявлений нет.</td></tr>';
 
   document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
