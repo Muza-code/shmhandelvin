@@ -17,29 +17,26 @@
     7,
     8
   ],
-  "pages_partially_inspected": [
-    2,
-    3
-  ],
+  "pages_partially_inspected": [],
   "last_processed_page": 8,
   "last_processed_listing_id": "23095576",
   "next_page_to_process": null,
-  "full_pass_complete": false,
+  "full_pass_complete": true,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 203,
-    "newly_written": 203,
-    "updated": 14,
-    "confirmed_curtain_side": 111,
-    "semi_trailer_asset_type": 153,
-    "quarantine": 24,
+    "distinct_listing_ids_written": 204,
+    "newly_written": 204,
+    "updated": 26,
+    "confirmed_curtain_side": 112,
+    "semi_trailer_asset_type": 159,
+    "quarantine": 16,
     "swap_body": 15,
-    "unknown_asset": 21,
+    "unknown_asset": 16,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Page 8 is complete and was the last relevance page (25 current cards). Reconcile partially inspected pages 2 and 3 using their checkpoint IDs before declaring the first pass complete.",
+  "next_action": "First relevance pass complete through page 8 (all 8 pages reconciled; pages 2 and 3 confirmed by 25 current result-card IDs each). Switch to Newest listings and append only previously unseen IDs in daily checks.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -96,6 +93,68 @@
     "last_processed_listing_id": "23095576"
   },
   "page_progress": [
+    {
+      "page": 2,
+      "processed_listing_ids": [
+        "23202641",
+        "23251837",
+        "21969488",
+        "22558132",
+        "22876995",
+        "23197966",
+        "23215306",
+        "23215336",
+        "23215316",
+        "23215331",
+        "23215296",
+        "23215311",
+        "23215346",
+        "23215301",
+        "23085096",
+        "21501207",
+        "22349412",
+        "23215351",
+        "22951881",
+        "22951886",
+        "22951891",
+        "23095576",
+        "22517477",
+        "22084388",
+        "22898710"
+      ],
+      "remaining_cards_not_audited": false
+    },
+    {
+      "page": 3,
+      "processed_listing_ids": [
+        "17085912",
+        "23085096",
+        "22329057",
+        "22751982",
+        "22264717",
+        "22810430",
+        "23001186",
+        "23215846",
+        "22847845",
+        "22084388",
+        "22846980",
+        "21501207",
+        "22126552",
+        "23001176",
+        "22974347",
+        "21969488",
+        "22652907",
+        "22517352",
+        "22751987",
+        "22526897",
+        "20339520",
+        "22704997",
+        "22517477",
+        "22193217",
+        "22898710"
+      ],
+      "remaining_cards_not_audited": false
+    },
     {
       "page": 5,
       "processed_listing_ids": [
@@ -241,6 +300,26 @@
         "23095576"
       ],
       "remaining_cards_not_audited": false
+    }
+  ],
+  "reconciliation_batches": [
+    {
+      "page": 2,
+      "card_count_processed": 25,
+      "new_ids": 0,
+      "existing_ids": 25,
+      "updated": 7,
+      "processed_at": "2026-11-02",
+      "last_processed_listing_id": "22898710"
+    },
+    {
+      "page": 3,
+      "card_count_processed": 25,
+      "new_ids": 1,
+      "existing_ids": 24,
+      "updated": 9,
+      "processed_at": "2026-11-02",
+      "last_processed_listing_id": "22898710"
     }
   ]
 }
