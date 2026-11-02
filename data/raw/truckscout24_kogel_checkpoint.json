@@ -22,16 +22,16 @@
     7
   ],
   "last_processed_page": 5,
-  "last_processed_listing_id": "20075155",
+  "last_processed_listing_id": "22576067",
   "next_page_to_process": 5,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
-    "distinct_listing_ids_written": 165,
-    "newly_written": 165,
-    "updated": 5,
-    "confirmed_curtain_side": 97,
-    "semi_trailer_asset_type": 122,
+    "distinct_listing_ids_written": 170,
+    "newly_written": 170,
+    "updated": 6,
+    "confirmed_curtain_side": 98,
+    "semi_trailer_asset_type": 127,
     "quarantine": 24,
     "swap_body": 10,
     "unknown_asset": 20,
@@ -39,7 +39,7 @@
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing remaining cards on page 5; processed IDs are recorded in page_progress. Keep relevance sort until pages 5–7 are complete.",
+  "next_action": "Continue auditing remaining cards on page 5; current page snapshot has 23 unique IDs processed, remaining cards not yet audited. Keep relevance sort until pages 5–7 are complete.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -84,16 +84,16 @@
   "pagination_next_link_observed": "Page 8 next link loops to page=8#; page 8 appears to be last results page.",
   "last_page_batch": {
     "page": 5,
-    "card_count_processed": 12,
-    "new_ids": 6,
-    "existing_ids": 6,
-    "updated": 0,
-    "accepted_semi_trailer": 4,
-    "other_trailer": 1,
-    "swap_body": 1,
+    "card_count_processed": 23,
+    "new_ids": 5,
+    "existing_ids": 18,
+    "updated": 1,
+    "accepted_semi_trailer": 5,
+    "other_trailer": 0,
+    "swap_body": 0,
     "quarantined": 0,
     "processed_at": "2026-11-02",
-    "last_processed_listing_id": "20075155"
+    "last_processed_listing_id": "22576067"
   },
   "page_progress": [
     {
@@ -121,7 +121,18 @@
         "21500512",
         "22193217",
         "21599843",
-        "20075155"
+        "20075155",
+        "22817470",
+        "22177932",
+        "22652907",
+        "21505557",
+        "22653537",
+        "17085912",
+        "22733167",
+        "22264717",
+        "22846980",
+        "22733157",
+        "22576067"
       ],
       "remaining_cards_not_audited": true
     }
