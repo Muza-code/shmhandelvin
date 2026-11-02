@@ -16,16 +16,17 @@
   "page_10_cards_1_to_6": "reviewed",
   "resume_at": {
     "page": 10,
-    "card": 11
+    "card": 15
   },
-  "records_exported": 190,
-  "unique_ids": 190,
-  "confirmed_semi_trailer": 189,
+  "records_exported": 194,
+  "unique_ids": 194,
+  "confirmed_semi_trailer": 193,
   "quarantine": 1,
-  "remaining_estimated": 49,
+  "remaining_estimated": 46,
   "analytics_enabled": false,
   "dedupe_key": "source_listing_id; fallback url",
-  "browser_note": "Search UI was restored to 240 results and 12 pages with correct Erstzulassung 2008-2022; page 10 cards 7-10 detail-checked. Continue with card 11.",
+  "browser_note": "Correct 240-result filter active. Page 10 cards 1-14 detail-checked; continue from card 15.",
   "source_update_policy": "Append price_history on observed price change; never overwrite prior asking price; status disappeared rather than sold.",
-  "page_10_cards_1_to_10": "reviewed"
+  "page_10_cards_1_to_10": "reviewed",
+  "page_10_cards_1_to_14": "reviewed"
 }
