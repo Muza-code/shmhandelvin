@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 OUT=Path("out")
 TARGET=Path("data/latest_market.json")
 MOBILE_DISCOVERY=Path("data/mobile_de_discovery.json")
+NON_CANONICAL_SOURCES={"mobile.de via ReefAPI"}
 
 def sanitize_suspicious_price(x):
     """Remove obvious year-as-price parsing errors from persisted catalogue rows."""
@@ -153,6 +154,8 @@ segments=[]
 groups={}
 for x in listings:
     x["asset_type"]=infer_asset_type(x)
+    if x.get("source") in NON_CANONICAL_SOURCES:
+        continue
     if x["asset_type"]!="semi_trailer":
         continue
     if isinstance(x.get("asset_evidence_score"),(int,float)) and x.get("asset_evidence_score") < 4:
@@ -198,7 +201,7 @@ data={
         "swap_bodies":sum(infer_asset_type(x)=="swap_body" for x in listings),
         "trailers":sum(infer_asset_type(x)=="trailer" for x in listings),
         "unknown_assets":sum(infer_asset_type(x)=="unknown_asset" for x in listings),
-        "strict_accepted":sum(infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
+        "strict_accepted":sum(x.get("source") not in NON_CANONICAL_SOURCES and infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
         "active":sum(bool(x.get("seen_this_run")) for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
