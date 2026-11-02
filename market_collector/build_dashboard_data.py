@@ -14,7 +14,7 @@ def condition_signals(x):
     text=" ".join(str(x.get(k) or "") for k in ("model","body_type","evidence_excerpt","description","exclusion_reason")).lower()
     flags=[]
     severe=[]
-    if re.search(r"\bunfall(?!frei)\w*|\baccident(?:[ -]+(?:damaged|damage|vehicle))\b|\bcrash(?:ed| damage)\b|\bwreck(?:ed)?\b|rear[- ]end crash|b[uú]ran[áa]",text):
+    if re.search(r"\bunfall(?!frei)\w*|\baccident(?![- ]free)\b|\baccident(?:[ -]+(?:damaged|damage|vehicle))\b|\bcrash(?:ed| damage)\b|\bwreck(?:ed)?\b|rear[- ]end crash|b[uú]ran[áa]",text):
         flags.append("Аварийное повреждение указано в объявлении")
         severe.append("accident_damage")
     if re.search(r"no (?:registration )?(?:documents|papers)|without (?:registration )?(?:documents|papers)|documents? missing|bez\s+tp\b|no vehicle papers|without vehicle papers",text):
