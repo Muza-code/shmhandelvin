@@ -10,6 +10,8 @@ $Files = @(
   "local_runner/update_windows.ps1",
   "market_collector/collector.py",
   "market_collector/config.json",
+  "local_runner/probe_mobile_coverage_v2.ps1",
+  "market_collector/mobile_coverage_probe_v2.py",
   "local_runner/probe_mobile_coverage.ps1",
   "market_collector/mobile_coverage_probe.py",
   "static/market_center.css",
