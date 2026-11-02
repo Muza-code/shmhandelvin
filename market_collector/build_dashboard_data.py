@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 OUT=Path("out")
 TARGET=Path("data/latest_market.json")
 MOBILE_DISCOVERY=Path("data/mobile_de_discovery.json")
+EXCLUSIONS_PATH=Path("data/raw/market_center_exclusions.json")
 NON_CANONICAL_SOURCES={"mobile.de via ReefAPI"}
 
 def sanitize_suspicious_price(x):
@@ -144,6 +145,30 @@ for _x in catalogue.values():
     _y["asset_type"]=infer_asset_type(_y)
     listings.append(_y)
 
+# Apply the human-reviewed exclusion register after merging persistent and new rows.
+# Keep source observations intact, but never use known components or damaged units
+# as purchase opportunities or comparable prices.
+exclusions={}
+if EXCLUSIONS_PATH.exists():
+    try:
+        _doc=json.loads(EXCLUSIONS_PATH.read_text(encoding="utf-8"))
+        exclusions={rule.get("url"):rule for rule in _doc.get("rules",[]) if rule.get("url")}
+    except Exception:
+        exclusions={}
+for _y in listings:
+    rule=exclusions.get(_y.get("url"))
+    if not rule:
+        continue
+    if rule.get("asset_type_override"):
+        _y["asset_type"]=rule["asset_type_override"]
+    if rule.get("purchase_eligible") is False:
+        _y["purchase_eligible"]=False
+    if rule.get("analytics_eligible") is False:
+        _y["analytics_eligible"]=False
+    _y["exclusion_code"]=rule.get("exclusion_code")
+    _y["exclusion_reason"]=rule.get("exclusion_reason")
+    _y["asset_type"]=infer_asset_type(_y)
+
 sources=Counter(x.get("source") for x in listings if x.get("source"))
 coverage=[]
 for s in sorted(set(list(sources)+[e.get("source") for e in events if e.get("source")])):
@@ -210,7 +235,10 @@ data={
         "swap_bodies":sum(infer_asset_type(x)=="swap_body" for x in listings),
         "trailers":sum(infer_asset_type(x)=="trailer" for x in listings),
         "unknown_assets":sum(infer_asset_type(x)=="unknown_asset" for x in listings),
-        "strict_accepted":sum(x.get("source") not in NON_CANONICAL_SOURCES and infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
+        "strict_accepted":sum(x.get("source") not in NON_CANONICAL_SOURCES and x.get("purchase_eligible") is not False and infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
+        "purchase_eligible":sum(x.get("source") not in NON_CANONICAL_SOURCES and x.get("purchase_eligible") is not False and infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
+        "purchase_excluded":sum(x.get("purchase_eligible") is False for x in listings),
+        "price_analytics_excluded":sum(x.get("analytics_eligible") is False for x in listings),
         "active":sum(x.get("status")=="active" for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
