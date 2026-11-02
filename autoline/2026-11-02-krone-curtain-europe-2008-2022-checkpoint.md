@@ -59,3 +59,9 @@ Date captured: 2026-11-02
 - No duplicate `source_listing_id` or URL values; all construction years are within the requested 2008–2022 range.
 - Each record’s latest `price_history` entry matches its current observed price and currency.
 - Similar seller/model/year/price fingerprints are kept as separate listings unless stronger identity evidence (same source ID/URL, VIN, or stock number) supports a relisting link. Do not merge on matching specifications alone.
+
+
+## Continuation note (2026-11-02)
+
+- Reused the existing results-list tab to retry page 15; Autoline still returned “Verify you are human”, so no listings were collected from that page.
+- Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
