@@ -12,22 +12,29 @@ def sanitize_suspicious_price(x):
     p=x.get("price_original")
     if not isinstance(p,(int,float)):
         return x
+    # In this vehicle catalogue a bare 4-digit calendar-year-sized amount is
+    # never trusted as a market price. Old rows may predate price-confidence fields.
     if 1900 <= float(p) <= 2100 and float(p).is_integer():
-        text=" ".join(str(x.get(k) or "") for k in ("model","year","construction_year","first_registration_year"))
-        year_token=str(int(p))
-        if year_token in text or "tüv" in text.lower() or "tuv" in text.lower():
-            x["price_original"]=None
-            x["price_net_eur"]=None
-            x["currency"]=None
-            x["tax_basis"]=None
-            x["price_quality_flag"]="rejected_year_like_price"
+        x["price_original"]=None
+        x["price_net_eur"]=None
+        x["currency"]=None
+        x["tax_basis"]=None
+        x["price_confidence"]="rejected"
+        x["price_quality_flag"]="rejected_year_like_price"
     return x
 
 def infer_asset_type(x):
     v=x.get("asset_type")
+    text=" ".join(str(x.get(k) or "") for k in ("model","body_type")).lower()
+    part_terms=[
+        "kühlmaschine","kuehlmaschine","kühlaggregat","kuehlaggregat",
+        "refrigeration unit","cooling unit","spare part","ersatzteil",
+        "aggregat","kompressor","compressor","landing legs","stützen","stuetzen"
+    ]
+    if any(term in text for term in part_terms):
+        return "part_component"
     if v:
         return v
-    text=" ".join(str(x.get(k) or "") for k in ("model","body_type")).lower()
     if "swap body" in text or "wechselbrücke" in text or "wechselbruecke" in text:
         return "swap_body"
     if "drawbar trailer" in text or "central axle" in text or "tandem trailer" in text:
@@ -66,6 +73,7 @@ for x in old_listings:
     if not key[0] or not key[1]:
         continue
     y=sanitize_suspicious_price(dict(x))
+    y["asset_type"]=infer_asset_type(y)
     y.setdefault("first_seen_at",y.get("observed_at"))
     y.setdefault("last_seen_at",y.get("observed_at"))
     y["seen_this_run"]=False
@@ -161,6 +169,7 @@ data={
     "stats":{
         "listings":len(listings),
         "semitrailers":sum(infer_asset_type(x)=="semi_trailer" for x in listings),
+        "parts_components":sum(infer_asset_type(x)=="part_component" for x in listings),
         "active":sum(bool(x.get("seen_this_run")) for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
