@@ -157,7 +157,7 @@ function render(){
     ['VIN найден',data.stats?.vin_found??L.filter(x=>x.vin).length],
     ['Источников',data.stats?.sources??new Set(L.map(x=>x.source)).size],
     ['Исключено деталей',data.stats?.parts_components??0],
-    ['Ниже Q1',L.filter(x=>marketContext(x).status==='interesting').length]
+    ['ASK ниже Q1',L.filter(x=>marketContext(x).status==='interesting').length]
   ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
 
   const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, tf=document.getElementById('bodyFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
