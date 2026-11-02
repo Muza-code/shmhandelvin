@@ -12,9 +12,11 @@
 
 ## Collection state
 
-- Page 1 captured: 25/25 result cards. Source data is in `autoline/data/kogel-curtain-europe-2008-2022.ndjson`.
+- Page 1 captured: 25/25 result cards.
+- Page 2 captured: 25/25 result cards; exact listing URLs were read from the live result-page links and corrected in the dataset.
+- Total captured: 50/206 result cards (2 of 9 pages). Source data is in `autoline/data/kogel-curtain-europe-2008-2022.ndjson`.
 - Cards were used first for price, year, type, seller, location, axles and any visible tags. Detail cards were opened selectively for complete URLs/platform IDs and characteristics not available on the result card.
-- Five records on page 1 received detail verification. Platform IDs, full first-registration dates, explicit net-price labels, axle brands/lift axles, and VINs were added only where visible on the detail page.
+- Eight records on page 1 and nine records on page 2 received detail verification. Platform IDs, full first-registration dates, explicit net-price labels, axle brands/lift axles, and VINs were added only where visible on the detail page.
 - A title fragment such as “VIN 370” or a detail-page field containing only “080” is not stored as a VIN. Full VIN is stored only when Autoline explicitly exposed a complete value.
 - Tax basis is null unless the detail page explicitly marked the displayed asking price as net or provided net/gross prices.
 - URL IDs are the listing URL suffixes and remain distinct from Autoline’s alphanumeric listing IDs and sellers’ stock references.
@@ -23,7 +25,7 @@
 ## Resume point
 
 - Filter: verified Europe / Kögel / curtain-side semi-trailer / manufacture years 2008–2022.
-- Page 1 processed; result pagination showed 9 pages.
-- Next action: proceed to page 2 in the same “Placed on” order. Continue appending rows after URL/ID dedupe; record page and result position.
+- Pages 1 and 2 processed; result pagination showed 9 pages.
+- Next action: proceed to page 3 in the same “Placed on” order. Continue appending rows after URL/ID dedupe; record page and result position.
 - Analytics: not calculated.
 - No CAPTCHA or access-control bypass was used.
