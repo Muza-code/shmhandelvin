@@ -22,21 +22,21 @@
   "last_processed_listing_id": "23095576",
   "next_page_to_process": null,
   "full_pass_complete": true,
-  "daily_new_id_monitoring": "not_started",
+  "daily_new_id_monitoring": "started",
   "counts": {
-    "distinct_listing_ids_written": 204,
-    "newly_written": 204,
+    "distinct_listing_ids_written": 206,
+    "newly_written": 206,
     "updated": 26,
     "confirmed_curtain_side": 112,
     "semi_trailer_asset_type": 159,
     "quarantine": 16,
-    "swap_body": 15,
+    "swap_body": 17,
     "unknown_asset": 16,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "First relevance pass complete through page 8 (all 8 pages reconciled; pages 2 and 3 confirmed by 25 current result-card IDs each). Switch to Newest listings and append only previously unseen IDs in daily checks.",
+  "next_action": "Daily monitoring is now established in Newest listings (page 1, release-date descending). Resume by scanning the current newest page(s), append unseen IDs only, then reconcile active/disappeared status in later review passes.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -321,5 +321,22 @@
       "processed_at": "2026-11-02",
       "last_processed_listing_id": "22898710"
     }
-  ]
+  ],
+  "daily_newest_scan": {
+    "sort_field": "eintragsdatum",
+    "sort_direction": "desc",
+    "url": "https://www.truckscout24.com/main/search/index?search-word=k%C3%B6gel+semitrailers&manufacturers%5B0%5D=K%C3%B6gel&sort-field=eintragsdatum&sort-direction=desc",
+    "page": 1,
+    "card_count_processed": 25,
+    "new_ids": 2,
+    "existing_ids": 23,
+    "updated": 0,
+    "accepted_semi_trailer": 0,
+    "other_trailer": 0,
+    "swap_body": 2,
+    "quarantined": 0,
+    "processed_at": "2026-11-02",
+    "last_processed_listing_id": "23215296",
+    "result_count_live": 273
+  }
 }
