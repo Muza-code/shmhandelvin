@@ -16,12 +16,12 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–4: 100 listing cards, positions 1–25 on each page.
-- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found when appending pages 2–4.
+- Captured pages 1–5: 125 listing cards, positions 1–25 on each page.
+- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found when appending pages 2–5.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
-- Page 4 position 10 title includes “5 PIECE”; detail review is pending to decide whether the listing represents a single eligible semi-trailer or a multi-unit bundle. Do not include in clean-market analysis until resolved.
+- Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
 - Page 4 position 8 is a coil liner, with lifting axle explicitly indicated in the title; preserved with `coil: true` and `lift_axle: true`.
-- Detailed-card verification has not yet been started for Krone. Continue to use card data first; open detail pages only to resolve questionable listings or missing required characteristics.
+- One detail page has been verified to resolve the “5 PIECE” title and capture tax basis and Code XL. Continue to use card data first; open detail pages only to resolve questionable listings or missing required characteristics.
 
 ## Current dataset notes
 
@@ -31,6 +31,6 @@ Date captured: 2026-11-02
 
 ## Next resume step
 
-1. Return to the filter URL and capture page 5, positions 1–25, keeping exact card URLs/IDs.
+1. Return to the filter URL and capture page 6, positions 1–25, keeping exact card URLs/IDs.
 2. After finishing this 716-ad brand/category subset, move to the next brand in its own dataset.
 3. Keep each source/brand capture separate until an integration step defines a canonical analytics schema; never merge by editing source rows in place.
