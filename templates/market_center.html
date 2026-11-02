@@ -138,7 +138,7 @@ function marketContext(x){
 }
 function render(){
   const allListings=data.listings||[];
-  const L=allListings.filter(x=>(x.asset_type||'semi_trailer')==='semi_trailer');
+  const L=allListings.filter(x=>(x.asset_type||'unknown_asset')==='semi_trailer' && (typeof x.asset_evidence_score!=='number' || x.asset_evidence_score>=4));
   const brands=[...new Set(L.map(x=>x.brand).filter(Boolean))].sort();
   const years=[...new Set(L.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
   const countries=[...new Set(L.map(x=>x.country).filter(Boolean))].sort();
