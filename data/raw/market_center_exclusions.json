@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "updated_at": "2026-11-02",
+  "rules": [
+    {
+      "source": "TruckScout24",
+      "url": "https://www.truckscout24.com/tsp/ts-232-45-753",
+      "asset_type_override": "part_component",
+      "purchase_eligible": false,
+      "analytics_eligible": false,
+      "exclusion_code": "standalone_refrigeration_units",
+      "exclusion_reason": "Photos show standalone Schmitz refrigeration units on pallets; no trailer/chassis is included. The marketplace title/category mislabels the offer as a reefer semitrailer."
+    },
+    {
+      "source": "Autoline",
+      "url": "https://autoline.info/-/sale/curtain-side-semi-trailers/Krone/SD-VIN-327--26093014192445848700",
+      "purchase_eligible": false,
+      "analytics_eligible": false,
+      "exclusion_code": "accident_damaged_no_documents",
+      "exclusion_reason": "Seller states rear-end crash damage, electrical system not working, tires at 10%, and no registration documents."
+    },
+    {
+      "source": "TruckScout24",
+      "url": "https://www.truckscout24.com/tsp/ts-214-98-687",
+      "purchase_eligible": false,
+      "analytics_eligible": false,
+      "exclusion_code": "accident_damaged",
+      "exclusion_reason": "Listing title explicitly marks the trailer UNFALL (accident damaged)."
+    }
+  ]
+}
