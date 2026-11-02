@@ -172,7 +172,7 @@ function render(){
     }).slice(0,8);
   document.getElementById('opportunities').innerHTML=opp.map(x=>`
     <article class="deal-card">
-      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(yearBasisLabel(x))} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div><div>${badge(x._market.status)} <span class="badge ${confidence(x).cls}">CONF ${confidence(x).label}</span></div></div>
+      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(yearBasisLabel(x))} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div><div>${badge(x._market.status)}</div></div>
       <div class="deal-price">${euro(x.price_original)} <small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small></div>
       <div class="deal-grid">
         <div><span>Segment median</span><b>${euro(x._market.median)}</b></div>
