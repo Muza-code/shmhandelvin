@@ -25,7 +25,7 @@ def condition_signals(x):
         severe.append("not_roadworthy")
     if re.search(r"needs? repair|repair required|reparaturbedürftig|reparaturbeduerftig|needs? work|defekt|damaged|beschädigt|beschaedigt",text) and "Аварийное повреждение указано в объявлении" not in flags:
         flags.append("Требуется проверка ремонта/повреждений")
-    tire=re.search(r"(?:tyre|tire|reifen|pneu)[^.%\n]{0,45}(\d{1,3})\s*%",text)
+    tire=re.search(r"(?:tyre|tire|reifen|pneu)[^0-9.%\n]{0,45}(\d{1,3})\s*%",text)
     if tire:
         flags.append(f"Состояние шин в объявлении: {tire.group(1)}% — оценить замену")
     return flags,severe
