@@ -22,10 +22,11 @@
     <section class="panel hero">
       <div>
         <div class="section-label">Главное</div>
-        <h2>Где цена ниже — проверить состояние</h2>
-        <p>Показываем цену объявления относительно сегмента. Износ, ремонт, доставка и налоги не учтены; низкая цена сама по себе не означает выгодную покупку.</p>
+        <h2>Поиск объявлений</h2>
+        <p>Сначала карточки и состояние. Сравнение с рынком — ориентир; оно не учитывает износ, ремонт, доставку и налоги.</p>
       </div>
       <div class="filters">
+        <input id="search" placeholder="Марка, модель, продавец, VIN…">
         <select id="brandFilter"><option value="">Все марки</option></select>
         <select id="yearFilter"><option value="">Все годы</option></select>
         <select id="bodyFilter"><option value="">Все типы</option></select>
@@ -40,15 +41,17 @@
     </section>
 
     <section class="grid">
-      <div class="panel span2">
+      <div class="panel span2 catalogue">
         <div class="panel-head">
-          <div>
-            <div class="section-label">Opportunities</div>
-            <h3>Низкая цена — требуется проверка</h3>
-          </div>
-          <span class="muted">Это очередь на проверку, не рекомендация к покупке. Известные агрегаты и аварийные прицепы исключены.</span>
+          <div><div class="section-label">Объявления</div><h3>Каталог предложений</h3></div>
+          <span class="muted">Открой карточку продавца, чтобы проверить фотографии и детали.</span>
         </div>
-        <div id="opportunities" class="cards"></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Объявление</th><th>Год</th><th>Тип</th><th>Страна</th><th>Цена / статус</th><th>VIN / ref</th><th>Состояние и оснащение</th><th>Источник</th></tr></thead>
+            <tbody id="listings"></tbody>
+          </table>
+        </div>
       </div>
 
       <div class="panel">
@@ -86,15 +89,7 @@
         </div>
       </div>
 
-      <div class="panel span2">
-        <div class="panel-head"><div><div class="section-label">Catalogue</div><h3>Последние карточки</h3></div><input id="search" placeholder="VIN, модель, продавец…"></div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Техника</th><th>Год</th><th>Тип</th><th>Страна</th><th>Цена</th><th>VIN / ref</th><th>Оснащение</th><th>Источник</th><th>Статус</th></tr></thead>
-            <tbody id="listings"></tbody>
-          </table>
-        </div>
-      </div>
+
     </section>
   </main>
 
@@ -164,26 +159,6 @@ function render(){
   const enriched=L.map(x=>({...x,_market:marketContext(x)}));
   const F=enriched.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x._market.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
 
-  const opp=F.filter(x=>x._market.status==='interesting'||x._market.status==='check')
-    .sort((a,b)=>{
-      const da=a._market.diff==null?1e9:a._market.diff;
-      const db=b._market.diff==null?1e9:b._market.diff;
-      return da-db;
-    }).slice(0,8);
-  document.getElementById('opportunities').innerHTML=opp.map(x=>`
-    <article class="deal-card">
-      <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(yearBasisLabel(x))} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div><div>${badge(x._market.status)}</div></div>
-      <div class="deal-price">${euro(x.price_original)} <small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small></div>
-      <div class="deal-grid">
-        <div><span>Segment median</span><b>${euro(x._market.median)}</b></div>
-        <div><span>Vs median</span><b>${x._market.diff==null?'—':(x._market.diff>0?'+':'')+x._market.diff.toFixed(1)+'%'}</b></div>
-        <div><span>Comparable asks</span><b>${x._market.n||'—'}</b></div>
-        <div><span>VIN / ref</span><b>${esc(x.vin||x.vin_ref||'—')}</b></div>
-      </div>
-      <p>${esc(conditionSummary(x))}</p>
-      ${x.url?'<a target="_blank" rel="noopener" href="'+esc(x.url)+'">Открыть объявление ↗</a>':''}
-    </article>`).join('') || '<div class="empty">По текущим фильтрам кандидатов нет.</div>';
-
   document.getElementById('coverage').innerHTML=(data.coverage||[]).map(x=>`<div class="coverage-row"><div><b>${esc(x.source)}</b><span>${esc(x.note||'')}</span></div><div class="right"><span class="dot ${esc(x.state||'unknown')}"></span>${esc(x.state_label||x.state||'')}</div></div>`).join('');
 
   const sq={};
@@ -230,8 +205,8 @@ function render(){
   </tr>`).join('');
 
   document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
-    <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}<small>${esc(x.year_basis||'')}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_original)}</b><small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc([...(x.condition_flags||[]),...(x.features||[])].slice(0,4).join(', ')||'Состояние не указано')}</td><td>${esc(x.source||'—')}</td><td>${badge(x._market.status)}</td>
-  </tr>`).join('');
+    <td><a class="listing-title" target="_blank" rel="noopener" href="${esc(x.url||'#')}"><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'Открыть объявление ↗')}</small></a></td><td>${esc(x.year||'—')}<small>${esc(yearBasisLabel(x))}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_original)}</b><small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small>${badge(x._market.status)}<small>${x._market.median!=null?'Медиана сегмента: '+euro(x._market.median):'Нет надёжного сравнения'}</small></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc([...(x.condition_flags||[]),...(x.features||[])].slice(0,5).join(', ')||'Состояние в объявлении не подтверждено')}</td><td>${esc(x.source||'—')}</td>
+  </tr>`).join('') || '<tr><td colspan="8" class="empty">По текущим фильтрам объявлений нет.</td></tr>';
 
   document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
 }
