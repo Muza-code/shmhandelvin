@@ -14,16 +14,16 @@
     4,
     5,
     6,
+    7,
     8
   ],
   "pages_partially_inspected": [
     2,
-    3,
-    7
+    3
   ],
   "last_processed_page": 7,
   "last_processed_listing_id": "22951886",
-  "next_page_to_process": 7,
+  "next_page_to_process": 8,
   "full_pass_complete": false,
   "daily_new_id_monitoring": "not_started",
   "counts": {
@@ -39,7 +39,7 @@
     "target_year_pending": 43,
     "outside_target_year": 3
   },
-  "next_action": "Continue auditing remaining page 7 cards from stored page_progress; relevance sort stays active until the first pass is complete.",
+  "next_action": "Page 7 audited (24 current result cards). Continue page 8 in relevance order; it is the last observed page, then reconcile the first-pass completion.",
   "schema_fields": [
     "source",
     "source_listing_id",
@@ -209,7 +209,7 @@
         "22951881",
         "22951886"
       ],
-      "remaining_cards_not_audited": true
+      "remaining_cards_not_audited": false
     }
   ]
 }
