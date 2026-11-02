@@ -8,20 +8,22 @@
 - Year of manufacture: 2008–2022
 - Sort: Placed on (newest first)
 - Verified result page: https://autoline.info/-/curtain-side-semi-trailers/Kogel/Europe--c1083tm2636cgrp1?ym=2008%3A2022
-- Live count after applying the year filter: 206 ads
-- The unfiltered Europe page showed 260 ads during this session; the prior planning estimate of 263 is a stale/dynamic count.
+- Live filtered count: 206 ads (the unfiltered Europe result showed 260 during this session; prior planning estimate ~263 is dynamic/stale).
 
 ## Collection state
 
-- Search criteria were applied in Autoline's own UI and the filtered count and year chip were visible.
-- The cards remain uncollected in the canonical dataset. The current cloud-browser accessibility snapshot timed out repeatedly on this result page, so no rows were written and no analytics were calculated.
-- A brief visible preview showed the first results were curtain-side semi-trailers; this is not considered a collected or deduplicated batch.
-- Resume by reopening the verified URL, capture all card fields available on page 1, then continue through the result pagination. Keep unknown values blank, price history append-only, and deduplicate by Autoline ID/URL.
-- Open detail pages only for missing fields. Do not treat seller inventory numbers in titles as Autoline listing IDs unless the listing page confirms that they are platform IDs.
-- Keep Autoline asking prices separate from realized SHM transactions. Do not crawl around CAPTCHA or other access controls.
+- Page 1 captured: 25/25 result cards. Source data is in `autoline/data/kogel-curtain-europe-2008-2022.ndjson`.
+- Cards were used first for price, year, type, seller, location, axles and any visible tags. Detail cards were opened selectively for complete URLs/platform IDs and characteristics not available on the result card.
+- Five records on page 1 received detail verification. Platform IDs, full first-registration dates, explicit net-price labels, axle brands/lift axles, and VINs were added only where visible on the detail page.
+- A title fragment such as “VIN 370” or a detail-page field containing only “080” is not stored as a VIN. Full VIN is stored only when Autoline explicitly exposed a complete value.
+- Tax basis is null unless the detail page explicitly marked the displayed asking price as net or provided net/gross prices.
+- URL IDs are the listing URL suffixes and remain distinct from Autoline’s alphanumeric listing IDs and sellers’ stock references.
+- Dataset is source-specific and will remain separate from the canonical SHM analytics data until the later integration/adapter step. Asking prices are not realized SHM transactions. No price history was overwritten.
 
-## Current checkpoint
+## Resume point
 
-- Completed: live search filter and count verification.
-- Next: collect result cards from page 1; record page number and processed-card count before moving to page 2.
-- Analytics status: not calculated.
+- Filter: verified Europe / Kögel / curtain-side semi-trailer / manufacture years 2008–2022.
+- Page 1 processed; result pagination showed 9 pages.
+- Next action: proceed to page 2 in the same “Placed on” order. Continue appending rows after URL/ID dedupe; record page and result position.
+- Analytics: not calculated.
+- No CAPTCHA or access-control bypass was used.
