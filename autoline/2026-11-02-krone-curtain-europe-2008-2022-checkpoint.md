@@ -40,7 +40,7 @@ Date captured: 2026-11-02
 
 ## Next resume step
 
-1. Return to the filter URL and capture page 15, positions 1–25, keeping exact card URLs/IDs.
+1. Return to the filter URL and capture page 20, positions 1–25, keeping exact card URLs/IDs.
 2. After finishing this 716-ad brand/category subset, move to the next brand in its own dataset.
 3. Keep each source/brand capture separate until an integration step defines a canonical analytics schema; never merge by editing source rows in place.
 
@@ -63,6 +63,6 @@ Date captured: 2026-11-02
 
 ## Continuation note (2026-11-02)
 
-- Reused one list tab and one detail tab. Page 15: 25 cards, all repeat IDs. Page 16: 1 new ID and 24 repeats. Page 17: 23 new IDs and 2 repeats. Select detail cards clarified four listings’ registration dates, net price, stock numbers and axle data; the similar RH Trucks/BAS World pairs have distinct stock IDs.
+- Reused one list tab and one detail tab. Page 15: 25 cards, all repeat IDs; page 16: 1 new ID and 24 repeats; page 17: 23 new IDs and 2 repeats; pages 18–19: 25 new IDs each. Detail cards clarified registration dates, explicit net/gross basis, stock numbers and axle data. Near-identical listings with different stock numbers remain separate; the page 18 10-unit inventory remains excluded from price analytics because the price basis per unit is unclear.
 - Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
 
