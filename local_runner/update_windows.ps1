@@ -13,7 +13,8 @@ $Files = @(
   "local_runner/run_windows.ps1",
   "local_runner/set_reefapi_key.ps1",
   "local_runner/setup_project_status_task.ps1",
-  "local_runner/update_project_status.ps1"
+  "local_runner/update_project_status.ps1",
+  "local_runner/open_market_center.ps1"
 )
 
 $Backup = Join-Path $Root ("local_runner\backup-" + (Get-Date -Format "yyyyMMdd-HHmmss"))
