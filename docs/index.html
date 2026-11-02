@@ -157,7 +157,7 @@ function render(){
 
   const bf=document.getElementById('brandFilter').value, yf=document.getElementById('yearFilter').value, tf=document.getElementById('bodyFilter').value, cf=document.getElementById('countryFilter').value, sf=document.getElementById('statusFilter').value, q=document.getElementById('search').value.toLowerCase();
   const enriched=L.map(x=>({...x,_market:marketContext(x)}));
-  const F=enriched.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x._market.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
+  const F=enriched.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x._market.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q))).sort((a,b)=>(Date.parse(b.last_seen_at||b.observed_at||'')||0)-(Date.parse(a.last_seen_at||a.observed_at||'')||0));
 
   document.getElementById('coverage').innerHTML=(data.coverage||[]).map(x=>`<div class="coverage-row"><div><b>${esc(x.source)}</b><span>${esc(x.note||'')}</span></div><div class="right"><span class="dot ${esc(x.state||'unknown')}"></span>${esc(x.state_label||x.state||'')}</div></div>`).join('');
 
