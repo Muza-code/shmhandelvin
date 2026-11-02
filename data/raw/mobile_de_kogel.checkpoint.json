@@ -1,0 +1,30 @@
+{
+  "source": "mobile.de public browser search",
+  "source_file": "data/raw/mobile_de_kogel.ndjson",
+  "search_url": "https://suchen.mobile.de/fahrzeuge/search.html?c=StakeBodyAndTarpaulinSemiTrailer&fr=2008%3A2022&isSearchRequest=true&ms=13400&ref=dsp&s=Truck&vc=SemiTrailer",
+  "filters": {
+    "brand": "Kögel",
+    "vehicle_type": "Sattelauflieger",
+    "body": "Pritsche + Plane",
+    "first_registration_from": 2008,
+    "first_registration_to": 2022
+  },
+  "result_count": 240,
+  "pages_total": 12,
+  "page_size": 20,
+  "pages_1_to_9": "reviewed",
+  "page_10_cards_1_to_6": "reviewed",
+  "resume_at": {
+    "page": 10,
+    "card": 7
+  },
+  "records_exported": 186,
+  "unique_ids": 186,
+  "confirmed_semi_trailer": 185,
+  "quarantine": 1,
+  "remaining_estimated": 53,
+  "analytics_enabled": false,
+  "dedupe_key": "source_listing_id; fallback url",
+  "browser_note": "Browser extension could not attach to the originating browser context in the latest session. Continue only when the same authorized mobile.de search tab is connected; do not use alternate surfaces or reconstruct missing cards from secondary data.",
+  "source_update_policy": "Append price_history on observed price change; never overwrite prior asking price; status disappeared rather than sold."
+}
