@@ -95,7 +95,7 @@ function badge(status){
 function marketContext(x){
   const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
   const ask=x.price_original;
-  if(!seg || !ask || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0};
+  if(!seg || !ask || x.currency!=='EUR' || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0};
   const diff=(ask/seg.median_ask_eur-1)*100;
   let status='check';
   if(seg.q1_ask_eur!=null && ask<=seg.q1_ask_eur) status='interesting';
@@ -126,7 +126,7 @@ function render(){
   document.getElementById('opportunities').innerHTML=F.slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
     <article class="deal-card">
       <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div>${badge(x._market.status)}</div>
-      <div class="deal-price">${euro(x.price_net_eur)} <small>ask</small></div>
+      <div class="deal-price">${euro(x.price_original)} <small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small></div>
       <div class="deal-grid">
         <div><span>Segment median</span><b>${euro(x._market.median)}</b></div>
         <div><span>Vs median</span><b>${x._market.diff==null?'—':(x._market.diff>0?'+':'')+x._market.diff.toFixed(1)+'%'}</b></div>
@@ -149,7 +149,7 @@ function render(){
   </tr>`).join('');
 
   document.getElementById('listings').innerHTML=F.slice(0,100).map(x=>`<tr>
-    <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}<small>${esc(x.year_basis||'')}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_net_eur)}</b></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc((x.features||[]).slice(0,4).join(', '))}</td><td>${esc(x.source||'—')}</td><td>${badge(x._market.status)}</td>
+    <td><b>${esc(x.brand)} ${esc(x.model||'')}</b><small>${esc(x.seller||'')}</small></td><td>${esc(x.year||'—')}<small>${esc(x.year_basis||'')}</small></td><td>${esc(x.body_type||'other')}</td><td>${esc(x.country||'—')}</td><td><b>${euro(x.price_original)}</b><small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small></td><td class="mono">${esc(x.vin||x.vin_ref||'—')}</td><td>${esc((x.features||[]).slice(0,4).join(', '))}</td><td>${esc(x.source||'—')}</td><td>${badge(x._market.status)}</td>
   </tr>`).join('');
 
   document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
