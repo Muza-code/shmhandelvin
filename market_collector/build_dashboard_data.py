@@ -197,6 +197,12 @@ if MOBILE_DISCOVERY.exists():
 data={
     "updated_at":datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z"),
     "discovery":discovery,
+    "dataset_scope":"Combined source observations and collector catalogue. Cross-market duplicates are not automatically merged.",
+    "analytics_method":{
+        "asking_prices":"Segments use numeric EUR asking prices for semi-trailers, excluding rows explicitly marked ineligible or low/rejected confidence.",
+        "net_prices":"Net statistics use only explicitly confirmed net prices.",
+        "cross_market_duplicates":"Listings on different marketplaces remain separate source observations unless manually reconciled."
+    },
     "stats":{
         "listings":len(listings),
         "semitrailers":sum(infer_asset_type(x)=="semi_trailer" for x in listings),
@@ -205,10 +211,13 @@ data={
         "trailers":sum(infer_asset_type(x)=="trailer" for x in listings),
         "unknown_assets":sum(infer_asset_type(x)=="unknown_asset" for x in listings),
         "strict_accepted":sum(x.get("source") not in NON_CANONICAL_SOURCES and infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
-        "active":sum(bool(x.get("seen_this_run")) for x in listings),
+        "active":sum(x.get("status")=="active" for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
-        "sources":len(sources)
+        "sources":len(sources),
+        "price_analytics_eligible":sum(x["priced"] for x in segments),
+        "price_net_analytics_eligible":sum(x["net_priced"] for x in segments),
+        "market_segments":len(segments)
     },
     "coverage":coverage,
     "segments":segments,
