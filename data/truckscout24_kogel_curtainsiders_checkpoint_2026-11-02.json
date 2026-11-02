@@ -34,7 +34,9 @@
     },
     "additional_detail_pages_inspected": [
       4,
-      5
+      5,
+      6,
+      7
     ],
     "additional_detail_enrichments": 2,
     "additional_confirmed_discoveries": 2
@@ -99,7 +101,8 @@
     "22695687",
     "22292667",
     "17620558",
-    "17619548"
+    "17619548",
+    "22051613"
   ],
   "excluded_ids": [
     "23212451",
@@ -126,7 +129,8 @@
     "23095576",
     "22365037",
     "23001176",
-    "23001186"
+    "23001186",
+    "22751987"
   ],
   "segment_records": [
     {
@@ -1441,6 +1445,39 @@
         }
       ],
       "discovery_scope": "related detail-page listing; verify against main result pages before including in the 273-result count"
+    },
+    {
+      "id": "22051613",
+      "url": "https://www.truckscout24.com/tsp/ts-220-51-613",
+      "brand": "Kögel",
+      "model": "S 24-1 COIL sliding roof",
+      "first_registration": "01/2020",
+      "baujahr": 2020,
+      "price_net": 9750,
+      "price_gross": 11798,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Berkel en Rodenrijs, Netherlands",
+      "axle_count": 3,
+      "axle_maker": "SAF (model title states SAF DISC)",
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": null,
+      "mega": null,
+      "coil": true,
+      "vin_fin": null,
+      "classification": "confirmed: detail page explicitly says Curtain sided; COIL",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-220-51-613",
+          "price_net": 9750,
+          "price_gross": 11798,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €9,750; €11,798 gross"
+        }
+      ]
     }
   ],
   "notes": [
@@ -1450,6 +1487,20 @@
     "URLs for the candidate records use TruckScout24's verified ID-to-URL format; each record retains its listing ID for deduplication.",
     "Continued through TruckScout24 search content and listing detail pages after the initial checkpoint: enriched listing 22898710 and added two directly verified curtain-side listings. Listing 17619548 came from a related-listings panel and is kept separate from the initial search-page count until cross-checked.",
     "On 2026-11-02, detail pages confirmed exact ID, canonical URL, price block, registration/year, axles and axle maker where explicit, and explicit VINs for IDs 17620558 and 17619548. Seller names were not exposed in the public detail view.",
-    "Further verified detail-page enrichment: IDs 23269042 (€5,200 net), 23224101 (€7,200 net), and 21724618 (€5,500 net). A search-index card had shown €5,100 for 21724618, but the current detail-page price block shows €5,500, which is the recorded current observation."
+    "Further verified detail-page enrichment: IDs 23269042 (€5,200 net), 23224101 (€7,200 net), and 21724618 (€5,500 net). A search-index card had shown €5,100 for 21724618, but the current detail-page price block shows €5,500, which is the recorded current observation.",
+    "Page 7 produced another confirmed COIL curtainsider: ID 22051613, Kögel S24-1, €9,750 net / €11,798 gross, first registration 01/2020, 3 axles. A separate Mega Light Plus listing (ID 22751987) says fast sliders and sliding roof but not side curtains; it remains in review and is excluded from confirmed segment."
+  ],
+  "review_records": [
+    {
+      "id": "22751987",
+      "url": "https://www.truckscout24.com/tsp/ts-227-51-987",
+      "title": "KÖGEL Mega Light Plus Lift 2x Fast Slider, SAF",
+      "year": 2020,
+      "location": "Greven, Germany",
+      "current_price_net": 15990,
+      "current_price_gross": 19028,
+      "axle_maker": "SAF Intradisk",
+      "evidence": "Detail description states 2 fast-acting sliders and sliding roof, but does not explicitly confirm curtainside/tarpaulin; detail category is Other semitrailers. Keep in review, outside confirmed segment."
+    }
   ]
 }
