@@ -22,7 +22,7 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–28: 700 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18, 19, and 20 added 25 new IDs each.
+- Captured pages 1–29: 725 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18, 19, and 20 added 25 new IDs each.
 - De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15–19 contain 51 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
 - Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 646 unique source records classified as `semi_trailer`; 581 numeric-price sale records are eligible for sale-market analytics. The current capture has 700 page-card observations through page 28, including 54 repeat sightings. The other 65 comprise 9 auctions, 5 rentals, 51 sale ads excluded for no numeric asking price or duplicate/relisting/quality basis.
+- 671 unique source records classified as `semi_trailer`; 604 numeric-price sale records are eligible for sale-market analytics. The current capture has 725 page-card observations through page 29, including 54 repeat sightings. The other 67 comprise 9 auctions, 5 rentals, 53 sale ads excluded for no numeric asking price or duplicate/relisting/quality basis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 29; pages 1–28 reviewed (700 card views; 646 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
+- Resume at page 30; pages 1–29 reviewed (725 card views; 671 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18–20 each added 25; page 21 added 22 new IDs and 3 repeats. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
 
 
 ## Canonical data-quality review (2026-11-02)
@@ -84,3 +84,5 @@ Date captured: 2026-11-02
 - Page 27: 25 new IDs; two cards are price on request. A Romania regional clone shares seller stock IMP-4788 with the Hungary listing; one retained, one excluded. The two Danish 2013 curtainsiders are separate units with distinct stocks 0557054 and 0557052; prices explicitly net. Next resume page: 28.
 
 - Page 28: 25 new IDs; 3 auction listings, one price-on-request listing, and 6 confirmed duplicate copies excluded from market analysis. Same stock IDs DO1042, DO1036, DO1035, LT0405 and DO1034 linked to earlier Romania listings; IMP-4771 linked between Hungary/Romania page 28. A distinct Latvian €7,750 unit and the separate Laslo listings with different stock IDs remain eligible. Next resume page: 29.
+
+- Page 29: 25 new IDs; one price-on-request listing. A Laslo Truck Romania row shares stock DO1031 with the page 22 record and is excluded as a relisting; the original was updated with net/gross, first registration and BPW/Mega data. Two KRONE FRANCE €7,250 offers have distinct stock IDs 14086 and 14085 and remain separate. Next resume page: 30.
