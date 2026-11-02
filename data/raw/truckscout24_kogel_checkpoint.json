@@ -29,13 +29,13 @@
   "daily_new_id_monitoring": "not_started",
   "counts": {
     "distinct_listing_ids_written": 147,
-    "newly_written": 141,
-    "updated": 0,
-    "confirmed_curtain_side": 82,
-    "semi_trailer_asset_type": 101,
+    "newly_written": 147,
+    "updated": 2,
+    "confirmed_curtain_side": 87,
+    "semi_trailer_asset_type": 108,
     "quarantine": 24,
     "swap_body": 7,
-    "unknown_asset": 22,
+    "unknown_asset": 21,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3
