@@ -39,18 +39,24 @@ def infer_asset_type(x):
         "wechselbrücke","wechselbruecke","swap body","wechselkoffer",
         "wechselcontainer","bdf wechsel","bdf container","bdf brücke","bdf bruecke"
     ]
-    if any(term in text for term in swap_terms):
+    if any(term in text for term in swap_terms) or ("bdf" in text and "sattelauflieger" not in text and "semi" not in text):
         return "swap_body"
 
-    trailer_terms=["drawbar trailer","central axle","tandem trailer","zentralachsanhänger","zentralachsanhaenger","drehschemelanhänger","drehschemelanhaenger"]
+    trailer_terms=[
+        "drawbar trailer","central axle","tandem trailer",
+        "zentralachsanhänger","zentralachsanhaenger",
+        "drehschemelanhänger","drehschemelanhaenger"
+    ]
     if any(term in text for term in trailer_terms):
         return "trailer"
 
-    semi_terms=["semi-trailer","semitrailer","sattelauflieger","auflieger","sattelanhänger","sattelanhaenger"]
+    semi_terms=[
+        "sattelauflieger","semi-trailer","semitrailer",
+        "auflieger","sattelanhänger","sattelanhaenger"
+    ]
     if any(term in text for term in semi_terms):
         return "semi_trailer"
 
-    # Legacy asset_type is not trusted unless current text also proves the class.
     return "unknown_asset"
 
 def percentile(values,p):
@@ -111,6 +117,7 @@ for r in rows:
         "year":r.get("market_year"),"year_basis":r.get("year_basis"),
         "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
         "body_type":r.get("body_type"),"asset_type":infer_asset_type({"model":r.get("title"),"body_type":r.get("body_type")}),
+        "asset_evidence_score":r.get("asset_evidence_score"),
         "country":r.get("country"),"seller":r.get("seller"),
         "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" and r.get("price_confidence") in (None,"medium","high") else None,
         "price_original":r.get("price_amount"),
@@ -147,6 +154,8 @@ groups={}
 for x in listings:
     x["asset_type"]=infer_asset_type(x)
     if x["asset_type"]!="semi_trailer":
+        continue
+    if isinstance(x.get("asset_evidence_score"),(int,float)) and x.get("asset_evidence_score") < 4:
         continue
     key=(x.get("brand"),x.get("year"),x.get("body_type") or "other")
     if not key[0] or not key[1]: continue
@@ -189,6 +198,7 @@ data={
         "swap_bodies":sum(infer_asset_type(x)=="swap_body" for x in listings),
         "trailers":sum(infer_asset_type(x)=="trailer" for x in listings),
         "unknown_assets":sum(infer_asset_type(x)=="unknown_asset" for x in listings),
+        "strict_accepted":sum(infer_asset_type(x)=="semi_trailer" and (not isinstance(x.get("asset_evidence_score"),(int,float)) or x.get("asset_evidence_score")>=4) for x in listings),
         "active":sum(bool(x.get("seen_this_run")) for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
