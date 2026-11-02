@@ -22,8 +22,8 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–15: 375 result-card observations. Pages 1–14 had 350 unique listing IDs; page 15 contained 25 IDs already captured on pages 12–13.
-- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. All 25 cards on page 15 were repeats of existing IDs; they were recorded as additional page observations without duplicate source rows.
+- Captured pages 1–16: 400 result-card observations. Pages 1–14 had 350 unique listing IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeat sightings.
+- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15 and 16 contained 49 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
 - Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
 - Page 4 position 8 is a coil liner, with lifting axle explicitly indicated in the title; preserved with `coil: true` and `lift_axle: true`.
@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 350 unique source records classified as `semi_trailer`; 323 numeric-price sale records are eligible for sale-market analytics. The current capture has 375 page-card observations after page 15, including 25 repeat sightings. The other 27 comprise 5 auctions, 3 rentals, and 19 unpriced sale ads and are excluded from sale-price analysis.
+- 351 unique source records classified as `semi_trailer`; 324 numeric-price sale records are eligible for sale-market analytics. The current capture has 400 page-card observations through page 16, including 49 repeat sightings. The other 27 comprise 5 auctions, 3 rentals, and 19 sale ads excluded for no price or quality-basis issues.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 16; pages 1–15 reviewed (375 of 716 result-card views; 350 unique IDs). Page 15 positions 1–25 repeated existing IDs from pages 12–13; prices did not change. Continue deduplicating by ID/URL and append price history only when an explicitly displayed price changes.
+- Resume at page 17; pages 1–16 reviewed (400 of 716 result-card views; 351 unique IDs). Page 15 was all repeat sightings; page 16 position 13 added one new listing, and its other 24 cards repeated existing IDs. No repeated listing showed a price change.
 
 
 ## Canonical data-quality review (2026-11-02)
@@ -63,6 +63,6 @@ Date captured: 2026-11-02
 
 ## Continuation note (2026-11-02)
 
-- Reused a single results-list tab; page 15 later loaded with 25 cards. All 25 IDs matched existing records from pages 12–13, so no new listings were added.
+- Reused one results-list tab. Page 15: 25 cards, all repeat IDs. Page 16: 25 cards, 1 new ID and 24 repeat IDs.
 - Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
 
