@@ -92,8 +92,12 @@ for r in rows:
         "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
         "body_type":r.get("body_type"),"asset_type":r.get("asset_type") or "semi_trailer",
         "country":r.get("country"),"seller":r.get("seller"),
-        "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" else None,
-        "price_original":r.get("price_amount"),"currency":r.get("price_currency"),"tax_basis":r.get("tax_basis"),
+        "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" and r.get("price_confidence") in (None,"medium","high") else None,
+        "price_original":r.get("price_amount"),
+        "currency":r.get("price_currency"),
+        "tax_basis":r.get("tax_basis"),
+        "price_confidence":r.get("price_confidence") or "legacy",
+        "price_evidence":r.get("price_evidence"),
         "vin":r.get("vin"),"vin_ref":(r.get("vin_refs") or [None])[0],
         "features":features,"source":r.get("source"),"status":"unknown","url":r.get("url"),
         "observed_at":observed,
@@ -128,10 +132,11 @@ for x in listings:
     if x.get("vin") or x.get("vin_ref"): g["vin"]+=1
     if x.get("source"): g["sources"].add(x["source"])
     if x.get("country"): g["countries"].add(x["country"])
+    price_ok=x.get("price_confidence") not in {"low","rejected"}
     p=x.get("price_net_eur")
-    if isinstance(p,(int,float)): g["net_prices"].append(float(p))
+    if price_ok and isinstance(p,(int,float)): g["net_prices"].append(float(p))
     ask=x.get("price_original")
-    if x.get("currency")=="EUR" and isinstance(ask,(int,float)): g["ask_eur"].append(float(ask))
+    if price_ok and x.get("currency")=="EUR" and isinstance(ask,(int,float)): g["ask_eur"].append(float(ask))
 for (brand,year,body_type),g in groups.items():
     ps=g["net_prices"]; asks=g["ask_eur"]
     segments.append({
