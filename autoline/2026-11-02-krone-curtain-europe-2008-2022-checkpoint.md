@@ -22,8 +22,8 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–18: 450 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; page 18 added 25 new IDs.
-- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15–18 contain 51 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
+- Captured pages 1–19: 475 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeats; page 17 added 23 new IDs and 2 repeats; pages 18 and 19 added 25 new IDs each.
+- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15–19 contain 51 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
 - Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
 - Page 4 position 8 is a coil liner, with lifting axle explicitly indicated in the title; preserved with `coil: true` and `lift_axle: true`.
@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 399 unique source records classified as `semi_trailer`; 365 numeric-price sale records are eligible for sale-market analytics. The current capture has 450 page-card observations through page 18, including 51 repeat sightings. The other 34 comprise 5 auctions, 4 rentals, and 25 sale ads excluded for no numeric asking price or unresolved price/quality basis.
+- 424 unique source records classified as `semi_trailer`; 393 numeric-price sale records are eligible for sale-market analytics. The current capture has 475 page-card observations through page 19, including 51 repeat sightings. The other 31 comprise 5 auctions, 4 rentals, and 22 sale ads excluded for no numeric asking price or unresolved price/quality basis.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 19; pages 1–18 reviewed (450 of 716 result-card views; 399 unique IDs). Page 15 was all repeat sightings; page 16 added one listing; page 17 added 23; page 18 added 25. Similar RH Trucks, BAS World and P. Mostert units have different seller stock IDs and remain separate. Exclude page 18’s 10-unit inventory and multi-unit listings from price analytics where the per-unit/specification basis is unclear.
+- Resume at page 20; pages 1–19 reviewed (475 of 716 result-card views; 424 unique IDs). Page 15 was all repeat sightings; page 16 added 1; page 17 added 23; pages 18 and 19 added 25 each. P. Mostert listings with individual seller stock IDs are distinct units and their displayed per-unit prices are eligible; the page 18 10-unit inventory remains excluded because its unit-price basis is not explicit.
 
 
 ## Canonical data-quality review (2026-11-02)
