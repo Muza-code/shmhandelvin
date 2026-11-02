@@ -43,8 +43,8 @@
       7,
       8
     ],
-    "additional_detail_enrichments": 16,
-    "additional_confirmed_discoveries": 17,
+    "additional_detail_enrichments": 22,
+    "additional_confirmed_discoveries": 23,
     "pages_partially_inspected": [
       2,
       3,
@@ -65,7 +65,7 @@
       ]
     },
     "current_confirmed_candidate_count": 75,
-    "last_progress_note": "Pages 6-8 of the relevance-sorted result were partially inspected on 2026-11-02; additional whole tarp/curtainsider listings confirmed from detail pages. Full result pass remains incomplete."
+    "last_progress_note": "Pages 6-8 of the relevance-sorted result were partially inspected on 2026-11-02; ten additional whole tarp/curtainsider IDs were confirmed from detail pages in two batches. Full result pass remains incomplete."
   },
   "deduplication_key": [
     "TruckScout24 listing ID",
