@@ -43,24 +43,52 @@ def body_type_of(text):
     return "other"
 
 def asset_type_of(text):
-    t=text or ""
-    # Components / spare parts must never enter vehicle market analytics.
+    """Strict asset classifier.
+    Analytics is fail-closed: unknown/suspicious inventory is NOT a semitrailer.
+    Strong negative evidence always overrides marketplace category labels.
+    """
+    t=clean(text or "")
+
     part_patterns=[
         r"\bk[üu]hlmaschine\b", r"\bk[üu]hlaggregat\b", r"\brefrigeration\s+unit\b",
         r"\bcooling\s+unit\b", r"\bfrigo\s+unit\b", r"\bspare\s+part\b",
-        r"\bersatzteil\b", r"\baggregat\b", r"\bkompressor\b", r"\bcompressor\b",
+        r"\bersatzteil(?:e)?\b", r"\baggregat\b", r"\bkompressor\b", r"\bcompressor\b",
         r"\btrailer\s+axle\b", r"\bachse\s+(?:f[üu]r|komplett)\b",
         r"\blanding\s+legs?\b", r"\bst[üu]tzen\b", r"\bdoor\s+assembly\b",
         r"\bt[üu]r\s+komplett\b", r"\bbumper\b", r"\bsto[ßs]stange\b",
-        r"\bpallet\s+box\s+only\b", r"\bpalettenkasten\s+einzeln\b"
+        r"\bpallet\s+box\s+only\b", r"\bpalettenkasten\s+einzeln\b",
+        r"\bchassis\s+part\b", r"\bbrake\s+(?:disc|caliper|part)\b"
     ]
     if any(re.search(p,t,re.I) for p in part_patterns):
         return "part_component"
-    if re.search(r"swap\s*body|wechselbr[üu]cke|wechselbruecke",t,re.I):
+
+    swap_patterns=[
+        r"\bwechselbr[üu]cke\b", r"\bwechselbruecke\b", r"\bswap\s*body\b",
+        r"\bbdf\s*(?:wechsel|container|koffer|br[üu]cke|bruecke)?\b",
+        r"\bwechselkoffer\b", r"\bwechselcontainer\b"
+    ]
+    if any(re.search(p,t,re.I) for p in swap_patterns):
         return "swap_body"
-    if re.search(r"drawbar\s*trailer|central\s*axle|tandem\s*trailer|anh[äa]nger(?!.*auflieger)",t,re.I):
+
+    trailer_patterns=[
+        r"\bdrawbar\s*trailer\b", r"\bcentral\s*axle\b", r"\btandem\s*trailer\b",
+        r"\bzentralachsanh[äa]nger\b", r"\bdrehschemelanh[äa]nger\b"
+    ]
+    if any(re.search(p,t,re.I) for p in trailer_patterns):
         return "trailer"
-    return "semi_trailer"
+
+    # Positive proof is required. Generic "container", brand name or body type is not enough.
+    semi_patterns=[
+        r"\bsemi[- ]?trailer\b", r"\bsemitrailer\b", r"\bsattelauflieger\b",
+        r"\bauflieger\b", r"\bsattelanh[äa]nger\b",
+        r"\bcurtainsider\s+semi", r"\breefer\s+semi", r"\btipper\s+semi",
+        r"\bplatform\s+semi", r"\bcontainer\s+chassis\s+semi"
+    ]
+    if any(re.search(p,t,re.I) for p in semi_patterns):
+        return "semi_trailer"
+
+    return "unknown_asset"
+
 
 COUNTRY_NAMES = {
     "Germany":"DE","Netherlands":"NL","Belgium":"BE","France":"FR","Spain":"ES",
@@ -320,6 +348,7 @@ def html_record(source,url,html):
         "price_confidence":price_confidence if structured_price is not None else ("low" if fallback_price is not None else "none"),
         "price_evidence":price_evidence,
         "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,"asset_type":asset_type,
+        "asset_confidence":"high" if asset_type in {"part_component","swap_body","trailer","semi_trailer"} else "unknown",
         "seller":seller,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
         "code_xl":True if f["code_xl"] else None,"mega":True if f["mega"] else None,
