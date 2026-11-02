@@ -36,16 +36,18 @@
     },
     "additional_detail_pages_inspected": [
       2,
+      3,
       4,
       5,
       6,
       7,
       8
     ],
-    "additional_detail_enrichments": 5,
-    "additional_confirmed_discoveries": 8,
+    "additional_detail_enrichments": 8,
+    "additional_confirmed_discoveries": 9,
     "pages_partially_inspected": [
       2,
+      3,
       8
     ],
     "additional_categories_inspected": [
@@ -116,6 +118,7 @@
     "22517377",
     "22517262",
     "22349412",
+    "22329057",
     "22292667",
     "22264717",
     "22051613",
@@ -1165,24 +1168,34 @@
       "id": "22845855",
       "url": "https://www.truckscout24.com/tsp/ts-228-45-855",
       "brand": "Kögel",
-      "model": null,
-      "first_registration": null,
+      "model": "S24-1 Hubdach EDSCHA",
+      "first_registration": "02/2018",
       "baujahr": null,
-      "price_net": null,
-      "price_gross": null,
-      "vat": null,
+      "price_net": 6750,
+      "price_gross": 8032,
+      "vat": "plus VAT",
       "seller": null,
-      "location": null,
-      "axle_count": null,
-      "axle_maker": null,
+      "location": "Salzgitter, Germany",
+      "axle_count": 3,
+      "axle_maker": "SAF",
       "lift_axle": null,
       "pallet_box": null,
       "code_xl": null,
       "mega": null,
       "coil": null,
-      "vin_fin": null,
-      "classification": "curtain-side candidate confirmed from listing card",
-      "price_history": []
+      "vin_fin": "WK0S0002400220469",
+      "classification": "confirmed from detail page: open semitrailer with tarp; explicit VIN; SAF axles; lifting roof",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-228-45-855",
+          "price_net": 6750,
+          "price_gross": 8032,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €6,750; (€8,032 gross)"
+        }
+      ]
     },
     {
       "id": "22517377",
@@ -1395,24 +1408,34 @@
       "id": "22292667",
       "url": "https://www.truckscout24.com/tsp/ts-222-92-667",
       "brand": "Kögel",
-      "model": null,
-      "first_registration": null,
-      "baujahr": null,
-      "price_net": null,
-      "price_gross": null,
-      "vat": null,
+      "model": "Curtainsider Mega",
+      "first_registration": "05/2018",
+      "baujahr": 2018,
+      "price_net": 8750,
+      "price_gross": 11112,
+      "vat": "plus VAT",
       "seller": null,
-      "location": null,
-      "axle_count": null,
+      "location": "Bicske, Hungary",
+      "axle_count": 3,
       "axle_maker": null,
       "lift_axle": null,
       "pallet_box": null,
-      "code_xl": null,
-      "mega": null,
+      "code_xl": true,
+      "mega": true,
       "coil": null,
       "vin_fin": null,
-      "classification": "curtain-side candidate confirmed from listing card",
-      "price_history": []
+      "classification": "confirmed from detail page: open semitrailer with tarp; Curtainsider Mega; Code XL certificate; 3 axles",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-222-92-667",
+          "price_net": 8750,
+          "price_gross": 11112,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €8,750; (€11,112 gross)"
+        }
+      ]
     },
     {
       "id": "17620558",
@@ -1711,6 +1734,39 @@
           "block_text": "Fixed price plus VAT; €14,900; (€17,731 gross)"
         }
       ]
+    },
+    {
+      "id": "22329057",
+      "url": "https://www.truckscout24.com/tsp/ts-223-29-057",
+      "brand": "Kögel",
+      "model": "SN24 Standard SAF Liftachse Palettenkasten",
+      "first_registration": "02/2019",
+      "baujahr": null,
+      "price_net": 9500,
+      "price_gross": 11305,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Augsburg, Germany",
+      "axle_count": 3,
+      "axle_maker": "SAF",
+      "lift_axle": true,
+      "pallet_box": true,
+      "code_xl": null,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed from detail page: whole SN24 curtainsider semitrailer; sliding tarpaulin; SAF; lift axle; pallet box",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-223-29-057",
+          "price_net": 9500,
+          "price_gross": 11305,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €9,500; (€11,305 gross)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -1730,7 +1786,8 @@
     "Page 3 spot-check in the Flatbed & Tarpaulin category: ID 22264717 confirmed as a whole Kögel SN 24 Pritsche/Plane semitrailer; first registration 11/2019; €9,990 net / €11,888 gross; 3 axles and Kögel axles stated. Kept marked for cross-check against the base all-Kögel result pool before counting toward its 273 listings.",
     "Related-listings follow-up enriched ID 22349412 and added ID 21610803: both whole Kögel SN24 Mega Tautliner semitrailers from 2015 with SAF 3 axles, lift axle, explicit VIN and €4,400 net / €5,236 gross. Both remain separately flagged pending cross-check against the base all-Kögel pool.",
     "Main all-Kögel search page 2 detail follow-up confirmed two distinct listing IDs, 22723782 and 22723787, for the 2017 Kögel Orten SafeServer 2in1. Both explicitly describe a SafeServer left side and curtainsider right side, with matching photos/specifications and €14,900 net / €17,731 gross; retained as separate listing IDs under the project dedup rule, with suspected duplicate inventory noted.",
-    "Main all-Kögel page 2 also exposed ID 20075155, a genuine tarp semitrailer but first registration 05/2023, so it is preserved separately outside the 2008-2022 target segment. ID 22365037 was inspected: Kögel D4 COIL, 2017, but no curtain/tarp evidence in the description; remains review-only."
+    "Main all-Kögel page 2 also exposed ID 20075155, a genuine tarp semitrailer but first registration 05/2023, so it is preserved separately outside the 2008-2022 target segment. ID 22365037 was inspected: Kögel D4 COIL, 2017, but no curtain/tarp evidence in the description; remains review-only.",
+    "Main all-Kögel search page 3 confirmed and enriched IDs 22292667 (€8,750 net/€11,112 gross, EZ 05/2018, Code XL) and 22845855 (€6,750/€8,032, EZ 02/2018, SAF axles, VIN WK0S0002400220469). Added ID 22329057 (€9,500/€11,305, EZ 02/2019, 3 SAF axles, lift axle, pallet box) as a confirmed SN24 curtainsider."
   ],
   "review_records": [
     {
