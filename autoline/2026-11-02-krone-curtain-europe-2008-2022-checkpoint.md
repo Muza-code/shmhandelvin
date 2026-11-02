@@ -22,8 +22,8 @@ Date captured: 2026-11-02
 ## Saved progress
 
 - Data file: `autoline/data/krone-curtain-europe-2008-2022.ndjson`
-- Captured pages 1–16: 400 result-card observations. Pages 1–14 had 350 unique listing IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeat sightings.
-- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15 and 16 contained 49 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
+- Captured pages 1–17: 425 result-card observations. Pages 1–14 had 350 unique IDs; page 15 added 25 repeat sightings; page 16 added 1 new ID and 24 repeat sightings; page 17 added 23 new IDs and 2 repeat sightings.
+- De-duplication: source listing ID parsed from the URL; URL and ID are the keys. No repeated IDs were found on pages 2–14. Pages 15–17 contain 51 repeat sightings in total; repeat sightings are recorded as additional page observations without duplicate source rows.
 - Page 1 includes one auction listing; page 2 includes two auction listings; page 4 includes one auction listing without a numeric price on the card. Auction prices are kept separate by listing type and notes. “Price on request” is stored as null, never inferred.
 - Page 4 position 10 (ID 25092419584735323100) was checked on its detail page: it is one curtain-side semi-trailer. The €20,900 net price, €25,707 gross price, SAF axles, and XL Certificate were captured; seller description also mentions loading five trailers, but the advertised unit itself is a single trailer.
 - Page 4 position 8 is a coil liner, with lifting axle explicitly indicated in the title; preserved with `coil: true` and `lift_axle: true`.
@@ -48,9 +48,9 @@ Date captured: 2026-11-02
 ## Canonical raw integration
 
 - Canonical source file: `data/raw/autoline_krone.ndjson` (same schema as the Kögel source file; retained separately by brand for the later combined database).
-- 351 unique source records classified as `semi_trailer`; 324 numeric-price sale records are eligible for sale-market analytics. The current capture has 400 page-card observations through page 16, including 49 repeat sightings. The other 27 comprise 5 auctions, 3 rentals, and 19 sale ads excluded for no price or quality-basis issues.
+- 374 unique source records classified as `semi_trailer`; 346 numeric-price sale records are eligible for sale-market analytics. The current capture has 425 page-card observations through page 17, including 51 repeat sightings. The other 28 comprise 5 auctions, 3 rentals, and 20 sale ads excluded for no price or quality-basis issues.
 - Original capture file remains at `autoline/data/krone-curtain-europe-2008-2022.ndjson` as source-page capture provenance. The canonical file has one observation per listing and initial price-history entries dated 2026-11-02.
-- Resume at page 17; pages 1–16 reviewed (400 of 716 result-card views; 351 unique IDs). Page 15 was all repeat sightings; page 16 position 13 added one new listing, and its other 24 cards repeated existing IDs. No repeated listing showed a price change.
+- Resume at page 18; pages 1–17 reviewed (425 of 716 result-card views; 374 unique IDs). Page 15 was all repeat sightings; page 16 added one listing; page 17 added 23 listings, with 2 repeat sightings. The two repeated RH Trucks trailers and BAS World trailers were confirmed as separate units by different seller stock IDs; do not merge them.
 
 
 ## Canonical data-quality review (2026-11-02)
@@ -63,6 +63,6 @@ Date captured: 2026-11-02
 
 ## Continuation note (2026-11-02)
 
-- Reused one results-list tab. Page 15: 25 cards, all repeat IDs. Page 16: 25 cards, 1 new ID and 24 repeat IDs.
+- Reused one list tab and one detail tab. Page 15: 25 cards, all repeat IDs. Page 16: 1 new ID and 24 repeats. Page 17: 23 new IDs and 2 repeats. Select detail cards clarified four listings’ registration dates, net price, stock numbers and axle data; the similar RH Trucks/BAS World pairs have distinct stock IDs.
 - Publicly indexed Autoline material surfaced candidate ID `26090210215133557300`, but its indexed snippet showed €18,900 while the opened page snapshot showed €17,900 net / €22,017 gross. This candidate was not added or treated as current until the asking price and active status can be rechecked on the listing source.
 
