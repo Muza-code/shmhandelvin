@@ -111,6 +111,33 @@ FEATURES = {
     "huckepack": re.compile(r"\b(?:HUCKEPACK|P400)\b", re.I),
 }
 
+def semitrailer_evidence_score(text):
+    t=clean(text or "")
+    positive=[
+        (r"\bsattelauflieger\b",5),
+        (r"\bsemi[- ]?trailer\b",5),
+        (r"\bsemitrailer\b",5),
+        (r"\bauflieger\b",4),
+        (r"\bsattelanh[äa]nger\b",4),
+        (r"\b3[- ]?achs(?:ig|er)?\b",1),
+        (r"\bkingpin\b|\bk[öo]nigszapfen\b",2),
+        (r"\bsattelst[üu]tzen\b|\blanding legs\b",1),
+        (r"\bcurtainsider\b|\btautliner\b|\breefer\b|\btipper\b|\bwalking floor\b",1),
+    ]
+    negative=[
+        (r"\bwechselbr[üu]cke\b|\bwechselbruecke\b|\bswap\s*body\b",10),
+        (r"\bbdf\b",8),
+        (r"\bk[üu]hlmaschine\b|\bk[üu]hlaggregat\b|\brefrigeration unit\b",10),
+        (r"\bersatzteil\b|\bspare part\b|\baggregat\b|\bkompressor\b",10),
+        (r"\bdrawbar trailer\b|\bcentral axle\b|\btandem trailer\b",8),
+    ]
+    score=0
+    for pat,w in positive:
+        if re.search(pat,t,re.I): score+=w
+    for pat,w in negative:
+        if re.search(pat,t,re.I): score-=w
+    return score
+
 def now():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
 
@@ -348,6 +375,7 @@ def html_record(source,url,html):
         "price_confidence":price_confidence if structured_price is not None else ("low" if fallback_price is not None else "none"),
         "price_evidence":price_evidence,
         "tax_basis":tax_of(text),"axle_maker":axle,"body_type":body_type,"asset_type":asset_type,
+        "asset_evidence_score":semitrailer_evidence_score(" ".join([title,text])),
         "asset_confidence":"high" if asset_type in {"part_component","swap_body","trailer","semi_trailer"} else "unknown",
         "seller":seller,
         "lift_axle":True if f["lift_axle"] else None,"pallet_box":True if f["pallet_box"] else None,
@@ -939,6 +967,7 @@ def reef_mobile_record(source,item,expected_brand=None):
         "axle_maker":axle,
         "body_type":body_type_of(text),
         "asset_type":asset_type_of(" ".join([str(title or ""),text])),
+        "asset_evidence_score":semitrailer_evidence_score(" ".join([str(title or ""),text])),
         "asset_confidence":"strict",
         "lift_axle":True if feat["lift_axle"] else None,
         "pallet_box":True if feat["pallet_box"] else None,
