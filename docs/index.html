@@ -137,7 +137,8 @@ function marketContext(x){
   return {status,median:seg.median_ask_eur,q1:seg.q1_ask_eur,diff,n:seg.priced,sources:seg.sources||0,countries:seg.countries||0};
 }
 function render(){
-  const L=data.listings||[];
+  const allListings=data.listings||[];
+  const L=allListings.filter(x=>(x.asset_type||'semi_trailer')==='semi_trailer');
   const brands=[...new Set(L.map(x=>x.brand).filter(Boolean))].sort();
   const years=[...new Set(L.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
   const countries=[...new Set(L.map(x=>x.country).filter(Boolean))].sort();
@@ -150,6 +151,7 @@ function render(){
     ['Активных',data.stats?.active??'—'],
     ['VIN найден',data.stats?.vin_found??L.filter(x=>x.vin).length],
     ['Источников',data.stats?.sources??new Set(L.map(x=>x.source)).size],
+    ['Исключено деталей',data.stats?.parts_components??0],
     ['Ниже Q1',L.filter(x=>marketContext(x).status==='interesting').length]
   ].map(([a,b])=>'<div class="kpi"><span>'+a+'</span><strong>'+b+'</strong></div>').join('');
 
@@ -229,7 +231,7 @@ function render(){
   document.getElementById('syncStatus').textContent='Данные: '+(data.updated_at||'нет отметки');
 }
 ['brandFilter','yearFilter','bodyFilter','countryFilter','statusFilter','search'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',render));
-fetch('latest_market.json').then(r=>r.json()).then(x=>{data=x;render()}).catch(()=>{document.getElementById('syncStatus').textContent='Ошибка загрузки данных'});
+fetch('latest_market.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(x=>{data=x;render()}).catch(()=>{document.getElementById('syncStatus').textContent='Ошибка загрузки данных'});
 </script>
 </body>
 </html>
