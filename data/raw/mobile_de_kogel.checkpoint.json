@@ -14,18 +14,15 @@
   "page_size": 20,
   "pages_1_to_9": "reviewed",
   "page_10_cards_1_to_6": "reviewed",
-  "resume_at": {
-    "page": 12,
-    "card": 5
-  },
-  "records_exported": 224,
-  "unique_ids": 224,
-  "confirmed_semi_trailer": 223,
+  "resume_at": null,
+  "records_exported": 240,
+  "unique_ids": 240,
+  "confirmed_semi_trailer": 239,
   "quarantine": 1,
-  "remaining_estimated": 16,
+  "remaining_estimated": 0,
   "analytics_enabled": false,
   "dedupe_key": "source_listing_id; fallback url",
-  "browser_note": "Correct 240-result filter active. Pages 10-11 complete; page 12 cards 1-4 detail-checked.",
+  "browser_note": "Pages 1-12 reviewed. All 20 page 12 detail pages checked and saved; collection complete for 240 result cards.",
   "source_update_policy": "Append price_history on observed price change; never overwrite prior asking price; status disappeared rather than sold.",
   "page_10_cards_1_to_10": "reviewed",
   "page_10_cards_1_to_14": "reviewed",
@@ -36,5 +33,9 @@
   "page_11_cards_1_to_15": "reviewed",
   "page_11_cards_1_to_19": "reviewed",
   "page_11_cards_1_to_20": "reviewed",
-  "page_12_cards_1_to_4": "reviewed"
+  "page_12_cards_1_to_4": "reviewed",
+  "pages_1_to_12": "reviewed",
+  "page_12_cards_1_to_20": "reviewed",
+  "last_processed_page": 12,
+  "last_processed_listing_id": "372233271"
 }
