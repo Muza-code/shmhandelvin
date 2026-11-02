@@ -24,22 +24,34 @@ def sanitize_suspicious_price(x):
     return x
 
 def infer_asset_type(x):
-    v=x.get("asset_type")
     text=" ".join(str(x.get(k) or "") for k in ("model","body_type")).lower()
+
     part_terms=[
         "kühlmaschine","kuehlmaschine","kühlaggregat","kuehlaggregat",
         "refrigeration unit","cooling unit","spare part","ersatzteil",
-        "aggregat","kompressor","compressor","landing legs","stützen","stuetzen"
+        "aggregat","kompressor","compressor","landing legs","stützen","stuetzen",
+        "door assembly","tür komplett","tuer komplett","bumper","stoßstange","stossstange"
     ]
     if any(term in text for term in part_terms):
         return "part_component"
-    if v:
-        return v
-    if "swap body" in text or "wechselbrücke" in text or "wechselbruecke" in text:
+
+    swap_terms=[
+        "wechselbrücke","wechselbruecke","swap body","wechselkoffer",
+        "wechselcontainer","bdf wechsel","bdf container","bdf brücke","bdf bruecke"
+    ]
+    if any(term in text for term in swap_terms):
         return "swap_body"
-    if "drawbar trailer" in text or "central axle" in text or "tandem trailer" in text:
+
+    trailer_terms=["drawbar trailer","central axle","tandem trailer","zentralachsanhänger","zentralachsanhaenger","drehschemelanhänger","drehschemelanhaenger"]
+    if any(term in text for term in trailer_terms):
         return "trailer"
-    return "semi_trailer"
+
+    semi_terms=["semi-trailer","semitrailer","sattelauflieger","auflieger","sattelanhänger","sattelanhaenger"]
+    if any(term in text for term in semi_terms):
+        return "semi_trailer"
+
+    # Legacy asset_type is not trusted unless current text also proves the class.
+    return "unknown_asset"
 
 def percentile(values,p):
     if not values: return None
@@ -98,7 +110,7 @@ for r in rows:
         "brand":r.get("brand"),"model":r.get("title"),
         "year":r.get("market_year"),"year_basis":r.get("year_basis"),
         "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
-        "body_type":r.get("body_type"),"asset_type":r.get("asset_type") or "semi_trailer",
+        "body_type":r.get("body_type"),"asset_type":infer_asset_type({"model":r.get("title"),"body_type":r.get("body_type")}),
         "country":r.get("country"),"seller":r.get("seller"),
         "price_net_eur":r.get("price_amount") if r.get("tax_basis")=="net" and r.get("price_confidence") in (None,"medium","high") else None,
         "price_original":r.get("price_amount"),
@@ -115,7 +127,11 @@ for r in rows:
     }
     catalogue[key]=sanitize_suspicious_price(new_row)
 
-listings=[sanitize_suspicious_price(dict(x)) for x in catalogue.values()]
+listings=[]
+for _x in catalogue.values():
+    _y=sanitize_suspicious_price(dict(_x))
+    _y["asset_type"]=infer_asset_type(_y)
+    listings.append(_y)
 
 sources=Counter(x.get("source") for x in listings if x.get("source"))
 coverage=[]
@@ -170,6 +186,9 @@ data={
         "listings":len(listings),
         "semitrailers":sum(infer_asset_type(x)=="semi_trailer" for x in listings),
         "parts_components":sum(infer_asset_type(x)=="part_component" for x in listings),
+        "swap_bodies":sum(infer_asset_type(x)=="swap_body" for x in listings),
+        "trailers":sum(infer_asset_type(x)=="trailer" for x in listings),
+        "unknown_assets":sum(infer_asset_type(x)=="unknown_asset" for x in listings),
         "active":sum(bool(x.get("seen_this_run")) for x in listings),
         "seen_this_run":sum(bool(x.get("seen_this_run")) for x in listings),
         "vin_found":sum(bool(x.get("vin") or x.get("vin_ref")) for x in listings),
@@ -177,6 +196,7 @@ data={
     },
     "coverage":coverage,
     "segments":segments,
+    "quarantine":[x for x in listings if infer_asset_type(x)!="semi_trailer"],
     "listings":listings
 }
 TARGET.parent.mkdir(parents=True,exist_ok=True)
