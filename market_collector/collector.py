@@ -160,6 +160,11 @@ def price_of(text):
             raw=raw.replace(".","") if tail==3 else raw
         try: v=float(raw)
         except ValueError: continue
+        # Reject bare 4-digit calendar years accidentally joined to a later currency sign,
+        # e.g. "TÜV 09-2027 ... €5,900" being misread as "2027 €".
+        compact_candidate=re.sub(r"[^0-9]","",candidate)
+        if 1900 <= v <= 2100 and len(compact_candidate)==4 and not re.search(r"[.,]",candidate):
+            continue
         if 1000 <= v <= 500000:
             return v
     return None
