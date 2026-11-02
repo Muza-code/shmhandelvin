@@ -35,15 +35,17 @@
       "target_year_scope": "2008-2022 first registration; individual scope remains pending where first registration is missing."
     },
     "additional_detail_pages_inspected": [
+      2,
       4,
       5,
       6,
       7,
       8
     ],
-    "additional_detail_enrichments": 3,
-    "additional_confirmed_discoveries": 6,
+    "additional_detail_enrichments": 5,
+    "additional_confirmed_discoveries": 8,
     "pages_partially_inspected": [
+      2,
       8
     ],
     "additional_categories_inspected": [
@@ -98,6 +100,8 @@
     "22876995",
     "22845855",
     "22810430",
+    "22723787",
+    "22723782",
     "22695687",
     "22600387",
     "22563072",
@@ -140,7 +144,8 @@
     "22298977",
     "23195871",
     "23197966",
-    "21505557"
+    "21505557",
+    "20075155"
   ],
   "review_ids": [
     "23219226",
@@ -1640,6 +1645,72 @@
           "block_text": "Fixed price plus VAT; €4,400; €5,236 gross"
         }
       ]
+    },
+    {
+      "id": "22723782",
+      "url": "https://www.truckscout24.com/tsp/ts-227-23-782",
+      "brand": "Kögel",
+      "model": "Orten SafeServer 2in1",
+      "first_registration": "04/2017",
+      "baujahr": 2017,
+      "price_net": 14900,
+      "price_gross": 17731,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bernkastel-Kues, Germany",
+      "axle_count": 3,
+      "axle_maker": "BPW",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed: whole semitrailer; SafeServer left / curtainsider right; BPW 3 axles, lift axle, explicit DIN EN 12642 XL",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-227-23-782",
+          "price_net": 14900,
+          "price_gross": 17731,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €14,900; (€17,731 gross)"
+        }
+      ]
+    },
+    {
+      "id": "22723787",
+      "url": "https://www.truckscout24.com/tsp/ts-227-23-787",
+      "brand": "Kögel",
+      "model": "Orten SafeServer 2in1",
+      "first_registration": "04/2017",
+      "baujahr": 2017,
+      "price_net": 14900,
+      "price_gross": 17731,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Bernkastel-Kues, Germany",
+      "axle_count": 3,
+      "axle_maker": "BPW",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": true,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "confirmed: whole semitrailer; SafeServer left / curtainsider right; BPW 3 axles, lift axle, explicit DIN EN 12642 XL; listing details nearly identical to ID 22723782",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-227-23-787",
+          "price_net": 14900,
+          "price_gross": 17731,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €14,900; (€17,731 gross)"
+        }
+      ]
     }
   ],
   "notes": [
@@ -1657,7 +1728,9 @@
     "Category page 2 spot-check added/enriched IDs 23271247 (€7,900 net / €9,401 gross, 02/2019, 3 axles SAF) and 22600387 (€10,300 net / €12,463 gross, 04/2019, 3 axles SAF, lift axle). Both are explicit curtainsider/open tarp semitrailers; price histories append the live detail-page observations.",
     "Further page-2 confirmations: ID 21223097 is a 2022 French curtainsider with coil well and 3 SAF axles, but TruckScout24 shows Price info/Call, so no price is recorded. ID 23202641 is a 2011 SN24 curtainsider with SAF axles and lift axle; price is on request and remains null.",
     "Page 3 spot-check in the Flatbed & Tarpaulin category: ID 22264717 confirmed as a whole Kögel SN 24 Pritsche/Plane semitrailer; first registration 11/2019; €9,990 net / €11,888 gross; 3 axles and Kögel axles stated. Kept marked for cross-check against the base all-Kögel result pool before counting toward its 273 listings.",
-    "Related-listings follow-up enriched ID 22349412 and added ID 21610803: both whole Kögel SN24 Mega Tautliner semitrailers from 2015 with SAF 3 axles, lift axle, explicit VIN and €4,400 net / €5,236 gross. Both remain separately flagged pending cross-check against the base all-Kögel pool."
+    "Related-listings follow-up enriched ID 22349412 and added ID 21610803: both whole Kögel SN24 Mega Tautliner semitrailers from 2015 with SAF 3 axles, lift axle, explicit VIN and €4,400 net / €5,236 gross. Both remain separately flagged pending cross-check against the base all-Kögel pool.",
+    "Main all-Kögel search page 2 detail follow-up confirmed two distinct listing IDs, 22723782 and 22723787, for the 2017 Kögel Orten SafeServer 2in1. Both explicitly describe a SafeServer left side and curtainsider right side, with matching photos/specifications and €14,900 net / €17,731 gross; retained as separate listing IDs under the project dedup rule, with suspected duplicate inventory noted.",
+    "Main all-Kögel page 2 also exposed ID 20075155, a genuine tarp semitrailer but first registration 05/2023, so it is preserved separately outside the 2008-2022 target segment. ID 22365037 was inspected: Kögel D4 COIL, 2017, but no curtain/tarp evidence in the description; remains review-only."
   ],
   "review_records": [
     {
@@ -1670,6 +1743,28 @@
       "current_price_gross": 19028,
       "axle_maker": "SAF Intradisk",
       "evidence": "Detail description states 2 fast-acting sliders and sliding roof, but does not explicitly confirm curtainside/tarpaulin; detail category is Other semitrailers. Keep in review, outside confirmed segment."
+    },
+    {
+      "id": "22365037",
+      "url": "https://www.truckscout24.com/tsp/ts-223-65-037",
+      "brand": "Kögel",
+      "model": "D4 /COIL/ MERCEDES DISC",
+      "first_registration": "03/2017",
+      "baujahr": 2017,
+      "price_net": 5450,
+      "price_gross": 6594,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Berkel en Rodenrijs, Netherlands",
+      "axle_count": 3,
+      "axle_maker": null,
+      "lift_axle": null,
+      "pallet_box": null,
+      "code_xl": null,
+      "mega": null,
+      "coil": true,
+      "vin_fin": null,
+      "evidence": "Detail page confirms a Kögel semi-trailer and COIL, but does not state sliding tarp/curtainside. Keep pending body-type verification."
     }
   ],
   "target_first_registration_years": [
@@ -1740,6 +1835,39 @@
           "price_gross": 27251,
           "vat": "plus VAT",
           "block_text": "Fixed price plus VAT; €22,900; crossed-out former price €23,900; €27,251 gross"
+        }
+      ]
+    },
+    {
+      "id": "20075155",
+      "url": "https://www.truckscout24.com/tsp/ts-200-75-155",
+      "brand": "Kögel",
+      "model": "SN24 Standard BPW Liftachse Verbreiterungsplane",
+      "first_registration": "05/2023",
+      "baujahr": null,
+      "price_net": 19900,
+      "price_gross": 23681,
+      "vat": "plus VAT",
+      "seller": null,
+      "location": "Steinfeld, Germany",
+      "axle_count": 3,
+      "axle_maker": "BPW",
+      "lift_axle": true,
+      "pallet_box": null,
+      "code_xl": null,
+      "mega": null,
+      "coil": null,
+      "vin_fin": null,
+      "classification": "real open semitrailer with tarp; excluded from target segment because first registration 05/2023 is outside 2008-2022",
+      "price_history": [
+        {
+          "observed_at": "2026-11-02",
+          "source": "TruckScout24 detail page price block",
+          "source_url": "https://www.truckscout24.com/tsp/ts-200-75-155",
+          "price_net": 19900,
+          "price_gross": 23681,
+          "vat": "plus VAT",
+          "block_text": "Fixed price plus VAT; €19,900; (€23,681 gross)"
         }
       ]
     }
