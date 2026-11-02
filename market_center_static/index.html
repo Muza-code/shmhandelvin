@@ -89,10 +89,11 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&
 let data={listings:[],coverage:[],benchmarks:[]};
 
 function badge(status){
-  const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',unknown:'НЕТ ОЦЕНКИ'};
+  const labels={interesting:'НИЖЕ РЫНКА',check:'ПРОВЕРИТЬ',expensive:'ВЫШЕ РЫНКА',excluded:'ИСКЛЮЧЕНО ИЗ ЗАКУПКИ',unknown:'НЕТ ОЦЕНКИ'};
   return '<span class="badge '+esc(status||'unknown')+'">'+(labels[status]||labels.unknown)+'</span>';
 }
 function marketContext(x){
+  if(x.purchase_eligible===false || x.analytics_eligible===false) return {status:'excluded',median:null,q1:null,diff:null,n:0};
   const seg=(data.segments||[]).find(s=>s.brand===x.brand && String(s.year)===String(x.year) && (s.body_type||'other')===(x.body_type||'other'));
   const ask=x.price_original;
   if(!seg || !ask || x.currency!=='EUR' || !seg.median_ask_eur || (seg.priced||0)<5) return {status:'unknown',median:null,q1:null,diff:null,n:seg?.priced||0};
@@ -123,7 +124,7 @@ function render(){
   const enriched=L.map(x=>({...x,_market:marketContext(x)}));
   const F=enriched.filter(x=>(!bf||x.brand===bf)&&(!yf||String(x.year)===yf)&&(!tf||x.body_type===tf)&&(!cf||x.country===cf)&&(!sf||x._market.status===sf)&&(!q||JSON.stringify(x).toLowerCase().includes(q)));
 
-  document.getElementById('opportunities').innerHTML=F.slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
+  document.getElementById('opportunities').innerHTML=F.filter(x=>x.purchase_eligible!==false && x.analytics_eligible!==false).slice().sort((a,b)=>(b.headroom??-1e9)-(a.headroom??-1e9)).slice(0,8).map(x=>`
     <article class="deal-card">
       <div class="deal-top"><div><b>${esc(x.brand)} ${esc(x.model||'')}</b><span>${esc(x.year||'—')} · ${esc(x.body_type||'other')} · ${esc(x.country||'—')}</span></div>${badge(x._market.status)}</div>
       <div class="deal-price">${euro(x.price_original)} <small>${esc(x.tax_basis&&x.tax_basis!=='unknown'?x.tax_basis:'ask')}</small></div>
