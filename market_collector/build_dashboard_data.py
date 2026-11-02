@@ -7,6 +7,22 @@ OUT=Path("out")
 TARGET=Path("data/latest_market.json")
 MOBILE_DISCOVERY=Path("data/mobile_de_discovery.json")
 
+def sanitize_suspicious_price(x):
+    """Remove obvious year-as-price parsing errors from persisted catalogue rows."""
+    p=x.get("price_original")
+    if not isinstance(p,(int,float)):
+        return x
+    if 1900 <= float(p) <= 2100 and float(p).is_integer():
+        text=" ".join(str(x.get(k) or "") for k in ("model","year","construction_year","first_registration_year"))
+        year_token=str(int(p))
+        if year_token in text or "tüv" in text.lower() or "tuv" in text.lower():
+            x["price_original"]=None
+            x["price_net_eur"]=None
+            x["currency"]=None
+            x["tax_basis"]=None
+            x["price_quality_flag"]="rejected_year_like_price"
+    return x
+
 def infer_asset_type(x):
     v=x.get("asset_type")
     if v:
@@ -49,7 +65,7 @@ for x in old_listings:
     key=(x.get("source"),x.get("url"))
     if not key[0] or not key[1]:
         continue
-    y=dict(x)
+    y=sanitize_suspicious_price(dict(x))
     y.setdefault("first_seen_at",y.get("observed_at"))
     y.setdefault("last_seen_at",y.get("observed_at"))
     y["seen_this_run"]=False
@@ -70,7 +86,7 @@ for r in rows:
         continue
     previous=catalogue.get(key,{})
     observed=r.get("observed_at")
-    catalogue[key]={
+    new_row={
         "brand":r.get("brand"),"model":r.get("title"),
         "year":r.get("market_year"),"year_basis":r.get("year_basis"),
         "construction_year":r.get("construction_year"),"first_registration_year":r.get("first_registration_year"),
@@ -85,8 +101,9 @@ for r in rows:
         "last_seen_at":observed,
         "seen_this_run":True
     }
+    catalogue[key]=sanitize_suspicious_price(new_row)
 
-listings=list(catalogue.values())
+listings=[sanitize_suspicious_price(dict(x)) for x in catalogue.values()]
 
 sources=Counter(x.get("source") for x in listings if x.get("source"))
 coverage=[]
