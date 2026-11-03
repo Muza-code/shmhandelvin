@@ -44,6 +44,7 @@ fetch('latest_market.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).
   const root=document.getElementById('record');
   if(!x){root.innerHTML='<div class="missing"><h2>Карточка не найдена в сохранённых данных</h2><p class="muted">Вернитесь в каталог и откройте карточку ещё раз.</p><a class="back-link" href="index.html">← Вернуться в каталог</a></div>';return}
   document.title=esc((x.brand||'Прицеп')+' '+(x.model||'')+' · SHM Market Center');
+  const seg=(data.segments||[]).find(s=>s.brand===x.brand&&String(s.year)===String(x.year)&&(s.body_type||'other')===(x.body_type||'other'));
   const history=(x.price_history||[]).slice().sort((a,b)=>String(b.observed_at||'').localeCompare(String(a.observed_at||'')));
   const historyHtml=history.length?'<div class="table-wrap"><table class="history-table"><thead><tr><th>Дата фиксации</th><th>Цена</th><th>НДС</th><th>Примечание</th></tr></thead><tbody>'+history.map(p=>'<tr><td>'+date(p.observed_at)+'</td><td><b>'+euro(p.price_amount,p.price_currency||x.currency||'EUR')+'</b></td><td>'+esc(p.tax_basis||'не указан')+'</td><td>'+esc(p.evidence_excerpt||p.price_state||'')+'</td></tr>').join('')+'</tbody></table></div>':'<p class="muted">Отдельной истории цены пока нет. Дата и последняя сохранённая цена указаны выше.</p>';
   const flags=Array.isArray(x.condition_flags)?x.condition_flags:[];
@@ -53,7 +54,7 @@ fetch('latest_market.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).
     '<h3>Сохранённые данные</h3><div class="archive-grid">'+
     field('Цена объявления',x.price_original==null?'—':euro(x.price_original,x.currency||'EUR'))+
     field('НДС / база цены',x.tax_basis||'не подтверждено')+
-    field('Медиана сегмента',x._market?.median_ask_eur==null?'—':euro(x._market.median_ask_eur))+
+    field('Медиана сегмента',seg?.median_ask_eur==null?'—':euro(seg.median_ask_eur))+
     field('Год производства',x.construction_year)+field('Первая регистрация',x.first_registration_year)+
     field('Продавец',x.seller)+field('Страна / место',[x.country,x.location].filter(Boolean).join(' · '))+
     field('VIN / номер объявления',x.vin||x.vin_ref||x.source_listing_id||'не указан')+
