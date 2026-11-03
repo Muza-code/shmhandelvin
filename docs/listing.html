@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Сохранённая карточка · SHM Market Center</title>
+  <link rel="stylesheet" href="market_center.css?v=20261102-catalog2">
+  <style>
+    .archive-main{max-width:1100px}
+    .archive-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .archive-actions a,.back-link{color:var(--accent);text-decoration:none}
+    .archive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .archive-field{border:1px solid var(--line);border-radius:6px;padding:12px;background:#fff;min-width:0}
+    .archive-field span{display:block;color:var(--muted);font-size:12px}
+    .archive-field b{display:block;margin-top:3px;overflow-wrap:anywhere}
+    .archive-note{padding:13px 15px;background:#f1f5f9;border-left:3px solid var(--accent);color:#435166}
+    .archive-evidence{white-space:pre-wrap;overflow-wrap:anywhere}
+    .history-table{min-width:650px}
+    .missing{padding:30px;text-align:center}
+    @media(max-width:700px){.archive-grid{grid-template-columns:1fr 1fr}.archive-main{padding:10px}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">SHM Handels GmbH</div>
+    <h1>Сохранённая карточка</h1>
+    <p>Архив данных объявления из Market Center</p>
+  </div>
+  <a class="back-link" href="index.html">← Вернуться в каталог</a>
+</header>
+<main class="archive-main">
+  <section class="panel" id="record"><div class="muted">Загружаю сохранённую карточку…</div></section>
+</main>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const euro=(v,c='EUR')=>v==null?'—':new Intl.NumberFormat('de-DE',{style:'currency',currency:c||'EUR',maximumFractionDigits:0}).format(v);
+const date=s=>s?esc(String(s).replace('T',' ').replace('Z',' UTC')):'—';
+const field=(label,value)=>'<div class="archive-field"><span>'+esc(label)+'</span><b>'+esc(value==null||value===''?'—':value)+'</b></div>';
+const params=new URLSearchParams(location.search);
+const source=params.get('source'), url=params.get('url');
+fetch('latest_market.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(data=>{
+  const x=(data.listings||[]).find(v=>v.source===source&&v.url===url);
+  const root=document.getElementById('record');
+  if(!x){root.innerHTML='<div class="missing"><h2>Карточка не найдена в сохранённых данных</h2><p class="muted">Вернитесь в каталог и откройте карточку ещё раз.</p><a class="back-link" href="index.html">← Вернуться в каталог</a></div>';return}
+  document.title=esc((x.brand||'Прицеп')+' '+(x.model||'')+' · SHM Market Center');
+  const history=(x.price_history||[]).slice().sort((a,b)=>String(b.observed_at||'').localeCompare(String(a.observed_at||'')));
+  const historyHtml=history.length?'<div class="table-wrap"><table class="history-table"><thead><tr><th>Дата фиксации</th><th>Цена</th><th>НДС</th><th>Примечание</th></tr></thead><tbody>'+history.map(p=>'<tr><td>'+date(p.observed_at)+'</td><td><b>'+euro(p.price_amount,p.price_currency||x.currency||'EUR')+'</b></td><td>'+esc(p.tax_basis||'не указан')+'</td><td>'+esc(p.evidence_excerpt||p.price_state||'')+'</td></tr>').join('')+'</tbody></table></div>':'<p class="muted">Отдельной истории цены пока нет. Дата и последняя сохранённая цена указаны выше.</p>';
+  const flags=Array.isArray(x.condition_flags)?x.condition_flags:[];
+  const features=Array.isArray(x.features)?x.features:[];
+  root.innerHTML='<div class="panel-head"><div><div class="section-label">Снимок объявления</div><h2>'+esc((x.brand||'')+' '+(x.model||'Прицеп'))+'</h2><p class="muted">'+esc([x.year||'год не указан',x.body_type||'тип не указан',x.country||x.location||'место не указано'].join(' · '))+'</p></div><div class="archive-actions">'+(x.url?'<a target="_blank" rel="noopener" href="'+esc(x.url)+'">Открыть оригинал ↗</a>':'')+'</div></div>'+
+    '<div class="archive-note">Здесь сохранены сведения, полученные Market Center. Если продавец удалит объявление, эта запись останется в каталоге. Полная страница и фотографии площадки в этой копии не сохраняются.</div>'+
+    '<h3>Сохранённые данные</h3><div class="archive-grid">'+
+    field('Цена объявления',x.price_original==null?'—':euro(x.price_original,x.currency||'EUR'))+
+    field('НДС / база цены',x.tax_basis||'не подтверждено')+
+    field('Медиана сегмента',x._market?.median_ask_eur==null?'—':euro(x._market.median_ask_eur))+
+    field('Год производства',x.construction_year)+field('Первая регистрация',x.first_registration_year)+
+    field('Продавец',x.seller)+field('Страна / место',[x.country,x.location].filter(Boolean).join(' · '))+
+    field('VIN / номер объявления',x.vin||x.vin_ref||x.source_listing_id||'не указан')+
+    field('Источник',x.source)+field('Тип объекта',x.asset_type)+field('Статус в источнике',x.status)+
+    field('Первое наблюдение',date(x.first_seen_at||x.observed_at))+field('Последнее наблюдение',date(x.last_seen_at||x.observed_at))+
+    '</div><h3>Состояние и оснащение</h3><div class="archive-grid">'+
+    field('Состояние',flags.length?flags.join(' · '):'В объявлении не подтверждено')+
+    field('Оснащение',features.length?features.join(', '):'Не указано')+
+    field('Оси',x.axle_count)+field('Марка осей',x.axle_maker)+field('Подъёмная ось',x.lift_axle===true?'Да':x.lift_axle===false?'Нет':'не указано')+
+    '</div><h3>Зафиксированное описание</h3><div class="archive-field archive-evidence">'+esc(x.evidence_excerpt||x.description_excerpt||'Текстовое описание в источнике не сохранилось.')+'</div>'+
+    '<h3>История цены в сохранённой записи</h3>'+historyHtml+
+    '<p class="muted">ID источника: '+esc(x.source_listing_id||'—')+' · Набор данных обновлён: '+date(data.updated_at)+'</p>';
+}).catch(()=>{document.getElementById('record').innerHTML='<div class="missing"><h2>Не удалось загрузить архив</h2><p class="muted">Попробуйте обновить страницу.</p><a class="back-link" href="index.html">← Вернуться в каталог</a></div>'});
+</script>
+</body>
+</html>
