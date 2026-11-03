@@ -376,7 +376,11 @@
     ],
     "stopped_at_known_id_boundary": true,
     "remaining_cards_not_audited": true,
-    "processed_at": "2026-11-03"
+    "processed_at": "2026-11-03",
+    "examined": 5,
+    "new": 4,
+    "accepted": 4,
+    "quarantine": 0
   },
   "daily_scan_history": [
     {
@@ -1217,7 +1221,11 @@
         "23273263"
       ],
       "remaining_cards_not_audited": true,
-      "stopped_at_known_id_boundary": true
+      "stopped_at_known_id_boundary": true,
+      "examined": 5,
+      "new": 4,
+      "accepted": 4,
+      "quarantine": 0
     }
   ],
   "newest_sort_recheck_summary": {
