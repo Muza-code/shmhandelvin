@@ -58,7 +58,7 @@ fetch('latest_market.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.json()).
     field('Год производства',x.construction_year)+field('Первая регистрация',x.first_registration_year)+
     field('Продавец',x.seller)+field('Страна / место',[x.country,x.location].filter(Boolean).join(' · '))+
     field('VIN / номер объявления',x.vin||x.vin_ref||x.source_listing_id||'не указан')+
-    field('Источник',x.source)+field('Тип объекта',x.asset_type)+field('Статус в источнике',x.status)+
+    field('Источник',x.source)+field('Тип объекта',x.asset_type)+field('Статус при последнем наблюдении',x.status)+
     field('Первое наблюдение',date(x.first_seen_at||x.observed_at))+field('Последнее наблюдение',date(x.last_seen_at||x.observed_at))+
     '</div><h3>Состояние и оснащение</h3><div class="archive-grid">'+
     field('Состояние',flags.length?flags.join(' · '):'В объявлении не подтверждено')+
