@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "TruckScout24",
   "source_file": "data/raw/truckscout24_kogel.ndjson",
-  "captured_at": "2026-11-03",
+  "captured_at": "2026-11-04",
   "search_url": "https://www.truckscout24.com/semi-trailers/used/all/koegel",
-  "search_result_count_live": 276,
+  "search_result_count_live": 275,
   "user_control_count_approx": 276,
   "first_pass_sort": "Relevance",
   "pages_audited": [
@@ -24,11 +24,11 @@
   "full_pass_complete": true,
   "daily_new_id_monitoring": "started",
   "counts": {
-    "distinct_listing_ids_written": 278,
-    "newly_written": 278,
+    "distinct_listing_ids_written": 279,
+    "newly_written": 279,
     "updated": 26,
     "confirmed_curtain_side": 117,
-    "semi_trailer_asset_type": 182,
+    "semi_trailer_asset_type": 183,
     "quarantine": 17,
     "swap_body": 58,
     "unknown_asset": 17,
@@ -354,33 +354,25 @@
   ],
   "daily_newest_scan": {
     "page": 1,
+    "sort": "newest listings",
     "sort_field": "eintragsdatum",
     "sort_direction": "desc",
-    "live_result_count": 276,
-    "card_count_processed": 5,
-    "unique_listing_ids": 5,
-    "new_ids": 4,
+    "live_result_count": 275,
+    "examined": 2,
+    "new": 1,
     "updated": 0,
-    "accepted_semi_trailer": 4,
-    "swap_body": 0,
-    "part_component": 0,
-    "other_trailer": 0,
-    "quarantined": 0,
-    "last_processed_listing_id": "23273263",
+    "accepted": 1,
+    "quarantine": 0,
+    "existing_ids": 1,
+    "duplicates_excluded": 0,
+    "last_processed_listing_id": "23278561",
     "processed_listing_ids": [
-      "23278561",
-      "23278513",
-      "23276836",
-      "23275285",
-      "23273263"
+      "23282416",
+      "23278561"
     ],
     "stopped_at_known_id_boundary": true,
     "remaining_cards_not_audited": true,
-    "processed_at": "2026-11-03",
-    "examined": 5,
-    "new": 4,
-    "accepted": 4,
-    "quarantine": 0
+    "processed_at": "2026-11-04"
   },
   "daily_scan_history": [
     {
@@ -496,7 +488,7 @@
       "source_blob_sha": "ae102bf743e507f2b4cc0cd7a93e5073be5f9759"
     }
   ],
-  "last_daily_check_at": "2026-11-03",
+  "last_daily_check_at": "2026-11-04",
   "live_recheck_batches": [
     {
       "page": 1,
@@ -1226,6 +1218,28 @@
       "new": 4,
       "accepted": 4,
       "quarantine": 0
+    },
+    {
+      "page": 1,
+      "sort": "newest listings",
+      "sort_field": "eintragsdatum",
+      "sort_direction": "desc",
+      "live_result_count": 275,
+      "examined": 2,
+      "new": 1,
+      "updated": 0,
+      "accepted": 1,
+      "quarantine": 0,
+      "existing_ids": 1,
+      "duplicates_excluded": 0,
+      "last_processed_listing_id": "23278561",
+      "processed_listing_ids": [
+        "23282416",
+        "23278561"
+      ],
+      "stopped_at_known_id_boundary": true,
+      "remaining_cards_not_audited": true,
+      "processed_at": "2026-11-04"
     }
   ],
   "newest_sort_recheck_summary": {
@@ -1635,13 +1649,13 @@
   },
   "latest_incremental_checkpoint": {
     "page": 1,
-    "last_processed_listing_id": "23273263",
+    "last_processed_listing_id": "23278561",
     "sort": "newest listings",
-    "cards_viewed": 5,
-    "new_ids": 4,
+    "cards_viewed": 2,
+    "new_ids": 1,
     "duplicates_excluded": 0,
-    "processed_at": "2026-11-03",
-    "source_blob_sha": "e8b2bfd53872edca0a388b059d6cbd25f784c2ba"
+    "processed_at": "2026-11-04",
+    "source_blob_sha": "0766e7ba59dc3eec79c492f57f61a99400ab2609"
   },
-  "source_blob_sha": "e8b2bfd53872edca0a388b059d6cbd25f784c2ba"
+  "source_blob_sha": "0766e7ba59dc3eec79c492f57f61a99400ab2609"
 }
