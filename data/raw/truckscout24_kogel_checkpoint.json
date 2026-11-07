@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "TruckScout24",
   "source_file": "data/raw/truckscout24_kogel.ndjson",
-  "captured_at": "2026-11-06",
+  "captured_at": "2026-11-07",
   "search_url": "https://www.truckscout24.com/semi-trailers/used/all/koegel",
-  "search_result_count_live": 282,
+  "search_result_count_live": 276,
   "user_control_count_approx": 276,
   "first_pass_sort": "Relevance",
   "pages_audited": [
@@ -18,24 +18,24 @@
     8
   ],
   "pages_partially_inspected": [],
-  "last_processed_page": 8,
-  "last_processed_listing_id": "22854855",
+  "last_processed_page": 1,
+  "last_processed_listing_id": "23293596",
   "next_page_to_process": null,
   "full_pass_complete": true,
   "daily_new_id_monitoring": "started",
   "counts": {
-    "distinct_listing_ids_written": 289,
-    "newly_written": 289,
+    "distinct_listing_ids_written": 291,
+    "newly_written": 291,
     "updated": 26,
-    "confirmed_curtain_side": 117,
-    "semi_trailer_asset_type": 192,
+    "confirmed_curtain_side": 118,
+    "semi_trailer_asset_type": 194,
     "quarantine": 17,
     "swap_body": 58,
     "unknown_asset": 17,
     "target_year_in_scope": 35,
     "target_year_pending": 43,
     "outside_target_year": 3,
-    "trailer_asset_type": 21
+    "trailer_asset_type": 22
   },
   "next_action": "Continue next daily newest-listings scan from page 1; stop at first known-ID boundary and append unseen IDs only.",
   "schema_fields": [
@@ -357,31 +357,23 @@
     "sort": "newest listings",
     "sort_field": "eintragsdatum",
     "sort_direction": "desc",
-    "live_result_count": 282,
-    "examined": 11,
-    "new": 10,
+    "live_result_count": 276,
+    "examined": 3,
+    "new": 2,
     "updated": 0,
-    "accepted": 9,
+    "accepted": 2,
     "quarantine": 0,
     "existing_ids": 1,
     "duplicates_excluded": 0,
-    "last_processed_listing_id": "23282416",
+    "last_processed_listing_id": "23293596",
     "processed_listing_ids": [
-      "23293596",
-      "23293329",
-      "23293137",
-      "23292336",
-      "23288460",
-      "23288337",
-      "23288211",
-      "23287977",
-      "23287224",
-      "23286573",
-      "23282416"
+      "23298573",
+      "23297934",
+      "23293596"
     ],
     "stopped_at_known_id_boundary": true,
     "remaining_cards_not_audited": true,
-    "processed_at": "2026-11-06"
+    "processed_at": "2026-11-07"
   },
   "daily_scan_history": [
     {
@@ -495,9 +487,32 @@
       "result_count_live": 274,
       "source_rows_after_scan": 274,
       "source_blob_sha": "ae102bf743e507f2b4cc0cd7a93e5073be5f9759"
+    },
+    {
+      "page": 1,
+      "sort": "newest listings",
+      "sort_field": "eintragsdatum",
+      "sort_direction": "desc",
+      "live_result_count": 276,
+      "examined": 3,
+      "new": 2,
+      "updated": 0,
+      "accepted": 2,
+      "quarantine": 0,
+      "existing_ids": 1,
+      "duplicates_excluded": 0,
+      "last_processed_listing_id": "23293596",
+      "processed_listing_ids": [
+        "23298573",
+        "23297934",
+        "23293596"
+      ],
+      "stopped_at_known_id_boundary": true,
+      "remaining_cards_not_audited": true,
+      "processed_at": "2026-11-07"
     }
   ],
-  "last_daily_check_at": "2026-11-06",
+  "last_daily_check_at": "2026-11-07",
   "live_recheck_batches": [
     {
       "page": 1,
@@ -1280,6 +1295,29 @@
       "stopped_at_known_id_boundary": true,
       "remaining_cards_not_audited": true,
       "processed_at": "2026-11-06"
+    },
+    {
+      "page": 1,
+      "sort": "newest listings",
+      "sort_field": "eintragsdatum",
+      "sort_direction": "desc",
+      "live_result_count": 276,
+      "examined": 3,
+      "new": 2,
+      "updated": 0,
+      "accepted": 2,
+      "quarantine": 0,
+      "existing_ids": 1,
+      "duplicates_excluded": 0,
+      "last_processed_listing_id": "23293596",
+      "processed_listing_ids": [
+        "23298573",
+        "23297934",
+        "23293596"
+      ],
+      "stopped_at_known_id_boundary": true,
+      "remaining_cards_not_audited": true,
+      "processed_at": "2026-11-07"
     }
   ],
   "newest_sort_recheck_summary": {
@@ -1290,8 +1328,8 @@
     "distinct_current_ids_seen": 200,
     "new_ids_added": 21
   },
-  "last_processed_sort": "oldest_listings",
-  "result_count_live": 273,
+  "last_processed_sort": "newest listings",
+  "result_count_live": 276,
   "accessible_newest_sort_positions": 200,
   "oldest_sort_recheck_batches": [
     {
@@ -1645,7 +1683,7 @@
     "Oldest listings"
   ],
   "sort_union_distinct_ids": 273,
-  "source_unique_ids": 273,
+  "source_unique_ids": 291,
   "missing_current_ids_in_source": [],
   "source_ids_not_in_current_sort_union": [],
   "reconciled_at": "2026-11-02",
@@ -1689,13 +1727,13 @@
   },
   "latest_incremental_checkpoint": {
     "page": 1,
-    "last_processed_listing_id": "23282416",
+    "last_processed_listing_id": "23293596",
     "sort": "newest listings",
-    "cards_viewed": 11,
-    "new_ids": 10,
+    "cards_viewed": 3,
+    "new_ids": 2,
     "duplicates_excluded": 0,
-    "processed_at": "2026-11-06",
-    "source_blob_sha": "6728c96a7dc2a596d4a60beb8f605a2bb3a4f777"
+    "processed_at": "2026-11-07",
+    "source_blob_sha": "13bcbe40efc0458e1c043b79d92618b763e44ce6"
   },
-  "source_blob_sha": "6728c96a7dc2a596d4a60beb8f605a2bb3a4f777"
+  "source_blob_sha": "13bcbe40efc0458e1c043b79d92618b763e44ce6"
 }
